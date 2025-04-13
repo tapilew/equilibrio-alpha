@@ -1,211 +1,168 @@
-# TurismoDAO
+# **TurismoDAO — Milestone-Governed Tourism Crowdfunding for Local Communities**
 
-**Project Proposal: TurismoDAO - BlockDAG Primordial Testnet MVP: A Community
-Tourism Pilot**
+### ✨ Reimagining tourism funding in Panamá, powered by EVM and BlockDAG.
 
-**1. Executive Summary**
+---
 
-TurismoDAO is a _rapid prototype_ for a decentralized platform using blockchain
-to empower Panamanian communities to propose and secure funding for local
-tourism improvements. Built for deployment on the BlockDAG Primordial Testnet,
-this MVP showcases a streamlined crypto crowdfunding system validated through
-community voting. We focus on core functionality, code quality, and BlockDAG
-integration to meet the grant requirements. We will provide clear documentation
-and presentation material for evaluation.
+## **1. Executive Summary**
 
-**2. Problem Statement**
+**TurismoDAO** is a decentralized crowdfunding platform enabling Panamanian
+communities to fund and manage tourism improvement projects through a hybrid DAO
+structure. Built to deploy on the **BlockDAG Primordial Testnet**, the MVP
+emphasizes **milestone-based funding**, **community voting**, and
+**reputation-based governance** with slashing conditions.
 
-Local communities in Panamá often lack the resources to drive tourism
-enhancements. Traditional funding sources are difficult to access. This results
-in limited community involvement in tourism development decisions, which can
-lead to missed opportunities.
+Our project combines smart contract rigor with a clear, real-world use case. It
+fulfills the criteria for innovation, testability, and real impact on local
+economies.
 
-**3. Proposed Solution: TurismoDAO BlockDAG Testnet MVP (1-Week Scope)**
+---
 
-This MVP will demonstrate the core functionality of:
+## **2. Problem Statement**
 
-- **Community Project Proposals:** Simplified submission of tourism initiatives.
-- **BlockDAG-Based Test Token Crowdfunding:** Secure and transparent donations
-  using test tokens on the BlockDAG Primordial Testnet.
-- **Community Voting:** A verifiable mechanism for gauging community support for
-  proposed projects.
-- **Basic Granting Module:** Funds distribution by the administrator to the
-  winner based on voting results.
-- **Transparency:** Immutably tracked project funding, and vote totals on the
-  BlockDAG.
+Local communities in Panama have rich tourism potential but lack equitable
+access to funding and decision-making power. Traditional funding channels are:
 
-**4. Key Features**
+- Centralized and bureaucratic,
+- Hard to access for grassroots proposals,
+- Often misaligned with the needs of the community.
 
-- **4.1. Project Submission Form:**
-  - A minimal form allowing users to submit a project name, brief description,
-    and target fundraising goal (denominated in test tokens).
-  - Focus: Clear, concise input fields; no image uploads; no advanced
-    formatting.
-- **4.2. BlockDAG Test Token Integration:**
-  - Users will receive test tokens upon registration (via a simple faucet, if
-    feasible).
-  - Test tokens can be donated to support project proposals.
-  - Token balances and transactions will be recorded on the BlockDAG Primordial
-    Testnet.
-  - Smart contract handling funds allocation to the proposer post positive
-    validation by the community and the admin
-  - Focus: Secure and efficient integration with the BlockDAG testnet; verifying
-    transactions on the DAG explorer.
-- **4.3. "Simple" Voting:**
-  - Users can "vote" for a project by allocating tokens to a project (allocated
-    tokens would also count as votes)
-  - Tied to token balances in the smart contract and BlockDAG ledger
-- **4.4. Administration Granting:**
-  - Based on the voting results from the community, the administrator account
-    triggers distribution
-- **4.5. User Authentication:**
-  - A streamlined registration/login process is necessary to allocate tokens,
-    and submit proposal
-  - Focus: Fast and secure user validation; leveraging BlockDAG's identity
-    features, if possible.
+There is no transparent or community-controlled way to fund and monitor tourism
+projects at the local level.
 
-**5. Technology Implementation**
+---
 
-- **Smart Contracts:** Solidity for test token management, project submission,
-  and voting; deployed on the BlockDAG Primordial Testnet. (Prioritizing
-  efficient algorithms for BlockDAG performance)
-- **Frontend:** Next.js.
-- **Backend:** (Optional; minimize backend code to expedite development;
-  prioritize direct interaction with the BlockDAG).
-- **BlockDAG Integration:** Thorough documentation and well-defined integration
-  point for our code to interact with BlockDAG ledger and functions
+## **3. The TurismoDAO Solution**
 
-**6. BlockDAG Grant Track Requirements Addressed**
+TurismoDAO provides a trust-minimized way for communities to:
 
-- **Relevance:** Clearly defined problem related to community tourism funding
-  (addressed in Problem Statement).
-- **Code Complexity:** Implement efficient smart contracts for test token
-  transactions and voting (prioritizing BlockDAG-optimized code).
-- **Testing:** Comprehensive unit tests for smart contracts, basic integration
-  tests to verify BlockDAG interactions (maximize test coverage within the
-  one-week timeframe).
-- **Maintainability:** Modular, well-documented smart contracts with clear code
-  comments and basic API documentation.
-- **Presentation:** We will deliver a clear 10-slide presentation AND a 3-minute
-  video demonstrating the problem, solution, and BlockDAG integration.
+- **Propose tourism initiatives** (e.g., eco-trails, signage, cultural events),
+- **Crowdfund with test tokens**,
+- **Unlock funding in phases**, upon community-verified milestone completion,
+- Govern using a **reputation + stake-weighted voting model**,
+- Penalize bad actors with **slashing** to maintain accountability.
 
-**7. Deliverables**
+This empowers citizens as stakeholders in their region’s tourism development.
 
-- **Deployable Smart Contracts:** Fully functional smart contracts deployed on
-  the BlockDAG Primordial Testnet (with test token address and relevant API
-  endpoints).
-- **Functional Frontend:** Basic web interface for project submission, voting,
-  and viewing results.
-- **Code Documentation:** Clear and concise code comments for all smart
-  contracts and frontend code.
-- **API Documentation:** Basic documentation for interacting with the smart
-  contracts and BlockDAG.
-- **Testing Report:** Results of unit and integration tests.
-- **Presentation Materials:** 10-slide presentation and 3-minute video (meeting
-  the grant criteria).
+---
 
-**8. MVP Success Metrics**
+## **4. Core Features**
 
-- Smart contracts successfully deployed on the BlockDAG Primordial Testnet.
-- Users able to register, receive test tokens, submit proposals, and vote.
-- Verifiable test token transactions and vote tallies recorded on the BlockDAG.
-- Positive review on code quality, documentation, and presentation.
+### 🧾 Project Proposals
 
-**9. Limitations**
+- Any user can submit a basic proposal with:
+  - Project title + description
+  - Fundraising target
+  - Number of planned milestones
 
-This MVP is a _highly focused proof-of-concept_. Key limitations:
+### 🎯 Milestone-Based Crowdfunding
 
-- **No Real Cryptocurrency:** Only test tokens will be used.
-- **Simplified Voting Mechanism:** This serves more to demonstrate than
-  accurately decide the funding for the proposal
-- **Basic User Interface:** Limited design and functionality.
-- **Focus on BlockDAG Integration:** Feature prioritization to leverage
-  BlockDAG's capabilities.
-- **Potential Lack of Community Engagement Simulations:** As we need test users
+- Funds are disbursed **only after milestones are verified** and approved by DAO
+  vote.
+- Proposers receive **only a portion of funds per milestone**, not upfront lump
+  sums.
 
-**10. Team**
+### 🗳 DAO Voting System
 
-1. Architecture
-1. Security
-1. Solidity
-1. Governance
-1. Finance
+- Community votes on whether a milestone has been fulfilled using:
+  - **Reputation Score**: Based on proposer track record and voter
+    participation.
+  - **Staked Test Tokens**: Voters must stake tokens to vote, encouraging skin
+    in the game.
+- Voting results are recorded on the BlockDAG for full transparency.
 
-**11. Call to Action**
+### 🧨 Slashing Conditions
 
-TurismoDAO's BlockDAG-integrated MVP offers a clear and demonstrable solution
-for community-driven tourism funding. We're confident that this prototype can be
-deployed on the BlockDAG Primordial Testnet and meets the grant requirements. We
-look forward to your feedback and the opportunity to further develop TurismoDAO
-with your support. We are seeking partners and collaborators to help us build
-the fully realized TurismoDAO platform, enabling communities to truly shape the
-future of tourism in Panamá.
+- If a proposer receives funds but **fails to deliver a verified milestone**,
+  they are:
+  - **Slashed**: Lose their staked collateral.
+  - **Reputation-penalized**: Future proposals carry less weight/trust.
+- Optionally, voters who voted “yes” on failed milestones also lose partial
+  stake (to deter careless validation).
 
-## Foundry
+### 🧬 Reputation System
 
-**Foundry is a blazing fast, portable and modular toolkit for Ethereum
-application development written in Rust.**
+- Each proposer and voter builds a **public on-chain reputation score** based
+  on:
+  - Successful proposal completion,
+  - Reliable voting behavior,
+  - Engagement with the DAO.
 
-Foundry consists of:
+### 🌍 Frontend Interface
 
-- **Forge**: Ethereum testing framework (like Truffle, Hardhat and DappTools).
-- **Cast**: Swiss army knife for interacting with EVM smart contracts, sending
-  transactions and getting chain data.
-- **Anvil**: Local Ethereum node, akin to Ganache, Hardhat Network.
-- **Chisel**: Fast, utilitarian, and verbose solidity REPL.
+- Web app interface includes:
+  - Project browser
+  - Voting dashboard
+  - Milestone submission + evidence (e.g., image, document hash on IPFS)
+  - Reputation + stake display
 
-## Documentation
+---
 
-https://book.getfoundry.sh/
+## **5. Why This Model Fits Tourism**
 
-## Usage
+| Challenge in Tourism                 | DAO Mechanism                        |
+| ------------------------------------ | ------------------------------------ |
+| Milestone nature of tourism projects | Milestone-based fund release         |
+| Need for local trust + transparency  | On-chain votes + IPFS evidence       |
+| Preventing misuse of funds           | Slashing for unfulfilled milestones  |
+| Empowering communities               | DAO governance, not external funders |
+| Showcasing transparency to donors    | Public audit trail on BlockDAG       |
+| Incentivizing responsible backers    | Stake + reputation system            |
 
-### Build
+---
 
-```shell
-$ forge build
-```
+## **6. Tech Stack & Integration**
 
-### Test
+| Component        | Tool                                |
+| ---------------- | ----------------------------------- |
+| Smart Contracts  | Solidity on BlockDAG (via Foundry)  |
+| Governance Logic | Hybrid (staking + reputation)       |
+| Voting Interface | Next.js frontend                    |
+| IPFS             | File storage for milestone evidence |
 
-```shell
-$ forge test
-```
+---
 
-### Format
+## **7. Deliverables**
 
-```shell
-$ forge fmt
-```
+- ✅ Smart contracts deployed to BlockDAG testnet
+- ✅ DAO voting contract w/ milestone gating
+- ✅ Frontend for submitting/viewing proposals, milestones, and voting
+- ✅ Unit tests + simulation scripts
+- ✅ Reputation prototype + on-chain logic
+- ✅ 10-slide deck + 3-min pitch video
 
-### Gas Snapshots
+---
 
-```shell
-$ forge snapshot
-```
+## **8. BlockDAG Grant Track Evaluation Fit**
 
-### Anvil
+| Criteria                | How We Meet It                                       |
+| ----------------------- | ---------------------------------------------------- |
+| **Innovation**          | Custom DAO model adapted to real-world tourism       |
+| **Technical Execution** | Smart contracts, milestone logic, reputation weights |
+| **Feasibility**         | Demonstrable MVP within 1 week; test token-based     |
+| **Presentation**        | Simple interface + clear explainer deck + dev logs   |
+| **Testability**         | Unit + integration tests + voting simulations        |
+| **Scalability**         | Modular contracts; extendable to other communities   |
 
-```shell
-$ anvil
-```
+---
 
-### Deploy
+## **9. Team**
 
-```shell
-$ forge script script/Counter.s.sol:CounterScript --rpc-url <your_rpc_url> --private-key <your_private_key>
-```
+| Name           | Role                   | Focus                                                                                     |
+| -------------- | ---------------------- | ----------------------------------------------------------------------------------------- |
+| Juan Kong      | Finance & Tokenomics   | Designing staking/reputation models, slashing mechanisms, and DAO incentives              |
+| Joys Z         | DAO Governance Advisor | Structuring governance workflows, milestone validation protocols, and voting mechanisms   |
+| Luis Tapia     | Full-stack Developer   | Smart contract development, frontend integration, and BlockDAG deployment                 |
+| Jhuomar Barría | Smart Contract QA      | Writing and executing tests, auditing milestone logic, and validating testnet performance |
+| Rubén Sáez     | Security Researcher    | Ensuring secure contract architecture, vulnerability testing, and DAO exploit mitigation  |
 
-### Cast
+---
 
-```shell
-$ cast <subcommand>
-```
+## **10. Call to Action**
 
-### Help
+TurismoDAO is a **locally-relevant**, **globally-scalable** DAO model for
+crowdfunding community-led tourism. Our MVP shows how real-world problems in
+Panama can be solved using EVM + BlockDAG.
 
-```shell
-$ forge --help
-$ anvil --help
-$ cast --help
-```
+We invite feedback, collaboration, and support as we build this future—starting
+from Panamá, but designed for every community in the world.
