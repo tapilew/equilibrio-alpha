@@ -1,193 +1,437 @@
-# **TurismoDAO — Milestone-Governed Tourism Crowdfunding for Local Communities**
+# **TurismoFund — Tourism Entrepreneurship Funding Protocol**
 
-### ✨ Reimagining tourism funding in Panamá, powered by EVM and BlockDAG.
+### ✨ Connecting international funding to local tourism projects through trusted offices
 
 ---
 
 ## **1. Executive Summary**
 
-**TurismoDAO** is a decentralized crowdfunding platform enabling Panamanian
-communities to fund and manage tourism improvement projects through a hybrid DAO
-structure. Built to deploy on the **BlockDAG Primordial Testnet**, the MVP
-emphasizes **milestone-based funding**, **community voting**, **reputation-based
-governance**, and **a pragmatic on-/off-ramp solution** (still) without oracles.
+**TurismoFund** is a protocol that connects international funding to local
+tourism entrepreneurship through a network of trusted tourism offices. Built on
+the **BlockDAG Primordial Testnet** with **Safe{Core}** account abstraction and
+**Safe{Wallet}** for multisig operations, we solve real problems in tourism
+funding:
 
-Our project combines smart contract rigor with a clear, real-world use case. It
-fulfills the criteria for innovation, testability, and real impact on local
-economies.
+- 🌍 **Cross-Border Access**: International funding for local tourism projects
+- 🔐 **Programmable Escrow**: Automated milestone-based fund releases
+- 📊 **Verifiable Impact**: Transparent tracking of project progress
+- 💰 **Reduced Costs**: Lower fees than traditional banking and escrow services
+
+### How It Works
+
+1. **Funding Flow**:
+   ```mermaid
+   graph LR
+       A[International Investor] -->|BlockDAG Tokens| B[Smart Contract Escrow]
+       B -->|Milestone Release| C[Tourism Office SafeWallet]
+       C -->|Local Currency| D[Tourism Entrepreneur]
+       D -->|Project Progress| E[Office Verification]
+       E -->|Milestone Confirmation| B
+   ```
+
+2. **Milestone Verification**:
+   ```mermaid
+   graph LR
+       A[Project Milestone] -->|Evidence| B[Tourism Office]
+       B -->|Verification| C[Smart Contract]
+       C -->|Release| D[Next Milestone Funds]
+       D -->|Local Currency| E[Entrepreneur]
+       E -->|Progress| F[Community Verification]
+   ```
+
+### Core Benefits
+
+1. **For Tourism Entrepreneurs**:
+   - Access to international funding
+   - Reliable milestone-based releases
+   - Lower transaction costs
+   - Clear project tracking
+   - Local support and guidance
+
+2. **For International Investors**:
+   - Transparent fund usage
+   - Automated milestone releases
+   - Verifiable project impact
+   - Lower escrow costs
+   - 24/7 funding availability
+
+3. **For Tourism Offices**:
+   - New revenue stream
+   - Enhanced local services
+   - Reputation building
+   - Community trust
+   - Network participation
+
+### Why Blockchain?
+
+1. **Programmable Escrow**:
+   - Smart contracts automate milestone-based releases
+   - No expensive third-party escrow services needed
+   - Transparent conditions for fund release
+   - Immutable record of milestone completion
+
+2. **Global Liquidity Pool**:
+   - International donors can contribute easily
+   - No need for multiple currency conversions
+   - Reduced forex fees
+   - 24/7 funding availability
+
+3. **Verifiable Impact**:
+   - Transparent tracking of fund usage
+   - Immutable record of project progress
+   - Clear connection between funding and outcomes
+   - Community verification of impact
+
+### MVP Focus: Digital Tourism Office Simulation
+
+During the **ETH Canal Hackathon**, we will develop a **functional MVP in one
+week** demonstrating:
+
+- 🔐 **Safe{Wallet} Setup**: 3-of-4 signature requirement for office operations
+- 💸 **Payment Handling**: Support for cash, bank transfers, and crypto
+- 📱 **Transaction Flow**: Complete on/off-ramp process with verifications
+
+### Crystal-Clear MVP Scope
+
+#### What's IN Scope for the Hackathon:
+
+- ✅ **Single Tourism Office**: One (mock digital) office with Safe{Wallet}
+  setup
+- ✅ **Basic Escrow Contract**: Fixed amount escrow with guardian approval
+- ✅ **Payment Methods**: Support for cash, bank transfers, and crypto
+- ✅ **Simple Milestone Verification**: Guardian multisig approval
+- ✅ **Minimal Dashboard**: Basic transaction recording
+- ✅ **Digital Receipt System**: Simulated paper receipts + SMS confirmations
+
+### MVP Implementation
+
+1. **Day 1-2: Smart Contracts**
+   - Basic escrow contract
+   - Guardian multisig setup
+   - Safe{Wallet} integration
+
+2. **Day 3-4: Frontend Interface**
+   - Milestone submission form
+   - Payment method selection
+   - Basic dashboard
+
+3. **Day 5: Integration**
+   - Connect contracts to frontend
+   - Test payment flows
+   - Verify milestone process
+
+4. **Day 6-7: Testing & Documentation**
+   - End-to-end testing
+   - Documentation
+   - Demo preparation
+
+### Simplified MVP Flow
+
+1. **Funding (On-Ramp)**:
+   ```mermaid
+   graph LR
+       A[Investor] -->|BlockDAG Tokens| B[Escrow Contract]
+       B -->|Hold| C[Fixed Amount]
+       D[Guardian Multisig] -->|Verify| B
+   ```
+
+2. **Disbursement (Off-Ramp)**:
+   ```mermaid
+   graph LR
+       A[Escrow Contract] -->|Release| B[SafeWallet]
+       C[Milestone Evidence] -->|Submit| D[Guardian Multisig]
+       D -->|Approve| A
+       B -->|Choose| E[Payment Method]
+       E -->|Cash| F[Local Cash]
+       E -->|Bank Transfer| G[Bank Account]
+       E -->|Crypto| H[Crypto Wallet]
+   ```
+
+### MVP Success Metrics
+
+| Metric Category | Initial Target           | Measurement Method     |
+| --------------- | ------------------------ | ---------------------- |
+| Smart Contracts | Basic escrow working     | Contract testing       |
+| Safe{Wallet}    | 3-of-4 signature working | Functional tests       |
+| Payment Methods | All methods supported    | Transaction completion |
+| User Experience | < 5 min transaction time | Time tracking          |
+| Documentation   | Complete guide           | Staff feedback         |
+
+### Hackathon MVP Deliverables
+
+- ✅ **Smart Contracts**: Basic escrow and Safe{Wallet} integration
+- ✅ **Office Dashboard**: Simple interface for milestone submission
+- ✅ **Payment Handling**: Support for cash, bank transfers, and crypto
+- ✅ **Documentation**: Basic operations guide for tourism office staff
+- ✅ **Demo Video**: Complete end-to-end flow demonstration
+- ✅ **Pitch Deck**: 10-slide presentation of the concept and MVP
+
+### How Regular People Will Interact with TurismoFund (Post-MVP)
+
+#### For Tourism Entrepreneurs:
+
+1. **Visit Local Tourism Office**: Meet with staff in person
+2. **Present Project**: Share your tourism initiative
+3. **Set Milestones**: Define clear, verifiable project steps
+4. **Receive Funds in Local Currency**: When milestones are completed
+5. **Get Paper Receipt**: For all transactions
+6. **Receive SMS Confirmations**: For added security
+
+#### For International Investors:
+
+1. **Browse Projects**: View available tourism initiatives
+2. **Select Project**: Choose one to support
+3. **Send Funds**: Transfer BlockDAG tokens to smart contract
+4. **Track Progress**: Monitor milestone completion
+5. **Verify Impact**: See project outcomes
+6. **Support More**: Fund additional projects
+
+#### For Tourism Office Staff:
+
+1. **Verify Entrepreneurs**: KYC and project validation
+2. **Use Simple Dashboard**: Record transactions
+3. **Verify Milestones**: Through photos and community attestation
+4. **Manage Safe{Wallet}**: Through guided interface
+5. **Issue Receipts**: Paper + digital records
+6. **Send SMS Confirmations**: To all parties
+
+**Key Point**: All blockchain/crypto complexity is hidden behind familiar
+interfaces. Users never need to:
+
+- Create crypto wallets
+- Handle private keys
+- Understand blockchain technology
+- Deal with gas fees
+- Worry about crypto volatility
+
+### Governance Structure
+
+1. **Guardian Multisig (MVP Phase)**:
+   - 3-5 trusted members
+   - Controls essential protocol parameters
+   - Emergency pause functionality
+   - Office onboarding approval
+   - Security oversight
+
+2. **Tourism Office Network**:
+   - Individual offices with Safe{Wallet} multisig
+   - Reputation-based verification rights
+   - Local milestone verification
+   - Community engagement
+   - Transparent operations
+
+3. **Progressive Decentralization**:
+   - Phase 1: Guardian-controlled with basic reputation system
+   - Phase 2: Community-proposed updates with guardian oversight
+   - Phase 3: Full community governance with minimal guardian intervention
+
+### Governance Model
+
+```mermaid
+graph TD
+    subgraph "Protocol Governance"
+        A[Guardian Multisig] -->|Initial Phase| B[Protocol Parameters]
+        C[Tourism Offices] -->|Reputation Staking| D[Verification Rights]
+    end
+    
+    subgraph "Office Operations"
+        D -->|If Good Standing| E[Milestone Verification]
+        E -->|Success/Failure| C
+    end
+
+    subgraph "Security Measures"
+        A -->|Emergency| F[Pause/Unpause]
+        A -->|If Misbehavior| G[Remove Office]
+    end
+
+    style A fill:#f9f,stroke:#333,stroke-width:2px
+    style C fill:#bfb,stroke:#333,stroke-width:2px
+    style E fill:#bbf,stroke:#333,stroke-width:2px
+```
+
+### Key Benefits
+
+- **For Tourism Entrepreneurs**: Access to international funding with local
+  support
+- **For International Investors**: Transparent, verifiable impact
+- **For Tourism Offices**: New revenue stream and community trust
+- **For Protocol**: Progressive decentralization with security
 
 ---
 
 ## **2. Problem Statement**
 
-Local communities in Panama have rich tourism potential but lack equitable
-access to funding and decision-making power. Traditional funding channels are:
+Tourism entrepreneurship funding faces critical challenges:
 
-- Centralized and bureaucratic,
-- Hard to access for grassroots proposals,
-- Often misaligned with the needs of the community.
+1. **Cross-Border Funding Barriers**:
+   - Traditional international transfers are slow and expensive
+   - Tourism entrepreneurs often need access to international investors/donors
+   - Currency exchange fees can be significant
+   - Bank restrictions in developing regions limit access
 
-There is no transparent or community-controlled way to fund and monitor tourism
-projects at the local level.
+2. **Trust and Transparency Issues**:
+   - Donors want proof funds are used as intended
+   - Entrepreneurs need reliable milestone-based releases
+   - Traditional escrow services are expensive
+   - Tracking fund usage across borders is difficult
+
+3. **Local Implementation Challenges**:
+   - Lack of trusted intermediaries
+   - Limited access to international funding
+   - High transaction costs
+   - Complex verification processes
+
+The solution must address all three:
+
+- Accessible funding for tourism entrepreneurs
+- Transparent fund usage for investors
+- Trusted local implementation
 
 ---
 
-## **3. The TurismoDAO Solution**
+## **3. The TurismoFund Solution**
 
-TurismoDAO provides a trust-minimized way for communities to:
+TurismoFund creates a network of trusted tourism offices that serve as secure
+bridges between international funding and local tourism projects:
 
-- **Propose tourism initiatives** (e.g., eco-trails, signage, cultural events),
-- **Crowdfund with BDAG tokens**, backed by verifiable fiat contributions,
-- **Unlock funding in phases**, upon community-verified milestone completion,
-- Govern using a **reputation + stake-weighted voting model**,
-- Penalize bad actors with **slashing** to maintain accountability.
+### Local Office Operations
 
-This empowers citizens as stakeholders in their region’s tourism development.
+1. **Project Verification Process**:
+   ```mermaid
+   graph TD
+       A[Initial Contact] -->|Visit| B[ID Verification]
+       B -->|Validate| C[Project Assessment]
+       C -->|Define| D[Milestone Creation]
+       D -->|Record| E[Smart Contract]
+       E -->|Funds| F[Investor Contribution]
+       F -->|Hold| G[Escrow Contract]
+   ```
+
+2. **Milestone Verification Process**:
+   ```mermaid
+   graph TD
+       A[Milestone Completion] -->|Evidence| B[Office Verification]
+       B -->|Approve| C[Smart Contract]
+       C -->|Release| D[Next Milestone Funds]
+       D -->|Convert| E[Local Currency]
+       E -->|Deliver| F[Entrepreneur]
+       F -->|Progress| G[Next Milestone]
+   ```
+
+3. **Security Features**:
+   - Safe{Wallet} multisig (3-of-4)
+   - Daily transaction limits
+   - Multi-party verification
+   - Paper + digital records
+   - Real-time notifications
+   - Regular audits
+
+### Protocol Governance
+
+1. **Guardian Multisig (MVP)**:
+   - Controls essential parameters
+   - Emergency pause functionality
+   - Office onboarding approval
+   - Security oversight
+
+2. **Office Reputation System**:
+   - Performance tracking
+   - Verification accuracy
+   - Community feedback
+   - Time in network
+   - Project success rate
+
+3. **Progressive Decentralization**:
+   - Phase 1: Guardian-controlled
+   - Phase 2: Community-proposed updates
+   - Phase 3: Full community governance
 
 ---
 
 ## **4. Core Features**
 
-### 🧾 Project Proposals
+### 🔐 Office Safe{Wallet} Multisig
 
-- Any user can submit a basic proposal with:
-  - Project title + description
-  - Fundraising target
-  - Number of planned milestones
+1. **Signer Structure**:
+   - Office Director
+   - Financial Officer
+   - Community Representative
+   - Technical Operator
+   - 3-of-4 signature requirement
 
-### 🎯 Milestone-Based Crowdfunding
+2. **Transaction Controls**:
+   - Daily transaction limits
+   - Withdrawal thresholds
+   - Emergency pause
+   - Audit logging
 
-- Funds are disbursed **only after milestones are verified** and approved by DAO
-  vote.
-- Proposers receive **only a portion of funds per milestone**, not upfront lump
-  sums.
+3. **Operational Standards**:
+   - Project verification procedures
+   - Milestone validation
+   - Receipt management
+   - Security protocols
 
-### 🗳 DAO Voting System
+### 💰 Fund Management
 
-- Community votes on whether a milestone has been fulfilled using:
-  - **Reputation Score**: Based on proposer track record and voter
-    participation.
-  - **Staked Test Tokens**: Voters must stake tokens to vote, encouraging skin
-    in the game.
-- Voting results are recorded on the BlockDAG for full transparency.
+1. **Smart Contract Escrow**:
+   - Milestone-based releases
+   - Automated fund distribution
+   - Transparent conditions
+   - Immutable records
 
-### 🧨 Slashing Conditions
+2. **Local Currency Conversion**:
+   - Tourism office handles conversion
+   - Fixed exchange rates for periods
+   - Transparent fee structure
+   - Regular reconciliation
 
-- If a proposer receives funds but **fails to deliver a verified milestone**,
-  they are:
-  - **Slashed**: Lose their staked collateral.
-  - **Reputation-penalized**: Future proposals carry less weight/trust.
-- Optionally, voters who voted “yes” on failed milestones also lose partial
-  stake (to deter careless validation).
+3. **Verification Process**:
+   - Multi-party checks
+   - Photo documentation
+   - Community attestation
+   - Blockchain records
+   - Receipt confirmation
 
-### 🧬 Reputation System
+### 📱 Partner Interface
 
-- Each proposer and voter builds a **public on-chain reputation score** based
-  on:
-  - Successful proposal completion,
-  - Reliable voting behavior,
-  - Engagement with the DAO.
-
-### 🌉 On-Chain On-/Off-Ramp
-
-A minimalist, oracle-free fiat ↔ token system tailored for hackathon delivery:
-
-#### On-Ramp: DAO-Whitelisted Contribution + Escrow
-
-- A trusted custodian (e.g., NGO or tourism network partner) receives fiat from
-  donors.
-- Once verified off-chain, a DAO-authorized multisig triggers the minting of
-  test tokens on BlockDAG, logging the amount, donor identity (if needed), and
-  transaction hash.
-
-#### Off-Ramp: Milestone-Triggered Release
-
-- Upon DAO-approved milestone completion, an on-chain event signals token
-  payout.
-- The same multisig wallet authorizes the fiat release by the custodian to the
-  project team.
-- All steps are transparent, verifiable, and documented on-chain for
-  auditability.
-
-### 🌍 Frontend Interface
-
-- Web app interface includes:
-  - Project browser
-  - Voting dashboard
-  - Milestone submission + IPFS-based evidence viewer
-  - Reputation + stake display
-  - Fiat ↔ Token event explorer (MVP)
+- Web dashboard features:
+  - Project tracking
+  - Milestone verification
+  - Fund management
+  - Basic reporting
 
 ---
 
-## **5. Why This Model Fits Tourism**
+## **5. MVP Success Metrics**
 
-| Challenge in Tourism                 | DAO Mechanism                           |
-| ------------------------------------ | --------------------------------------- |
-| Milestone nature of tourism projects | Milestone-based fund release            |
-| Need for local trust + transparency  | On-chain votes + IPFS evidence          |
-| Preventing misuse of funds           | Slashing for unfulfilled milestones     |
-| Empowering communities               | DAO governance, not external funders    |
-| Showing transparency to donors       | Fiat ↔ Token flows are fully auditable  |
-| Supporting low-tech communities      | Custodian flow simplifies fiat handling |
+| Metric Category        | Initial Target           | Measurement Method     |
+| ---------------------- | ------------------------ | ---------------------- |
+| Safe{Wallet} Setup     | 3-of-4 signature working | Functional tests       |
+| Milestone Verification | Complete flow tested     | Transaction completion |
+| Smart Contract Escrow  | Fund release working     | Contract testing       |
+| User Experience        | < 5 min verification     | Time tracking          |
+| Documentation          | Complete guide           | Staff feedback         |
 
----
+### MVP Infrastructure
 
-## **6. Tech Stack & Integration**
+1. **Protocol Systems**:
+   - Basic escrow contracts
+   - Safe{Wallet} multisig management
+   - Guardian multisig setup
+   - Upgrade mechanisms
 
-| Component        | Tool                                |
-| ---------------- | ----------------------------------- |
-| Smart Contracts  | Solidity on BlockDAG (via Foundry)  |
-| Governance Logic | Hybrid (staking + reputation)       |
-| Voting Interface | Next.js frontend                    |
-| On-/Off-Ramp     | Multisig + custodial partner        |
-| IPFS             | File storage for milestone evidence |
+2. **Local Systems**:
+   - Project tracking ledger
+   - Milestone verification system
+   - Basic web dashboard
+   - SMS notifications
+   - Receipt generation
 
----
+### Hackathon MVP Deliverables
 
-## **7. Deliverables**
-
-- ✅ Smart contracts deployed to BlockDAG testnet
-- ✅ DAO voting contract w/ milestone gating
-- ✅ Frontend for submitting/viewing proposals, milestones, and voting
-- ✅ On-/Off-Ramp minting + release workflow with multisig
-- ✅ Unit tests + simulation scripts
-- ✅ Reputation prototype + on-chain logic
-- ✅ 10-slide deck + 3-min pitch video
-
----
-
-## **8. BlockDAG Grant Track Evaluation Fit**
-
-| Criteria                | How We Meet It                                     |
-| ----------------------- | -------------------------------------------------- |
-| **Innovation**          | Custom DAO model adapted to real-world tourism     |
-| **Technical Execution** | Smart contracts, milestone logic, multisig minting |
-| **Feasibility**         | Fully working MVP w/o oracles or KYC               |
-| **Presentation**        | Simple interface + clear explainer deck + dev logs |
-| **Testability**         | Unit + integration tests + voting simulations      |
-| **Scalability**         | Modular contracts; future integrations possible    |
-
----
-
-## **9. Team**
-
-| Name           | Role                   | Focus                                                               |
-| -------------- | ---------------------- | ------------------------------------------------------------------- |
-| Juan Kong      | Finance & Tokenomics   | Custodian workflow, staking/slashing models, reputation calibration |
-| Joys Z         | DAO Governance Advisor | Voting mechanics, milestone templates, DAO dynamics                 |
-| Luis Tapia     | Full-stack Developer   | Smart contract logic, frontend integration, multisig flows          |
-| Jhuomar Barría | Smart Contract QA      | Testnet auditing, milestone tests, security conditions              |
-| Rubén Sáez     | Security Researcher    | Contract threat modeling, replay protections, multisig safety       |
-
----
-
-## **10. Call to Action**
-
-TurismoDAO is a **locally-relevant**, **globally-scalable** DAO model for
-crowdfunding community-led tourism. Our MVP demonstrates how real-world problems
-in Panama can be tackled using EVM-compatible tooling, transparent governance,
-and pragmatic off-chain integration.
-
-We’re starting in Panama, but the mission is global: empowering communities to
-build the tourism they deserve—**on-chain and on their terms.**
+- ✅ **Smart Contracts**: Basic escrow and multisig operations
+- ✅ **Office Dashboard**: Simple interface for project tracking
+- ✅ **Milestone Verification**: Digital representation of project progress
+- ✅ **Documentation**: Basic operations guide for tourism office staff
+- ✅ **Demo Video**: Complete end-to-end flow demonstration
+- ✅ **Pitch Deck**: 10-slide presentation of the concept and MVP
