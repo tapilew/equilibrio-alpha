@@ -1,124 +1,177 @@
-# **TurismoFund — Tourism Entrepreneurship Funding Protocol**
+# **Eco-Grant DAO — Sustainable Tourism DAO for Protected Areas**
 
-### ✨ Connecting international funding to local tourism projects through trusted offices
+### ✨ Empowering communities to fund and manage sustainable tourism initiatives in protected areas
 
 ---
 
 ## **1. Executive Summary**
 
-**TurismoFund** is a protocol that connects international funding to local
-tourism entrepreneurship through a network of trusted tourism offices. Built on
-the **BlockDAG Primordial Testnet** with **Safe{Core}** account abstraction and
-**Safe{Wallet}** for multisig operations, we solve real problems in tourism
-funding:
+**Eco-Grant DAO** is a decentralized autonomous organization (DAO) that enables
+international donors to fund sustainable tourism initiatives in protected areas
+while ensuring local communities benefit from conservation efforts. Built on the
+**BlockDAG Primordial Testnet**, we combine community-driven governance with
+efficient funding mechanisms:
 
-- 🌍 **Cross-Border Access**: International funding for local tourism projects
-- 🔐 **Programmable Escrow**: Automated milestone-based fund releases
-- 📊 **Verifiable Impact**: Transparent tracking of project progress
-- 💰 **Reduced Costs**: Lower fees than traditional banking and escrow services
+- 🌍 **Community Governance**: Local stakeholders vote on project funding and
+  implementation
+- 🔐 **Transparent Funding**: Public ledger for all donations and project
+  expenditures
+- 📊 **Sustainable Impact**: Focus on conservation and community development
+- 💰 **Local Access**: Easy conversion between crypto and local currency
+
+### Why Blockchain is Essential
+
+While traditional funding mechanisms exist, blockchain is **crucial** for
+Eco-Grant DAO because:
+
+1. **Provable Community Control:**
+   - Traditional models rely on trust in administrators
+   - Blockchain enables verifiable, on-chain voting
+   - Stakeholders can independently verify their influence
+   - No centralized authority can override community decisions
+
+2. **Unprecedented Donor Transparency:**
+   - Traditional models: Annual reports, trust-based
+   - Blockchain: Real-time, independently verifiable fund tracking
+   - Every donation and disbursement is publicly recorded
+   - Donors can audit fund usage without intermediaries
+
+3. **Automated, Trust-Minimized Execution:**
+   - Traditional: Manual fund release, human delays
+   - Blockchain: Smart contracts execute based on verified votes
+   - No single party controls fund release
+   - Faster, more efficient fund distribution
+
+4. **Global Access to Capital:**
+   - Traditional: Limited by banking infrastructure
+   - Blockchain: Anyone with crypto can participate
+   - Lower barriers to international funding
+   - Reduced transaction costs
+
+### Core Value Proposition
+
+Eco-Grant DAO provides a **community-driven funding mechanism** that:
+
+1. **Empowers Local Stakeholders**: Park rangers, community members, and tourism
+   operators collectively decide on projects
+2. **Enables Global Support**: International donors can easily contribute to
+   conservation efforts
+3. **Ensures Sustainable Development**: Projects must balance tourism,
+   conservation, and community needs
 
 ### How It Works
 
-1. **Funding Flow**:
+1. **DAO Governance Flow**:
    ```mermaid
    graph LR
-       A[International Investor] -->|BlockDAG Tokens| B[Smart Contract Escrow]
-       B -->|Milestone Release| C[Tourism Office SafeWallet]
-       C -->|Local Currency| D[Tourism Entrepreneur]
-       D -->|Project Progress| E[Office Verification]
-       E -->|Milestone Confirmation| B
+       A[Stakeholders] -->|Vote| B[Project Proposals]
+       B -->|Approval| C[Funding Pool]
+       D[International Donors] -->|Contribute| C
+       C -->|Release| E[Approved Projects]
+       E -->|Implement| F[Local Communities]
    ```
 
-2. **Milestone Verification**:
+2. **Funding Flow**:
    ```mermaid
    graph LR
-       A[Project Milestone] -->|Evidence| B[Tourism Office]
-       B -->|Verification| C[Smart Contract]
-       C -->|Release| D[Next Milestone Funds]
-       D -->|Local Currency| E[Entrepreneur]
-       E -->|Progress| F[Community Verification]
+       A[International Donor] -->|Crypto| B[DAO Treasury]
+       B -->|Hold| C[Project Funds]
+       D[Community Vote] -->|Approve| E[Smart Contract]
+       E -->|Release| F[Local Currency]
+       F -->|Deliver| G[Project Team]
    ```
 
 ### Core Benefits
 
-1. **For Tourism Entrepreneurs**:
-   - Access to international funding
-   - Reliable milestone-based releases
-   - Lower transaction costs
-   - Clear project tracking
-   - Local support and guidance
+1. **For Protected Areas**:
+   - Sustainable funding for conservation
+   - Community engagement in management
+   - Infrastructure improvements
+   - Better visitor experiences
 
-2. **For International Investors**:
+2. **For Local Communities**:
+   - Economic opportunities
+   - Direct involvement in decisions
+   - Skills development
+   - Cultural preservation
+
+3. **For International Donors**:
    - Transparent fund usage
-   - Automated milestone releases
-   - Verifiable project impact
-   - Lower escrow costs
-   - 24/7 funding availability
-
-3. **For Tourism Offices**:
-   - New revenue stream
-   - Enhanced local services
-   - Reputation building
-   - Community trust
-   - Network participation
+   - Direct impact visibility
+   - Community-driven projects
+   - Sustainable tourism support
 
 ### Why Blockchain?
 
-1. **Programmable Escrow**:
-   - Smart contracts automate milestone-based releases
-   - No expensive third-party escrow services needed
-   - Transparent conditions for fund release
-   - Immutable record of milestone completion
+1. **Community Governance**:
+   - Transparent voting
+   - Immutable records
+   - Fair token distribution
+   - Automated execution
 
-2. **Global Liquidity Pool**:
-   - International donors can contribute easily
-   - No need for multiple currency conversions
-   - Reduced forex fees
-   - 24/7 funding availability
+2. **Funding Efficiency**:
+   - Lower transaction costs
+   - Faster fund transfers
+   - Global accessibility
+   - Automated releases
 
-3. **Verifiable Impact**:
-   - Transparent tracking of fund usage
-   - Immutable record of project progress
-   - Clear connection between funding and outcomes
-   - Community verification of impact
+3. **Impact Tracking**:
+   - Public ledger
+   - Project milestones
+   - Fund allocation
+   - Outcome measurement
 
-### MVP Focus: Digital Tourism Office Simulation
+### MVP Focus: Community-Driven Funding Simulation
 
 During the **ETH Canal Hackathon**, we will develop a **functional MVP in one
 week** demonstrating:
 
-- 🔐 **Safe{Wallet} Setup**: 3-of-4 signature requirement for office operations
-- 💸 **Payment Handling**: Support for cash, bank transfers, and crypto
-- 📱 **Transaction Flow**: Complete on/off-ramp process with verifications
+- 🔐 **DAO Setup**: Basic governance structure with stakeholder roles
+- 💸 **Project Submission**: Simple proposal and voting mechanism
+- 📱 **Funding Flow**: Complete donation and release process
+- 👥 **Community Interface**: Basic dashboard for participation
 
-### Crystal-Clear MVP Scope
+### MVP Scope
 
 #### What's IN Scope for the Hackathon:
 
-- ✅ **Single Tourism Office**: One (mock digital) office with Safe{Wallet}
-  setup
-- ✅ **Basic Escrow Contract**: Fixed amount escrow with guardian approval
-- ✅ **Payment Methods**: Support for cash, bank transfers, and crypto
-- ✅ **Simple Milestone Verification**: Guardian multisig approval
-- ✅ **Minimal Dashboard**: Basic transaction recording
-- ✅ **Digital Receipt System**: Simulated paper receipts + SMS confirmations
+- ✅ **Single Protected Area**: One area with defined stakeholders
+- ✅ **Basic DAO Structure**: Simple voting and proposal system
+- ✅ **Project Types**: Conservation, infrastructure, community programs
+- ✅ **Funding Mechanism**: Crypto to local currency conversion
+- ✅ **Minimal Dashboard**: Basic project and voting interface
+- ✅ **Basic Reputation System**: Stakeholder reputation tracking
+- ✅ **Simple Skin-in-Game**: Stakeholder contribution requirements
+- ✅ **Documentation**: Clear process guides for all parties
+
+#### What's NOT in Scope (Future Improvements):
+
+- ❌ **Multiple Areas**: Full multi-area management
+- ❌ **Advanced Analytics**: Detailed impact metrics
+- ❌ **Complex Governance**: Full DAO feature set
+- ❌ **Advanced Features**: Complex project structures
+- ❌ **Multiple Currencies**: Full currency support
+- ❌ **Advanced Reputation**: Complex reputation calculations
+- ❌ **Token Economics**: Full token-based governance
 
 ### MVP Implementation
 
 1. **Day 1-2: Smart Contracts**
-   - Basic escrow contract
-   - Guardian multisig setup
-   - Safe{Wallet} integration
+   - Basic DAO structure
+   - Voting mechanism
+   - Fund management
+   - Project release logic
 
 2. **Day 3-4: Frontend Interface**
-   - Milestone submission form
-   - Payment method selection
+   - Project submission form
+   - Voting interface
    - Basic dashboard
+   - Donation mechanism
 
 3. **Day 5: Integration**
    - Connect contracts to frontend
-   - Test payment flows
-   - Verify milestone process
+   - Test voting flows
+   - Verify fund process
 
 4. **Day 6-7: Testing & Documentation**
    - End-to-end testing
@@ -127,311 +180,351 @@ week** demonstrating:
 
 ### Simplified MVP Flow
 
-1. **Funding (On-Ramp)**:
+1. **Project Submission**:
    ```mermaid
    graph LR
-       A[Investor] -->|BlockDAG Tokens| B[Escrow Contract]
-       B -->|Hold| C[Fixed Amount]
-       D[Guardian Multisig] -->|Verify| B
+       A[Community Member] -->|Submit| B[Project Proposal]
+       B -->|Review| C[Stakeholder Vote]
+       C -->|Approve| D[Funding Pool]
+       E[International Donor] -->|Contribute| D
    ```
 
-2. **Disbursement (Off-Ramp)**:
+2. **Fund Release**:
    ```mermaid
    graph LR
-       A[Escrow Contract] -->|Release| B[SafeWallet]
-       C[Milestone Evidence] -->|Submit| D[Guardian Multisig]
+       A[Funding Pool] -->|Release| B[Project Wallet]
+       C[Project Progress] -->|Update| D[Community Review]
        D -->|Approve| A
-       B -->|Choose| E[Payment Method]
-       E -->|Cash| F[Local Cash]
-       E -->|Bank Transfer| G[Bank Account]
-       E -->|Crypto| H[Crypto Wallet]
+       B -->|Convert| E[Local Currency]
+       E -->|Deliver| F[Project Team]
    ```
 
 ### MVP Success Metrics
 
-| Metric Category | Initial Target           | Measurement Method     |
-| --------------- | ------------------------ | ---------------------- |
-| Smart Contracts | Basic escrow working     | Contract testing       |
-| Safe{Wallet}    | 3-of-4 signature working | Functional tests       |
-| Payment Methods | All methods supported    | Transaction completion |
-| User Experience | < 5 min transaction time | Time tracking          |
-| Documentation   | Complete guide           | Staff feedback         |
+| Metric Category | Initial Target         | Measurement Method     |
+| --------------- | ---------------------- | ---------------------- |
+| Smart Contracts | Basic DAO working      | Contract testing       |
+| Voting          | Proposal approval      | Process testing        |
+| Fund Flow       | Complete cycle working | Transaction completion |
+| User Experience | < 5 min voting time    | Time tracking          |
+| Documentation   | Complete guide         | Community feedback     |
 
 ### Hackathon MVP Deliverables
 
-- ✅ **Smart Contracts**: Basic escrow and Safe{Wallet} integration
-- ✅ **Office Dashboard**: Simple interface for milestone submission
-- ✅ **Payment Handling**: Support for cash, bank transfers, and crypto
-- ✅ **Documentation**: Basic operations guide for tourism office staff
-- ✅ **Demo Video**: Complete end-to-end flow demonstration
-- ✅ **Pitch Deck**: 10-slide presentation of the concept and MVP
+- ✅ **Smart Contracts**: Basic DAO and voting
+- ✅ **Community Dashboard**: Simple proposal interface
+- ✅ **Donor Interface**: Basic donation mechanism
+- ✅ **Documentation**: Process guides for all parties
+- ✅ **Demo Video**: Complete end-to-end flow
+- ✅ **Pitch Deck**: 10-slide presentation
 
-### How Regular People Will Interact with TurismoFund (Post-MVP)
+### How Regular People Will Interact with Eco-Grant DAO (Post-MVP)
 
-#### For Tourism Entrepreneurs:
+#### For International Donors:
 
-1. **Visit Local Tourism Office**: Meet with staff in person
-2. **Present Project**: Share your tourism initiative
-3. **Set Milestones**: Define clear, verifiable project steps
-4. **Receive Funds in Local Currency**: When milestones are completed
-5. **Get Paper Receipt**: For all transactions
-6. **Receive SMS Confirmations**: For added security
+1. **Browse Projects**: View community-approved initiatives
+2. **Choose Project**: Select one to support
+3. **Donate Crypto**: Transfer to project treasury
+4. **Track Progress**: Monitor implementation
+5. **See Impact**: View project outcomes
 
-#### For International Investors:
+#### For Local Communities:
 
-1. **Browse Projects**: View available tourism initiatives
-2. **Select Project**: Choose one to support
-3. **Send Funds**: Transfer BlockDAG tokens to smart contract
-4. **Track Progress**: Monitor milestone completion
-5. **Verify Impact**: See project outcomes
-6. **Support More**: Fund additional projects
+1. **Submit Projects**: Propose initiatives
+2. **Participate in Voting**: Review and vote on proposals
+3. **Implement Projects**: When approved and funded
+4. **Report Progress**: Update community
+5. **Track Impact**: Measure outcomes
 
-#### For Tourism Office Staff:
+#### For Protected Area Staff:
 
-1. **Verify Entrepreneurs**: KYC and project validation
-2. **Use Simple Dashboard**: Record transactions
-3. **Verify Milestones**: Through photos and community attestation
-4. **Manage Safe{Wallet}**: Through guided interface
-5. **Issue Receipts**: Paper + digital records
-6. **Send SMS Confirmations**: To all parties
+1. **Review Projects**: Assess feasibility
+2. **Participate in Voting**: Ensure conservation alignment
+3. **Monitor Implementation**: Track progress
+4. **Support Communities**: Provide guidance
+5. **Document Impact**: Record outcomes
 
-**Key Point**: All blockchain/crypto complexity is hidden behind familiar
-interfaces. Users never need to:
+**Key Point**: All blockchain complexity is hidden behind familiar interfaces.
+Users never need to:
 
-- Create crypto wallets
-- Handle private keys
 - Understand blockchain technology
+- Handle private keys
 - Deal with gas fees
 - Worry about crypto volatility
 
 ### Governance Structure
 
-1. **Guardian Multisig (MVP Phase)**:
-   - 3-5 trusted members
-   - Controls essential protocol parameters
-   - Emergency pause functionality
-   - Office onboarding approval
-   - Security oversight
+1. **Stakeholder Roles (MVP Phase)**:
+   - Park Rangers
+   - Community Representatives
+   - Conservation Experts
+   - Tourism Operators
+   - International Donors
 
-2. **Tourism Office Network**:
-   - Individual offices with Safe{Wallet} multisig
-   - Reputation-based verification rights
-   - Local milestone verification
-   - Community engagement
-   - Transparent operations
+2. **Voting Rights**:
+   - Weighted by stakeholder type
+   - Based on contribution level
+   - Community majority required
+   - Conservation veto rights
 
 3. **Progressive Decentralization**:
-   - Phase 1: Guardian-controlled with basic reputation system
-   - Phase 2: Community-proposed updates with guardian oversight
-   - Phase 3: Full community governance with minimal guardian intervention
+   - Phase 1: Basic stakeholder voting
+   - Phase 2: Expanded proposal types
+   - Phase 3: Full community governance
 
 ### Governance Model
 
 ```mermaid
 graph TD
-    subgraph "Protocol Governance"
-        A[Guardian Multisig] -->|Initial Phase| B[Protocol Parameters]
-        C[Tourism Offices] -->|Reputation Staking| D[Verification Rights]
+    subgraph "DAO Governance"
+        A[Stakeholders] -->|Vote| B[Project Approval]
+        C[International Donors] -->|Contribute| D[Funding Pool]
+        E[Reputation System] -->|Track| A
+        F[Contribution Requirements] -->|Verify| A
     end
     
-    subgraph "Office Operations"
-        D -->|If Good Standing| E[Milestone Verification]
-        E -->|Success/Failure| C
+    subgraph "Project Operations"
+        B -->|If Approved| G[Fund Release]
+        G -->|Success/Failure| E
+        G -->|Success/Failure| A
     end
 
-    subgraph "Security Measures"
-        A -->|Emergency| F[Pause/Unpause]
-        A -->|If Misbehavior| G[Remove Office]
+    subgraph "Conservation Oversight"
+        H[Park Rangers] -->|Veto| B
+        H -->|Monitor| G
+        H -->|Contribute 1%| F
+    end
+
+    subgraph "Community Participation"
+        I[Community Reps] -->|Vote| B
+        I -->|Contribute 0.5%| F
+        J[Tourism Operators] -->|Vote| B
+        J -->|Contribute 1.5%| F
+        K[Conservation Experts] -->|Vote| B
+        K -->|Contribute 2%| F
     end
 
     style A fill:#f9f,stroke:#333,stroke-width:2px
     style C fill:#bfb,stroke:#333,stroke-width:2px
-    style E fill:#bbf,stroke:#333,stroke-width:2px
+    style G fill:#bbf,stroke:#333,stroke-width:2px
+    style E fill:#fbb,stroke:#333,stroke-width:2px
+    style F fill:#fbb,stroke:#333,stroke-width:2px
 ```
 
 ### Key Benefits
 
-- **For Tourism Entrepreneurs**: Access to international funding with local
-  support
-- **For International Investors**: Transparent, verifiable impact
-- **For Tourism Offices**: New revenue stream and community trust
-- **For Protocol**: Progressive decentralization with security
+- **For Protected Areas**: Sustainable funding and community engagement
+- **For Communities**: Economic opportunities and direct involvement
+- **For Donors**: Transparent impact and sustainable tourism
+- **For Conservation**: Balanced development and preservation
+
+### Basic Reputation & Skin-in-Game (MVP)
+
+1. **Stakeholder Roles & Requirements:**
+   - **Park Rangers**: Must contribute 1% of project value
+   - **Community Representatives**: Must contribute 0.5% of project value
+   - **Conservation Experts**: Must contribute 2% of project value
+   - **Tourism Operators**: Must contribute 1.5% of project value
+   - **International Donors**: No minimum contribution
+
+2. **Simple Reputation Tracking:**
+   - **Voting Participation**: Track who votes on proposals
+   - **Project Success**: Record successful project completions
+   - **Contribution History**: Log stakeholder contributions
+   - **Basic Score**: Simple 1-5 rating based on participation
+
+3. **MVP Implementation:**
+   - Basic smart contract for contribution tracking
+   - Simple reputation score calculation
+   - Contribution requirement verification
+   - Basic UI for reputation display
+
+4. **Future Expansion:**
+   - More sophisticated reputation algorithms
+   - Token-based governance
+   - Reputation-based voting power
+   - Advanced contribution mechanisms
 
 ---
 
 ## **2. Problem Statement**
 
-Tourism entrepreneurship funding faces critical challenges:
+Protected areas face critical challenges:
 
-1. **Cross-Border Funding Barriers**:
-   - Traditional international transfers are slow and expensive
-   - Tourism entrepreneurs often need access to international investors/donors
-   - Currency exchange fees can be significant
-   - Bank restrictions in developing regions limit access
+1. **Funding Gaps:**
+   - Limited government resources
+   - Unreliable donor funding
+   - High operational costs
+   - Infrastructure needs
 
-2. **Trust and Transparency Issues**:
-   - Donors want proof funds are used as intended
-   - Entrepreneurs need reliable milestone-based releases
-   - Traditional escrow services are expensive
-   - Tracking fund usage across borders is difficult
+2. **Community Engagement:**
+   - Limited local participation
+   - Economic opportunities needed
+   - Skills development required
+   - Cultural preservation
 
-3. **Local Implementation Challenges**:
-   - Lack of trusted intermediaries
-   - Limited access to international funding
-   - High transaction costs
-   - Complex verification processes
+3. **Tourism Management:**
+   - Balancing access and conservation
+   - Infrastructure maintenance
+   - Visitor experience quality
+   - Sustainable practices
 
-The solution must address all three:
+4. **Traditional Solutions Fall Short:**
+   - Centralized foundations lack true community control
+   - Manual processes slow down fund distribution
+   - Limited transparency for international donors
+   - High transaction costs for small donations
+   - Complex bureaucracy for fund release
 
-- Accessible funding for tourism entrepreneurs
-- Transparent fund usage for investors
-- Trusted local implementation
+The solution must address all four:
+
+- Sustainable funding mechanisms
+- Community empowerment
+- Balanced tourism development
+- **Transparent, automated execution**
 
 ---
 
-## **3. The TurismoFund Solution**
+## **3. The Eco-Grant DAO Solution**
 
-TurismoFund creates a network of trusted tourism offices that serve as secure
-bridges between international funding and local tourism projects:
+Eco-Grant DAO creates a DAO that enables international donors to fund
+sustainable tourism initiatives while ensuring local communities benefit from
+conservation efforts:
 
-### Local Office Operations
+### Community Operations
 
-1. **Project Verification Process**:
+1. **Project Submission Process**:
    ```mermaid
    graph TD
-       A[Initial Contact] -->|Visit| B[ID Verification]
-       B -->|Validate| C[Project Assessment]
-       C -->|Define| D[Milestone Creation]
-       D -->|Record| E[Smart Contract]
-       E -->|Funds| F[Investor Contribution]
-       F -->|Hold| G[Escrow Contract]
+       A[Community Need] -->|Identify| B[Project Proposal]
+       B -->|Define| C[Objectives & Budget]
+       C -->|Submit| D[DAO Review]
+       D -->|Vote| E[Stakeholder Approval]
+       E -->|Funds| F[International Donors]
+       F -->|Contribute| G[Project Treasury]
    ```
 
-2. **Milestone Verification Process**:
+2. **Implementation Process**:
    ```mermaid
    graph TD
-       A[Milestone Completion] -->|Evidence| B[Office Verification]
-       B -->|Approve| C[Smart Contract]
-       C -->|Release| D[Next Milestone Funds]
-       D -->|Convert| E[Local Currency]
-       E -->|Deliver| F[Entrepreneur]
-       F -->|Progress| G[Next Milestone]
+       A[Approved Project] -->|Plan| B[Implementation]
+       B -->|Progress| C[Community Review]
+       C -->|Update| D[Smart Contract]
+       D -->|Release| E[Project Funds]
+       E -->|Convert| F[Local Currency]
+       F -->|Deliver| G[Project Team]
+       G -->|Complete| H[Impact Assessment]
    ```
 
-3. **Security Features**:
-   - Safe{Wallet} multisig (3-of-4)
-   - Daily transaction limits
-   - Multi-party verification
-   - Paper + digital records
-   - Real-time notifications
+3. **Governance Features**:
+   - Stakeholder voting
+   - Conservation oversight
+   - Progress tracking
+   - Impact measurement
    - Regular audits
 
 ### Protocol Governance
 
-1. **Guardian Multisig (MVP)**:
-   - Controls essential parameters
-   - Emergency pause functionality
-   - Office onboarding approval
-   - Security oversight
+1. **Stakeholder Structure (MVP)**:
+   - Park Rangers (Conservation)
+   - Community Representatives (Local)
+   - Tourism Operators (Business)
+   - International Donors (Funding)
 
-2. **Office Reputation System**:
-   - Performance tracking
-   - Verification accuracy
-   - Community feedback
-   - Time in network
-   - Project success rate
+2. **Project Categories**:
+   - Conservation initiatives
+   - Infrastructure improvements
+   - Community programs
+   - Tourism development
 
 3. **Progressive Decentralization**:
-   - Phase 1: Guardian-controlled
-   - Phase 2: Community-proposed updates
+   - Phase 1: Basic stakeholder voting
+   - Phase 2: Expanded proposal types
    - Phase 3: Full community governance
 
 ---
 
 ## **4. Core Features**
 
-### 🔐 Office Safe{Wallet} Multisig
+### 🔐 DAO Governance
 
-1. **Signer Structure**:
-   - Office Director
-   - Financial Officer
-   - Community Representative
-   - Technical Operator
-   - 3-of-4 signature requirement
+1. **Voting Structure**:
+   - Stakeholder roles
+   - Weighted voting
+   - Proposal types
+   - Approval thresholds
 
-2. **Transaction Controls**:
-   - Daily transaction limits
-   - Withdrawal thresholds
-   - Emergency pause
-   - Audit logging
+2. **Project Controls**:
+   - Conservation alignment
+   - Community benefit
+   - Budget limits
+   - Timeline tracking
 
 3. **Operational Standards**:
-   - Project verification procedures
-   - Milestone validation
-   - Receipt management
+   - Project verification
+   - Progress reporting
+   - Impact assessment
    - Security protocols
 
 ### 💰 Fund Management
 
-1. **Smart Contract Escrow**:
-   - Milestone-based releases
-   - Automated fund distribution
-   - Transparent conditions
-   - Immutable records
+1. **Treasury Structure**:
+   - Project-based allocation
+   - Automated releases
+   - Transparent tracking
+   - Impact measurement
 
-2. **Local Currency Conversion**:
-   - Tourism office handles conversion
-   - Fixed exchange rates for periods
-   - Transparent fee structure
+2. **Currency Conversion**:
+   - Crypto to local
+   - Fixed rates
+   - Transparent fees
    - Regular reconciliation
 
 3. **Verification Process**:
-   - Multi-party checks
-   - Photo documentation
-   - Community attestation
+   - Community review
+   - Progress updates
+   - Impact assessment
    - Blockchain records
-   - Receipt confirmation
 
-### 📱 Partner Interface
+### 📱 Community Interface
 
 - Web dashboard features:
-  - Project tracking
-  - Milestone verification
-  - Fund management
-  - Basic reporting
+  - Project submission
+  - Voting mechanism
+  - Progress tracking
+  - Impact reporting
 
 ---
 
 ## **5. MVP Success Metrics**
 
-| Metric Category        | Initial Target           | Measurement Method     |
-| ---------------------- | ------------------------ | ---------------------- |
-| Safe{Wallet} Setup     | 3-of-4 signature working | Functional tests       |
-| Milestone Verification | Complete flow tested     | Transaction completion |
-| Smart Contract Escrow  | Fund release working     | Contract testing       |
-| User Experience        | < 5 min verification     | Time tracking          |
-| Documentation          | Complete guide           | Staff feedback         |
+| Metric Category | Initial Target         | Measurement Method     |
+| --------------- | ---------------------- | ---------------------- |
+| Smart Contracts | Basic DAO working      | Contract testing       |
+| Voting          | Proposal approval      | Process testing        |
+| Fund Flow       | Complete cycle working | Transaction completion |
+| User Experience | < 5 min voting time    | Time tracking          |
+| Documentation   | Complete guide         | Community feedback     |
 
 ### MVP Infrastructure
 
 1. **Protocol Systems**:
-   - Basic escrow contracts
-   - Safe{Wallet} multisig management
-   - Guardian multisig setup
+   - Basic DAO contracts
+   - Voting mechanism
+   - Fund management
    - Upgrade mechanisms
 
 2. **Local Systems**:
-   - Project tracking ledger
-   - Milestone verification system
-   - Basic web dashboard
-   - SMS notifications
-   - Receipt generation
+   - Project tracking
+   - Progress reporting
+   - Basic dashboard
+   - Impact assessment
 
 ### Hackathon MVP Deliverables
 
-- ✅ **Smart Contracts**: Basic escrow and multisig operations
-- ✅ **Office Dashboard**: Simple interface for project tracking
-- ✅ **Milestone Verification**: Digital representation of project progress
-- ✅ **Documentation**: Basic operations guide for tourism office staff
-- ✅ **Demo Video**: Complete end-to-end flow demonstration
-- ✅ **Pitch Deck**: 10-slide presentation of the concept and MVP
+- ✅ **Smart Contracts**: Basic DAO and voting
+- ✅ **Community Dashboard**: Simple proposal interface
+- ✅ **Donor Interface**: Basic donation mechanism
+- ✅ **Documentation**: Process guides for all parties
+- ✅ **Demo Video**: Complete end-to-end flow
+- ✅ **Pitch Deck**: 10-slide presentation
