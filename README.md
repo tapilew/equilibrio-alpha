@@ -19,6 +19,138 @@ we combine smart contracts with local cash distribution networks:
 - 💰 **Local Cash Points**: Network of trusted local businesses for fund
   distribution
 
+### Why BlockDAG?
+
+We chose the BlockDAG Primordial Testnet for its:
+
+- Parallel execution model enabling faster rural transactions
+- Low-latency confirmation ideal for mobile-first UX
+- EVM compatibility for familiar development
+- High throughput for scaling cultural initiatives
+
+### Technical Architecture
+
+```mermaid
+flowchart TD
+    classDef web2 fill:#92D050,color:#000,stroke:#92D050
+    classDef web3 fill:#0072C6,color:#fff,stroke:#0072C6
+    classDef ui fill:#FFC000,color:#000,stroke:#FFC000
+    
+    subgraph Users["User Interfaces"]
+        A[Mobile/Web Interface]:::ui
+    end
+    
+    subgraph Web2["Web2 Layer"]
+        B[Convex Backend]:::web2
+        C[IPFS Storage]:::web2
+        D[Event Queue]:::web2
+    end
+    
+    subgraph Web3["Web3 Layer"]
+        E[Smart Contracts]:::web3
+        F[Cash Point Network]:::web3
+    end
+    
+    A -->|"User Actions"| B
+    B -->|"Store Data"| C
+    B -->|"Process Events"| D
+    D -->|"Trigger"| E
+    E -->|"Control"| F
+    F -->|"Deliver Cash"| A
+```
+
+### Technical Stack
+
+1. **Frontend**:
+   - Next.js + Tailwind + shadcn/ui
+   - Wagmi + RainbowKit for wallet integration
+   - Mobile-first responsive design
+   - Vercel deployment
+
+2. **Backend (Convex)**:
+   - Real-time data sync
+   - IPFS integration for proofs
+   - Event queuing system
+   - Session management
+
+3. **Smart Contracts**:
+   - Foundry + Solidity
+   - CampaignFactory for project creation
+   - Campaign with milestone logic
+   - CashPoint for local distribution
+
+### Security Implementation
+
+1. **Fund Management**:
+   - Multi-signature treasury
+   - Time-lock mechanisms
+   - Event-based validation
+
+2. **Data Security**:
+   - IPFS document storage
+   - Encrypted metadata
+   - Access control
+
+3. **User Protection**:
+   - Rate limiting
+   - Input validation
+   - Replay protection
+
+### MVP Implementation (7 Days)
+
+| Day       | Focus            | Deliverable                                         |
+| --------- | ---------------- | --------------------------------------------------- |
+| **Day 1** | Contracts        | Write + test `CampaignFactory` + `Campaign`         |
+| **Day 2** | Frontend Boot    | Wallet connect, testnet contract deploy, basic UI   |
+| **Day 3** | Milestone UX     | Implement milestone release logic + verifier action |
+| **Day 4** | Cash Points      | Add fake registry + display logic                   |
+| **Day 5** | Polish           | Add campaign dashboard + UX details                 |
+| **Day 6** | Presentation     | Write pitch deck, record demo                       |
+| **Day 7** | Testing + Deploy | Deploy dapp + repo polish + practice pitch          |
+
+### What's NOT in Scope (Future Improvements)
+
+- ❌ **Multiple Regions**: Full multi-area management
+- ❌ **Advanced Analytics**: Detailed impact metrics
+- ❌ **Complex Governance**: Full protocol feature set
+- ❌ **Advanced Features**: Complex project structures
+- ❌ **Multiple Currencies**: Full currency support
+- ❌ **Advanced Verification**: Complex verification mechanisms
+- ❌ **Token Economics**: Full token-based governance
+- ❌ **Oracles**: Real-time data feeds and automated verification
+- ❌ **Full KYC Process**: Using pre-verified cash points for demo
+- ❌ **Community Voting**: Simplified verification for MVP
+- ❌ **Complete Mobile App**: Mobile-friendly web interface only
+
+### Hackathon Information
+
+#### About Partners
+
+- **BlockDAG**: Next-generation blockchain protocol enabling high-throughput
+  EVM-compatible applications
+- **ETH Canal**: Panamanian-led Ethereum ecosystem platform fostering innovation
+  across LATAM
+- **Innovation Smart District**: Catalyst for innovation combining AI,
+  blockchain, and gaming
+
+#### Judging Criteria
+
+| Criteria                 | Description                              | Score |
+| ------------------------ | ---------------------------------------- | ----- |
+| Innovation & Originality | How creative and unique the project is   | 25%   |
+| Technical Execution      | Technical depth and accuracy             | 25%   |
+| Feasibility & Impact     | Practical use-case and real-world impact | 25%   |
+| Quality of Presentation  | Clarity and effectiveness                | 25%   |
+
+#### Submission Guidelines
+
+| Deliverable | Details                          |
+| ----------- | -------------------------------- |
+| Demo video  | 3–5 minutes of working prototype |
+| Pitch deck  | Maximum 10 slides                |
+| Team video  | Maximum 3 minutes                |
+| GitHub repo | Link to codebase                 |
+
 ### Off-Ramp Solution
 
 Finartisan Protocol provides a **specialized off-ramp solution** that:
@@ -46,6 +178,26 @@ Finartisan Protocol provides a **specialized off-ramp solution** that:
    - Local currency support for cultural events
    - Flexible withdrawal options
    - Community-based verification
+
+### KYC & Verification Process
+
+1. **Cash Point Onboarding**:
+   - Organizer verification OR two local references required
+   - Basic business documentation
+   - Community endorsement process
+   - Regular compliance checks
+
+2. **Milestone Verification**:
+   - Human verifiers receive progress reports via mobile forms
+   - Photo documentation of cultural activities
+   - Simple form-based approval process
+   - On-chain signatures for fund releases
+
+3. **Fiat Conversion (MVP)**:
+   - Custodial multisigs holding pre-seeded test tokens
+   - 1:1 token-to-fiat representation
+   - Simulated local currency delivery
+   - Transparent conversion tracking
 
 ### Why Blockchain is Essential
 
@@ -171,84 +323,58 @@ Finartisan Protocol provides a **rural cultural financial system** that:
 ### MVP Focus: Cultural Financial Access
 
 During the **ETH Canal Hackathon**, we will develop a **functional MVP**
-demonstrating:
+demonstrating core off-ramp functionality in 7 days:
 
-- 🔐 **Smart Contracts**: Basic fund management and milestone releases
-- 💸 **Cash Point Network**: Simple business registration and verification
-- 📱 **Mobile Interface**: Basic project and cash point interface
-- 👥 **Fund Distribution**: Complete donation and cash release process
-- 🌐 **Demo-Ready System**: Simplified processes for concept validation
+#### Must-Have Features (7-Day Reality Check)
 
-### MVP Scope
+1. **Smart Contract Core**:
+   - Project creation flow (wallet signs to deploy campaign contract)
+   - Milestone-based fund release logic
+   - Simplified custody through multisig treasury
+   - Test token representation (no real fiat conversion)
 
-#### What's IN Scope for the Hackathon:
+2. **Basic Frontend**:
+   - Wallet connection (wagmi/RainbowKit)
+   - Project creation interface
+   - Milestone approval dashboard
+   - Cash point registry display
+   - Mobile-friendly UI (responsive design)
 
-- ✅ **Single Cultural Area**: Basic network simulation
-- ✅ **Cash Point Registration**: Simple business onboarding
-- ✅ **Mobile Interface**: Basic project and cash point access
-- ✅ **Fund Distribution**: Fast, low-cost transfer to cash
-- ✅ **Minimal Dashboard**: Basic project and verification interface
-- ✅ **Simple Verification**: Basic milestone verification process
-- ✅ **Documentation**: Clear process guides for all parties
-- ✅ **Demo Setup**: Pre-configured test environment
+3. **Demo-Ready Features**:
+   - Pre-configured test environment
+   - Hardcoded cash points (2-3 valid points)
+   - Basic milestone verification
+   - Onchain status tracking
 
-#### What's NOT in Scope (Future Improvements):
+#### Technical Stack
 
-- ❌ **Multiple Regions**: Full multi-area management
-- ❌ **Advanced Analytics**: Detailed impact metrics
-- ❌ **Complex Governance**: Full protocol feature set
-- ❌ **Advanced Features**: Complex project structures
-- ❌ **Multiple Currencies**: Full currency support
-- ❌ **Advanced Verification**: Complex verification mechanisms
-- ❌ **Token Economics**: Full token-based governance
-- ❌ **Oracles**: Real-time data feeds and automated verification
+1. **Frontend**:
+   - Next.js + Tailwind + shadcn/ui
+   - Vercel for instant preview deploys
+   - Wallet-only authentication
 
-### MVP Implementation
+2. **Smart Contracts**:
+   - Foundry + Solidity (Primordial-compatible)
+   - CampaignFactory contract
+   - Campaign contract with milestone logic
+   - Simple milestone structs
 
-1. **Day 1-2: Smart Contracts**
-   - Basic fund management
-   - Cash point verification
-   - Project treasury
-   - Manual verification logic
+3. **Backend**:
+   - Minimal metadata storage
+   - Basic project tracking
+   - Simple verification logic
 
-2. **Day 3-4: Mobile Interface**
-   - Project submission form
-   - Cash point registration
-   - Basic dashboard
-   - Demo-ready interface
+### 7-Day Execution Plan
 
-3. **Day 5: Integration**
-   - Connect contracts to interface
-   - Test fund flows
-   - Verify cash distribution
-   - Setup demo environment
-
-4. **Day 6-7: Testing & Documentation**
-   - End-to-end testing
-   - Documentation
-   - Demo preparation
-   - Test scenario setup
-
-### Simplified MVP Flow
-
-1. **Project Submission**:
-   ```mermaid
-   graph LR
-       A[Cultural Project] -->|Submit| B[Project Proposal]
-       B -->|Manual Review| C[Initial Verification]
-       C -->|Approve| D[Funding Pool]
-       E[International Supporter] -->|Contribute| D
-   ```
-
-2. **Cash Distribution**:
-   ```mermaid
-   graph LR
-       A[Funding Pool] -->|Release| B[Project Wallet]
-       C[Project Progress] -->|Update| D[Manual Verification]
-       D -->|Approve| A
-       B -->|Transfer| E[Local Cash Point]
-       E -->|Deliver| F[Cultural Project]
-   ```
+| Day       | Focus            | Deliverable                                         |
+| --------- | ---------------- | --------------------------------------------------- |
+| **Day 1** | Contracts        | Write + test `CampaignFactory` + `Campaign`         |
+| **Day 2** | Frontend Boot    | Wallet connect, testnet contract deploy, basic UI   |
+| **Day 3** | Milestone UX     | Implement milestone release logic + verifier action |
+| **Day 4** | Cash Points      | Add fake registry + display logic                   |
+| **Day 5** | Polish           | Add campaign dashboard + UX details                 |
+| **Day 6** | Presentation     | Write pitch deck, record demo                       |
+| **Day 7** | Testing + Deploy | Deploy dapp + repo polish + practice pitch          |
 
 ### MVP Success Metrics
 
@@ -294,6 +420,11 @@ demonstrating:
    - Advanced security features
    - Full regulatory compliance
    - Enterprise features
+   - Ecosystem token introduction for:
+     - Gas abstraction
+     - Contributor incentives
+     - Impact scoring
+     - Cultural preservation metrics
 
 ### How Regular People Will Interact with Finartisan Protocol (Post-MVP)
 
@@ -350,6 +481,20 @@ Users never need to:
 ### Protocol Model
 
 ```mermaid
+%%{init: {
+  "theme": "default",
+  "themeVariables": {
+    "primaryColor": "#FF6B6B",
+    "primaryTextColor": "#fff",
+    "primaryBorderColor": "#FF6B6B",
+    "lineColor": "#4A90E2",
+    "secondaryColor": "#4ECDC4",
+    "tertiaryColor": "#45B7D1",
+    "mainBkg": "#f9f9f9",
+    "fontFamily": "arial",
+    "fontSize": "16px"
+  }
+}}%%
 graph TD
     subgraph "Fund Management"
         A[Project Treasury] -->|Hold| B[Project Funds]
@@ -371,10 +516,13 @@ graph TD
         L -->|Deliver| G
     end
 
-    style A fill:#f9f,stroke:#333,stroke-width:2px
-    style C fill:#bfb,stroke:#333,stroke-width:2px
-    style F fill:#bbf,stroke:#333,stroke-width:2px
-    style D fill:#fbb,stroke:#333,stroke-width:2px
+    style A fill:#FF6B6B,stroke:#333,stroke-width:2px,color:#fff
+    style C fill:#4ECDC4,stroke:#333,stroke-width:2px,color:#fff
+    style F fill:#4A90E2,stroke:#333,stroke-width:2px,color:#fff
+    style D fill:#45B7D1,stroke:#333,stroke-width:2px,color:#fff
+    style G fill:#96CEB4,stroke:#333,stroke-width:2px,color:#fff
+    style I fill:#FFEEAD,stroke:#333,stroke-width:2px,color:#333
+    style L fill:#D4A5A5,stroke:#333,stroke-width:2px,color:#fff
 ```
 
 ### Key Benefits
@@ -637,3 +785,107 @@ _Judges' decisions are final._
 | Team introduction video | Maximum 3 minutes introducing team members                |
 | GitHub repository       | Link to the codebase (open source preferred)              |
 | Optional documentation  | Additional documentation or architecture diagram (if any) |
+
+### Technical Architecture
+
+#### Hybrid Web2 + Web3 Approach
+
+Finartisan Protocol uses a **pragmatic hybrid architecture** that combines
+blockchain security with Web2 usability:
+
+1. **Smart Contracts (Source of Truth)**:
+   - Fund management and releases
+   - Milestone verification
+   - DAO governance
+   - On-chain state
+
+2. **Web2 Bridge Layer (UX Enhancement)**:
+   - Real-time updates via Convex
+   - Off-chain metadata storage
+   - Mobile-friendly session management
+   - Event queuing and batching
+
+#### Architecture Flow
+
+```mermaid
+graph TD
+    A[Mobile User] -->|Submit Photo + Proof| B[Convex Backend]
+    B -->|Store Event| C[IPFS/Arweave]
+    B -->|Queue Milestone| D[DAO Voting]
+    D -->|Approve| E[Smart Contract]
+    E -->|Release Funds| F[Cash Point]
+    F -->|Deliver Cash| A
+    G[Real-time Updates] -->|Push| A
+```
+
+#### Technical Stack
+
+1. **Frontend**:
+   - Next.js + Tailwind + shadcn/ui
+   - Vercel for instant preview deploys
+   - Wallet-only authentication
+   - Mobile-first responsive design
+
+2. **Backend (Convex)**:
+   - Real-time data sync
+   - Off-chain metadata
+   - Session management
+   - Event queuing
+   - IPFS integration
+
+3. **Smart Contracts**:
+   - Foundry + Solidity
+   - CampaignFactory
+   - Campaign with milestones
+   - DAO governance
+
+4. **Storage**:
+   - IPFS/Arweave for proofs
+   - Convex for metadata
+   - On-chain for final state
+
+#### Why Hybrid Architecture?
+
+1. **Rural UX Requirements**:
+   - Offline-first capabilities
+   - Lightweight mobile interface
+   - Fast response times
+   - Progressive enhancement
+
+2. **Security Benefits**:
+   - Smart contracts as source of truth
+   - Immutable fund management
+   - Transparent verification
+   - Decentralized governance
+
+3. **Practical Advantages**:
+   - Faster development
+   - Better user experience
+   - Easier maintenance
+   - Progressive rollout
+
+### MVP Implementation
+
+1. **Day 1-2: Core Infrastructure**
+   - Smart contract development
+   - Convex backend setup
+   - Basic frontend structure
+   - IPFS integration
+
+2. **Day 3-4: User Experience**
+   - Mobile interface development
+   - Real-time updates
+   - Offline capabilities
+   - Session management
+
+3. **Day 5: Integration**
+   - Connect all components
+   - Test fund flows
+   - Verify cash distribution
+   - Setup demo environment
+
+4. **Day 6-7: Polish & Deploy**
+   - End-to-end testing
+   - Documentation
+   - Demo preparation
+   - Deployment
