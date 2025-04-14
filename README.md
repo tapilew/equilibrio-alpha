@@ -591,3 +591,49 @@ points:
 - ✅ **Documentation**: Process guides for all parties
 - ✅ **Demo Video**: Complete end-to-end flow
 - ✅ **Pitch Deck**: 10-slide presentation
+
+---
+
+## **6. Hackathon Information**
+
+### About Partners
+
+#### BlockDAG
+
+A next-generation blockchain protocol enabling high-throughput EVM-compatible
+applications. BlockDAG provides the HackerEarth platform for this Hackathon and
+supports developers building on its Primordial Testnet.
+
+#### ETH Canal (by C10N, S.A.)
+
+A Panamanian-led Ethereum ecosystem platform fostering innovation across LATAM
+through education, collaboration, and real-world blockchain adoption.
+
+#### Innovation Smart District (ISD)
+
+A catalyst for innovation, combining AI, blockchain, biotech, robotics, and
+gaming into a physical and digital environment to empower global innovation.
+
+### Judging Criteria
+
+| Criteria                  | Description                                                            | Score (out of 25%) |
+| ------------------------- | ---------------------------------------------------------------------- | ------------------ |
+| Innovation & Originality  | How creative, novel, or unique the project is.                         | 25%                |
+| Technical Execution       | The technical depth and accuracy of the implementation.                | 25%                |
+| Feasibility & Impact      | Practical use-case, potential reach, and real-world impact.            | 25%                |
+| Quality of Presentation   | Clarity and effectiveness in communicating the project.                | 25%                |
+| Testability & Scalability | Potential to test, expand, or scale the project (bonus consideration). | Bonus              |
+
+_Judges' decisions are final._
+
+### Submission Guidelines
+
+#### Submission Format
+
+| Deliverable             | Details                                                   |
+| ----------------------- | --------------------------------------------------------- |
+| Demo video              | 3–5 minutes of the working prototype                      |
+| Pitch deck              | Maximum 10 slides explaining the project                  |
+| Team introduction video | Maximum 3 minutes introducing team members                |
+| GitHub repository       | Link to the codebase (open source preferred)              |
+| Optional documentation  | Additional documentation or architecture diagram (if any) |
