@@ -10,25 +10,58 @@ tourism development.
 
 For the ETH Canal hackathon, we're focusing on a minimal viable product that
 demonstrates our core value proposition: enabling Panamanian tourism businesses
-to accept USDT payments and build verifiable financial history.
+to accept international payments via USDT on BlockDAG, overcoming traditional
+cross-border payment barriers.
 
 ---
 
 ## 🎯 Why Panama's Tourism Communities Need TuriCash
 
-### The Tourism Payment Challenge in Panama
+### The International Payment Challenge in Panama
 
-Panama's tourism sector is growing rapidly, with over 2 million visitors
-annually, but local businesses face significant payment challenges:
+While Panama's tourism sector grows rapidly with over 2 million international
+visitors annually, local businesses face a critical gap between local and
+international payment capabilities:
 
-- **Tour Guides in Bocas del Toro:** Struggle to accept advance payments from
-  international tourists, losing potential bookings.
-- **Artisans in Casco Viejo:** Miss sales from tourists who prefer digital
-  payments over cash.
-- **Small Hotels in Boquete:** Face high fees (5-7%) from traditional payment
-  processors, eating into margins.
-- **Restaurants in Panama City:** Struggle with seasonal cash flow management,
-  unable to secure loans due to lack of verifiable income history.
+- **Tour Guides in Bocas del Toro:** While local payments via solutions like
+  Cuanto.app work well, accepting advance payments from international tourists
+  remains challenging. Traditional card processors often reject international
+  transactions or charge exorbitant fees (5-7%).
+- **Artisans in Casco Viejo:** Local digital payment solutions serve domestic
+  customers, but international tourists face high foreign transaction fees and
+  currency conversion costs when using cards.
+- **Small Hotels in Boquete:** While local payment links work for domestic
+  bookings, international guests often cancel when faced with high international
+  card processing fees or complex bank transfer requirements.
+- **Restaurants in Panama City:** Local payment solutions don't address the core
+  challenge of accepting international payments efficiently, leaving businesses
+  to rely on cash from tourists who carry it.
+
+### The Payment Infrastructure Gap
+
+Panama's tourism businesses operate in a bifurcated payment environment:
+
+- **Local vs International:** While local payment solutions (like Cuanto.app)
+  have improved domestic transactions, they don't solve the specific challenges
+  of international payments:
+  - High international card processing fees (5-7% vs 1.8% with TuriCash)
+  - Complex cross-border bank transfer requirements
+  - Limited access to international payment networks
+  - Currency conversion costs and delays
+
+- **Lost International Opportunities:** The inability to accept international
+  payments efficiently leads to:
+  - Missed advance bookings from international tourists
+  - Reduced competitiveness against larger hotels with international payment
+    capabilities
+  - Limited access to international tourism platforms
+  - Cash dependency for international transactions
+
+- **Verification Challenges:** Without proper international payment records:
+  - No verifiable income history for international transactions
+  - Difficulty proving international business activity to lenders
+  - Limited ability to scale international tourism operations
+  - Missing data for international market analysis
 
 ### The Cash Management Problem
 
@@ -50,28 +83,44 @@ significant challenges:
 ## 💡 The TuriCash Solution (Hackathon MVP)
 
 For the ETH Canal hackathon, we're focusing on a minimal viable product that
-demonstrates our core value proposition:
+demonstrates our core value proposition: enabling Panamanian tourism businesses
+to accept international payments via USDT on BlockDAG, overcoming traditional
+cross-border payment barriers.
 
-### 1. USDT Payment Acceptance
+### 1. International USDT Payment Acceptance
 
+- **Global Payment Access:** Direct USDT acceptance from any international
+  tourist with a crypto wallet
+- **Lower Fees:** 1.8% transaction fee vs 5-7% for international card processing
+- **No Cross-Border Complexity:** Eliminates traditional international payment
+  hurdles:
+  - No international card processing requirements
+  - No complex bank transfer setups
+  - No currency conversion delays
+  - No international payment network dependencies
 - Simple merchant registration with basic verification
-- Payment link generation
-- Basic transaction recording
+- One-click payment link generation for international customers
+- Atomic transaction recording on BlockDAG
 
-### 2. Verifiable Financial History
+### 2. Verifiable International Financial History
 
-- On-chain transaction recording
-- Basic dashboard
-- Exportable records
+- On-chain transaction recording on BlockDAG
+- Basic dashboard with international transaction tracking
+- Exportable records for international business activity
+- Transparent history for international tourism platforms
 
 ### 3. Community Fund
 
-- 1.8% transaction fee handling
+- 1.8% transaction fee handling (significantly lower than international card
+  processing)
 - Basic fund balance tracking
 - Secure atomic fee collection via smart contract
 - Transparent fee distribution and tracking
 
-### 4. Community Development Program
+### 4. Future Vision: Community Development Program
+
+> _Note: The following features are planned for post-hackathon development, not
+> part of the 5-day MVP._
 
 - **Local Tourism Development**
   - Infrastructure improvements for tourism areas
@@ -91,33 +140,6 @@ demonstrates our core value proposition:
   - Regular reporting and accountability
   - Measurable impact tracking
 
----
-
-## 🔗 Web3 Architecture (MVP)
-
-### Convex Backend
-
-- Merchant registration and management
-- Transaction recording and history
-- Basic analytics and reporting
-- Simulated merchant verification (MVP phase)
-
-### Chainlink Integration
-
-- **Price Feeds**: Provide exchange rates for USD/USDT
-- **Chainlink Functions**: _Production-ready code prepared but simulated for MVP
-  demo_
-  - Business registry checks
-  - Location validation
-  - Simple KYC status verification
-
-### Smart Contract (Minimal)
-
-- Secure atomic payment processing with automatic fee collection
-- Transparent community fund management
-- Event-based transaction recording
-- Reentrancy protection and security features
-
 ### User Experience Flow (MVP)
 
 ```mermaid
@@ -126,7 +148,7 @@ sequenceDiagram
     participant A as TuriCash App
     participant CV as Convex
     participant SC as Smart Contract
-    participant PF as Price Feeds
+    participant BD as BlockDAG
     
     M->>A: Register Business
     A->>CV: Verify Merchant (Simulated)
@@ -134,16 +156,109 @@ sequenceDiagram
     A->>CV: Store Merchant Info
     CV-->>M: Confirm Registration
     M->>A: Generate USDT Payment Link
-    A->>PF: Get Exchange Rate
-    PF-->>A: Current Rate
     A->>M: Share Link with Customer
     Note over M,A: Customer pays with USDT
     A->>SC: Process Payment & Collect Fee
     SC->>M: Transfer Merchant Amount
     SC->>SC: Hold Fee in Contract
+    SC->>BD: Record Transaction on BlockDAG
     SC->>CV: Record Transaction
     CV-->>M: Generate Receipt
     A-->>M: Update Dashboard
+```
+
+### Detailed System Flows
+
+#### 1. Merchant Registration Flow
+
+```mermaid
+sequenceDiagram
+    participant M as Merchant
+    participant A as TuriCash App
+    participant CV as Convex Backend
+    
+    M->>A: Navigate to Registration Page
+    A->>M: Display Registration Form
+    M->>A: Submit Business Details
+    A->>CV: Send Registration Request
+    CV->>CV: Perform Simulated Verification
+    CV-->>A: Return Verification Result
+    CV->>CV: Store Merchant Information
+    A-->>M: Display Registration Success
+    A->>M: Redirect to Dashboard
+```
+
+#### 2. Payment Link Generation Flow
+
+```mermaid
+sequenceDiagram
+    participant M as Merchant
+    participant A as TuriCash App
+    participant CV as Convex Backend
+    participant C as Customer
+    
+    M->>A: Navigate to Payment Link Section
+    A->>M: Display Link Generation Form
+    M->>A: Input USDT Amount
+    A->>CV: Verify Merchant Status
+    CV-->>A: Confirm Merchant Active
+    A->>A: Generate Payment Link
+    A->>M: Display Generated Link
+    M->>C: Share Link (External)
+```
+
+#### 3. Customer Payment Processing Flow
+
+```mermaid
+sequenceDiagram
+    participant C as Customer
+    participant A as TuriCash App
+    participant Wallet as Customer's BlockDAG Wallet
+    participant SC as Smart Contract
+    participant USDT as USDT ERC20 Contract
+    participant BD as BlockDAG Blockchain
+    
+    C->>A: Click Payment Link
+    A->>C: Display Payment Details
+    A->>C: Request Wallet Connection
+    C->>Wallet: Connect Wallet
+    Wallet-->>A: Connection Confirmed
+    A->>Wallet: Request USDT Approval
+    C->>Wallet: Confirm USDT Approval
+    Wallet->>USDT: Approve SC to spend USDT
+    USDT-->>Wallet: Approval Confirmed
+    A->>Wallet: Request Payment Execution
+    C->>Wallet: Confirm Payment
+    Wallet->>SC: Call processPayment()
+    SC->>USDT: transferFrom(Customer, amount)
+    SC->>USDT: transfer(Merchant, netAmount)
+    SC->>SC: Hold Fee Amount
+    SC->>BD: Emit PaymentProcessed Event
+    BD-->>A: Event Detected
+    A->>C: Display Payment Success
+```
+
+#### 4. Backend Update & Merchant Dashboard Flow
+
+```mermaid
+sequenceDiagram
+    participant SC as Smart Contract
+    participant BD as BlockDAG Blockchain
+    participant CV as Convex Backend
+    participant M as Merchant
+    participant A as TuriCash App
+    
+    SC->>BD: Emit PaymentProcessed Event
+    CV->>BD: Listen for Events
+    CV->>CV: Detect New Payment Event
+    CV->>CV: Parse Event Data
+    CV->>CV: Update Transaction Database
+    M->>A: Access Dashboard
+    A->>CV: Request Transaction History
+    A->>CV: Request Fund Balance
+    CV-->>A: Return Updated Data
+    A->>M: Display Transaction History
+    A->>M: Display Fund Balance
 ```
 
 ---
@@ -164,12 +279,12 @@ sequenceDiagram
 - Set up basic transaction recording
 - Implement frontend logic for payment flow
 
-### Day 3: Smart Contract & Chainlink Integration
+### Day 3: Smart Contract & BlockDAG Integration
 
-- Deploy core payment processing contract
-- Integrate Chainlink Price Feeds for exchange rates
+- Deploy core payment processing contract on BlockDAG
 - Connect frontend to smart contract
 - Implement USDT approval and payment flow
+- Test transaction processing on BlockDAG testnet
 
 ### Day 4: Dashboard & Event Processing
 
@@ -187,6 +302,93 @@ sequenceDiagram
 
 ---
 
+## 🔄 Price Feed Implementation Roadmap
+
+Our approach to price feeds balances immediate MVP needs with long-term
+decentralization goals:
+
+### Phase 1: MVP (Days 1-5)
+
+- **Simple 1:1 USDT/USD Display**
+  - Assume USDT/USD parity for UI display
+  - Clear UI indicators showing "Demo Mode" pricing
+  - No price feed dependency for core payment functionality
+  - Focus on demonstrating core payment flow
+
+### Phase 2: Centralized Backend (Week 1-2)
+
+- **Convex Price Service**
+  ```typescript
+  // convex/price.ts
+  export const getUSDTPrice = async () => {
+    const response = await fetch(
+      "https://api.coingecko.com/api/v3/simple/price?ids=tether&vs_currencies=usd",
+    );
+    const data = await response.json();
+    return data.tether.usd;
+  };
+  ```
+- Cached price updates (5-minute intervals)
+- Fallback mechanisms for API failures
+- Transparent price source attribution
+- Historical price tracking for analytics
+
+### Phase 3: Hybrid Oracle (Week 3-4)
+
+- **Multi-Source Price Aggregation**
+  - Chainlink Price Feeds on Arbitrum (primary)
+  - CoinGecko API (secondary)
+  - On-chain price validation
+  - Automated source switching based on reliability
+  ```solidity
+  // contracts/PriceOracle.sol
+  contract PriceOracle {
+      struct PriceData {
+          uint256 price;
+          uint256 timestamp;
+          string source;
+      }
+      
+      mapping(address => PriceData[]) public priceHistory;
+      
+      function updatePrice(uint256 _price, string memory _source) external {
+          // Store price with source attribution
+      }
+  }
+  ```
+
+### Phase 4: Full Decentralization (Month 2+)
+
+- **Chainlink Integration on BlockDAG**
+  - Direct Chainlink Price Feeds when available
+  - Cross-chain price verification
+  - Decentralized price aggregation
+  - Community-governed price source selection
+  ```solidity
+  // Future: contracts/DecentralizedOracle.sol
+  contract DecentralizedOracle {
+      // Chainlink integration
+      // Community governance
+      // Cross-chain verification
+  }
+  ```
+
+### Decentralization Considerations
+
+- **MVP Phase**: Focus on core payment functionality
+- **Short-term**: Centralized price service with transparency
+- **Medium-term**: Hybrid approach with multiple sources
+- **Long-term**: Full Chainlink integration on BlockDAG
+
+### Security Measures
+
+- Price deviation monitoring
+- Automated alerts for anomalies
+- Fallback mechanisms at each phase
+- Clear documentation of current phase
+
+---
+
 ## 🔒 Decentralization Value Proposition
 
 TuriCash DAO offers several distinct decentralization benefits compared to
@@ -201,7 +403,7 @@ traditional fintech solutions:
 
 ### 2. Immutable & Verifiable Transaction Records
 
-- Tamper-proof, publicly verifiable ledger of payment activity
+- Tamper-proof, publicly verifiable ledger of payment activity on BlockDAG
 - Provable financial history that merchants can leverage for loans or
   partnerships
 - Blockchain immutability ensures records cannot be altered or deleted
@@ -212,24 +414,18 @@ traditional fintech solutions:
 - Smart contract automatically deducts and holds fees
 - Funds are secured by reentrancy protection and access controls
 - Transparent on-chain tracking of all fees collected
-- Only authorized DAO governance can withdraw fees
+- Only authorized owner can withdraw fees (MVP phase)
 - Complete audit trail of fee collection and distribution
 
 ### 4. Reduced Platform Risk (at Core Layers)
 
-- Core payment rails (USDT on Arbitrum) and record-keeping ledger are
+- Core payment rails (USDT on BlockDAG) and record-keeping ledger are
   decentralized
 - Atomic transactions ensure fees are always collected
 - If the TuriCash frontend/backend went offline, the underlying payment
   capability and historical record persist
 - Merchants aren't solely reliant on TuriCash's servers for core value transfer
   and record integrity
-
-### 5. Reliance on Decentralized Oracles (Chainlink)
-
-- Chainlink Price Feeds for USD/USDT rates ensure conversions rely on
-  aggregated, tamper-resistant data
-- Decentralized oracle network provides data resilience and integrity
 
 ---
 
@@ -246,14 +442,27 @@ traditional fintech solutions:
 
 ## 🌐 Final Pitch
 
-> **TuriCash DAO transforms every payment into an investment in Panama's tourism
-> communities.**\
-> By enabling USDT payments and creating verifiable financial records, we help
-> local tourism businesses grow and contribute to community development.
+> **TuriCash DAO transforms international payments into local growth for
+> Panama's tourism communities.**\
+> By enabling seamless USDT payments from global tourists and creating
+> verifiable international transaction records, we help local tourism businesses
+> overcome cross-border payment barriers that traditional solutions and local
+> fintechs can't address.
 
-Join us in building the future of Panama's tourism with TuriCash DAO. Our
-hackathon MVP demonstrates the core value proposition, with plans to expand to a
-full-featured platform in the future.
+Unlike local payment solutions that focus on domestic transactions, TuriCash DAO
+specifically targets the international payment challenges faced by Panama's
+tourism businesses. Our Web3-powered platform offers:
+
+- **Global Payment Access:** Direct USDT acceptance from any international
+  tourist
+- **Lower Fees:** 1.8% vs 5-7% for international card processing
+- **Verifiable International History:** On-chain records of international
+  transactions
+- **Community Development:** Transparent fee collection for local tourism growth
+
+Join us in building the future of Panama's international tourism with TuriCash
+DAO. Our hackathon MVP demonstrates how Web3 can solve real cross-border payment
+challenges that traditional fintech solutions can't address.
 
 ---
 
@@ -299,15 +508,11 @@ turicash-dao/
 ```bash
 # .env
 # Blockchain
-ARBITRUM_SEPOLIA_RPC_URL=https://sepolia-rollup.arbitrum.io/rpc
+BLOCKDAG_RPC_URL=https://testnet.blockdag.com/rpc
 
 # Convex
 NEXT_PUBLIC_CONVEX_URL=your_convex_url
 CONVEX_DEPLOY_KEY=your_deploy_key
-
-# Chainlink
-CHAINLINK_FUNCTIONS_SOURCE=your_functions_source
-CHAINLINK_FUNCTIONS_SUBSCRIPTION_ID=your_subscription_id
 ```
 
 ---
@@ -390,7 +595,7 @@ Key security features:
 - **Well-structured for 5-day delivery**
   - Focused core loop: Register → Generate Link → Process USDT Payment → Record
     → Display
-  - Simulated Chainlink Functions verification for future vision
+  - Minimal smart contract with clear functionality
   - Clear day-by-day implementation plan
 
 ### 2. Minimal yet Decentralized
@@ -402,10 +607,9 @@ Key security features:
   - No complex governance or multi-currency
 
 - **Decentralized Components**
-  - Permissionless value transfer via USDT on Arbitrum
+  - Permissionless value transfer via USDT on BlockDAG
   - Immutable transaction records
   - Transparent fee collection
-  - Chainlink Price Feeds integration
   - On-chain core logic
 
 ### 3. Problem-Solution Fit
@@ -419,10 +623,10 @@ Key security features:
 ### 4. ETH Canal & Panama Relevance
 
 - **Blockchain Integration**
-  - Smart contracts on Arbitrum
+  - Smart contracts on BlockDAG
   - USDT for USD-based economy
   - Financial inclusion focus
-  - Community-governed fund
+  - Community fund for tourism development
 
 ### 5. Implementation Priorities
 
@@ -432,7 +636,7 @@ Key security features:
    - Next.js frontend
 
 2. **Payment Processing**
-   - Smart contract deployment
+   - Smart contract deployment on BlockDAG
    - USDT integration
    - Fee collection mechanism
 
