@@ -1,643 +1,261 @@
-# 🌎 **TuriCash DAO: Empowering Local Tourism Communities**
+# 🌎 **TuriCash DAO: Empowering Panama's Tourism Communities**
 
 ## 📌 Summary
 
-**TuriCash DAO** is a revolutionary payment platform designed specifically for
-tourism communities in emerging markets. We transform how local tourism
-businesses handle payments by:
+**TuriCash DAO** is a payment platform designed specifically for Panama's
+tourism communities. We transform how local tourism businesses handle payments
+by enabling them to accept stablecoin payments from international tourists,
+creating verifiable financial records, and building a community fund for local
+tourism development.
 
-1. **Unlock Global Revenue Streams:** Seamlessly accept credit card and
-   stablecoin payments from international tourists, capturing bookings and sales
-   previously lost due to payment friction. Bypass costly traditional
-   intermediary fees and expand your customer base globally.
-
-2. **Build Verifiable Business Credit:** Transform untrackable cash flow into a
-   digital financial history, unlocking access to significantly larger business
-   loans, partnerships, and investment opportunities essential for expansion.
-   Your business growth is no longer limited by cash-only operations.
-
-3. **Gain Governance Power:** Secure not just payment tools, but a voice in
-   directing community funds towards local infrastructure improvements that
-   directly benefit your business operations and attractiveness to tourists.
-   Your stake gives you influence over tourism development.
-
-By focusing exclusively on tourism communities, we deliver tailored solutions
-that address their unique challenges while fostering sustainable growth. Your
-10,000 USDC stake is an investment in your business's future, unlocking services
-worth far more than traditional alternatives.
+For the ETH Canal hackathon, we're focusing on a minimal viable product that
+demonstrates our core value proposition: enabling Panamanian tourism businesses
+to accept USDT payments and build verifiable financial history.
 
 ---
 
-## 🎯 Why Tourism Communities Need TuriCash
+## 🎯 Why Panama's Tourism Communities Need TuriCash
 
-### 1. The Tourism Payment Challenge
+### The Tourism Payment Challenge in Panama
 
-Local tourism businesses face a critical disconnect: while they serve
-international tourists, they struggle to receive payments globally. This
-affects:
+Panama's tourism sector is growing rapidly, with over 2 million visitors
+annually, but local businesses face significant payment challenges:
 
-- **Tour Guides:** Lose 40-60% of potential bookings due to inability to accept
-  advance payments or digital tips. Traditional payment processors charge 5-7%
-  per transaction, eating into your margins.
-- **Local Artisans:** Miss 70% of sales from tourists who prefer digital
-  payments. Without global payment acceptance, you're limited to cash-only local
-  markets.
-- **Small Hotels:** Lose 30-50% of bookings due to complex international payment
-  requirements. Traditional banks require hefty deposits and charge high fees
-  for international transactions.
-- **Tourism Services:** Struggle with seasonal cash flow management, unable to
-  secure loans or investment due to lack of verifiable income history.
+- **Tour Guides in Bocas del Toro:** Struggle to accept advance payments from
+  international tourists, losing potential bookings.
+- **Artisans in Casco Viejo:** Miss sales from tourists who prefer digital
+  payments over cash.
+- **Small Hotels in Boquete:** Face high fees (5-7%) from traditional payment
+  processors, eating into margins.
+- **Restaurants in Panama City:** Struggle with seasonal cash flow management,
+  unable to secure loans due to lack of verifiable income history.
 
-### 2. The Cash Management Problem
+### The Cash Management Problem
 
-Tourism businesses operate in a cash-heavy environment, but this creates
+Tourism businesses in Panama operate in a cash-heavy environment, creating
 significant challenges:
 
 - **Lost Opportunities:** No digital records mean no access to business loans.
   Traditional lenders require 2-3 years of bank statements, which cash-only
   businesses can't provide.
-- **Limited Growth:** Can't prove income for expansion or partnerships. Without
-  verifiable financial history, you miss out on:
-  - Business loans (typically 2-3x your annual revenue)
-  - Partnership opportunities with larger tourism operators
-  - Investment from tourism-focused venture funds
-- **Operational Inefficiency:** Manual cash tracking consumes 5-10 hours per
-  week of valuable time that could be spent on business development.
+- **Limited Growth:** Can't prove income for expansion or partnerships with
+  larger tourism operators.
+- **Operational Inefficiency:** Manual cash tracking consumes valuable time that
+  could be spent on business development.
 - **Market Visibility:** Stay invisible to digital tourism platforms that
   require integrated payment solutions.
 
 ---
 
-## 💡 The TuriCash Solution
+## 💡 The TuriCash Solution (Hackathon MVP)
 
-### 🔁 Tourism-First Payment Processing
+For the ETH Canal hackathon, we're focusing on a minimal viable product that
+demonstrates our core value proposition:
 
-1. **Smart Cash Recording**
-   - Instant QR-based cash payment recording with digital receipts
-   - Automated daily/weekly/monthly financial reporting
-   - Proof of income for business growth and loans
-   - Tourism-specific analytics and insights
-   - Integration with major booking platforms
+### 1. USDT Payment Acceptance
 
-2. **Global Payment Acceptance**
-   - Accept payments from tourists worldwide with 1-2% lower fees than
-     traditional processors
-   - Support for all major credit cards, digital wallets, and stablecoins
-   - No local bank account needed - receive funds directly to your wallet
-   - Tourism-friendly currency conversion with best rates
-   - Automated reconciliation and reporting
+- Simple merchant registration with basic verification
+- Payment link generation
+- Basic transaction recording
 
-#### 🧠 Community-Driven Development
+### 2. Verifiable Financial History
 
-- 3% of each transaction builds the community fund
-- Direct input on infrastructure improvements:
-  - Tourism signage and information centers
-  - Local WiFi and digital infrastructure
-  - Training programs for tourism businesses
-  - Marketing campaigns for your region
-- Sustainable funding model that grows with your business
-- Transparent fund allocation and impact tracking
+- On-chain transaction recording
+- Basic dashboard
+- Exportable records
 
-#### 🔒 Trust & Security (MVP Phase)
+### 3. Community Fund
 
-_Note: The following mechanisms are simplified for the MVP phase. A more robust
-trust system including staking will be implemented in production._
+- 1.8% transaction fee handling
+- Basic fund balance tracking
+- Secure atomic fee collection via smart contract
+- Transparent fee distribution and tracking
 
-- Tourism-focused merchant verification
-- Transaction monitoring with tourism patterns
-- Community-based trust system
-- Future plans:
-  - Reputation system for tourism businesses
-  - Automated fraud detection
-  - Tiered access based on tourism history
+### 4. Community Development Program
 
----
+- **Local Tourism Development**
+  - Infrastructure improvements for tourism areas
+  - Training and education programs for local businesses
+  - Marketing support for small tourism operators
+  - Sustainable tourism initiatives
 
-## 🔗 Web3 Architecture
+- **Fund Allocation**
+  - Community-driven proposal system
+  - Transparent voting mechanism for fund usage
+  - Priority for local development projects
+  - Support for small business growth initiatives
 
-### ✅ **Chainlink Functions**
-
-Chainlink Functions will:
-
-1. Receive data from QR code scans (simulated in MVP)
-2. Verify reported payment amounts against pre-defined limits (e.g., max
-   transaction size)
-3. Calculate DAO contribution (e.g., 3% of payment)
-4. Trigger fund transfers to merchant's wallet and DAO's multisig wallet using
-   Chainlink Automation
-
-Data Sources:
-
-- Internal API for payment validation
-- External APIs for tourism data verification
-- Chainlink's decentralized oracle network for secure data processing
-
-### 📊 **Chainlink Data Feeds**
-
-- Provide exchange rates for USD/USDC and USD/DAI pairs
-- Ensure fair conversion in the multi-currency system
-- Guarantee real-time prices for reports and records
-
-Security Considerations:
-
-- Chainlink's decentralized nature prevents price data manipulation
-- Multi-source data validation ensures reliability
-- Automated security checks for transaction limits and patterns
-
-Future Integration:
-
-- Chainlink Automation for automated fund distribution
-- Scheduled payments based on community votes
-- Automated treasury management
+- **Governance Structure**
+  - Local business representation in decision-making
+  - Community-driven fund management
+  - Regular reporting and accountability
+  - Measurable impact tracking
 
 ---
 
-## 📦 MVP in 1 Week
+## 🔗 Web3 Architecture (MVP)
 
-**MVP Scope (April 2025):**
+### Convex Backend
 
-1. **Cash Recording System**
-   - QR code generation for cash payments
-   - Simple form to record cash received
-   - Digital receipt generation
-   - Basic transaction history
-   - Daily/weekly reporting
+- Merchant registration and management
+- Transaction recording and history
+- Basic analytics and reporting
+- Simulated merchant verification (MVP phase)
 
-2. **Digital Payment Gateway**
-   - Stablecoin payments (USDC, DAI)
-   - Payment link generation
-   - Multiple currency support
-   - Automatic currency conversion
-   - Payment status tracking
+### Chainlink Integration
 
-3. **Core Infrastructure**
-   - Basic merchant verification
-   - Transaction monitoring
-   - Simple multisig for community fund
-   - Convex backend for Web2 operations
+- **Price Feeds**: Provide exchange rates for USD/USDT
+- **Chainlink Functions**: _Production-ready code prepared but simulated for MVP
+  demo_
+  - Business registry checks
+  - Location validation
+  - Simple KYC status verification
 
-4. **Public Dashboard**
-   - Transaction history by type
-   - Payment status tracking
-   - Basic analytics
-   - Community fund balance
+### Smart Contract (Minimal)
 
-### Web2 API Integration (Convex)
+- Secure atomic payment processing with automatic fee collection
+- Transparent community fund management
+- Event-based transaction recording
+- Reentrancy protection and security features
 
-#### 1. Types and Interfaces
-
-```typescript
-// types.ts
-interface MerchantProfile {
-  walletAddress: string;
-  businessName: string;
-  businessType: string;
-  location: string;
-  kycStatus: "pending" | "approved" | "rejected";
-  dailyLimits: {
-    cashReporting: number; // USD
-    digitalPayments: number; // USD
-  };
-  createdAt: number;
-  updatedAt: number;
-}
-
-interface Transaction {
-  id: string;
-  merchantAddress: string;
-  amount: number;
-  originalAmount?: number;
-  originalCurrency?: string;
-  type: "cash" | "stablecoin" | "card";
-  status: "completed" | "failed";
-  daoFee: number;
-  processorTransactionId?: string;
-  createdAt: number;
-}
-
-interface PaymentIntent {
-  id: string;
-  merchantAddress: string;
-  amount: number;
-  currency: string; // USDC, DAI, USD, EUR, etc.
-  type: "stablecoin" | "card";
-  status: "pending" | "completed" | "failed";
-  customerCountry?: string;
-  processorTransactionId?: string;
-  createdAt: number;
-  completedAt?: number;
-}
-```
-
-#### 2. Merchant Management
-
-```typescript
-// merchants.ts
-export const registerMerchant = mutation({
-  args: {
-    walletAddress: v.string(),
-    businessName: v.string(),
-    businessType: v.string(),
-    location: v.string(),
-  },
-  handler: async (ctx, args) => {
-    // Simulate KYC verification
-    const kycStatus = "approved";
-
-    return await ctx.db.insert("merchants", {
-      ...args,
-      kycStatus,
-      dailyLimits: {
-        cashReporting: 10000, // $10,000 USD daily limit for cash
-        digitalPayments: 50000, // $50,000 USD daily limit for digital
-      },
-      createdAt: Date.now(),
-      updatedAt: Date.now(),
-    });
-  },
-});
-
-export const getMerchantProfile = query({
-  args: { walletAddress: v.string() },
-  handler: async (ctx, args) => {
-    return await ctx.db
-      .query("merchants")
-      .filter((q) => q.eq(q.field("walletAddress"), args.walletAddress))
-      .first();
-  },
-});
-
-export const updateMerchantProfile = mutation({
-  args: {
-    walletAddress: v.string(),
-    updates: v.object({
-      businessName: v.optional(v.string()),
-      businessType: v.optional(v.string()),
-      location: v.optional(v.string()),
-    }),
-  },
-  handler: async (ctx, args) => {
-    const merchant = await ctx.db
-      .query("merchants")
-      .filter((q) => q.eq(q.field("walletAddress"), args.walletAddress))
-      .first();
-
-    return await ctx.db.patch(merchant._id, {
-      ...args.updates,
-      updatedAt: Date.now(),
-    });
-  },
-});
-```
-
-#### 3. Payment Processing
-
-```typescript
-// payments.ts
-// Cash Recording
-export const recordCashPayment = mutation({
-  args: {
-    merchantAddress: v.string(),
-    amount: v.number(),
-    location: v.string(),
-    description: v.optional(v.string()),
-  },
-  handler: async (ctx, args) => {
-    await validateMerchantAndLimits(
-      ctx,
-      args.merchantAddress,
-      args.amount,
-      "cash",
-    );
-    const daoFee = calculateDaoFee(args.amount);
-
-    return await createTransaction(ctx, {
-      ...args,
-      type: "cash",
-      status: "completed",
-      daoFee,
-    });
-  },
-});
-
-// Stablecoin Payments
-export const createStablecoinPayment = mutation({
-  args: {
-    merchantAddress: v.string(),
-    amount: v.number(),
-    currency: v.string(), // USDC or DAI
-    description: v.optional(v.string()),
-  },
-  handler: async (ctx, args) => {
-    await validateMerchantAndLimits(
-      ctx,
-      args.merchantAddress,
-      args.amount,
-      "stablecoin",
-    );
-
-    const paymentId = generateId();
-    await ctx.db.insert("paymentIntents", {
-      id: paymentId,
-      ...args,
-      type: "stablecoin",
-      status: "pending",
-      createdAt: Date.now(),
-    });
-
-    return { paymentId };
-  },
-});
-
-// Card Payments
-export const createCardPayment = mutation({
-  args: {
-    merchantAddress: v.string(),
-    amount: v.number(),
-    currency: v.string(),
-    customerCountry: v.string(),
-    description: v.optional(v.string()),
-  },
-  handler: async (ctx, args) => {
-    const usdAmount = await convertToUSD(args.amount, args.currency);
-    await validateMerchantAndLimits(
-      ctx,
-      args.merchantAddress,
-      usdAmount,
-      "card",
-    );
-
-    const paymentId = generateId();
-    await ctx.db.insert("paymentIntents", {
-      id: paymentId,
-      ...args,
-      type: "card",
-      status: "pending",
-      createdAt: Date.now(),
-    });
-
-    return {
-      paymentId,
-      checkoutUrl: `${CHECKOUT_URL}/${paymentId}`,
-    };
-  },
-});
-```
-
-### Web2/Web3 Integration Flow
-
-```mermaid
-sequenceDiagram
-    participant C as Customer
-    participant F as Frontend
-    participant CV as Convex
-    participant CF as Chainlink Function
-    participant SC as Smart Contract
-    
-    C->>F: Select Payment Method
-    
-    alt Cash Payment
-        F->>CV: Record Cash Payment
-        CV->>CV: Validate Merchant
-        CV->>CV: Record Transaction
-        CV-->>F: Transaction ID
-        F-->>C: Digital Receipt
-    else Stablecoin Payment
-        F->>CV: Create Stablecoin Payment
-        CV-->>F: Payment Link
-        F->>C: Share Link
-        C->>SC: Send USDC/DAI
-        SC-->>F: Transaction Hash
-        F->>CV: Update Status
-        CV-->>C: Payment Confirmation
-    else Card Payment
-        F->>CV: Create Card Payment
-        CV-->>F: Checkout URL
-        F->>C: Redirect to Checkout
-        C->>CV: Complete Payment
-        CV->>CV: Convert Currency
-        CV->>CV: Calculate DAO Fee
-        CV->>SC: Record On-chain
-        CV-->>F: Update UI
-        F-->>C: Payment Confirmation
-    end
-```
-
-### Mock APIs for MVP
-
-1. **Payment Validation API**
-   ```json
-   POST /api/payments/validate
-   {
-     "merchant_address": string,
-     "amount": number,
-     "type": "cash_report" | "usdc_payment",
-     "location": string
-   }
-   Response:
-   {
-     "transaction_id": string,
-     "status": "pending" | "validated" | "rejected",
-     "reason": string
-   }
-   ```
-
-2. **USDC Payment Processing**
-   ```json
-   POST /api/payments/process
-   {
-     "merchant_address": string,
-     "amount": number,
-     "payment_id": string
-   }
-   Response:
-   {
-     "transaction_id": string,
-     "blockchain_tx": string,
-     "status": "completed"
-   }
-   ```
-
-3. **International Fiat Payment APIs**
-   ```json
-   POST /api/payments/fiat/create
-   {
-     "merchant_address": string,
-     "amount": number,
-     "currency": string,
-     "customer_country": string
-   }
-   Response:
-   {
-     "payment_id": string,
-     "checkout_url": string
-   }
-   ```
-
-   ```json
-   POST /api/payments/fiat/webhook
-   {
-     "payment_id": string,
-     "processor_transaction_id": string,
-     "status": "completed" | "failed",
-     "processor_fee": number
-   }
-   Response:
-   {
-     "transaction_id": string,
-     "status": "completed"
-   }
-   ```
-
-### User Experience Flows
-
-#### Merchant Onboarding Flow
+### User Experience Flow (MVP)
 
 ```mermaid
 sequenceDiagram
     participant M as Merchant
     participant A as TuriCash App
-    participant R as MerchantRegistry
-    participant S as Safe Multisig
-
+    participant CV as Convex
+    participant SC as Smart Contract
+    participant PF as Price Feeds
+    
     M->>A: Register Business
-    A->>M: Request USDC Stake
-    M->>R: Approve & Stake USDC
-    R-->>M: Confirm Stake
-    R-->>S: Add as Signer (if first merchant)
-    S-->>M: Confirm Signer Status
-    A-->>M: Show Active Status
+    A->>CV: Verify Merchant (Simulated)
+    CV-->>A: Verification Result
+    A->>CV: Store Merchant Info
+    CV-->>M: Confirm Registration
+    M->>A: Generate USDT Payment Link
+    A->>PF: Get Exchange Rate
+    PF-->>A: Current Rate
+    A->>M: Share Link with Customer
+    Note over M,A: Customer pays with USDT
+    A->>SC: Process Payment & Collect Fee
+    SC->>M: Transfer Merchant Amount
+    SC->>SC: Hold Fee in Contract
+    SC->>CV: Record Transaction
+    CV-->>M: Generate Receipt
+    A-->>M: Update Dashboard
 ```
 
-#### Cash Recording Flow
+---
 
-```mermaid
-sequenceDiagram
-    participant M as Merchant
-    participant A as TuriCash App
-    participant R as MerchantRegistry
-    participant C as Chainlink Function
-    participant W as Wallets
+## 📦 Hackathon MVP Scope (5 Days)
 
-    M->>A: Click "Payment Received"
-    A->>R: Verify isStaked()
-    R-->>A: Confirm Active Status
-    A->>M: Enter Amount
-    M->>A: Submit
-    A->>C: Send Payment Data
-    C->>C: Validate Payment
-    C->>W: Split & Transfer Funds
-    W-->>M: Confirm Receipt
-    W-->>A: Update DAO Fund Display
-```
+### Day 1: Foundation
 
-#### USDC Payment Flow
+- Set up project structure
+- Implement basic merchant registration
+- Create simple UI for merchant dashboard
+- Focus on Turborepo structure and Convex project setup
 
-```mermaid
-sequenceDiagram
-    participant C as Customer
-    participant M as Merchant
-    participant A as TuriCash App
-    participant R as MerchantRegistry
-    participant W as Web3 Wallet
+### Day 2: Core Backend & Link Generation
 
-    M->>A: Generate Payment Link
-    A->>R: Verify isStaked()
-    R-->>A: Confirm Active Status
-    A-->>M: USDC Payment Link
-    M->>C: Share Link
-    C->>W: Connect Wallet
-    C->>W: Send USDC
-    W-->>M: 95-98% of Payment
-    W-->>DAO: 2-5% Fee
-```
+- Implement Convex mutations for merchant registration
+- Create payment link generation system
+- Set up basic transaction recording
+- Implement frontend logic for payment flow
 
-#### International Fiat Payment Flow
+### Day 3: Smart Contract & Chainlink Integration
 
-```mermaid
-sequenceDiagram
-    participant C as Customer
-    participant F as Frontend
-    participant CV as Convex
-    participant P as Payment Processor
-    participant SC as Smart Contract
-    
-    C->>F: Select Payment Amount
-    F->>CV: Create Payment Intent
-    CV-->>F: Checkout URL
-    F->>C: Redirect to Checkout
-    C->>P: Complete Payment
-    P->>CV: Webhook (Payment Complete)
-    CV->>CV: Convert Currency
-    CV->>CV: Calculate DAO Fee
-    CV->>SC: Record On-chain
-    CV-->>F: Update UI
-    F-->>C: Show Success
-```
+- Deploy core payment processing contract
+- Integrate Chainlink Price Feeds for exchange rates
+- Connect frontend to smart contract
+- Implement USDT approval and payment flow
 
-## 🔧 Implementation Details
+### Day 4: Dashboard & Event Processing
 
-## 🛠 Development Roadmap
+- Set up Convex event listeners for payments
+- Build transaction history view
+- Implement community fund display
+- Create merchant analytics dashboard
 
-### Phase 1: Core Infrastructure (Week 1)
+### Day 5: Testing & Refinement
 
-1. **Smart Contract Development**
-   - Deploy `MerchantRegistry` contract
-   - Implement staking mechanism
-   - Set up Safe Multisig
-   - Basic access control
+- End-to-end testing
+- Bug fixes and refinements
+- Prepare demo presentation
+- Document next steps and future enhancements
 
-2. **Backend Foundation**
-   - Set up Convex project
-   - Implement basic data models
-   - Create merchant management APIs
-   - Set up development environment
+---
 
-3. **Basic Frontend**
-   - Merchant dashboard structure
-   - Wallet connection
-   - Basic transaction recording
-   - Stake management interface
+## 🔒 Decentralization Value Proposition
 
-### Phase 2: Payment Processing (Week 2)
+TuriCash DAO offers several distinct decentralization benefits compared to
+traditional fintech solutions:
 
-1. **Cash Recording System**
-   - QR code generation
-   - Transaction recording
-   - Basic verification
-   - Receipt generation
+### 1. Permissionless Access to Global Payments
 
-2. **Stablecoin Integration**
-   - USDC/DAI payment processing
-   - Payment link generation
-   - Transaction monitoring
-   - Settlement logic
+- Any Panamanian merchant with an internet connection and a crypto wallet can
+  register
+- No approval from traditional banks or complex cross-border setup requirements
+- Transactions are peer-to-peer (customer wallet to merchant/contract)
 
-3. **Card Payment Integration**
-   - Payment processor setup
-   - Checkout flow
-   - Webhook handling
-   - Settlement processing
+### 2. Immutable & Verifiable Transaction Records
 
-### Phase 3: Financial Management (Week 3)
+- Tamper-proof, publicly verifiable ledger of payment activity
+- Provable financial history that merchants can leverage for loans or
+  partnerships
+- Blockchain immutability ensures records cannot be altered or deleted
 
-1. **Unified Dashboard**
-   - Balance tracking
-   - Transaction history
-   - Analytics
-   - Reporting
+### 3. Transparent & Secure Community Fund Holding
 
-2. **Settlement System**
-   - Automated settlements
-   - Fee calculation
-   - Batch processing
-   - Multi-currency support
+- 1.8% fee collected atomically during payment processing
+- Smart contract automatically deducts and holds fees
+- Funds are secured by reentrancy protection and access controls
+- Transparent on-chain tracking of all fees collected
+- Only authorized DAO governance can withdraw fees
+- Complete audit trail of fee collection and distribution
 
-3. **Integration Testing**
-   - End-to-end flows
-   - Performance testing
-   - Security testing
-   - User acceptance testing
+### 4. Reduced Platform Risk (at Core Layers)
+
+- Core payment rails (USDT on Arbitrum) and record-keeping ledger are
+  decentralized
+- Atomic transactions ensure fees are always collected
+- If the TuriCash frontend/backend went offline, the underlying payment
+  capability and historical record persist
+- Merchants aren't solely reliant on TuriCash's servers for core value transfer
+  and record integrity
+
+### 5. Reliance on Decentralized Oracles (Chainlink)
+
+- Chainlink Price Feeds for USD/USDT rates ensure conversions rely on
+  aggregated, tamper-resistant data
+- Decentralized oracle network provides data resilience and integrity
+
+---
+
+## 👥 Panama-Specific Use Cases
+
+| User Type   | Location       | Key Benefit                                                         |
+| ----------- | -------------- | ------------------------------------------------------------------- |
+| Tour Guide  | Bocas del Toro | Accept advance USDT payments from international tourists            |
+| Artisan     | Casco Viejo    | Receive digital payments from tourists who prefer not to carry cash |
+| Small Hotel | Boquete        | Build verifiable financial history for future loans                 |
+| Restaurant  | Panama City    | Participate in community fund for local tourism development         |
+
+---
+
+## 🌐 Final Pitch
+
+> **TuriCash DAO transforms every payment into an investment in Panama's tourism
+> communities.**\
+> By enabling USDT payments and creating verifiable financial records, we help
+> local tourism businesses grow and contribute to community development.
+
+Join us in building the future of Panama's tourism with TuriCash DAO. Our
+hackathon MVP demonstrates the core value proposition, with plans to expand to a
+full-featured platform in the future.
+
+---
 
 ## 🔧 Technical Setup
 
@@ -647,7 +265,6 @@ sequenceDiagram
 # Required tools
 node >= 18.0.0
 pnpm >= 8.0.0
-docker >= 20.10.0
 ```
 
 ### Environment Setup
@@ -664,40 +281,7 @@ pnpm install
 cp .env.example .env
 ```
 
-### Required Services & API Keys
-
-1. **Blockchain**
-   - Ethereum node (Infura/Alchemy)
-   - Chainlink Functions subscription
-   - Chainlink Data Feeds
-
-2. **Payment Processing**
-   - Stripe/Checkout.com account
-   - Payment processor API keys
-   - Webhook endpoints
-
-3. **Backend Services**
-   - Convex project
-   - Database setup
-   - Storage solution
-
-### Local Development
-
-```bash
-# Start local blockchain
-pnpm hardhat node
-
-# Deploy contracts
-pnpm hardhat deploy --network localhost
-
-# Start backend
-pnpm convex dev
-
-# Start frontend
-pnpm dev
-```
-
-### Project Structure (Turborepo)
+### Project Structure
 
 ```bash
 turicash-dao/
@@ -708,165 +292,6 @@ turicash-dao/
 │   ├── contracts/           # Solidity smart contracts
 │   ├── shared/              # Shared utilities and types
 │   └── ui/                  # Shared UI components
-├── turbo.json               # Turborepo configuration
-└── pnpm-workspace.yaml      # PNPM workspace configuration
-```
-
-### Turborepo Configuration
-
-```json
-// turbo.json
-{
-  "$schema": "https://turbo.build/schema.json",
-  "globalDependencies": ["**/.env.*local"],
-  "pipeline": {
-    "build": {
-      "dependsOn": ["^build"],
-      "outputs": [".next/**", "!.next/cache/**", "dist/**"]
-    },
-    "lint": {},
-    "dev": {
-      "cache": false,
-      "persistent": true
-    },
-    "test": {
-      "dependsOn": ["build"],
-      "outputs": ["coverage/**"],
-      "inputs": ["src/**/*.tsx", "src/**/*.ts", "test/**/*.ts", "test/**/*.tsx"]
-    }
-  }
-}
-```
-
-### PNPM Workspace Configuration
-
-```yaml
-# pnpm-workspace.yaml
-packages:
-  - "apps/*"
-  - "packages/*"
-```
-
-## 🛠 Stack Configuration
-
-### Arbitrum Configuration
-
-```toml
-# foundry.toml
-[rpc_endpoints]
-arbitrum_one = "${ARBITRUM_RPC_URL}"
-arbitrum_sepolia = "${ARBITRUM_SEPOLIA_RPC_URL}"
-
-[etherscan]
-arbitrum_one = { key = "${ARBISCAN_API_KEY}" }
-arbitrum_sepolia = { key = "${ARBISCAN_API_KEY}" }
-
-# Gas optimization for L2
-[profile.default]
-gas_reports = ["*"]
-gas_reports_ignore = []
-solc = "0.8.20"
-optimizer = true
-optimizer_runs = 200
-```
-
-### Chainlink Setup
-
-```typescript
-// chainlink.config.ts
-export const CHAINLINK_CONFIG = {
-  // Functions
-  functions: {
-    subscriptionId: process.env.CHAINLINK_SUBSCRIPTION_ID,
-    callbackGasLimit: 300000,
-    requestConfirmations: 3,
-    gasLimit: 2500000,
-  },
-
-  // Data Feeds (Arbitrum)
-  priceFeeds: {
-    USDC_USD: "0x50834F3163754fcAd1f7A4bE6F7f5C7c4A5c4c4c4", // Example address
-    DAI_USD: "0x50834F3163754fcAd1f7A4bE6F7f5C7c4A5c4c4c4", // Example address
-  },
-
-  // Oracle Network
-  oracle: {
-    network: "arbitrum_one",
-    minConfirmations: 3,
-    maxDelay: 3600, // 1 hour
-  },
-};
-
-// Example Functions request format
-export const PAYMENT_VALIDATION_REQUEST = {
-  source: fs.readFileSync("./functions/PaymentValidation.js").toString(),
-  args: ["${merchantAddress}", "${amount}", "${paymentType}"],
-  secrets: {
-    API_KEY: process.env.PAYMENT_API_KEY,
-  },
-};
-```
-
-### Next.js + Convex Integration
-
-```typescript
-// convex/schema.ts
-import { defineSchema, defineTable } from "convex/server";
-import { v } from "convex/values";
-
-export default defineSchema({
-  merchants: defineTable({
-    walletAddress: v.string(),
-    businessName: v.string(),
-    businessType: v.string(),
-    location: v.string(),
-    kycStatus: v.string(),
-    dailyLimits: v.object({
-      cashReporting: v.number(),
-      digitalPayments: v.number(),
-    }),
-    createdAt: v.number(),
-    updatedAt: v.number(),
-  }),
-
-  transactions: defineTable({
-    id: v.string(),
-    merchantAddress: v.string(),
-    amount: v.number(),
-    originalAmount: v.optional(v.number()),
-    originalCurrency: v.optional(v.string()),
-    type: v.string(),
-    status: v.string(),
-    daoFee: v.number(),
-    processorTransactionId: v.optional(v.string()),
-    createdAt: v.number(),
-  }),
-});
-
-// Next.js API Routes
-// pages/api/merchants/[address].ts
-import { ConvexHttpClient } from "convex/browser";
-import { api } from "../../../convex/_generated/api";
-
-export default async function handler(req, res) {
-  const client = new ConvexHttpClient(process.env.NEXT_PUBLIC_CONVEX_URL);
-
-  if (req.method === "GET") {
-    const merchant = await client.query(api.merchants.get, {
-      address: req.query.address,
-    });
-    res.status(200).json(merchant);
-  }
-}
-
-// Real-time Subscriptions
-// hooks/useMerchantData.ts
-import { useQuery } from "convex/react";
-import { api } from "../convex/_generated/api";
-
-export function useMerchantData(address: string) {
-  return useQuery(api.merchants.get, { address });
-}
 ```
 
 ### Environment Variables
@@ -874,315 +299,145 @@ export function useMerchantData(address: string) {
 ```bash
 # .env
 # Blockchain
-ARBITRUM_RPC_URL=https://arb1.arbitrum.io/rpc
 ARBITRUM_SEPOLIA_RPC_URL=https://sepolia-rollup.arbitrum.io/rpc
-ARBISCAN_API_KEY=your_api_key
-
-# Chainlink
-CHAINLINK_SUBSCRIPTION_ID=your_subscription_id
-CHAINLINK_API_KEY=your_api_key
 
 # Convex
 NEXT_PUBLIC_CONVEX_URL=your_convex_url
 CONVEX_DEPLOY_KEY=your_deploy_key
 
-# Payment Processing
-STRIPE_SECRET_KEY=your_stripe_key
-STRIPE_WEBHOOK_SECRET=your_webhook_secret
+# Chainlink
+CHAINLINK_FUNCTIONS_SOURCE=your_functions_source
+CHAINLINK_FUNCTIONS_SUBSCRIPTION_ID=your_subscription_id
 ```
-
-## 🔒 Security Specifications
-
-### Smart Contract Security
-
-1. **Access Control**
-   - Role-based permissions
-   - Multi-signature requirements
-   - Time-locks for critical operations
-   - Emergency pause functionality
-
-2. **Fund Safety**
-   - Withdrawal limits
-   - Cooldown periods
-   - Slashing conditions
-   - Fee caps
-
-3. **Data Validation**
-   - Input sanitization
-   - Range checks
-   - State validation
-   - Reentrancy protection
-
-### Backend Security
-
-1. **API Security**
-   - Rate limiting
-   - Request validation
-   - CORS configuration
-   - API key management
-
-2. **Data Protection**
-   - Encryption at rest
-   - Secure communication
-   - Data backup
-   - Access logging
-
-3. **Authentication**
-   - Wallet signature verification
-   - Session management
-   - Role-based access
-   - 2FA support
-
-## 🧪 Testing Strategy
-
-### Smart Contract Testing
-
-```typescript
-// Example test structure
-describe("MerchantRegistry", () => {
-  describe("staking", () => {
-    it("should accept valid stake");
-    it("should reject insufficient stake");
-    it("should track stake correctly");
-    it("should handle unstaking");
-  });
-
-  describe("access control", () => {
-    it("should enforce staking requirement");
-    it("should handle slashing correctly");
-    it("should manage permissions");
-  });
-});
-```
-
-### Backend Testing
-
-1. **API Testing**
-   - Endpoint validation
-   - Error handling
-   - Rate limiting
-   - Authentication
-
-2. **Integration Testing**
-   - Payment flows
-   - Settlement processes
-   - Data consistency
-   - Error recovery
-
-3. **Performance Testing**
-   - Load testing
-   - Concurrent operations
-   - Response times
-   - Resource usage
-
-### Frontend Testing
-
-1. **Component Testing**
-   - UI components
-   - State management
-   - User interactions
-   - Error states
-
-2. **Integration Testing**
-   - Wallet connection
-   - Transaction flows
-   - Data display
-   - Error handling
-
-3. **E2E Testing**
-   - Complete user journeys
-   - Cross-browser testing
-   - Mobile responsiveness
-   - Performance metrics
-
-## 👥 Use Cases
-
-| User Type        | Key Benefit                                        |
-| ---------------- | -------------------------------------------------- |
-| Local Artisan    | Can receive payments from USA without bank account |
-| Rural Restaurant | Registers cash payments and participates in DAO    |
-| Tour Guide       | Receives digital tips or crypto                    |
-| Tourism Office   | Visualizes data and supports local development     |
 
 ---
 
-## 🌐 Final Pitch
+## 🔒 Smart Contract Implementation
 
-> **TuriCash DAO transforms every payment into an investment in local
-> tourism.**\
-> Whether in cash or crypto, each transaction is recorded, verifiable, and
-> empowers the receiving community.
+The core payment processing is handled by a secure, atomic smart contract:
 
-Join us in building the future of tourism with TuriCash DAO. We invite you to
-explore our MVP and contribute to our vision of a more inclusive and sustainable
-tourism ecosystem.
+```solidity
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.20;
+
+import "@openzeppelin/contracts/token/ERC20/IERC20.sol";
+import "@openzeppelin/contracts/security/ReentrancyGuard.sol";
+import "@openzeppelin/contracts/access/Ownable.sol";
+
+contract TuriCashMVP is ReentrancyGuard, Ownable {
+    IERC20 public immutable usdt;
+    uint256 public constant FEE_BPS = 180; // 1.8% (180 / 10000)
+    mapping(address => bool) public isVerifiedMerchant;
+
+    event PaymentProcessed(
+        address indexed merchant,
+        address indexed customer,
+        uint256 amountPaid,
+        uint256 feeCollected,
+        uint256 merchantAmount,
+        uint256 timestamp
+    );
+
+    constructor(address _usdtAddress, address initialOwner) Ownable(initialOwner) {
+        usdt = IERC20(_usdtAddress);
+    }
+
+    function processPayment(address merchant, uint256 amount) external nonReentrant {
+        require(isVerifiedMerchant[merchant], "Merchant not verified");
+        require(amount > 0, "Amount must be positive");
+
+        uint256 fee = (amount * FEE_BPS) / 10000;
+        uint256 merchantAmount = amount - fee;
+
+        usdt.transferFrom(msg.sender, address(this), amount);
+        usdt.transfer(merchant, merchantAmount);
+
+        emit PaymentProcessed(
+            merchant,
+            msg.sender,
+            amount,
+            fee,
+            merchantAmount,
+            block.timestamp
+        );
+    }
+
+    function withdrawFees(address recipient, uint256 amount) external onlyOwner {
+        require(amount <= usdt.balanceOf(address(this)), "Insufficient fee balance");
+        usdt.transfer(recipient, amount);
+    }
+
+    function setMerchantVerification(address merchant, bool status) external onlyOwner {
+        isVerifiedMerchant[merchant] = status;
+    }
+}
+```
+
+Key security features:
+
+- Reentrancy protection
+- Atomic transactions
+- Access control for fee withdrawal
+- Merchant verification system
+- Event-based transaction tracking
 
 ---
 
-## **6. Hackathon Information**
+## 🔍 Project Evaluation
 
-### About Partners
+### 1. Hackathon Scope Assessment
 
-#### BlockDAG
+- **Well-structured for 5-day delivery**
+  - Focused core loop: Register → Generate Link → Process USDT Payment → Record
+    → Display
+  - Simulated Chainlink Functions verification for future vision
+  - Clear day-by-day implementation plan
 
-A next-generation blockchain protocol enabling high-throughput EVM-compatible
-applications. BlockDAG provides the HackerEarth platform for this Hackathon and
-supports developers building on its Primordial Testnet.
+### 2. Minimal yet Decentralized
 
-#### ETH Canal (by C10N, S.A.)
+- **Core Features**
+  - USDT payment processing
+  - Basic transaction records
+  - Community fund tracking
+  - No complex governance or multi-currency
 
-A Panamanian-led Ethereum ecosystem platform fostering innovation across LATAM
-through education, collaboration, and real-world blockchain adoption.
+- **Decentralized Components**
+  - Permissionless value transfer via USDT on Arbitrum
+  - Immutable transaction records
+  - Transparent fee collection
+  - Chainlink Price Feeds integration
+  - On-chain core logic
 
-#### Innovation Smart District (ISD)
+### 3. Problem-Solution Fit
 
-A catalyst for innovation, combining AI, blockchain, biotech, robotics, and
-gaming into a physical and digital environment to empower global innovation.
+- **Core Pain Points Addressed**
+  - Digital payment acceptance for cash-based businesses
+  - Verifiable financial history for loans/investments
+  - Operational efficiency through automation
+  - Community fund for local development
 
-### Judging Criteria
+### 4. ETH Canal & Panama Relevance
 
-| Criteria                  | Description                                                            | Score (out of 25%) |
-| ------------------------- | ---------------------------------------------------------------------- | ------------------ |
-| Innovation & Originality  | How creative, novel, or unique the project is.                         | 25%                |
-| Technical Execution       | The technical depth and accuracy of the implementation.                | 25%                |
-| Feasibility & Impact      | Practical use-case, potential reach, and real-world impact.            | 25%                |
-| Quality of Presentation   | Clarity and effectiveness in communicating the project.                | 25%                |
-| Testability & Scalability | Potential to test, expand, or scale the project (bonus consideration). | Bonus              |
+- **Blockchain Integration**
+  - Smart contracts on Arbitrum
+  - USDT for USD-based economy
+  - Financial inclusion focus
+  - Community-governed fund
 
-_Judges' decisions are final._
+### 5. Implementation Priorities
 
-### Submission Guidelines
+1. **Core Infrastructure**
+   - Turborepo setup
+   - Convex backend
+   - Next.js frontend
 
-#### Submission Format
+2. **Payment Processing**
+   - Smart contract deployment
+   - USDT integration
+   - Fee collection mechanism
 
-| Deliverable             | Details                                                   |
-| ----------------------- | --------------------------------------------------------- |
-| Demo video              | 3–5 minutes of the working prototype                      |
-| Pitch deck              | Maximum 10 slides explaining the project                  |
-| Team introduction video | Maximum 3 minutes introducing team members                |
-| GitHub repository       | Link to the codebase (open source preferred)              |
-| Optional documentation  | Additional documentation or architecture diagram (if any) |
-
-### System Architecture
-
-```mermaid
-flowchart LR
-    A["Payment Input"] --> B["TuriCash App"]
-    B --> C["Chainlink Function"]
-    C --> D["Payment Validation"]
-    D --> E["Chainlink Data Feed"]
-    E --> F["Currency Conversion"]
-    F --> G["Merchant Wallet"]
-    F --> H["DAO Treasury"]
-    
-    subgraph Payment Types
-        A1["Cash"] --> A
-        A2["Card"] --> A
-        A3["Crypto"] --> A
-    end
-    
-    subgraph Smart Contracts
-        C
-        D
-        E
-        F
-    end
-    
-    subgraph Wallets
-        G
-        H
-    end
-```
-
-### User Experience Flows
-
-#### Merchant Onboarding Flow
-
-```mermaid
-sequenceDiagram
-    participant M as Merchant
-    participant A as TuriCash App
-    participant R as MerchantRegistry
-    participant S as Safe Multisig
-
-    M->>A: Register Business
-    A->>M: Request USDC Stake
-    M->>R: Approve & Stake USDC
-    R-->>M: Confirm Stake
-    R-->>S: Add as Signer (if first merchant)
-    S-->>M: Confirm Signer Status
-    A-->>M: Show Active Status
-```
-
-#### Cash Payment Flow
-
-```mermaid
-sequenceDiagram
-    participant M as Merchant
-    participant A as TuriCash App
-    participant R as MerchantRegistry
-    participant C as Chainlink Function
-    participant W as Wallets
-
-    M->>A: Click "Payment Received"
-    A->>R: Verify isStaked()
-    R-->>A: Confirm Active Status
-    A->>M: Enter Amount
-    M->>A: Submit
-    A->>C: Send Payment Data
-    C->>C: Validate Payment
-    C->>W: Split & Transfer Funds
-    W-->>M: Confirm Receipt
-    W-->>A: Update DAO Fund Display
-```
-
-#### Card Payment Flow (Simulated)
-
-```mermaid
-sequenceDiagram
-    participant C as Customer
-    participant M as Merchant
-    participant A as TuriCash App
-    participant R as MerchantRegistry
-    participant CF as Chainlink Function
-    participant W as Wallets
-
-    M->>A: Generate Payment Link
-    A->>R: Verify isStaked()
-    R-->>A: Confirm Active Status
-    M->>C: Share Link
-    C->>A: Click Link
-    A->>C: Enter Card Details
-    C->>A: Submit Payment
-    A->>CF: Process via Mock API
-    CF->>CF: Validate Payment
-    CF->>W: Split & Transfer Funds
-    W-->>M: Confirm Receipt
-    W-->>A: Update DAO Fund Display
-```
-
-#### International Payment Flow
-
-```mermaid
-sequenceDiagram
-    participant C as Customer
-    participant M as Merchant
-    participant A as TuriCash App
-    participant R as MerchantRegistry
-    participant CF as Chainlink Function
-    participant W as Wallets
-
-    M->>A: Generate Payment Link
-    A->>R: Verify isStaked()
-    R-->>A: Confirm Active Status
-    M->>C: Share Link
-    C->>A: Click Link
-    A->>C: Choose Payment Method
-    Note over C,A: Wallet/Card/Cash
-    C->>A: Complete Payment
-    A->>CF: Process Payment
-    CF->>CF: Validate & Convert
-    CF->>W: Split & Transfer Funds
-    W-->>M: Confirm Receipt
-    W-->>A: Update DAO Fund Display
-```
+3. **User Experience**
+   - Merchant registration
+   - Payment link generation
+   - Transaction dashboard
+   - Community fund display
