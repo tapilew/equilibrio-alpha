@@ -1,468 +1,619 @@
-# 🌎 **TuriCash DAO: Empowering Panama's Tourism Communities**
+# 🌎 **TuriStable Protocol: Borderless Payments for Panama's Tourism**
+
+## To-dos
+
+- [ ] Setup pnpm Turborepo
+- [ ] Setup Convex Next.js (for off-chain data and simplified auth/state
+      management)
+- [ ] Integrate Foundry with Turborepo (for BlockDAG smart contract development)
+- [ ] Practice with a demo Fund Me project
+- [ ] Implement Core Payment Contract MVP
+- [ ] Basic Merchant Dashboard UI
 
 ## 📌 Summary
 
-**TuriCash DAO** is a payment platform designed specifically for Panama's
-tourism communities. We transform how local tourism businesses handle payments
-by enabling them to accept stablecoin payments from international tourists,
-creating verifiable financial records, and building a community fund for local
-tourism development.
+**TuriStable Protocol** provides Panama's tourism SMEs with a
+**smart-contract-enabled dashboard** to seamlessly **manage international
+stablecoin (USDT) payments at a fraction of traditional costs**. By leveraging
+secure, automated on-chain settlement, our platform allows businesses to accept
+USDT from global tourists, eliminating the high fees and integration hassles of
+outdated systems. The free dashboard provides a **verifiable transaction
+history**, enabling **effortless bookkeeping** alongside your existing fiat
+records using tools you already know.
 
-For the ETH Canal hackathon, we're focusing on a minimal viable product that
-demonstrates our core value proposition: enabling Panamanian tourism businesses
-to accept international payments via USDT on BlockDAG, overcoming traditional
-cross-border payment barriers.
-
----
-
-## 🎯 Why Panama's Tourism Communities Need TuriCash
-
-### The International Payment Challenge in Panama
-
-While Panama's tourism sector grows rapidly with over 2 million international
-visitors annually, local businesses face a critical gap between local and
-international payment capabilities:
-
-- **Tour Guides in Bocas del Toro:** While local payments via solutions like
-  Cuanto.app work well, accepting advance payments from international tourists
-  remains challenging. Traditional card processors often reject international
-  transactions or charge exorbitant fees (5-7%).
-- **Artisans in Casco Viejo:** Local digital payment solutions serve domestic
-  customers, but international tourists face high foreign transaction fees and
-  currency conversion costs when using cards.
-- **Small Hotels in Boquete:** While local payment links work for domestic
-  bookings, international guests often cancel when faced with high international
-  card processing fees or complex bank transfer requirements.
-- **Restaurants in Panama City:** Local payment solutions don't address the core
-  challenge of accepting international payments efficiently, leaving businesses
-  to rely on cash from tourists who carry it.
-
-### The Payment Infrastructure Gap
-
-Panama's tourism businesses operate in a bifurcated payment environment:
-
-- **Local vs International:** While local payment solutions (like Cuanto.app)
-  have improved domestic transactions, they don't solve the specific challenges
-  of international payments:
-  - High international card processing fees (5-7% vs 1.8% with TuriCash)
-  - Complex cross-border bank transfer requirements
-  - Limited access to international payment networks
-  - Currency conversion costs and delays
-
-- **Lost International Opportunities:** The inability to accept international
-  payments efficiently leads to:
-  - Missed advance bookings from international tourists
-  - Reduced competitiveness against larger hotels with international payment
-    capabilities
-  - Limited access to international tourism platforms
-  - Cash dependency for international transactions
-
-- **Verification Challenges:** Without proper international payment records:
-  - No verifiable income history for international transactions
-  - Difficulty proving international business activity to lenders
-  - Limited ability to scale international tourism operations
-  - Missing data for international market analysis
-
-### The Cash Management Problem
-
-Tourism businesses in Panama operate in a cash-heavy environment, creating
-significant challenges:
-
-- **Lost Opportunities:** No digital records mean no access to business loans.
-  Traditional lenders require 2-3 years of bank statements, which cash-only
-  businesses can't provide.
-- **Limited Growth:** Can't prove income for expansion or partnerships with
-  larger tourism operators.
-- **Operational Inefficiency:** Manual cash tracking consumes valuable time that
-  could be spent on business development.
-- **Market Visibility:** Stay invisible to digital tourism platforms that
-  require integrated payment solutions.
+Our ETH Canal MVP demonstrates this core value: a simple, free dashboard
+allowing Panamanian tourism SMEs to generate payment links, track incoming USDT
+payments processed via a low-fee BlockDAG smart contract, and export transaction
+data—making **stablecoin** payments accessible, manageable, and profitable.
 
 ---
 
-## 💡 The TuriCash Solution (Hackathon MVP)
+## 💸 Lean Treasury Management & UX (MVP)
 
-For the ETH Canal hackathon, we're focusing on a minimal viable product that
-demonstrates our core value proposition: enabling Panamanian tourism businesses
-to accept international payments via USDT on BlockDAG, overcoming traditional
-cross-border payment barriers.
+Our MVP approaches treasury management with a focus on **simplicity, control,
+and integration with existing workflows**, providing an excellent UX for tourism
+SMEs new to crypto:
 
-### 1. International USDT Payment Acceptance
+1. **Direct Merchant Control (Crypto):**
+   - **How it works:** Businesses receive USDT directly into their **own
+     self-custody crypto wallets** (e.g., MetaMask, Trust Wallet). **TuriStable
+     Protocol** _never_ holds merchant funds.
+   - **UX Advantage:** This provides maximum **security and control** to the
+     merchant, eliminating platform risk and aligning with crypto best
+     practices. It keeps the **TuriStable** interface simple, focused only on
+     facilitating payments.
 
-- **Global Payment Access:** Direct USDT acceptance from any international
-  tourist with a crypto wallet
-- **Lower Fees:** 1.8% transaction fee vs 5-7% for international card processing
-- **No Cross-Border Complexity:** Eliminates traditional international payment
-  hurdles:
-  - No international card processing requirements
-  - No complex bank transfer setups
-  - No currency conversion delays
-  - No international payment network dependencies
-- Simple merchant registration with basic verification
-- One-click payment link generation for international customers
-- Atomic transaction recording on BlockDAG
+2. **Clear Crypto Income Tracking:**
+   - **How it works:** The **TuriStable** dashboard provides a **real-time,
+     clear history** of all USDT payments received through the protocol,
+     including amounts, timestamps, and optional references (like booking IDs).
+   - **UX Advantage:** Merchants can instantly see their **stablecoin** income
+     stream without needing to manually check their wallet or block explorers.
 
-### 2. Verifiable International Financial History
+3. **Flexible Fiat Reconciliation (Manual via CSV):**
+   - **How it works:** The dashboard allows merchants to **export their crypto
+     transaction history as a standard CSV file.**
+   - **UX Advantage:** This empowers businesses to use **tools they already
+     know** (Excel, Google Sheets, accounting software) to track crypto
+     alongside their existing fiat records. It avoids forcing users into a
+     complex, unfamiliar integrated system and provides maximum **flexibility
+     for their specific accounting needs.**
 
-- On-chain transaction recording on BlockDAG
-- Basic dashboard with international transaction tracking
-- Exportable records for international business activity
-- Transparent history for international tourism platforms
+**What the MVP Does NOT Include:**
 
-### 3. Community Fund
+- **Direct Fiat Management:** The protocol does not connect to bank accounts or
+  manage fiat currency.
+- **Automated Reconciliation:** Syncing crypto transactions with fiat bank
+  statements is a manual process using the CSV export.
+- **Built-in Off-Ramping:** Converting USDT to fiat is handled outside the
+  protocol (see Post-Hackathon Focus).
 
-- 1.8% transaction fee handling (significantly lower than international card
-  processing)
-- Basic fund balance tracking
-- Secure atomic fee collection via smart contract
-- Transparent fee distribution and tracking
-
-### 4. Future Vision: Community Development Program
-
-> _Note: The following features are planned for post-hackathon development, not
-> part of the 5-day MVP._
-
-- **Local Tourism Development**
-  - Infrastructure improvements for tourism areas
-  - Training and education programs for local businesses
-  - Marketing support for small tourism operators
-  - Sustainable tourism initiatives
-
-- **Fund Allocation**
-  - Community-driven proposal system
-  - Transparent voting mechanism for fund usage
-  - Priority for local development projects
-  - Support for small business growth initiatives
-
-- **Governance Structure**
-  - Local business representation in decision-making
-  - Community-driven fund management
-  - Regular reporting and accountability
-  - Measurable impact tracking
-
-### User Experience Flow (MVP)
-
-```mermaid
-sequenceDiagram
-    participant M as Merchant
-    participant A as TuriCash App
-    participant CV as Convex
-    participant SC as Smart Contract
-    participant BD as BlockDAG
-    
-    M->>A: Register Business
-    A->>CV: Verify Merchant (Simulated)
-    CV-->>A: Verification Result
-    A->>CV: Store Merchant Info
-    CV-->>M: Confirm Registration
-    M->>A: Generate USDT Payment Link
-    A->>M: Share Link with Customer
-    Note over M,A: Customer pays with USDT
-    A->>SC: Process Payment & Collect Fee
-    SC->>M: Transfer Merchant Amount
-    SC->>SC: Hold Fee in Contract
-    SC->>BD: Record Transaction on BlockDAG
-    SC->>CV: Record Transaction
-    CV-->>M: Generate Receipt
-    A-->>M: Update Dashboard
-```
-
-### Detailed System Flows
-
-#### 1. Merchant Registration Flow
-
-```mermaid
-sequenceDiagram
-    participant M as Merchant
-    participant A as TuriCash App
-    participant CV as Convex Backend
-    
-    M->>A: Navigate to Registration Page
-    A->>M: Display Registration Form
-    M->>A: Submit Business Details
-    A->>CV: Send Registration Request
-    CV->>CV: Perform Simulated Verification
-    CV-->>A: Return Verification Result
-    CV->>CV: Store Merchant Information
-    A-->>M: Display Registration Success
-    A->>M: Redirect to Dashboard
-```
-
-#### 2. Payment Link Generation Flow
-
-```mermaid
-sequenceDiagram
-    participant M as Merchant
-    participant A as TuriCash App
-    participant CV as Convex Backend
-    participant C as Customer
-    
-    M->>A: Navigate to Payment Link Section
-    A->>M: Display Link Generation Form
-    M->>A: Input USDT Amount
-    A->>CV: Verify Merchant Status
-    CV-->>A: Confirm Merchant Active
-    A->>A: Generate Payment Link
-    A->>M: Display Generated Link
-    M->>C: Share Link (External)
-```
-
-#### 3. Customer Payment Processing Flow
-
-```mermaid
-sequenceDiagram
-    participant C as Customer
-    participant A as TuriCash App
-    participant Wallet as Customer's BlockDAG Wallet
-    participant SC as Smart Contract
-    participant USDT as USDT ERC20 Contract
-    participant BD as BlockDAG Blockchain
-    
-    C->>A: Click Payment Link
-    A->>C: Display Payment Details
-    A->>C: Request Wallet Connection
-    C->>Wallet: Connect Wallet
-    Wallet-->>A: Connection Confirmed
-    A->>Wallet: Request USDT Approval
-    C->>Wallet: Confirm USDT Approval
-    Wallet->>USDT: Approve SC to spend USDT
-    USDT-->>Wallet: Approval Confirmed
-    A->>Wallet: Request Payment Execution
-    C->>Wallet: Confirm Payment
-    Wallet->>SC: Call processPayment()
-    SC->>USDT: transferFrom(Customer, amount)
-    SC->>USDT: transfer(Merchant, netAmount)
-    SC->>SC: Hold Fee Amount
-    SC->>BD: Emit PaymentProcessed Event
-    BD-->>A: Event Detected
-    A->>C: Display Payment Success
-```
-
-#### 4. Backend Update & Merchant Dashboard Flow
-
-```mermaid
-sequenceDiagram
-    participant SC as Smart Contract
-    participant BD as BlockDAG Blockchain
-    participant CV as Convex Backend
-    participant M as Merchant
-    participant A as TuriCash App
-    
-    SC->>BD: Emit PaymentProcessed Event
-    CV->>BD: Listen for Events
-    CV->>CV: Detect New Payment Event
-    CV->>CV: Parse Event Data
-    CV->>CV: Update Transaction Database
-    M->>A: Access Dashboard
-    A->>CV: Request Transaction History
-    A->>CV: Request Fund Balance
-    CV-->>A: Return Updated Data
-    A->>M: Display Transaction History
-    A->>M: Display Fund Balance
-```
+By keeping the MVP lean and focused, we provide a non-intimidating entry point
+into **stablecoin** payments, giving businesses full control over their funds
+and the flexibility to integrate crypto tracking into their existing financial
+workflows.
 
 ---
 
-## 📦 Hackathon MVP Scope (5 Days)
+## 🎯 Why Panama's Tourism SMEs Are Underserved
 
-### Day 1: Foundation
+### The Crippling Cost of International Payments
 
-- Set up project structure
-- Implement basic merchant registration
-- Create simple UI for merchant dashboard
-- Focus on Turborepo structure and Convex project setup
+Panama's vibrant tourism sector attracts millions of international visitors.
+Yet, the local SMEs who form the backbone of this industry – hotels, guides,
+artisans – struggle with outdated and costly international payment methods:
 
-### Day 2: Core Backend & Link Generation
+- **Local Payment Apps (e.g., Cuanto.app):** Great for domestic payments, but
+  fail when tourists need to pay _in advance_ or settle internationally,
+  especially with **stablecoins**.
+- **Exorbitant Card Fees:** International cards often incur **5-7% fees**, plus
+  higher rejection rates and multi-day settlement delays, directly eroding SME
+  profit margins.
+- **Slow & Costly Bank Transfers:** International wire transfers are impractical
+  for typical tourism transaction sizes due to complexity and high fees.
+- **Cash Limitations:** Reliance on cash blocks advance bookings, creates
+  security risks, and leaves **no digital footprint** for business growth
+  (loans, partnerships).
 
-- Implement Convex mutations for merchant registration
-- Create payment link generation system
-- Set up basic transaction recording
-- Implement frontend logic for payment flow
+This friction translates directly to **lost bookings, reduced competitiveness,
+operational headaches, and stunted growth**. As noted by Goldberg & Harris
+(2023), the borderless payments market remains fragmented, leaving crucial niche
+players like Panama's tourism SMEs behind.
 
-### Day 3: Smart Contract & BlockDAG Integration
+### The TuriStable Protocol Advantage: Boost Profits, Simplify Operations
 
-- Deploy core payment processing contract on BlockDAG
-- Connect frontend to smart contract
-- Implement USDT approval and payment flow
-- Test transaction processing on BlockDAG testnet
+**TuriStable Protocol** cuts through the complexity and cost, offering a
+powerful, business-friendly alternative:
 
-### Day 4: Dashboard & Event Processing
+- **Unlock Global Stablecoin Payments via Free Dashboard:** Seamlessly accept
+  USDT from international tourists using simple payment links generated from
+  your **free dashboard**.
+- **Slash Fees Dramatically:** Our lean protocol ensures a minimal 1.8% fee
+  **only on successful USDT payments**, a fraction of the 5-7% international
+  card rates, directly **boosting your bottom line**.
+- **Get Paid Instantly:** Near-instant settlement means **stablecoin** funds
+  appear quickly, visible in your dashboard, improving cash flow.
+- **Simplify Bookkeeping—For Free:** The dashboard provides an immutable, **free
+  exportable history** (CSV) of all crypto transactions, making reconciliation
+  with your existing fiat records straightforward using tools you already own.
+- **Effortless Stablecoin Management:** Our user-friendly dashboard makes
+  payment tracking intuitive, even if you're new to crypto. **No costly training
+  or complex software needed.**
 
-- Set up Convex event listeners for payments
-- Build transaction history view
-- Implement community fund display
-- Create merchant analytics dashboard
+### The "Why Now?" Opportunity: Timing is Everything
 
-### Day 5: Testing & Refinement
+Launching a lean, effective solution is feasible _now_ because:
 
-- End-to-end testing
-- Bug fixes and refinements
-- Prepare demo presentation
-- Document next steps and future enhancements
+1. **Stablecoins are Mainstream:** USDT is globally accessible, understood, and
+   trusted for transactions.
+2. **Next-Gen Infrastructure:** BlockDAG technology _potentially_ offers the
+   speed and low cost needed for high-volume, small-value tourism payments.
+3. **Rapid Development Tools:** Modern frameworks (Next.js, Convex) allow a
+   small, agile team to build and deploy the core infrastructure quickly.
+
+---
+
+## 💵 Risk-Free Adoption: Free Tools, Pay-Only-for-Value
+
+We believe adopting new payment methods shouldn't be costly or complicated.
+**TuriStable Protocol** is designed to be a **no-brainer** for your business:
+
+- **Use Your Existing Tools—For Free:** Our dashboard and CSV export features
+  are **completely free**. Integrate your crypto payment records with Excel,
+  Google Sheets, QuickBooks, or any tool you already use, **at no extra cost.**
+  No integration fees, ever.
+- **Only Pay When You Get Paid:** The _only_ charge is a small, transparent
+  protocol fee (e.g., 1.8%) automatically applied **only when you successfully
+  receive a USDT payment** via the smart contract. No subscriptions, no setup
+  fees, no hidden costs.
+- **Zero Lock-In:** You're never forced into a closed system. Keep using the
+  business tools you love, and benefit from low-cost, secure **stablecoin**
+  payments.
+
+**This makes TuriStable Protocol the most accessible, cost-effective, and
+flexible way for your tourism business to start accepting global stablecoin
+payments today.**
+
+---
+
+## 💡 The TuriStable Protocol Solution: Core Infrastructure MVP
+
+Our ETH Canal MVP delivers the essential **low-fee smart contract settlement
+layer** paired with a **free, functional dashboard** to manage **stablecoin**
+payments and simplify bookkeeping.
+
+### 1. Seamless International USDT Acceptance via Dashboard
+
+- **Purpose-Built for USDT:** Operates on an EVM-compatible BlockDAG network,
+  powering the dashboard's backend.
+- **Effortless Payment Requests:** Generate simple payment links/QR codes
+  directly from the dashboard.
+- **Low, Transparent Fee:** A minimal 1.8% protocol fee, handled atomically by
+  the smart contract and clearly displayed.
+- **Eliminate Traditional Friction:** Bypass costly card networks and slow banks
+  for payment _acceptance_.
+- **Simplified Merchant Onboarding:** Fast registration process to access the
+  dashboard.
+
+### 2. Free Dashboard for Verifiable History & Bookkeeping
+
+- **Tamper-Proof Ledger:** Smart contract events feed the **free dashboard**,
+  ensuring an immutable transaction record.
+- **Accessible Records:** The dashboard displays a clear history of USDT
+  payments at **no cost**.
+- **Foundation for Bookkeeping:** **Free exportable CSV data** allows easy
+  integration of crypto transactions into existing fiat accounting workflows
+  using your preferred tools.
+
+### 3. Foundational Community Fund Mechanism
+
+- **Protocol Fee:** 1.8% fee automatically collected by the smart contract
+  during payment.
+- **Secure Holding:** Fees held in the contract, withdrawable only by the
+  contract owner (MVP scope).
+- **Transparency:** Fee collection is visible on-chain.
+  - _Future Vision:_ Post-hackathon, explore decentralized governance models for
+    fund allocation towards local tourism development, truly realizing the
+    "community" aspect once the core protocol is stable and adopted. This aligns
+    with the "Protocol" focus first.
+
+### 4. Addressing the Off-Ramp Challenge (Post-Hackathon Focus)
+
+We recognize that _accepting_ USDT is only the first step. Enabling SMEs to
+easily convert USDT to their local currency (USD/PAB) is crucial for long-term
+adoption. While _out of scope for the 5-day hackathon_, future strategies
+include:
+
+- **Partnerships:** Integrating with local/regional crypto exchanges operating
+  in Panama.
+- **P2P Integration:** Facilitating connections to P2P platforms for direct
+  USDT-to-fiat exchange.
+- **Debit Card Solutions:** Exploring partnerships with **stablecoin** debit
+  card providers (longer-term).
+- **B2B Utility:** Enabling payments between businesses within the
+  **TuriStable** ecosystem using USDT.
+
+Our MVP focuses on solving the _immediate_ pain point of **international
+stablecoin payment acceptance and record-keeping**, providing tangible value
+while laying the groundwork for these future off-ramp solutions.
+
+### User Experience Flow
+
+Designed for merchants potentially unfamiliar with crypto, prioritizing
+ease-of-use and clarity:
+
+```mermaid
+sequenceDiagram
+    participant SME as Merchant (SME)
+    participant TSApp as TuriStable App
+    participant ConvexBackend
+    participant TStableContract as TuriStable Payment Contract
+    participant BlockDAGNetwork
+    participant Tourist as Customer (Tourist)
+    participant Wallet as Customer's Wallet
+
+    activate SME
+    SME->>TSApp: Register Business (Minimal Info)
+    activate TSApp
+    TSApp->>ConvexBackend: Store Merchant Info (Simulated Verification)
+    activate ConvexBackend
+    ConvexBackend-->>TSApp: Confirm Registration
+    deactivate ConvexBackend
+    TSApp-->>SME: Access Simple Dashboard
+    deactivate TSApp
+
+    SME->>TSApp: Request Payment Link (Enter Amount in USDT)
+    activate TSApp
+    TSApp->>TSApp: Generate Unique Link/QR Code
+    TSApp-->>SME: Display Link/QR Code
+    deactivate TSApp
+    SME->>Tourist: Share Link (e.g., via WhatsApp, Email, on Website)
+    deactivate SME
+
+    activate Tourist
+    Tourist->>Wallet: Click Link / Scan QR
+    activate Wallet
+    Wallet->>TSApp: Fetch Payment Details (Amount, Merchant Address from Link)
+    activate TSApp
+    TSApp-->>Wallet: Display Clear Payment Request (Amount USDT to Merchant X)
+    deactivate TSApp
+    Tourist->>Wallet: Approve USDT Transfer to Smart Contract
+    Wallet->>TStableContract: Call processPayment(merchantAddress, amount)
+    activate TStableContract
+    Note right of TStableContract: Fee (1.8%) retained, <br/>Net amount sent to Merchant
+    TStableContract->>TStableContract: USDT transferFrom(Customer, Contract, amount)
+    TStableContract->>TStableContract: USDT transfer(Merchant, netAmount)
+    TStableContract->>BlockDAGNetwork: Emit PaymentProcessed Event
+    activate BlockDAGNetwork
+    BlockDAGNetwork-->>TStableContract: Event Emitted
+    deactivate BlockDAGNetwork
+    TStableContract-->>Wallet: Transaction Success
+    deactivate TStableContract
+
+    activate ConvexBackend
+    Note right of ConvexBackend: Listens for on-chain <br/> events, updates DB
+    ConvexBackend->>ConvexBackend: Detect PaymentProcessed Event
+    ConvexBackend->>ConvexBackend: Update Merchant's Tx History in DB
+    ConvexBackend-->>TSApp: (Real-time update or on refresh)
+    deactivate ConvexBackend
+
+    Wallet-->>Tourist: Show Transaction Success / Receipt
+    deactivate Wallet
+    deactivate Tourist
+
+    activate TSApp
+    activate SME
+    TSApp-->>SME: Update Dashboard (Show New Tx, Updated Balance)
+    deactivate TSApp
+    deactivate SME
+```
+
+### Practical SME Usage Examples
+
+1. **Small Hotel (Boquete):** Places a "Pay Deposit with Crypto (USDT)" button
+   using a **TuriStable** link on their booking confirmation page. Guest pays 50
+   USDT deposit instantly. Hotel avoids 5-7% card fee and gets immediate
+   confirmation.
+2. **Tour Guide (Bocas del Toro):** After agreeing on a $100 tour via WhatsApp,
+   sends a **TuriStable** link: `turistable.app/pay/guide123?amount=100`.
+   Tourist clicks, pays 100 USDT. Guide avoids cash risks and has a digital
+   record.
+3. **Artisan (Casco Viejo):** Displays a simple laminated card with a QR code
+   generated by the **TuriStable App** next to their crafts. A tourist buying a
+   $20 item scans the code, confirms the 20 USDT payment on their phone wallet.
+   Fast, easy, low fee.
+
+---
+
+## 🎨 Tourism-Focused UX/UI Design
+
+We're focusing on the most essential UX/UI elements that deliver immediate value
+to Panama's tourism businesses while remaining feasible for a junior team.
+
+### Core MVP Features
+
+#### 1. **Simple Payment Link Generation**
+
+- **Basic Functionality:** Generate a unique payment link with a specified USDT
+  amount
+- **Copy & Share:** One-click copy to clipboard for sharing via WhatsApp, email,
+  or other channels
+- **QR Code Display:** Visual QR code that can be displayed on screen or printed
+
+#### 2. **Minimal Dashboard**
+
+- **Transaction History:** Simple list view of recent **stablecoin** payments
+  with status indicators
+- **Basic Search:** Filter transactions by date range
+- **CSV Export:** Download transaction data in standard CSV format for
+  accounting
+
+### Tourism-Specific Considerations
+
+- **Mobile-Responsive Design:** Works well on phones and tablets for on-the-go
+  use
+- **Clear Status Indicators:** Visual confirmation of payment status (pending,
+  completed)
+- **Reference Field:** Optional field to add booking IDs or customer names to
+  payments
+
+### Future Enhancements (Post-MVP)
+
+While the MVP focuses on core functionality, future versions will include:
+
+- Multilingual support (Spanish/English)
+- More advanced analytics and reporting
+- Deeper integrations with booking platforms and POS systems
+- Customizable payment pages and branding
+
+---
+
+## ⛓️ BlockDAG Technology Choice
+
+For this hackathon, we propose building on an EVM-compatible **BlockDAG**
+network. BlockDAGs (Directed Acyclic Graphs) represent a different ledger
+structure compared to traditional linear blockchains.
+
+**Potential Advantages:**
+
+- **Higher Throughput & Scalability:** BlockDAGs can potentially process
+  transactions in parallel by allowing blocks to reference multiple
+  predecessors, aiming to overcome the sequential bottleneck of blockchains.
+  This could lead to faster confirmation times and lower fees, crucial for SME
+  **stablecoin** payments.
+  ([Woolypooly, 2023](https://woolypooly.com/en/blog/blockdag-vs-blockchain))
+- **Efficiency:** May require fewer confirmations for finality compared to some
+  PoW chains.
+  ([Woolypooly, 2023](https://woolypooly.com/en/blog/blockdag-vs-blockchain))
+
+**Potential Disadvantages/Considerations:**
+
+- **Maturity & Security Model:** Being a newer technology, BlockDAGs have less
+  real-world testing compared to established blockchains like Ethereum. Security
+  models and consensus mechanisms (e.g., GHOSTDAG used by Kaspa) are more
+  complex and less battle-hardened.
+  ([Woolypooly, 2023](https://woolypooly.com/en/blog/blockdag-vs-blockchain))
+- **Tooling & Ecosystem:** Developer tooling, oracle support (like Chainlink),
+  and the surrounding ecosystem might be less mature than on established
+  L1s/L2s, requiring more foundational work or workarounds during development
+  (relevant for the non-availability of Chainlink).
+
+**Decision for Hackathon:** Using BlockDAG allows us to explore potentially
+cutting-edge infrastructure aligned with the theme of leveraging new technology
+("Why Now?") for faster, cheaper payments, while acknowledging the tradeoffs in
+maturity for the MVP context. We assume basic EVM compatibility for standard
+Solidity development.
+
+---
+
+## 📦 Hackathon MVP Scope (5 Days - Lean & Focused)
+
+Designed for feasibility with a junior team within 5 days.
+
+- **Day 1: Foundation & Setup:** Turborepo structure, Next.js app shell, Convex
+  backend setup, basic BlockDAG project setup (Foundry). Define core data
+  models.
+- **Day 2: Core Contract Logic:** Implement `TuriStableMVP` smart contract in
+  Solidity (USDT transfer, atomic fee, event emission). Basic testing with
+  Foundry. Focus on security fundamentals (see _Smart Contract Implementation_).
+- **Day 3: Backend Integration:** Deploy contract to BlockDAG testnet. Set up
+  Convex functions for simulated merchant verification, storing merchant data,
+  and listening/ingesting `PaymentProcessed` events from the contract.
+- **Day 4: Frontend MVP & UX:** Build minimal Next.js frontend: Merchant
+  registration/login (using Convex auth), simple dashboard to display
+  transaction history (from Convex DB), implement payment link/QR code
+  generation logic.
+- **Day 5: E2E Testing & Polish:** Connect frontend payment initiation to wallet
+  interaction (e.g., via ethers.js/viem). Test the full flow: Register ->
+  Generate Link -> Pay (via wallet) -> See History Updated. Bug fixing, basic
+  styling, prepare demo.
 
 ---
 
 ## 🔄 Price Feed Implementation Roadmap
 
-Our approach to price feeds balances immediate MVP needs with long-term
-decentralization goals:
+Addressing price display requires careful consideration, especially without
+oracles on the target BlockDAG for the MVP.
 
-### Phase 1: MVP (Days 1-5)
-
-- **Simple 1:1 USDT/USD Display**
-  - Assume USDT/USD parity for UI display
-  - Clear UI indicators showing "Demo Mode" pricing
-  - No price feed dependency for core payment functionality
-  - Focus on demonstrating core payment flow
-
-### Phase 2: Centralized Backend (Week 1-2)
-
-- **Convex Price Service**
-  ```typescript
-  // convex/price.ts
-  export const getUSDTPrice = async () => {
-    const response = await fetch(
-      "https://api.coingecko.com/api/v3/simple/price?ids=tether&vs_currencies=usd",
-    );
-    const data = await response.json();
-    return data.tether.usd;
-  };
-  ```
-- Cached price updates (5-minute intervals)
-- Fallback mechanisms for API failures
-- Transparent price source attribution
-- Historical price tracking for analytics
-
-### Phase 3: Hybrid Oracle (Week 3-4)
-
-- **Multi-Source Price Aggregation**
-  - Chainlink Price Feeds on Arbitrum (primary)
-  - CoinGecko API (secondary)
-  - On-chain price validation
-  - Automated source switching based on reliability
-  ```solidity
-  // contracts/PriceOracle.sol
-  contract PriceOracle {
-      struct PriceData {
-          uint256 price;
-          uint256 timestamp;
-          string source;
-      }
-      
-      mapping(address => PriceData[]) public priceHistory;
-      
-      function updatePrice(uint256 _price, string memory _source) external {
-          // Store price with source attribution
-      }
-  }
-  ```
-
-### Phase 4: Full Decentralization (Month 2+)
-
-- **Chainlink Integration on BlockDAG**
-  - Direct Chainlink Price Feeds when available
-  - Cross-chain price verification
-  - Decentralized price aggregation
-  - Community-governed price source selection
-  ```solidity
-  // Future: contracts/DecentralizedOracle.sol
-  contract DecentralizedOracle {
-      // Chainlink integration
-      // Community governance
-      // Cross-chain verification
-  }
-  ```
-
-### Decentralization Considerations
-
-- **MVP Phase**: Focus on core payment functionality
-- **Short-term**: Centralized price service with transparency
-- **Medium-term**: Hybrid approach with multiple sources
-- **Long-term**: Full Chainlink integration on BlockDAG
-
-### Security Measures
-
-- Price deviation monitoring
-- Automated alerts for anomalies
-- Fallback mechanisms at each phase
-- Clear documentation of current phase
+- **Phase 1: MVP (Hackathon - Day 1-5):**
+  - **Strictly USDT:** All amounts are requested, paid, recorded, and displayed
+    _only_ in USDT.
+  - **No USD Equivalent:** The UI will **not** display any USD equivalent price
+    during the hackathon MVP to avoid reliance on external price feeds or
+    implying a fixed 1:1 peg. Merchants define the price in USDT, customers pay
+    in USDT. This simplifies the MVP significantly and avoids needing unreliable
+    hardcoded values or unavailable oracles.
+- **Phase 2: Post-Hackathon (Centralized Price Hint):** Introduce a
+  _display-only_ approximate USD value fetched via a centralized API (e.g.,
+  CoinGecko) in the Convex backend, clearly labeled as indicative.
+- **Phase 3 onwards:** Evaluate oracle availability on the chosen BlockDAG or
+  implement more robust multi-source centralized fetching with caching and
+  failovers.
 
 ---
 
-## 🔒 Decentralization Value Proposition
+## 🔒 Smart Contract Implementation (MVP)
 
-TuriCash DAO offers several distinct decentralization benefits compared to
-traditional fintech solutions:
+The core logic resides in a simple, secure Solidity smart contract on the
+BlockDAG network.
 
-### 1. Permissionless Access to Global Payments
+```solidity
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.20;
 
-- Any Panamanian merchant with an internet connection and a crypto wallet can
-  register
-- No approval from traditional banks or complex cross-border setup requirements
-- Transactions are peer-to-peer (customer wallet to merchant/contract)
+import "@openzeppelin/contracts/token/ERC20/IERC20.sol";
+import "@openzeppelin/contracts/access/Ownable.sol";
+// Note: ReentrancyGuard might be overkill for this simple transfer but good practice.
+// Using Checks-Effects-Interactions pattern is crucial.
+import "@openzeppelin/contracts/utils/ReentrancyGuard.sol"; // Using OpenZeppelin's implementation
 
-### 2. Immutable & Verifiable Transaction Records
+contract TuriStableMVP is Ownable, ReentrancyGuard { // Inherit Ownable and ReentrancyGuard
+    IERC20 public immutable usdt;
+    uint256 public constant FEE_BPS = 180; // 1.8% (180 / 10000)
+    uint256 public constant MAX_FEE_BPS = 1000; // Max fee 10% sanity check
+    mapping(address => bool) public isVerifiedMerchant; // Only verified merchants can receive funds
 
-- Tamper-proof, publicly verifiable ledger of payment activity on BlockDAG
-- Provable financial history that merchants can leverage for loans or
-  partnerships
-- Blockchain immutability ensures records cannot be altered or deleted
+    event PaymentProcessed(
+        address indexed merchant,
+        address indexed customer,
+        uint256 amountPaid, // Total USDT transferred by customer
+        uint256 feeCollected, // Fee kept by the protocol
+        uint256 merchantAmount, // Amount sent to the merchant
+        uint256 timestamp
+    );
 
-### 3. Transparent & Secure Community Fund Holding
+    // Simple single owner for MVP, potentially upgradeable later
+    constructor(address _usdtAddress, address initialOwner) Ownable(initialOwner) {
+        require(_usdtAddress != address(0), "Invalid USDT address");
+        usdt = IERC20(_usdtAddress);
+        require(FEE_BPS <= MAX_FEE_BPS, "Fee too high");
+    }
 
-- 1.8% fee collected atomically during payment processing
-- Smart contract automatically deducts and holds fees
-- Funds are secured by reentrancy protection and access controls
-- Transparent on-chain tracking of all fees collected
-- Only authorized owner can withdraw fees (MVP phase)
-- Complete audit trail of fee collection and distribution
+    // Function for the customer's wallet to call
+    // Customer must have pre-approved the contract to spend 'amount' USDT
+    function processPayment(address merchant, uint256 amount) external nonReentrant { // Added nonReentrant modifier
+        // --- Checks ---
+        require(isVerifiedMerchant[merchant], "Merchant not verified");
+        require(amount > 0, "Amount must be positive");
 
-### 4. Reduced Platform Risk (at Core Layers)
+        uint256 fee = (amount * FEE_BPS) / 10000;
+        require(fee < amount, "Fee calculation overflow"); // Sanity check
+        uint256 merchantAmount = amount - fee;
 
-- Core payment rails (USDT on BlockDAG) and record-keeping ledger are
-  decentralized
-- Atomic transactions ensure fees are always collected
-- If the TuriCash frontend/backend went offline, the underlying payment
-  capability and historical record persist
-- Merchants aren't solely reliant on TuriCash's servers for core value transfer
-  and record integrity
+        // --- Effects ---
+        // Note: Event emitted after transfers, adhering to Checks-Effects-Interactions
+
+        // --- Interactions ---
+        // 1. Pull total amount from customer (requires prior approval)
+        uint256 beforeBalance = usdt.balanceOf(address(this));
+        usdt.transferFrom(msg.sender, address(this), amount);
+        uint256 afterBalance = usdt.balanceOf(address(this));
+        require(afterBalance == beforeBalance + amount, "USDT transferFrom failed"); // Verify transfer worked
+
+
+        // 2. Push net amount to merchant
+        usdt.transfer(merchant, merchantAmount);
+
+        // 3. Fee remains in the contract address
+
+        // --- Emit Event ---
+        emit PaymentProcessed(
+            merchant,
+            msg.sender, // customer
+            amount,
+            fee,
+            merchantAmount,
+            block.timestamp
+        );
+    }
+
+    // Function for the owner to withdraw collected fees
+    function withdrawFees(address recipient, uint256 amount) external onlyOwner { // Only owner can call
+        require(recipient != address(0), "Invalid recipient");
+        uint256 currentBalance = usdt.balanceOf(address(this));
+        require(amount <= currentBalance, "Insufficient fee balance");
+        require(amount > 0, "Amount must be positive");
+
+        usdt.transfer(recipient, amount);
+    }
+
+    // Function for the owner to manage merchant verification status
+    function setMerchantVerification(address merchant, bool status) external onlyOwner { // Only owner can call
+        require(merchant != address(0), "Invalid merchant address");
+        isVerifiedMerchant[merchant] = status;
+    }
+
+    // Optional: Function for owner to change fee (within limits)
+    // function setFeeBps(uint256 _newFeeBps) external onlyOwner {
+    //     require(_newFeeBps <= MAX_FEE_BPS, "New fee exceeds max");
+    //     FEE_BPS = _newFeeBps; // Note: This modifies the constant - needs rework if mutable fee needed
+    // }
+    // --> For MVP, keeping FEE_BPS constant is safer and simpler.
+}
+```
+
+**Key MVP Security Considerations:**
+
+- **Input Validation:** `require` statements check for valid addresses, positive
+  amounts, and merchant verification.
+- **Reentrancy Protection:** Using OpenZeppelin's `ReentrancyGuard`
+  (`nonReentrant` modifier) on the `processPayment` function prevents
+  re-entrancy attacks.
+- **Checks-Effects-Interactions Pattern:** Ensure state changes (`Effects`) are
+  made logically before external calls (`Interactions`), although in this simple
+  case, transfers are the main interactions. Event emission follows
+  interactions.
+- **Use Established Libraries:** Leveraging OpenZeppelin `Ownable`,
+  `ReentrancyGuard`, `IERC20` for battle-tested components.
+- **Ownership Control:** Fee withdrawal and merchant verification are restricted
+  to the `owner` (deployer or designated address) for MVP simplicity.
+- **Integer Overflow/Underflow:** Using Solidity ^0.8.0 provides default
+  protection. Added explicit check for fee calculation.
+- **Test Thoroughly:** Use Foundry for unit and integration testing, covering
+  edge cases.
+
+---
+
+## 🛡️ Core Protocol Value Proposition
+
+**TuriStable Protocol** offers key advantages over traditional systems by
+leveraging decentralized infrastructure:
+
+1. **Permissionless Access to International Stablecoin Payments:** Any verified
+   Panamanian tourism SME can receive USDT payments globally without needing
+   complex setups with traditional banks or processors.
+2. **Immutable & Verifiable Records:** BlockDAG provides a tamper-proof ledger,
+   giving SMEs a reliable history of international **stablecoin** transactions
+   they can potentially use for accessing credit or partnerships.
+3. **Transparent & Atomic Fee Collection:** The 1.8% protocol fee is handled
+   transparently and securely by the smart contract during the payment itself.
+4. **Reduced Platform Risk:** The core settlement logic lives on-chain. Even if
+   the **TuriStable App** frontend/backend experience downtime, the ability to
+   receive payments (if the merchant address is known) and the historical record
+   persist on the BlockDAG.
 
 ---
 
 ## 👥 Panama-Specific Use Cases
 
-| User Type   | Location       | Key Benefit                                                         |
-| ----------- | -------------- | ------------------------------------------------------------------- |
-| Tour Guide  | Bocas del Toro | Accept advance USDT payments from international tourists            |
-| Artisan     | Casco Viejo    | Receive digital payments from tourists who prefer not to carry cash |
-| Small Hotel | Boquete        | Build verifiable financial history for future loans                 |
-| Restaurant  | Panama City    | Participate in community fund for local tourism development         |
+| User Type   | Location       | TuriStable Protocol Benefit                                                     | Pain Point Solved                                              |
+| :---------- | :------------- | :------------------------------------------------------------------------------ | :------------------------------------------------------------- |
+| Tour Guide  | Bocas del Toro | Accept advance USDT deposit via WhatsApp link                                   | Lost bookings due to international payment friction, cash risk |
+| Artisan     | Casco Viejo    | Receive instant USDT payment via QR code for small international sales          | High card fees on small sales, reliance on tourist cash        |
+| Small Hotel | Boquete        | Securely receive international booking deposits in USDT                         | High fees/complexity of cards/banks, slow settlement           |
+| Restaurant  | Panama City    | Offer USDT payment option alongside others, contributing to community fund pool | Limited int'l payment options, supports local ecosystem        |
 
 ---
 
-## 🌐 Final Pitch
+## 🌐 Pitch
 
-> **TuriCash DAO transforms international payments into local growth for
-> Panama's tourism communities.**\
-> By enabling seamless USDT payments from global tourists and creating
-> verifiable international transaction records, we help local tourism businesses
-> overcome cross-border payment barriers that traditional solutions and local
-> fintechs can't address.
+**Stop losing money on international payments! TuriStable Protocol delivers the
+smart-contract-powered dashboard Panama's tourism SMEs need to accept global
+stablecoin payments affordably and easily.**
 
-Unlike local payment solutions that focus on domestic transactions, TuriCash DAO
-specifically targets the international payment challenges faced by Panama's
-tourism businesses. Our Web3-powered platform offers:
+We empower local businesses – hotels, guides, artisans – to **seamlessly manage
+international USDT payments** directly from tourists, slashing high fees and
+eliminating integration headaches. Our platform is a **no-brainer choice**,
+providing:
 
-- **Global Payment Access:** Direct USDT acceptance from any international
-  tourist
-- **Lower Fees:** 1.8% vs 5-7% for international card processing
-- **Verifiable International History:** On-chain records of international
-  transactions
-- **Community Development:** Transparent fee collection for local tourism growth
+- **An Intuitive FREE Dashboard:** Easily generate payment links, track incoming
+  crypto, and manage your USDT transactions. **Use it alongside your existing
+  tools at no extra cost.**
+- **Drastically Lower Fees:** Keep more earnings with a simple 1.8% fee **only
+  on successful payments**.
+- **Instant, Verifiable Transactions:** Get paid faster and simplify bookkeeping
+  with a **free, exportable, on-chain financial history.**
+- **Extreme Simplicity & Zero Risk:** Designed for easy adoption with no setup
+  fees, subscriptions, or hidden costs. **Try it risk-free!**
 
-Join us in building the future of Panama's international tourism with TuriCash
-DAO. Our hackathon MVP demonstrates how Web3 can solve real cross-border payment
-challenges that traditional fintech solutions can't address.
+Traditional fintech hasn't solved the _international_ payment challenge
+affordably for Panama's vital tourism SMEs. **TuriStable Protocol** provides the
+**lean, cost-effective dashboard and secure settlement infrastructure** they
+need.
+
+**Boost your profits and simplify your operations. Invest in TuriStable Protocol
+– the smart, risk-free way for local businesses to manage global stablecoin
+payments.**
 
 ---
 
@@ -474,174 +625,71 @@ challenges that traditional fintech solutions can't address.
 # Required tools
 node >= 18.0.0
 pnpm >= 8.0.0
+foundry (forge, cast) # For smart contract development
 ```
 
 ### Environment Setup
 
 ```bash
 # Clone repository
-git clone https://github.com/your-org/turicash-dao.git
-cd turicash-dao
+git clone https://github.com/your-org/turistable-protocol.git # Renamed repo
+cd turistable-protocol
 
 # Install dependencies
 pnpm install
 
 # Set up environment variables
 cp .env.example .env
+# Fill in .env with BlockDAG RPC, Convex URL/Key etc.
 ```
 
-### Project Structure
+### Project Structure (Turborepo)
 
 ```bash
-turicash-dao/
+turistable-protocol/ # Renamed root
 ├── apps/
-│   ├── web/                 # Next.js frontend
-│   └── api/                 # Convex backend
+│   └── web/                 # Next.js frontend (Merchant Dashboard, Link Generation)
 ├── packages/
-│   ├── contracts/           # Solidity smart contracts
-│   ├── shared/              # Shared utilities and types
-│   └── ui/                  # Shared UI components
+│   ├── contracts/           # Solidity smart contracts (Foundry project)
+│   ├── ui/                  # Shared UI components (Optional for MVP)
+│   └── config/              # Shared configurations (e.g., tsconfig, eslint)
+├── services/
+│   └── convex/              # Convex backend functions (Merchant data, Event listeners)
 ```
 
-### Environment Variables
+### Environment Variables (`.env`)
 
 ```bash
 # .env
-# Blockchain
-BLOCKDAG_RPC_URL=https://testnet.blockdag.com/rpc
+# Blockchain (Replace with actual BlockDAG Testnet Info)
+BLOCKDAG_RPC_URL=https://testnet.your-blockdag-provider.com/rpc
+BLOCKDAG_CHAIN_ID=YOUR_CHAIN_ID
+DEPLOYER_PRIVATE_KEY=your_foundry_deployer_private_key # For deploying contract via Foundry
 
 # Convex
-NEXT_PUBLIC_CONVEX_URL=your_convex_url
-CONVEX_DEPLOY_KEY=your_deploy_key
+NEXT_PUBLIC_CONVEX_URL=your_convex_url # From Convex dashboard
+CONVEX_DEPLOY_KEY=your_convex_deploy_key # From Convex dashboard environment variables
+
+# Deployed Contract Address (Fill after deployment)
+NEXT_PUBLIC_TURISTABLE_CONTRACT_ADDRESS= # Renamed variable
+NEXT_PUBLIC_USDT_ADDRESS= # Address of USDT token on target BlockDAG testnet
 ```
-
----
-
-## 🔒 Smart Contract Implementation
-
-The core payment processing is handled by a secure, atomic smart contract:
-
-```solidity
-// SPDX-License-Identifier: MIT
-pragma solidity ^0.8.20;
-
-import "@openzeppelin/contracts/token/ERC20/IERC20.sol";
-import "@openzeppelin/contracts/security/ReentrancyGuard.sol";
-import "@openzeppelin/contracts/access/Ownable.sol";
-
-contract TuriCashMVP is ReentrancyGuard, Ownable {
-    IERC20 public immutable usdt;
-    uint256 public constant FEE_BPS = 180; // 1.8% (180 / 10000)
-    mapping(address => bool) public isVerifiedMerchant;
-
-    event PaymentProcessed(
-        address indexed merchant,
-        address indexed customer,
-        uint256 amountPaid,
-        uint256 feeCollected,
-        uint256 merchantAmount,
-        uint256 timestamp
-    );
-
-    constructor(address _usdtAddress, address initialOwner) Ownable(initialOwner) {
-        usdt = IERC20(_usdtAddress);
-    }
-
-    function processPayment(address merchant, uint256 amount) external nonReentrant {
-        require(isVerifiedMerchant[merchant], "Merchant not verified");
-        require(amount > 0, "Amount must be positive");
-
-        uint256 fee = (amount * FEE_BPS) / 10000;
-        uint256 merchantAmount = amount - fee;
-
-        usdt.transferFrom(msg.sender, address(this), amount);
-        usdt.transfer(merchant, merchantAmount);
-
-        emit PaymentProcessed(
-            merchant,
-            msg.sender,
-            amount,
-            fee,
-            merchantAmount,
-            block.timestamp
-        );
-    }
-
-    function withdrawFees(address recipient, uint256 amount) external onlyOwner {
-        require(amount <= usdt.balanceOf(address(this)), "Insufficient fee balance");
-        usdt.transfer(recipient, amount);
-    }
-
-    function setMerchantVerification(address merchant, bool status) external onlyOwner {
-        isVerifiedMerchant[merchant] = status;
-    }
-}
-```
-
-Key security features:
-
-- Reentrancy protection
-- Atomic transactions
-- Access control for fee withdrawal
-- Merchant verification system
-- Event-based transaction tracking
 
 ---
 
 ## 🔍 Project Evaluation
 
-### 1. Hackathon Scope Assessment
-
-- **Well-structured for 5-day delivery**
-  - Focused core loop: Register → Generate Link → Process USDT Payment → Record
-    → Display
-  - Minimal smart contract with clear functionality
-  - Clear day-by-day implementation plan
-
-### 2. Minimal yet Decentralized
-
-- **Core Features**
-  - USDT payment processing
-  - Basic transaction records
-  - Community fund tracking
-  - No complex governance or multi-currency
-
-- **Decentralized Components**
-  - Permissionless value transfer via USDT on BlockDAG
-  - Immutable transaction records
-  - Transparent fee collection
-  - On-chain core logic
-
-### 3. Problem-Solution Fit
-
-- **Core Pain Points Addressed**
-  - Digital payment acceptance for cash-based businesses
-  - Verifiable financial history for loans/investments
-  - Operational efficiency through automation
-  - Community fund for local development
-
-### 4. ETH Canal & Panama Relevance
-
-- **Blockchain Integration**
-  - Smart contracts on BlockDAG
-  - USDT for USD-based economy
-  - Financial inclusion focus
-  - Community fund for tourism development
-
-### 5. Implementation Priorities
-
-1. **Core Infrastructure**
-   - Turborepo setup
-   - Convex backend
-   - Next.js frontend
-
-2. **Payment Processing**
-   - Smart contract deployment on BlockDAG
-   - USDT integration
-   - Fee collection mechanism
-
-3. **User Experience**
-   - Merchant registration
-   - Payment link generation
-   - Transaction dashboard
-   - Community fund display
+- **Hackathon Scope:** Focused 5-day MVP delivering core on-chain settlement and
+  basic off-chain interface. Feasible for junior team leveraging
+  Convex/Next.js/Foundry. Defers complexities (oracles, advanced governance,
+  off-ramps).
+- **Lean & Minimal:** Concentrates on the essential value proposition: USDT
+  acceptance and verifiable history. Avoids feature creep.
+- **Problem-Solution Fit:** Directly addresses the documented pain points of
+  Panama tourism SMEs regarding _international stablecoin_ payments, offering a
+  clear advantage over existing fragmented/expensive solutions.
+- **Strategic Alignment:** Positions as a lean new entrant leveraging new tech
+  (BlockDAG potential, stablecoins) for an underserved niche, acknowledging
+  ecosystem challenges (off-ramping, regulation) as future work.
+- **ETH Canal Relevance:** Benefits Panama's key tourism sector, uses blockchain
+  (BlockDAG), focuses on financial inclusion/efficiency.
