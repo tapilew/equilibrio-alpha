@@ -4,3 +4,10 @@ version = "1.9.6"
 url = "https://soldeer-revisions.s3.amazonaws.com/forge-std/1_9_6_01-02-2025_20:49:10_forge-std-1.9.zip"
 checksum = "55f341818321b3f925161a72fd0dcd62e4a0a4b66785a7a932bf2bfaf96fb9d1"
 integrity = "e9ecdc364d152157431e5df5aa041ffddbe9bb1c1ad81634b1e72df9e23814e8"
+
+[[dependencies]]
+name = "smartcontractkit-chainlink-brownie-contracts"
+version = "1.3.0"
+url = "https://soldeer-revisions.s3.amazonaws.com/smartcontractkit-chainlink-brownie-contracts/1_3_0_24-12-2024_19:26:18_smartcontractkit-chainlink-brownie-contracts-1.3.zip"
+checksum = "f0cdda6caf25056dfa375fcd7a8e2cc87b76f35048699802605f23cf1faf7486"
+integrity = "883f61d0dd14438f5e7d65708fb7c5374d59bf86cf5087a67730d86f074b0f4b"
