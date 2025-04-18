@@ -10,23 +10,27 @@
 - [ ] Setup Wagmi
 - [ ] Add BlockDAG Primordial Testnet to Wagmi (Viem)
 - [ ] Basic Merchant Dashboard UI
+- [ ] Integrate Lemon Squeezy API into the dashboard?
 
 ## 📌 Summary
 
-**TuriStable Protocol** provides Panama's tourism SMEs with a
-**smart-contract-enabled dashboard** to seamlessly **manage international USD
-Coin (USDC) payments at a fraction of traditional costs**. Leveraging USDC, a
+**TuriStable Protocol** provides Panama's tourism SMEs with a **simple,
+mobile-first web application acting as a smart-contract-enabled Point-of-Sale
+(POS) tool**. It allows businesses to seamlessly **manage international USD Coin
+(USDC) payments at a fraction of traditional costs**. Leveraging USDC, a
 globally recognized stablecoin known for its **transparency and full backing**,
-our platform allows businesses to confidently accept payments from international
-tourists. Secure, automated on-chain settlement eliminates the high fees and
-integration hassles of outdated systems. The free dashboard provides a
-**verifiable transaction history**, enabling **effortless bookkeeping**
-alongside your existing fiat records using tools you already know.
+our platform empowers businesses to confidently accept payments from
+international tourists using just their smartphone or tablet. Secure, automated
+on-chain settlement eliminates the high fees and integration hassles of outdated
+systems. The free dashboard provides a **verifiable transaction history**,
+enabling **effortless bookkeeping** alongside your existing fiat records using
+tools you already know.
 
-Our ETH Canal MVP demonstrates this core value: a simple, free dashboard
-allowing Panamanian tourism SMEs to generate payment links, track incoming USDC
-payments processed via a low-fee BlockDAG smart contract, and export transaction
-data—making **stablecoin** payments accessible, trustworthy, and profitable.
+Our ETH Canal MVP demonstrates this core value: a simple, free **standalone POS
+web app** allowing Panamanian tourism SMEs to generate payment links/QR codes,
+track incoming USDC payments processed via a low-fee BlockDAG smart contract,
+and export transaction data—making **stablecoin** payments accessible,
+trustworthy, and profitable.
 
 ---
 
@@ -107,10 +111,10 @@ pain point in Panama's dollarized economy.
 **TuriStable Protocol** cuts through the complexity and cost, offering a
 powerful, business-friendly alternative centered on **USD Coin (USDC)**:
 
-- **Unlock Global USDC Payments via Free Dashboard:** Seamlessly accept **USDC**
-  from international tourists using simple payment links generated from your
-  **free dashboard**. Leverage a globally recognized stablecoin ideal for
-  cross-border transactions.
+- **Unlock Global USDC Payments via Simple Mobile POS:** Seamlessly accept
+  **USDC** from international tourists using simple payment links or QR codes
+  generated from your **free, mobile-first web app**. Leverage a globally
+  recognized stablecoin ideal for cross-border transactions.
 - **Build on Trust & Stability:** Accept payments using **USDC**, known for
   being **fully backed by reserved assets** and issued by regulated financial
   institutions. This provides crucial **peace of mind** for businesses and
@@ -123,9 +127,10 @@ powerful, business-friendly alternative centered on **USD Coin (USDC)**:
 - **Simplify Bookkeeping—For Free:** The dashboard provides an immutable, **free
   exportable history** (CSV) of all **USDC** transactions, making reconciliation
   with your existing fiat records straightforward using tools you already own.
-- **Effortless Stablecoin Management:** Our user-friendly dashboard makes
-  payment tracking intuitive, even if you're new to crypto. **No costly training
-  or complex software needed.**
+  **Think of it as your digital USDC cash register tape.**
+- **Effortless Stablecoin POS:** Our user-friendly dashboard makes payment
+  creation and tracking intuitive, even if you're new to crypto. **No costly
+  training or complex hardware needed.**
 - **Future-Proof Foundation:** Choosing **USDC** lays the groundwork for
   potential future enhancements leveraging its established ecosystem,
   potentially offering easier cross-chain compatibility or streamlined SME
@@ -170,28 +175,29 @@ today.**
 ## 💡 The TuriStable Protocol Solution: Core Infrastructure MVP
 
 Our ETH Canal MVP delivers the essential **low-fee smart contract settlement
-layer** paired with a **free, functional dashboard** to manage **USDC** payments
-and simplify bookkeeping.
+layer** paired with a **free, functional mobile-first web app** that acts as a
+simple **Point-of-Sale (POS)** tool to manage **USDC** payments and simplify
+bookkeeping.
 
-### 1. Seamless International USDC Acceptance via Dashboard
+### 1. Seamless International USDC Acceptance via Mobile POS App
 
 - **Purpose-Built for USDC:** Operates on an EVM-compatible BlockDAG network,
-  powering the dashboard's backend for **USDC** transactions.
+  powering the web app's backend for **USDC** transactions.
 - **Effortless Payment Requests:** Generate simple payment links/QR codes for
-  **USDC** directly from the dashboard.
+  **USDC** directly from the app on your phone or tablet.
 - **Low, Transparent Fee:** A minimal 1.8% protocol fee, handled atomically by
   the smart contract and clearly displayed.
 - **Eliminate Traditional Friction:** Bypass costly card networks and slow banks
   for payment _acceptance_.
 - **Simplified Merchant Onboarding:** Fast registration process to access the
-  dashboard.
+  app.
 
 ### 2. Free Dashboard for Verifiable History & Bookkeeping
 
-- **Tamper-Proof Ledger:** Smart contract events feed the **free dashboard**,
-  ensuring an immutable transaction record.
-- **Accessible Records:** The dashboard displays a clear history of **USDC**
-  payments at **no cost**.
+- **Tamper-Proof Ledger:** Smart contract events feed the **free dashboard
+  within the app**, ensuring an immutable transaction record.
+- **Accessible Records:** The app displays a clear history of **USDC** payments
+  at **no cost**.
 - **Foundation for Bookkeeping:** **Free exportable CSV data** allows easy
   integration of **USDC** transactions into existing fiat accounting workflows
   using your preferred tools.
@@ -228,47 +234,37 @@ Our MVP focuses on solving the _immediate_ pain point of **international USDC
 payment acceptance and record-keeping**, providing tangible value while laying
 the groundwork for these future off-ramp solutions.
 
-### User Experience Flow
+### User Experience Flow (Simplified POS Interaction)
 
-Designed for merchants potentially unfamiliar with crypto, prioritizing
-ease-of-use and clarity:
+**This flow outlines the core Point-of-Sale interaction, designed for simplicity
+on a merchant's mobile device:**
 
 ```mermaid
 sequenceDiagram
-    participant SME as Merchant (SME)
-    participant TSApp as TuriStable App
+    participant SME as Merchant (using TuriStable App)
+    participant TSApp as TuriStable App (Mobile Web Interface)
     participant ConvexBackend
     participant TStableContract as TuriStable Payment Contract
     participant BlockDAGNetwork
-    participant Tourist as Customer (Tourist)
+    participant Tourist as Customer (Tourist with Crypto Wallet)
     participant Wallet as Customer's Wallet
 
     activate SME
-    SME->>TSApp: Register Business (Minimal Info)
+    SME->>TSApp: Opens App, Logs In
+    SME->>TSApp: Enters Amount (Strictly in USDC for MVP)
     activate TSApp
-    TSApp->>ConvexBackend: Store Merchant Info (Simulated Verification)
-    activate ConvexBackend
-    ConvexBackend-->>TSApp: Confirm Registration
-    deactivate ConvexBackend
-    TSApp-->>SME: Access Simple Dashboard
-    deactivate TSApp
-
-    SME->>TSApp: Request Payment Link (Enter Amount in USDC)
-    activate TSApp
-    TSApp->>TSApp: Generate Unique Link/QR Code
-    TSApp-->>SME: Display Link/QR Code
-    deactivate TSApp
-    SME->>Tourist: Share Link (e.g., via WhatsApp, Email, on Website)
+    TSApp->>TSApp: Generates Unique Link & QR Code
+    TSApp-->>SME: Displays QR Code / Provides Link Option
+    SME->>Tourist: Shows QR Code / Shares Link (e.g., WhatsApp)
     deactivate SME
 
     activate Tourist
-    Tourist->>Wallet: Click Link / Scan QR
+    Tourist->>Wallet: Scans QR / Clicks Link
     activate Wallet
-    Wallet->>TSApp: Fetch Payment Details (Amount, Merchant Address from Link)
-    activate TSApp
-    TSApp-->>Wallet: Display Clear Payment Request (Amount USDC to Merchant X)
+    Wallet->>TSApp: Fetch Payment Details (Amount, Merchant Address from Link/QR)
+    TSApp-->>Wallet: Display Clear Payment Request (Pay X USDC to Merchant Y)
     deactivate TSApp
-    Tourist->>Wallet: Approve USDC Transfer to Smart Contract
+    Tourist->>Wallet: Approves USDC Transfer to Smart Contract
     Wallet->>TStableContract: Call processPayment(merchantAddress, amount)
     activate TStableContract
     Note right of TStableContract: Fee (1.8%) retained, <br/>Net amount sent to Merchant
@@ -282,10 +278,10 @@ sequenceDiagram
     deactivate TStableContract
 
     activate ConvexBackend
-    Note right of ConvexBackend: Listens for on-chain <br/> events, updates DB
+    Note right of ConvexBackend: Listens for on-chain <br/> events, updates DB in real-time
     ConvexBackend->>ConvexBackend: Detect PaymentProcessed Event
     ConvexBackend->>ConvexBackend: Update Merchant's Tx History in DB
-    ConvexBackend-->>TSApp: (Real-time update or on refresh)
+    ConvexBackend-->>TSApp: (Real-time update via Convex subscription)
     deactivate ConvexBackend
 
     Wallet-->>Tourist: Show Transaction Success / Receipt
@@ -294,7 +290,7 @@ sequenceDiagram
 
     activate TSApp
     activate SME
-    TSApp-->>SME: Update Dashboard (Show New Tx, Updated Balance)
+    TSApp-->>SME: **Instantly Updates Dashboard UI - Shows VISUAL CONFIRMATION (New Tx, Updated Balance)**
     deactivate TSApp
     deactivate SME
 ```
@@ -308,55 +304,78 @@ sequenceDiagram
 2. **Tour Guide (Bocas del Toro):** After agreeing on a $100 tour via WhatsApp,
    sends a **TuriStable** link: `turistable.app/pay/guide123?amount=100`.
    Tourist clicks, pays 100 USDC. Guide avoids cash risks, receives trusted USD
-   value, and has a digital record.
-3. **Artisan (Casco Viejo):** Displays a simple laminated card with a QR code
-   generated by the **TuriStable App** next to their crafts. A tourist buying a
-   $20 item scans the code, confirms the 20 USDC payment on their phone wallet.
-   Fast, easy, low fee using a reputable stablecoin.
+   value, and has a digital record **confirmed visually in their app**.
+3. **Artisan (Casco Viejo):** On their phone, enters 20 USDC into the
+   **TuriStable App** and shows the generated QR code to the tourist. Tourist
+   scans, confirms payment on their wallet. Artisan sees the transaction appear
+   instantly in their app dashboard as confirmation. Fast, easy, low fee using a
+   reputable stablecoin.
 
 ---
 
 ## 🎨 Tourism-Focused UX/UI Design
 
 We're focusing on the most essential UX/UI elements that deliver immediate value
-to Panama's tourism businesses while remaining feasible for a junior team.
+to Panama's tourism businesses, designed as a **simple, mobile-first web
+application acting as a standalone POS**.
 
 ### Core MVP Features
 
-#### 1. **Simple Payment Link Generation**
+#### 1. **Simplified Point-of-Sale (POS) Experience**
 
-- **Basic Functionality:** Generate a unique payment link with a specified USDC
-  amount
-- **Copy & Share:** One-click copy to clipboard for sharing via WhatsApp, email,
-  or other channels
-- **QR Code Display:** Visual QR code that can be displayed on screen or printed
+- **Mobile-First Interface:** Designed primarily for smartphones and tablets,
+  allowing merchants to accept payments anywhere – from a hotel counter to a
+  boat tour or market stall. Minimal training required.
+- **Minimalist Transaction Flow:**
+  1. Merchant opens the TuriStable web app.
+  2. Enters the payment amount **strictly in USDC**. (See below why this is
+     crucial for MVP).
+  3. Generates a unique QR code (for in-person) or a shareable payment link (for
+     remote/messaging).
+  4. Presents QR/link to the customer.
+  5. Receives **clear visual confirmation** directly within the app once the
+     payment is processed on the BlockDAG, powered by real-time updates from the
+     Convex backend listening to on-chain events.
+- **USDC-Only Amounts (MVP Pragmatism):** The MVP requires merchants to input
+  amounts directly in USDC. This is a deliberate choice for simplicity and
+  reliability, **avoiding the need for potentially unreliable or unavailable
+  on-chain price oracles** on the target BlockDAG. Since USDC aims for a 1:1 peg
+  with USD, this provides a stable and understandable value for Panama's
+  dollarized economy, minimizing cognitive load for the merchant during the
+  transaction.
+- **QR Codes & Links as Integration:** These simple, universally understood
+  methods are the core way customers interact with the payment request,
+  requiring **no complex hardware or software integration** for the merchant.
 
-#### 2. **Minimal Dashboard**
+#### 2. **Minimal Dashboard within the App**
 
 - **Transaction History:** Simple list view of recent **USDC** payments with
-  status indicators
-- **Basic Search:** Filter transactions by date range
-- **CSV Export:** Download transaction data in standard CSV format for
-  accounting
+  clear status indicators (e.g., Completed).
+- **Basic Search/Filter:** Filter transactions by date range.
+- **CSV Export:** Download transaction data in standard CSV format for easy
+  import into existing accounting tools (Excel, Google Sheets, etc.).
 
 ### Tourism-Specific Considerations
 
-- **Mobile-Responsive Design:** Works well on phones and tablets for on-the-go
-  use
-- **Clear Status Indicators:** Visual confirmation of payment status (pending,
-  completed)
-- **Reference Field:** Optional field to add booking IDs or customer names to
-  payments
+- **(Covered Above): Mobile-Responsive Design**
+- **(Covered Above): Clear Status Indicators & Visual Confirmation**
+- **Reference Field (Optional):** Allow merchants to optionally add a note
+  (booking ID, customer name) to a transaction for easier reconciliation.
 
 ### Future Enhancements (Post-MVP)
 
-While the MVP focuses on core functionality, future versions will include:
+While the MVP focuses on core USDC transaction functionality, future versions
+will include:
 
-- Multilingual support (Spanish/English)
-- More advanced analytics and reporting
-- Deeper integrations with booking platforms and POS systems
-- Customizable payment pages and branding
-- Exploration of Circle's ecosystem features if beneficial for SMEs
+- **Indicative Local Currency Display:** Post-hackathon, introduce a
+  **display-only** PAB/USD equivalent value fetched via reliable centralized
+  APIs (clearly labeled as approximate), enhancing usability without
+  compromising on-chain reliability.
+- Multilingual support (Spanish/English).
+- More advanced analytics and reporting.
+- Deeper integrations with booking platforms (if feasible and desired by users).
+- Customizable payment pages and branding.
+- Exploration of Circle's ecosystem features if beneficial for SMEs.
 
 ---
 
@@ -411,15 +430,15 @@ Designed for feasibility with a junior team within 5 days.
 - **Day 3: Backend Integration:** Deploy contract to BlockDAG testnet. Set up
   Convex functions for simulated merchant verification, storing merchant data,
   and listening/ingesting `PaymentProcessed` events (for USDC) from the
-  contract.
+  contract. **Implement real-time subscription for dashboard updates.**
 - **Day 4: Frontend MVP & UX:** Build minimal Next.js frontend: Merchant
-  registration/login (using Convex auth), simple dashboard to display
-  transaction history (from Convex DB), implement payment link/QR code
-  generation logic for USDC amounts.
+  registration/login (using Convex auth), **simple POS interface** to generate
+  payment link/QR code for USDC amounts, display transaction history **with
+  real-time updates** (from Convex DB subscription).
 - **Day 5: E2E Testing & Polish:** Connect frontend payment initiation to wallet
-  interaction (e.g., via ethers.js/viem). Test the full flow: Register ->
-  Generate Link -> Pay (USDC via wallet) -> See History Updated. Bug fixing,
-  basic styling, prepare demo.
+  interaction (e.g., via ethers.js/viem). Test the full **POS flow**: Register
+  -> Generate Link/QR -> Pay (USDC via wallet) -> **See instant visual
+  confirmation in merchant app**. Bug fixing, basic styling, prepare demo.
 
 ---
 
@@ -430,17 +449,18 @@ oracles on the target BlockDAG for the MVP.
 
 - **Phase 1: MVP (Hackathon - Day 1-5):**
   - **Strictly USDC:** All amounts are requested, paid, recorded, and displayed
-    _only_ in USDC.
+    _only_ in USDC within the POS interface.
   - **No Local Currency Equivalent:** The UI will **not** display any PAB/USD
-    equivalent price during the hackathon MVP to avoid reliance on external
-    price feeds. Merchants define the price in USDC, customers pay in USDC. This
-    simplifies the MVP significantly and avoids needing unreliable hardcoded
-    values or unavailable oracles. The 1:1 backing of USDC provides inherent
-    price stability relative to USD.
+    equivalent price during the hackathon MVP. This is a deliberate design
+    choice to guarantee reliability and simplicity by avoiding dependence on
+    external price feeds or potentially inaccurate hardcoded values. Merchants
+    define the price in USDC, customers pay in USDC. The 1:1 backing of USDC
+    provides inherent price stability relative to USD, making it suitable for
+    the dollarized Panamanian market.
 - **Phase 2: Post-Hackathon (Centralized Price Hint):** Introduce a
   _display-only_ approximate PAB/USD value fetched via a centralized API (e.g.,
   CoinGecko or a reliable banking API) in the Convex backend, clearly labeled as
-  indicative.
+  **indicative** within the app.
 - **Phase 3 onwards:** Evaluate oracle availability on the chosen BlockDAG or
   implement more robust multi-source centralized fetching with caching and
   failovers. Explore potential integration with Circle's APIs for enhanced data
@@ -575,10 +595,12 @@ leveraging decentralized infrastructure and the trust associated with USDC:
 1. **Permissionless Access to International USDC Payments:** Any verified
    Panamanian tourism SME can receive USDC payments globally without needing
    complex setups with traditional banks or processors, using a stablecoin
-   widely recognized for its reliability.
+   widely recognized for its reliability, **all through a simple mobile web
+   app**.
 2. **Immutable & Verifiable Records:** BlockDAG provides a tamper-proof ledger,
    giving SMEs a reliable history of international **USDC** transactions they
-   can potentially use for accessing credit or partnerships.
+   can potentially use for accessing credit or partnerships, **easily accessible
+   via the app's dashboard**.
 3. **Transparent & Atomic Fee Collection:** The 1.8% protocol fee is handled
    transparently and securely by the smart contract during the payment itself.
 4. **Reduced Platform Risk:** The core settlement logic lives on-chain. Even if
@@ -590,43 +612,45 @@ leveraging decentralized infrastructure and the trust associated with USDC:
 
 ## 👥 Panama-Specific Use Cases
 
-| User Type   | Location       | TuriStable Protocol Benefit                                                     | Pain Point Solved                                                     |
-| :---------- | :------------- | :------------------------------------------------------------------------------ | :-------------------------------------------------------------------- |
-| Tour Guide  | Bocas del Toro | Accept advance USDC deposit via WhatsApp link                                   | Lost bookings due to int'l payment friction, cash risk, currency risk |
-| Artisan     | Casco Viejo    | Receive instant USDC payment via QR code for small international sales          | High card fees on small sales, reliance on tourist cash, trust issue  |
-| Small Hotel | Boquete        | Securely receive international booking deposits in trusted USDC                 | High fees/complexity of cards/banks, slow settlement, peg stability   |
-| Restaurant  | Panama City    | Offer USDC payment option alongside others, contributing to community fund pool | Limited int'l payment options, supports local ecosystem with USDC     |
+| User Type   | Location       | TuriStable Protocol Benefit                                                            | Pain Point Solved                                                     |
+| :---------- | :------------- | :------------------------------------------------------------------------------------- | :-------------------------------------------------------------------- |
+| Tour Guide  | Bocas del Toro | Accept advance USDC deposit via WhatsApp link, **get instant confirmation in the app** | Lost bookings due to int'l payment friction, cash risk, currency risk |
+| Artisan     | Casco Viejo    | **Use phone app to generate QR code**, receive instant USDC payment for small sales    | High card fees on small sales, reliance on tourist cash, trust issue  |
+| Small Hotel | Boquete        | Securely receive international booking deposits in trusted USDC                        | High fees/complexity of cards/banks, slow settlement, peg stability   |
+| Restaurant  | Panama City    | Offer USDC payment option via app, contributing to community fund pool                 | Limited int'l payment options, supports local ecosystem with USDC     |
 
 ---
 
 ## 🌐 Pitch
 
 **Stop losing money on international payments! TuriStable Protocol delivers the
-smart-contract-powered dashboard Panama's tourism SMEs need to accept global USD
-Coin (USDC) payments affordably, easily, and with confidence.**
+simple, mobile POS tool Panama's tourism SMEs need to accept global USD Coin
+(USDC) payments affordably, easily, and with confidence.**
 
 We empower local businesses – hotels, guides, artisans – to **seamlessly manage
-international USDC payments** directly from tourists, slashing high fees and
-eliminating integration headaches. Our platform, centered on the **trust and
-stability of USDC**, is a **no-brainer choice** for Panama's dollarized economy:
+international USDC payments** directly from tourists using just their
+smartphone, slashing high fees and eliminating integration headaches. Our
+platform, centered on the **trust and stability of USDC**, is a **no-brainer
+choice** for Panama's dollarized economy:
 
-- **An Intuitive FREE Dashboard:** Easily generate payment links, track incoming
-  crypto, and manage your **USDC** transactions. **Use it alongside your
-  existing tools at no extra cost.**
+- **An Intuitive FREE Mobile POS App:** Easily generate payment QR codes/links,
+  track incoming crypto, and get **instant visual confirmation** of successful
+  **USDC** transactions. **Use it alongside your existing tools at no extra
+  cost.**
 - **Built on Trust:** Leverage **USDC**, a stablecoin known for its transparency
   and 1:1 backing with the US dollar, ideal for your business needs.
 - **Drastically Lower Fees:** Keep more earnings with a simple 1.8% fee **only
   on successful USDC payments**.
 - **Instant, Verifiable Transactions:** Get paid faster and simplify bookkeeping
-  with a **free, exportable, on-chain financial history.**
+  with a **free, exportable, on-chain financial history accessed via the app.**
 - **Extreme Simplicity & Zero Risk:** Designed for easy adoption with no setup
   fees, subscriptions, or hidden costs. **Start accepting trusted digital
   dollars risk-free!**
 
 Traditional fintech hasn't solved the _international_ payment challenge
 affordably for Panama's vital tourism SMEs. **TuriStable Protocol** provides the
-**lean, cost-effective dashboard and secure settlement infrastructure** they
-need to thrive with **USDC**.
+**lean, cost-effective mobile POS app and secure settlement infrastructure**
+they need to thrive with **USDC**.
 
 **Boost your profits and simplify your operations. Choose TuriStable Protocol –
 the smart, trusted way for local businesses to manage global USDC payments.**
@@ -662,9 +686,9 @@ cp .env.example .env
 ### Project Structure (Turborepo)
 
 ```bash
-turistable-protocol/ # Renamed root
+turistable-protocol/
 ├── contracts/
-├── web/
+├── web/ # Contains the Next.js mobile-first POS web app
 ```
 
 ### Environment Variables (`.env`)
@@ -690,19 +714,125 @@ NEXT_PUBLIC_USDC_ADDRESS= # Address of USDC token on target BlockDAG testnet - U
 ## 🔍 Project Evaluation
 
 - **Hackathon Scope:** Focused 5-day MVP delivering core on-chain settlement
-  (USDC) and basic off-chain interface. Feasible for junior team leveraging
-  Convex/Next.js/Foundry. Defers complexities (oracles, advanced governance,
-  off-ramps).
+  (USDC) and a basic **mobile-first POS web app** interface. Feasible for junior
+  team leveraging Convex/Next.js/Foundry. Defers complexities (oracles, advanced
+  governance, off-ramps).
 - **Lean & Minimal:** Concentrates on the essential value proposition: USDC
-  acceptance and verifiable history. Avoids feature creep.
+  acceptance via a **simple POS flow** and verifiable history. Avoids feature
+  creep.
 - **Problem-Solution Fit:** Directly addresses the documented pain points of
   Panama tourism SMEs regarding _international stablecoin_ payments, offering a
   clear advantage using a trusted stablecoin (USDC) well-suited for the
-  dollarized economy.
+  dollarized economy, delivered through an **accessible mobile POS experience**.
 - **Strategic Alignment:** Positions as a lean new entrant leveraging new tech
   (BlockDAG potential, USDC) for an underserved niche, acknowledging ecosystem
   challenges (off-ramping, regulation) as future work. Selecting USDC offers
   strategic future options.
 - **ETH Canal Relevance:** Benefits Panama's key tourism sector, uses blockchain
   (BlockDAG), focuses on financial inclusion/efficiency using a reputable
-  stablecoin.
+  stablecoin via a **user-friendly mobile tool**.
+
+---
+
+## 🏆 Judging Criteria
+
+| Criteria                 | Description                                                                                                                                                         | Score (out of 25%) |
+| :----------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------ | :----------------- |
+| Innovation & Originality | How creative, novel, or unique the project is.                                                                                                                      | 25%                |
+| Technical Execution      | The technical depth and accuracy of the implementation.                                                                                                             | 25%                |
+| Feasibility & Impact     | Practical use-case, potential reach, and real-world impact.                                                                                                         | 25%                |
+| Quality of Presentation  | Clarity and effectiveness in communicating the project.                                                                                                             | 25%                |
+| User Experience          | User Experience (UX) will be judged based on how intuitive, accessible, and seamless the solution is for end-users interacting with the Ethereum-based application. | 25%                |
+
+### Justification for Judging Criteria
+
+#### Innovation & Originality (25%)
+
+TuriStable Protocol demonstrates exceptional innovation by combining several
+cutting-edge technologies in a novel way:
+
+- **BlockDAG Technology**: We leverage the emerging BlockDAG infrastructure for
+  faster, lower-cost transactions compared to traditional blockchains,
+  specifically targeting the needs of tourism SMEs.
+- **USDC-First Approach**: Our focus on USDC as the primary payment method is
+  strategically aligned with Panama's dollarized economy, offering a stable,
+  trusted alternative to volatile cryptocurrencies.
+- **Mobile-First POS Solution**: We've reimagined the traditional POS system as
+  a lightweight, mobile-first web application that requires no specialized
+  hardware or complex integrations.
+- **Community Fund Mechanism**: The built-in 1.8% fee collection creates a
+  sustainable model for future community development initiatives, aligning with
+  the "Protocol" theme.
+
+#### Technical Execution (25%)
+
+The technical implementation showcases depth and precision across multiple
+domains:
+
+- **Smart Contract Architecture**: Our `TuriStableMVP` contract implements
+  industry best practices including reentrancy protection,
+  checks-effects-interactions pattern, and comprehensive input validation.
+- **Real-Time Updates**: We leverage Convex's real-time subscription
+  capabilities to provide instant visual confirmation of payments, creating a
+  seamless experience for merchants.
+- **Security-First Design**: The contract never holds merchant funds, with
+  direct transfers to merchant wallets, eliminating platform risk and aligning
+  with crypto best practices.
+- **Modular Architecture**: The Turborepo structure with separate contracts and
+  web components allows for clean separation of concerns and future
+  extensibility.
+
+#### Feasibility & Impact (25%)
+
+TuriStable Protocol addresses a clear, urgent need with a practical,
+implementable solution:
+
+- **Targeted Market**: We focus specifically on Panama's tourism SMEs, a sector
+  with documented pain points around international payments that our solution
+  directly addresses.
+- **Immediate Value Proposition**: The MVP delivers tangible benefits (lower
+  fees, instant settlement, verifiable records) without requiring merchants to
+  completely change their existing workflows.
+- **Scalable Foundation**: The architecture supports future enhancements like
+  off-ramping solutions, multilingual support, and deeper integrations with
+  booking platforms.
+- **Measurable Impact**: The 1.8% fee reduction compared to traditional 5-7%
+  card fees directly translates to increased profitability for tourism
+  businesses, with potential to scale across Panama's entire tourism sector.
+
+#### Quality of Presentation (25%)
+
+Our documentation and communication strategy effectively conveys the project's
+value and technical implementation:
+
+- **Comprehensive README**: This document provides a clear, structured overview
+  of the project, its value proposition, technical architecture, and
+  implementation details.
+- **Visual Aids**: The mermaid diagram illustrates the user experience flow,
+  making the technical process accessible to non-technical stakeholders.
+- **Use Case Examples**: Concrete examples (hotel, tour guide, artisan)
+  demonstrate practical applications in real-world scenarios.
+- **Transparent Roadmap**: We clearly distinguish between MVP features and
+  future enhancements, setting realistic expectations while showcasing the
+  project's potential.
+
+#### User Experience (25%)
+
+The user experience is designed with the specific needs and constraints of our
+target users in mind:
+
+- **Minimalist Transaction Flow**: The four-step process (open app → enter
+  amount → generate QR/link → receive confirmation) is intuitive and requires
+  minimal training.
+- **Mobile-First Design**: The interface is optimized for smartphones and
+  tablets, allowing merchants to accept payments anywhere—from hotel counters to
+  boat tours.
+- **Clear Visual Feedback**: Real-time updates provide immediate confirmation of
+  successful payments, building trust and reducing anxiety for merchants new to
+  crypto.
+- **Flexible Integration**: QR codes and payment links serve as simple
+  "integration" methods that require no complex hardware or software setup,
+  making adoption frictionless.
+- **USDC-Only Approach**: By focusing exclusively on USDC for the MVP, we avoid
+  the complexity and potential unreliability of price oracles, creating a more
+  stable and predictable experience.
