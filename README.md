@@ -1,297 +1,298 @@
-# 🌎 **TuriStable Protocol: Unified Payments for Panama's Tourism**
+# 🌎 **StablePago Protocol: Community-Enabled Payments for Panama & Beyond**
 
-## Executive Summary
+## 1. Executive Summary
 
-Panama's tourism SMEs face significant operational hurdles due to **fragmented
-payment data**. Juggling cash, high-fee international cards, local apps, and
-potentially crypto creates bookkeeping nightmares and hinders growth.
-**TuriStable Protocol** addresses this with a **two-pronged approach**:
-
-1. **MVP (Hackathon Scope):** A simple, mobile-first Point-of-Sale (POS) web
-   application enabling SMEs to **accept international USD Coin (USDC)
-   payments** via a low-fee BlockDAG network. This provides instant settlement,
-   drastically reduced fees (1.8%), and a verifiable transaction history for
-   USDC.
-2. **Strategic Vision:** A **Unified Payment Dashboard** that integrates
-   TuriStable's real-time crypto data with traditional payment streams
-   (potentially via future integrations like Lemon Squeezy) into a single
-   interface, offering comprehensive financial oversight and simplifying
-   reconciliation for SMEs, ultimately strengthening the local tourism
-   ecosystem.
-
-This README focuses on the **achievable 5-day MVP** – the foundational step
-towards realizing this vision, spotlighting its immediate benefits, local
-impact, and core "hero feature."
+Payment fragmentation plagues local economies like Panama's tourism sector.
+**StablePago Protocol** offers the core, flexible infrastructure: a mobile-first
+USDC POS app with a low 1.8% fee and instant settlement via BlockDAG. Our
+hackathon MVP delivers this _and_ the foundation for an **Open-Source Community
+Frontend Template**, enabling communities like **TuriStable DAO** (focused on
+Panama tourism) to easily launch tailored interfaces and govern their share of
+protocol revenue, fostering sustainable, locally-driven growth.
 
 ---
 
-## The Problem: Fragmented Payments & Bookkeeping Chaos for Panama SMEs
+## 2. The Problem: Fragmented Payments & Stifled Growth
 
-Panama's tourism businesses operate in a dollarized economy but struggle with a
-messy payment landscape when dealing with international tourists:
+Local SMEs, particularly in tourism-heavy, dollarized economies like Panama,
+struggle with:
 
-- **High Card Fees:** International cards carry hefty fees (often 5-7%), slow
-  settlement times, and higher decline rates, directly impacting profitability.
-- **Cash Limitations:** Cash is insecure, offers no digital trail for financing,
-  and isn't suitable for advance online bookings.
-- **Local App Gaps:** Solutions like Cuanto.app work well domestically but fail
-  for international or stablecoin payments.
-- **Crypto Complexity (Current State):** While crypto offers potential, existing
-  solutions can be complex, volatile, or lack trust.
-- **The Core Pain Point: Data Fragmentation:** Most critically, income arrives
-  through disconnected channels (card processor statements, bank transfers, cash
-  logs, separate crypto wallets). Reconciling these disparate data streams is a
-  manual, time-consuming, and error-prone process, making accurate financial
-  oversight incredibly difficult for busy SMEs.
+- **Exorbitant Card Fees:** International cards charge 5-7%, slashing crucial
+  margins.
+- **Delayed Funds:** Multi-day settlement cycles disrupt essential cash flow.
+- **Bookkeeping Nightmares:** Reconciling disparate payment streams (cash,
+  cards, apps) is manual, time-consuming, and error-prone.
+- **Financial Exclusion:** Fragmented, non-verifiable data hinders access to
+  micro-loans and growth capital.
 
-This fragmentation prevents businesses from getting a clear, real-time picture
-of their finances, complicates bookkeeping, hinders access to credit, and makes
-it harder to make informed business decisions that benefit the local economy.
+This operational friction prevents SMEs from optimizing finances, reinvesting
+locally, and building economic resilience.
 
 ---
 
-## The Solution: TuriStable Protocol - From MVP POS to Unified Vision
+## 3. The Solution: StablePago Protocol MVP, Community Enablement, TuriStable DAO Vision
 
-TuriStable Protocol tackles payment fragmentation head-on, starting with a
-streamlined crypto payment solution designed for immediate value and building
-towards a holistic dashboard that empowers local businesses.
+**StablePago Protocol** provides the foundational infrastructure, designed for
+efficiency, security, and crucially, community enablement. **TuriStable DAO** is
+the _first example_ of a community leveraging this infrastructure.
 
-**MVP Foundation: The Mobile USDC POS App**
+**MVP: StablePago Protocol - The Mobile USDC POS Engine & Template Foundation**
 
-The hackathon MVP delivers a **standalone, mobile-first web application** that
-acts as a simple POS for accepting **USD Coin (USDC)** payments. Key features
-include:
+Our hackathon project delivers the core **StablePago Protocol** engine via a
+**standalone, mobile-first web application** for instant **USD Coin (USDC)**
+acceptance. This app serves a dual purpose:
 
-- **Effortless USDC Acceptance:** Generate QR codes (in-person) or payment links
-  (remote) directly from a smartphone or tablet.
-- **Drastically Lower Fees:** A transparent 1.8% protocol fee on successful USDC
-  transactions, compared to 5-7% for international cards.
-- **Near-Instant Settlement:** Leverage BlockDAG speeds for faster access to
-  funds compared to multi-day card settlements.
-- **Verifiable History:** All USDC transactions are recorded on-chain and
-  displayed in the app's dashboard, providing an immutable record exportable via
-  CSV.
-- **Built on Trust:** Uses USDC, a fully-backed, regulated stablecoin, ideal for
-  Panama's dollarized market.
+1. **Immediate Value:** Provides Panama SMEs with an immediate tool for low-fee,
+   instant USDC payments.
+2. **Template Foundation:** Acts as the Version 1.0 and basis for an
+   **Open-Source Community Frontend Template**.
 
-![POS App Mockup](placeholder_pos_app_mockup.png) _(Placeholder for App UI
-Screenshot)_
+**Key Protocol Features:**
 
-### Local Community Impact
+- **Effortless USDC:** Generate QR codes/links via smartphone/tablet.
+- **Transparent 1.8% Fee:** Designed for SME affordability.
+- **Instant Settlement:** BlockDAG speeds provide near-immediate fund access.
+- **Verifiable History:** On-chain, exportable transaction records.
+- **Built on Trust:** Uses regulated, dollar-backed USDC.
 
-Beyond individual business benefits, TuriStable Protocol is designed to uplift
-the broader Panamanian tourism ecosystem:
+**Community Enablement via Open Infrastructure & Templates:**
 
-- **Empowering Grassroots SMEs:** Lower fees (saving ~$3.20 per $100 vs. cards)
-  allow small businesses like tour operators, artisans, and family-run hotels to
-  retain more revenue for reinvestment in local hiring, supplies, and services.
-- **Unlocking Micro-Finance:** The immutable, verifiable transaction history
-  generated by the protocol can serve as crucial documentation for SMEs seeking
-  micro-loans or traditional financing, fostering business growth.
-- **Seeding a Community Fund:** A portion of the 1.8% protocol fee is
-  automatically allocated to a dedicated fund, envisioned as a future
-  DAO-governed treasury to support local tourism development projects chosen by
-  the SMEs themselves.
-- **Enhancing Visitor Experience:** Offering tourists a secure, low-fee digital
-  payment option (USDC now, cards via future integrations) improves convenience
-  and builds trust.
-- **Strengthening Economic Resilience:** Faster settlement improves cash flow
-  for SMEs, helping them better manage operational costs and mitigate the risks
-  associated with seasonal tourism fluctuations.
+StablePago Protocol is _not_ a monolithic "DAO of DAOs." It's an open, flexible
+payment rail. Any verified community (tourism boards, artisan guilds, local
+markets) can:
 
-**Micro-Case Studies (Illustrative):**
+1. **Leverage the Protocol:** Utilize the core payment infrastructure.
+2. **Fork the Template:** Adapt the open-source frontend template for their
+   specific branding and needs.
+3. **Form their DAO:** Establish their own governance structure (e.g.,
+   **TuriStable DAO**) to manage their allocated share of protocol fees (see
+   Governance Model).
 
-- _A Bocas del Toro mangrove tour operator uses fee savings from accepting USDC
-  via TuriStable to hire an additional local guide during peak season._
-- _An artisan collective in Casco Viejo leverages their TuriStable verifiable
-  transaction history to successfully apply for a micro-loan to purchase better
-  materials._
-- _A boutique hotel near Boquete streamlines its international deposit process,
-  improving cash flow and allowing investment in locally sourced guest
-  amenities._
+**Vision: TuriStable DAO - A Blueprint for Local Governance**
 
-**The Strategic Vision: Unified Payment Dashboard**
-
-The MVP's USDC transaction data forms the first pillar of our long-term vision:
-a **Unified Payment Dashboard**. This future platform aims to:
-
-- **Integrate Multiple Streams:** Combine TuriStable's real-time USDC data with
-  data from traditional payment processors (potentially via integrations like
-  **Lemon Squeezy** for card payments) and allow manual entry for cash.
-- **Simplify Bookkeeping:** Provide a single source of truth for all income
-  streams, dramatically reducing reconciliation time and errors.
-- **Offer Customer Choice:** Allow SMEs to confidently offer multiple payment
-  options (USDC, cards, etc.) knowing the data will converge seamlessly in their
-  dashboard.
-- **Unlock Insights:** Enable better financial reporting and analysis based on
-  comprehensive payment data.
-
-The MVP focuses on perfecting the USDC acceptance and data capture piece –
-proving the value of low-fee, instant crypto payments and building the
-foundational data layer for this unified future that benefits the entire local
-tourism value chain.
+The **TuriStable DAO** serves as the pilot community. Funded by the fee share
+from participating Panamanian tourism SMEs, this independent DAO will govern its
+treasury, allocating funds to local tourism development, demonstrating the power
+of community-specific governance built _on top of_ StablePago.
 
 ---
 
-## MVP Hero Feature Spotlight: Instant Visual Confirmation
+## 4. Hero Feature Spotlight: Instant Visual Confirmation
 
-The **standout capability of our 5-day MVP** is the **instant visual
-confirmation of successful USDC payments directly within the merchant's mobile
-app**. When a tourist pays using the generated QR code or link, the TuriStable
-backend (powered by **Convex**) listens for the on-chain `PaymentProcessed`
-event. As soon as the BlockDAG confirms the transaction (typically 2-5 seconds),
-the merchant's dashboard UI updates **in real-time**, showing the new
-transaction and updated balance. This isn't just a notification; it's a live
-update mirroring the on-chain reality. For the hackathon demo, this feature
-disruptively showcases:
+The **standout StablePago MVP capability** is the **instant, real-time visual
+confirmation** of USDC payments in the merchant's app (the template foundation).
+Our backend (Convex) detects BlockDAG confirmation (~2-5s) and immediately
+updates the UI.
 
-1. **Tangible Speed:** Demonstrates the near-instant settlement advantage over
-   slow traditional systems.
-2. **Enhanced Trust:** Provides immediate, undeniable proof of payment for both
-   merchant and customer, crucial in face-to-face interactions.
-3. **Foundation for Unity:** Proves our ability to capture and display real-time
-   blockchain data, the core requirement for integrating crypto into the future
-   Unified Payment Dashboard.
+This provides **undeniable proof-of-payment**, builds trust, highlights BlockDAG
+efficiency, and validates the core real-time data infrastructure necessary for
+all frontends built using the template.
 
 ---
 
-## Hackathon MVP Scope & 5-Day Plan
+## 5. MVP Scope & 5-Day Plan (Core Protocol + Template Foundation)
 
-This lean MVP is achievable within 5 days:
+Focus is strictly on the **StablePago Protocol payment engine** and the
+**foundational frontend app/template**:
 
 - **Core Functionality:**
-  - Merchant registration/login (via Convex auth).
-  - Mobile-first web app (Next.js) to generate USDC payment QR codes/links.
-  - BlockDAG Smart Contract (`TuriStableMVP`) for processing USDC payments
-    (transfer, 1.8% fee).
-  - **Convex backend** to listen for `PaymentProcessed` events and update
-    merchant history in real-time.
-  - App dashboard displaying transaction history **with instant visual
-    confirmation**.
+  - Merchant registration/login (Convex auth).
+  - **Mobile-first web app (Next.js) serving as V1.0 template:** generating USDC
+    payment QR/links.
+  - Minimal, secure BlockDAG Smart Contract (`StablePagoMVP`) for USDC transfer
+    & 1.8% fee collection/split placeholders (ERC20, ReentrancyGuard,
+    Checks-Effects-Interactions).
+  - Convex backend listening for `PaymentProcessed` events → **real-time DB
+    updates**.
+  - App dashboard: transaction history **with instant visual confirmation**.
   - CSV export of USDC transaction history.
-  - **Indicative** USD/PAB price display alongside USDC amounts (via centralized
-    API).
-- **Exclusions (Future Work):** Direct fiat integration, **Lemon Squeezy
-  integration (card payments)**, advanced community fund governance (DAO setup),
-  automated reconciliation, direct off-ramping features.
+  - **Indicative** USD/PAB price display (via centralized API like CoinGecko).
+- **Exclusions:** Actual fee-splitting contract logic, full TuriStable DAO (or
+  any DAO) governance contracts, complex off-ramping, unified dashboard
+  integrations.
 
 **5-Day Plan:**
 
-1. **Day 1: Foundation:** Setup Turborepo, Next.js app, Convex backend, Foundry
-   project. Define core data models (USDC focus).
-2. **Day 2: Contract Logic:** Implement & test `TuriStableMVP` contract (USDC
-   transfer, fee, event).
-3. **Day 3: Backend Integration:** Deploy contract. Setup Convex functions
-   (merchant verification, event listener, **real-time DB updates**).
-4. **Day 4: Frontend MVP:** Build POS interface (generate QR/link), transaction
-   history display **with real-time updates & indicative fiat price**.
-5. **Day 5: E2E Flow & Polish:** Connect frontend to wallet, test full POS flow
-   (Generate -> Pay -> **See Instant Confirmation**), styling, demo prep.
+1. **Day 1 (Foundation):** Setup Turborepo (Next.js, Convex, Foundry). Define
+   `StablePagoMVP` interface & data models. Design template structure.
+2. **Day 2 (Contract):** Implement & test secure `StablePagoMVP` contract
+   (transfer, fee placeholder, event).
+3. **Day 3 (Backend):** Deploy contract. Setup Convex (auth, event listener,
+   **real-time DB updates**).
+4. **Day 4 (Frontend Template V1):** Build core POS UI/UX (QR/link), Tx History
+   display (**instant update**, indicative fiat).
+5. **Day 5 (E2E & Polish):** Connect wallet, test full payment flow -> **instant
+   confirmation**, refine template styling, deploy, prep demo.
 
 ---
 
-## Architecture Overview
+## 6. Architecture Overview (StablePago Protocol Core)
 
-The MVP uses a simple, robust architecture:
+The architecture focuses on the reusable backend and core contract
+infrastructure. The frontend shown is an _instance_ derived from the community
+template.
 
-- **Frontend:** Mobile-first Next.js web application.
-- **Backend:** Convex for real-time database, authentication, and serverless
-  functions (listening to blockchain events).
-- **Blockchain:** EVM-compatible BlockDAG network hosting the `TuriStableMVP`
-  Solidity contract for USDC payments.
+- **Frontend (Template Instance):** Mobile-first Next.js web application
+  (forkable/customizable).
+- **Backend:** Convex (real-time DB, auth, serverless functions for event
+  listening).
+- **Blockchain:** EVM-compatible BlockDAG hosting `StablePagoMVP` contract.
 
 ```mermaid
 sequenceDiagram
-    participant SME as Merchant (Mobile App)
-    participant TSApp as TuriStable App (Next.js)
-    participant ConvexBackend
-    participant TStableContract as Payment Contract (BlockDAG)
+    participant SME as Merchant (Frontend Template Instance)
+    participant SPApp as StablePago Frontend (Next.js)
+    participant ConvexBackend as StablePago Backend
+    participant SPContract as StablePagoMVP (BlockDAG)
     participant Tourist as Customer (Wallet)
 
-    SME->>TSApp: Enter USDC Amount
-    TSApp->>TSApp: Generate QR/Link
+    SME->>SPApp: Enter USDC Amount
+    SPApp->>SPApp: Generate QR/Link
     SME->>Tourist: Show QR/Share Link
 
     Tourist->>Wallet: Scan QR/Click Link
-    Wallet->>TStableContract: processPayment(merchant, amount)
-    activate TStableContract
-    TStableContract->>TStableContract: Transfer USDC (Customer -> Merchant, Fee -> Contract)
-    TStableContract->>ConvexBackend: Emit PaymentProcessed Event (via Listener)
-    deactivate TStableContract
+    Wallet->>SPContract: processPayment(merchant, amount)
+    activate SPContract
+    %% Fee split (future state): 0.6% ProtoTreasury, 0.6% CommDAO, 0.6% Maintainers %%
+    SPContract->>SPContract: Transfer USDC (Customer -> Merchant, Fee -> Contract Placeholder)
+    SPContract->>ConvexBackend: Emit PaymentProcessed Event
+    deactivate SPContract
     Wallet-->>Tourist: Tx Success
 
     activate ConvexBackend
     ConvexBackend->>ConvexBackend: Update Merchant Tx History DB
-    ConvexBackend-->>TSApp: Push Real-time Update
+    ConvexBackend-->>SPApp: Push Real-time Update (to specific Frontend Instance)
     deactivate ConvexBackend
 
-    activate TSApp
-    TSApp-->>SME: **Instant Visual Confirmation** (UI Update)
-    deactivate TSApp
+    activate SPApp
+    SPApp-->>SME: **Instant Visual Confirmation** (UI Update)
+    deactivate SPApp
 ```
 
 ---
 
-## Key Metrics & Savings
+## 7. Governance & Sustainability Model
 
-TuriStable Protocol offers quantifiable advantages:
+StablePago Protocol ensures long-term viability and aligns incentives via a
+planned on-chain fee split of the 1.8% transaction fee:
 
-- **Reduced Fees:**
-  - Traditional International Card Fee (Example): **~5.0%**
-  - TuriStable Protocol Fee: **1.8%**
-  - **Savings Example:** On a $100 USDC sale, a merchant saves **$3.20**
-    ($5.00 - $1.80) compared to typical card fees.
-- **Transaction Speed (BlockDAG Estimates):**
-  - Latency: **~2-5 seconds** for transaction finality.
-  - Gas Cost: **~0.0005 USDC** per transaction (significantly lower than many
-    L1s).
-- **Settlement Time:** Near-instant vs. 2-3 business days for card payments.
+- **0.6% → Protocol Treasury:** Funds core infrastructure (servers, nodes),
+  security audits, operational overhead, and potentially gas subsidies. Ensures
+  protocol reliability and security.
+- **0.6% → Community DAO Treasuries (e.g., TuriStable DAO):** Automatically
+  routed to the designated treasury of the DAO governing the specific community
+  using the protocol. Empowers local, autonomous funding decisions.
+- **0.6% → Protocol Maintainers/Stakers:** Rewards core developers,
+  contributors, and potentially stakers who secure/support the network, ensuring
+  ongoing innovation.
+
+**Economic Viability:** This balanced split provides dedicated revenue streams
+to cover operational costs, directly fund community initiatives based on usage,
+and incentivize continuous development and maintenance, creating a sustainable
+positive feedback loop.
+
+**Game Theory & Fair Governance (Future State):** To ensure long-term health and
+prevent capture at _both_ the protocol maintenance level and within community
+DAOs, future iterations can incorporate mechanisms like: - **Quadratic
+Voting/Funding:** Prevents disproportionate influence by large token holders. -
+**Reputation/Usage Weighting:** Grants influence based on active participation,
+transaction history, or verified contributions, rewarding "skin-in-the-game." -
+**Identity Solutions:** Links votes/participation to unique entities (SMEs,
+individuals) to resist Sybil attacks. _The specific mechanisms would be chosen
+and implemented by the protocol maintainers (for their share) and independently
+by each community DAO (for their share)._
 
 ---
 
-## User Experience (MVP)
+## 8. Competitive Landscape
 
-The MVP prioritizes simplicity for merchants:
+StablePago Protocol differentiates itself in the growing stablecoin payment
+space:
+
+- Compared to generic crypto POS systems or potential **Lemon Squeezy** crypto
+  features, StablePago offers a **fundamentally open infrastructure** combined
+  with a **built-in, transparent fee-split mechanism** designed explicitly to
+  **empower community DAOs**.
+- The provision of an **Open-Source Frontend Template** drastically lowers the
+  barrier for communities to adopt and customize the system, fostering
+  grassroots adoption in a way closed platforms cannot. This focus on
+  composability and community ownership is unique.
+
+---
+
+## 9. Key Metrics & Savings
+
+Clear advantages for SMEs:
+
+- **Fee Savings:**
+  - Typical Int'l Card Fee: ~5.0%
+  - StablePago Protocol Fee: **1.8%**
+  - **Saving:** **$3.20** per $100 USDC transaction.
+- **Speed (BlockDAG Estimates):**
+  - Transaction Finality: **~2-5 seconds**.
+  - Gas Cost: **~0.0005 USDC** (estimate).
+- **Settlement:** Near-instant access to funds.
+
+---
+
+## 10. User Experience (StablePago MVP / Template V1.0)
+
+Focus on simplicity for the initial template:
 
 - **Mobile POS Flow:**
-  1. Open App, Log In.
-  2. Enter amount **in USDC**.
+  1. Log In (Merchant).
+  2. Enter amount **in USDC** (Indicative PAB/USD shown).
   3. Generate QR/Link.
   4. Present to Tourist.
-  5. **Receive Instant Visual Confirmation** in the app.
-- **Indicative Fiat Display:** To aid merchants unfamiliar with USDC, the app
-  fetches an **approximate** USD/PAB equivalent price from a reliable
-  centralized API (e.g., CoinGecko) and displays it next to the USDC amount.
-  This is clearly labeled as **indicative only** and enhances usability without
-  introducing the complexities or potential unreliability of on-chain oracles in
-  the MVP.
-- **Simple History & Export:** Easily view past USDC transactions and export
-  data as CSV for use in existing accounting tools.
+  5. **See Instant Visual Confirmation**.
+- **Indicative Fiat Display:** Fetches approximate USD/PAB price (e.g., via
+  CoinGecko API), clearly labeled **indicative**.
+- **Simple History:** View/export USDC transaction CSV.
 
-![Dashboard Mockup](placeholder_dashboard_mockup.png) _(Placeholder for
-Dashboard UI Screenshot)_
+![POS App Mockup](placeholder_pos_app_mockup.png) _(Placeholder for App UI /
+Template V1.0)_ ![Dashboard Mockup](placeholder_dashboard_mockup.png)
+_(Placeholder for Dashboard UI / Template V1.0)_
 
 ---
 
-## Future Roadmap
+## 11. Local Community Impact (Enabled by StablePago)
 
-The hackathon MVP is the first step. Our future roadmap focuses on realizing the
-Unified Payment Dashboard vision and deepening community impact:
+The protocol acts as a catalyst for local economic empowerment:
 
-1. **Unified Dashboard Development:** Integrate traditional payment processors
-   (e.g., exploring **Lemon Squeezy** API) to combine card/bank data with
-   TuriStable's crypto data. Allow manual cash entry for a truly holistic view.
-2. **Panama Tourism Community Fund (DAO):** Formally establish the community
-   fund as a DAO, governed by verified Panamanian tourism SMEs registered on the
-   platform, to transparently allocate collected protocol fees towards local
-   development initiatives.
-3. **Off-Ramping Solutions:** Partner with local exchanges or P2P platforms to
-   facilitate easy USDC-to-fiat (USD/PAB) conversion for merchants.
-4. **Enhanced Features:** Multilingual support (Spanish/English), advanced
-   analytics within the unified dashboard, customizable payment pages, and
-   potentially deeper booking platform integrations based on SME feedback.
+- **Boosts SME Revenue:** Direct fee savings increase reinvestment capacity.
+- **Funds Local Initiatives:** The 0.6% community fee share provides autonomous
+  funding for DAOs like **TuriStable DAO** to address specific local needs
+  (marketing, training, infrastructure).
+- **Improves Financial Access:** Verifiable data aids loan applications.
+- **Modernizes Payments:** Offers tourists a trusted, low-fee digital option.
+
+**Micro-Case Study (Illustrative):**
+
+- _A Panamanian artisan guild forks the **StablePago Frontend Template**, brands
+  it, and forms its own DAO. The 0.6% fee share collected from guild members'
+  sales funds raw material purchases and participation in international craft
+  fairs, decisions made collectively via their DAO._
 
 ---
 
-**(Note: Detailed smart contract code, security considerations, and setup
-instructions can be found in the full technical documentation / appendix.)**
+## 12. Future Roadmap
+
+The MVP validates the core engine and provides the foundational template. Next
+steps:
+
+1. **Refine & Release Frontend Template:** Open-source the V1.0 frontend app as
+   a customizable template with clear documentation.
+2. **Implement Fee Splitting:** Deploy smart contract logic for the 3-way fee
+   split.
+3. **Develop DAO Tooling:** Create resources/guides for communities to launch
+   DAOs utilizing the StablePago infrastructure and fee share.
+4. **TuriStable DAO Formalization (Pilot):** Launch the initial governance
+   contracts for the TuriStable DAO pilot.
+5. **Explore Integrations:** Investigate APIs (e.g., **Lemon Squeezy**) for
+   unified dashboard capabilities.
+6. **Partner for Off-Ramping:** Facilitate easy USDC-to-fiat conversion routes.
+
+---
+
+**(Note: Detailed smart contract code (`StablePagoMVP.sol`), security patterns,
+and setup instructions are in the technical appendix/codebase.)**
