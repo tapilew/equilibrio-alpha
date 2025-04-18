@@ -17,13 +17,13 @@ protocol revenue, fostering sustainable, locally-driven growth.
 Local SMEs, particularly in tourism-heavy, dollarized economies like Panama,
 struggle with:
 
-- **Exorbitant Card Fees:** International cards charge 5-7%, slashing crucial
+- **Exorbitant Card Fees:** International cards charge 5-7%, cutting into
   margins.
-- **Delayed Funds:** Multi-day settlement cycles disrupt essential cash flow.
-- **Bookkeeping Nightmares:** Reconciling disparate payment streams (cash,
-  cards, apps) is manual, time-consuming, and error-prone.
-- **Financial Exclusion:** Fragmented, non-verifiable data hinders access to
-  micro-loans and growth capital.
+- **Delayed Funds:** Multi-day settlement cycles disrupt cash flow.
+- **Bookkeeping Challenges:** Reconciling disparate payment streams wastes time
+  and creates errors.
+- **Financial Exclusion:** Fragmented data hinders access to loans and growth
+  capital.
 
 This operational friction prevents SMEs from optimizing finances, reinvesting
 locally, and building economic resilience.
@@ -32,9 +32,9 @@ locally, and building economic resilience.
 
 ## 3. The Solution: StablePago Protocol MVP, Community Enablement, TuriStable DAO Vision
 
-**StablePago Protocol** provides the foundational infrastructure, designed for
-efficiency, security, and crucially, community enablement. **TuriStable DAO** is
-the _first example_ of a community leveraging this infrastructure.
+**StablePago Protocol** provides foundational infrastructure for efficiency,
+security, and community enablement, with **TuriStable DAO** as the first example
+community leveraging this infrastructure.
 
 **MVP: StablePago Protocol - The Mobile USDC POS Engine & Template Foundation**
 
@@ -49,10 +49,12 @@ acceptance. This app serves a dual purpose:
 
 **Key Protocol Features:**
 
-- **Effortless USDC:** Generate QR codes/links via smartphone/tablet.
+- **Effortless USDC:** Generate QR codes/links via smartphone/tablet (using
+  connected wallet).
 - **Transparent 1.8% Fee:** Designed for SME affordability.
 - **Instant Settlement:** BlockDAG speeds provide near-immediate fund access.
-- **Verifiable History:** On-chain, exportable transaction records.
+- **Verifiable History:** On-chain, exportable transaction records tied to
+  wallet address.
 - **Built on Trust:** Uses regulated, dollar-backed USDC.
 
 **Community Enablement via Open Infrastructure & Templates:**
@@ -96,33 +98,78 @@ Focus is strictly on the **StablePago Protocol payment engine** and the
 **foundational frontend app/template**:
 
 - **Core Functionality:**
-  - Merchant registration/login (Convex auth).
+  - **Merchant Identification via Wallet Connect:** Associate merchant activity
+    directly with their connected wallet address (replaces traditional login).
   - **Mobile-first web app (Next.js) serving as V1.0 template:** generating USDC
     payment QR/links.
   - Minimal, secure BlockDAG Smart Contract (`StablePagoMVP`) for USDC transfer
-    & 1.8% fee collection/split placeholders (ERC20, ReentrancyGuard,
-    Checks-Effects-Interactions).
+    & **on-chain 1.8% fee split implementation**:
+    - **0.6% → Protocol Treasury**
+    - **0.6% → Community Treasury** (held in designated multi-sig/wallet,
+      controlled by core team for MVP)
+    - **0.6% → Maintainers/Stakers**
   - Convex backend listening for `PaymentProcessed` events → **real-time DB
     updates**.
   - App dashboard: transaction history **with instant visual confirmation**.
-  - CSV export of USDC transaction history.
-  - **Indicative** USD/PAB price display (via centralized API like CoinGecko).
-- **Exclusions:** Actual fee-splitting contract logic, full TuriStable DAO (or
-  any DAO) governance contracts, complex off-ramping, unified dashboard
+- **Exclusions:** Community governance contracts (TuriStable DAO voting
+  mechanics are post-hackathon), complex off-ramping, unified dashboard
   integrations.
 
 **5-Day Plan:**
 
 1. **Day 1 (Foundation):** Setup Turborepo (Next.js, Convex, Foundry). Define
-   `StablePagoMVP` interface & data models. Design template structure.
-2. **Day 2 (Contract):** Implement & test secure `StablePagoMVP` contract
-   (transfer, fee placeholder, event).
-3. **Day 3 (Backend):** Deploy contract. Setup Convex (auth, event listener,
-   **real-time DB updates**).
-4. **Day 4 (Frontend Template V1):** Build core POS UI/UX (QR/link), Tx History
-   display (**instant update**, indicative fiat).
-5. **Day 5 (E2E & Polish):** Connect wallet, test full payment flow -> **instant
-   confirmation**, refine template styling, deploy, prep demo.
+   `StablePagoMVP` interface & essential data models (wallet-based). Outline
+   template structure.
+2. **Day 2 (Contract & Wallet):** Implement & test secure `StablePagoMVP`
+   contract (transfer, fee-split implementation, events). Integrate basic wallet
+   connect library.
+3. **Day 3 (Backend):** Deploy contract. Verify fee routing. Complete Convex
+   implementation (event listener, **real-time DB updates** based on wallet
+   address). Start core UI development (wallet connect integration).
+4. **Day 4 (Frontend Template V1):** Complete core POS UI/UX (QR/link generation
+   tied to connected wallet), Tx History display (**instant update**).
+5. **Day 5 (E2E & Polish):** Test complete payment flow (wallet connect →
+   payment → **instant confirmation**), verify fee accumulation, refine template
+   styling, deploy, prep demo.
+
+## 5a. Execution Strategy & Risk Mitigation
+
+To maximize our chance of delivering a working MVP within the 5-day timeline,
+we're adopting a pragmatic prioritization strategy:
+
+- **Core Prioritization:**
+  1. **Payment Flow (Days 1-3):** Smart contract and core payment mechanism must
+     be operational first.
+  2. **Hero Feature (Days 3-4):** Real-time event detection and UI update is the
+     standout feature.
+  3. **Polish & Stretch Goals (Day 5):** Only addressed after core functionality
+     is working reliably.
+
+- **Technical Risk Mitigation:**
+  - **BlockDAG Integration:** Test extensively with local Anvil environment
+    before deployment. Selected for its sub-second finality and EVM
+    compatibility, crucial for the instant confirmation UX. Prepare fallback to
+    standard EVM chain if BlockDAG presents unexpected issues.
+  - **Fee-Split Implementation:** Low technical risk as it uses standard ERC20
+    transfer logic with thorough test coverage. Multi-sig/wallet control in MVP
+    defers governance complexity.
+  - **Convex Setup:** Simplified by removing traditional auth; focus remains on
+    robust event listener and real-time DB updates triggered by wallet events.
+    Start integration early (Day 2) for buffer time.
+  - **Frontend Complexity:** Focus on core payment flow UI first (wallet
+    connect, QR/link generation, confirmation). Apply progressive enhancement
+    approach - only add features after base functionality works.
+  - **Testing Strategy:** Use TDD for contract, integrate manual testing
+    checkpoints at end of each day, prioritize full payment flow testing (wallet
+    connect -> payment -> confirmation) on Day 4 to allow Day 5 for fixes.
+
+- **Scope Control Mechanisms:**
+  - Daily stand-up review of progress against core deliverables.
+  - Clear "stop" criteria for each component (when it's good enough for MVP).
+  - Explicit decision points for stretch goals (only pursue if core is solid).
+  - **DAO Governance Deferral:** Community Treasury accumulation is verified in
+    MVP, but voting mechanics are explicitly post-hackathon to reduce
+    complexity.
 
 ---
 
@@ -173,8 +220,8 @@ sequenceDiagram
 
 ## 7. Governance & Sustainability Model
 
-StablePago Protocol ensures long-term viability and aligns incentives via a
-planned on-chain fee split of the 1.8% transaction fee:
+StablePago Protocol ensures long-term viability and aligns incentives via an
+**on-chain fee split** of the 1.8% transaction fee:
 
 - **0.6% → Protocol Treasury:** Funds core infrastructure (servers, nodes),
   security audits, operational overhead, and potentially gas subsidies. Ensures
@@ -184,7 +231,8 @@ planned on-chain fee split of the 1.8% transaction fee:
   using the protocol. Empowers local, autonomous funding decisions.
 - **0.6% → Protocol Maintainers/Stakers:** Rewards core developers,
   contributors, and potentially stakers who secure/support the network, ensuring
-  ongoing innovation.
+  ongoing innovation. (Mechanism for distribution/claiming is future work; MVP
+  focuses on routing the fee to a designated address)
 
 **Economic Viability:** This balanced split provides dedicated revenue streams
 to cover operational costs, directly fund community initiatives based on usage,
@@ -193,14 +241,20 @@ positive feedback loop.
 
 **Game Theory & Fair Governance (Future State):** To ensure long-term health and
 prevent capture at _both_ the protocol maintenance level and within community
-DAOs, future iterations can incorporate mechanisms like: - **Quadratic
-Voting/Funding:** Prevents disproportionate influence by large token holders. -
-**Reputation/Usage Weighting:** Grants influence based on active participation,
-transaction history, or verified contributions, rewarding "skin-in-the-game." -
-**Identity Solutions:** Links votes/participation to unique entities (SMEs,
-individuals) to resist Sybil attacks. _The specific mechanisms would be chosen
-and implemented by the protocol maintainers (for their share) and independently
-by each community DAO (for their share)._
+DAOs, future iterations will incorporate mechanisms like:
+
+- **Quadratic Voting/Funding:** Prevents disproportionate influence by large
+  token holders.
+- **Reputation/Usage Weighting:** Grants influence based on active
+  participation, transaction history, or verified contributions, rewarding
+  "skin-in-the-game."
+- **Identity Solutions:** Links votes/participation to unique entities (SMEs,
+  individuals) to resist Sybil attacks.
+
+The protocol remains flexible for any verified community (tourism boards,
+artisan guilds, local markets) to adopt this pattern. Each community can
+leverage the protocol infrastructure, fork the frontend template, and establish
+their own governance structure to manage their allocated protocol fees.
 
 ---
 
@@ -235,23 +289,24 @@ Clear advantages for SMEs:
 
 ---
 
-## 10. User Experience (StablePago MVP / Template V1.0)
+## 10. User Experience (StablePago MVP / Template V0.0.0)
 
 Focus on simplicity for the initial template:
 
 - **Mobile POS Flow:**
-  1. Log In (Merchant).
+  1. Connect Wallet (Merchant).
   2. Enter amount **in USDC** (Indicative PAB/USD shown).
   3. Generate QR/Link.
   4. Present to Tourist.
-  5. **See Instant Visual Confirmation**.
-- **Indicative Fiat Display:** Fetches approximate USD/PAB price (e.g., via
-  CoinGecko API), clearly labeled **indicative**.
-- **Simple History:** View/export USDC transaction CSV.
+  5. **See Instant Visual Confirmation** tied to connected wallet.
+- **Transaction History:** View transaction details directly in the app,
+  filtered by connected wallet.
 
-![POS App Mockup](placeholder_pos_app_mockup.png) _(Placeholder for App UI /
-Template V1.0)_ ![Dashboard Mockup](placeholder_dashboard_mockup.png)
-_(Placeholder for Dashboard UI / Template V1.0)_
+![POS App Mockup](https://i.imgur.com/CeEI9ty.png) _(Placeholder for App UI /
+Template V0.0.0)_
+
+![Dashboard Mockup](https://i.imgur.com/8JNmFm5.png) _(Placeholder for Dashboard
+UI / Template V0.0.0)_
 
 ---
 
@@ -282,8 +337,9 @@ steps:
 
 1. **Refine & Release Frontend Template:** Open-source the V1.0 frontend app as
    a customizable template with clear documentation.
-2. **Implement Fee Splitting:** Deploy smart contract logic for the 3-way fee
-   split.
+2. **Implement Community DAO Governance:** Transition from multi-sig Community
+   Treasury control to autonomous TuriStable DAO with complete voting mechanics
+   and governance contracts.
 3. **Develop DAO Tooling:** Create resources/guides for communities to launch
    DAOs utilizing the StablePago infrastructure and fee share.
 4. **TuriStable DAO Formalization (Pilot):** Launch the initial governance
