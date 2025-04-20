@@ -6,6 +6,6 @@
         "build": "forge build",
         "compile": "forge compile",
         "test": "forge test",
-        "coverage": "forge coverage --rpc-url $SEPOLIA_RPC_URL"
+        "coverage": "forge coverage"
     }
 }
