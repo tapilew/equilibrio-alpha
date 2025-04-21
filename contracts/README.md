@@ -4,7 +4,8 @@
 
 - [x] Proper README
 - [x] Integration tests
-- [ ] Programatic verification
+- [x] PIT STOP! How to make running these scripts easier?
+- [x] Programatic verification
 - [ ] Push to GitHub
 - [ ] Rebrand to `EquiProtocol`
 
