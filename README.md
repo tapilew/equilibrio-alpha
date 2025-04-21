@@ -1,5 +1,16 @@
 # 🌎 **StablePago Protocol: Community-Enabled Payments for Panama & Beyond**
 
+## To-dos
+
+- [ ] Version 0.0.0
+- [ ] Migrate to Wagmi
+- [ ] Connect to Base
+- [ ] Rebrand to `EquiProtocol`
+- [ ] Create wireframe
+- [ ] Code EquiProtocol frontend
+- [ ] Adapt smart contracts for the desired protocol
+- [ ] Connect to BlockDAG
+
 ## 1. Executive Summary
 
 Payment fragmentation plagues local economies like Panama's tourism sector.

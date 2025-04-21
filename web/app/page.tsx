@@ -2,14 +2,19 @@
 
 import { useMutation, useQuery } from "convex/react";
 import { api } from "../convex/_generated/api";
-import ConvexClientProvider from "@/components/ConvexClientProvider";
 import Link from "next/link";
 
 export default function Home() {
   return (
     <>
       <header className="sticky top-0 z-10 bg-background p-4 border-b-2 border-slate-200 dark:border-slate-800 flex flex-row justify-between items-center">
-        Convex + Next.js
+        <span>Convex + Next.js</span>
+        <Link
+          href="/fund-me"
+          className="px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 transition-colors"
+        >
+          Fund Me App
+        </Link>
       </header>
       <main className="p-8 flex flex-col gap-16">
         <h1 className="text-4xl font-bold text-center">Convex + Next.js</h1>
@@ -43,6 +48,7 @@ function Content() {
       </p>
       <p>
         <button
+          type="button"
           className="bg-foreground text-background text-sm px-4 py-2 rounded-md"
           onClick={() => {
             void addNumber({ value: Math.floor(Math.random() * 10) });
@@ -55,7 +61,7 @@ function Content() {
         Numbers:{" "}
         {numbers?.length === 0
           ? "Click the button!"
-          : numbers?.join(", ") ?? "..."}
+          : (numbers?.join(", ") ?? "...")}
       </p>
       <p>
         Edit{" "}

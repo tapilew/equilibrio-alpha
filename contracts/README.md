@@ -6,7 +6,7 @@
 - [x] Integration tests
 - [x] PIT STOP! How to make running these scripts easier?
 - [x] Programatic verification
-- [ ] Push to GitHub
+- [x] Push to GitHub
 - [ ] Rebrand to `EquiProtocol`
 
 # Foundry Fund Me (inspo from [Cyfrin Updraft](https://cyfrin.io/updraft))
