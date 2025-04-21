@@ -13,6 +13,7 @@ contract FundMeTest is Test {
     address USER = makeAddr("user");
     uint256 constant SEND_VALUE = 0.1 ether; // 100000000000000000
     uint256 constant STARTING_BALANCE = 10 ether;
+    uint256 constant GAS_PRICE = 1;
 
     function setUp() external {
         DeployFundMe deployFundMe = new DeployFundMe();
@@ -86,8 +87,14 @@ contract FundMeTest is Test {
         uint256 startingOwnerBalance = fundMe.getOwner().balance;
         uint256 startingFundMeBalance = address(fundMe).balance;
         // Act
+        uint256 gasStart = gasleft(); // 1000
+        vm.txGasPrice(GAS_PRICE); // 200
         vm.prank(fundMe.getOwner());
-        fundMe.withdraw();
+        fundMe.withdraw(); // should have spent gas?
+
+        uint256 gasEnd = gasleft(); // 800
+        uint256 gasUsed = (gasStart - gasEnd) * tx.gasprice;
+        console.log(gasUsed);
 
         // Assert
         uint256 endingOwnerBalance = fundMe.getOwner().balance;
@@ -118,6 +125,35 @@ contract FundMeTest is Test {
         // Act
         vm.startPrank(fundMe.getOwner());
         fundMe.withdraw();
+        vm.stopPrank();
+
+        // Assert
+        assert(address(fundMe).balance == 0);
+        assert(
+            startingFundMeBalance + startingOwnerBalance ==
+                fundMe.getOwner().balance
+        );
+    }
+
+    function testWithdrawFromMultipleFundersCheaper() public funded {
+        // Arrange
+        uint160 numberOfFunders = 10;
+        uint160 startingFunderIndex = 2;
+        for (uint160 i = startingFunderIndex; i < numberOfFunders; i++) {
+            // vm.prank new address
+            // vm.deal new address
+            // address(0)
+            hoax(address(i), SEND_VALUE);
+            fundMe.fund{value: SEND_VALUE}();
+            // fund the fundMe
+        }
+
+        uint256 startingOwnerBalance = fundMe.getOwner().balance;
+        uint256 startingFundMeBalance = address(fundMe).balance;
+
+        // Act
+        vm.startPrank(fundMe.getOwner());
+        fundMe.cheaperWithdraw();
         vm.stopPrank();
 
         // Assert
