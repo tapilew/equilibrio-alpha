@@ -2,6 +2,8 @@
 src = "src"
 out = "out"
 libs = [ "dependencies"]
+test = "test"  # Explicitly set test directory
+test_pattern = "*.t.sol"  # Match all test files
 auto_detect_solc = false 
 fuzz = { runs = 1_000 } 
 bytecode_hash = "none" 
@@ -10,6 +12,7 @@ gas_reports = ["*"]
 [dependencies]
 forge-std = "1.9.6"
 smartcontractkit-chainlink-brownie-contracts = "1.3.0"
+cyfrin-foundry-devops = "0.4.0rc"
 
 [soldeer]
 # whether soldeer manages remappings

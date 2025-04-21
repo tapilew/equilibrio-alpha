@@ -6,6 +6,12 @@
         "build": "forge build",
         "compile": "forge compile",
         "test": "forge test",
-        "coverage": "forge coverage"
+        "coverage": "forge coverage",
+        "clean": "forge clean",
+        "deploy:local": "forge script script/DeployFundMe.s.sol:DeployFundMe --rpc-url http://localhost:8545 --broadcast",
+        "fund:local": "forge script script/Interactions.s.sol:FundFundMe --rpc-url http://localhost:8545 --broadcast",
+        "withdraw:local": "forge script script/Interactions.s.sol:WithdrawFundMe --rpc-url http://localhost:8545 --broadcast",
+        "anvil": "anvil",
+        "test:local": "forge test --fork-url http://localhost:8545"
     }
 }

@@ -1,81 +1,95 @@
-// 1. Deploy mocks when we are on a local anvil chain
-// 2. Keep track of the contract addressses across different chains
-// Sepolia ETH/USD
-// Mainnet ETH/USD
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.19;
 
-pragma solidity ^0.8.18;
-
-import {Script} from "forge-std/Script.sol";
 import {MockV3Aggregator} from "../test/mocks/MockV3Aggregator.sol";
+import {Script, console2} from "forge-std/Script.sol";
+import {ZkSyncChainChecker} from "foundry-devops/src/ZkSyncChainChecker.sol";
 
-contract HelperConfig is Script {
-    NetworkConfig public activeNetworkConfig;
-
+abstract contract CodeConstants is ZkSyncChainChecker {
     uint8 public constant DECIMALS = 8;
     int256 public constant INITIAL_PRICE = 2000e8;
 
+    /*//////////////////////////////////////////////////////////////
+                               CHAIN IDS
+    //////////////////////////////////////////////////////////////*/
+    // ZKSYNC_SEPOLIA_CHAIN_ID imported from ZkSyncChainChecker
+    uint256 public constant ETH_SEPOLIA_CHAIN_ID = 11155111;
+    uint256 public constant LOCAL_CHAIN_ID = 31337;
+}
+
+contract HelperConfig is CodeConstants, Script {
+    /*//////////////////////////////////////////////////////////////
+                                 ERRORS
+    //////////////////////////////////////////////////////////////*/
+    error HelperConfig__InvalidChainId();
+
+    /*//////////////////////////////////////////////////////////////
+                                 TYPES
+    //////////////////////////////////////////////////////////////*/
     struct NetworkConfig {
-        address priceFeed; // ETH/USD price feed address
+        address priceFeed;
     }
 
+    /*//////////////////////////////////////////////////////////////
+                            STATE VARIABLES
+    //////////////////////////////////////////////////////////////*/
+    // Local network state variables
+    NetworkConfig public localNetworkConfig;
+    mapping(uint256 chainId => NetworkConfig) public networkConfigs;
+
+    /*//////////////////////////////////////////////////////////////
+                               FUNCTIONS
+    //////////////////////////////////////////////////////////////*/
     constructor() {
-        if (block.chainid == 11155111) {
-            activeNetworkConfig = getSepoliaEthConfig();
-        } else if (block.chainid == 1) {
-            activeNetworkConfig = getMainnetEthConfig();
+        networkConfigs[ETH_SEPOLIA_CHAIN_ID] = getSepoliaEthConfig();
+        networkConfigs[ZKSYNC_SEPOLIA_CHAIN_ID] = getZkSyncSepoliaConfig();
+        // Note: We skip doing the local config
+    }
+
+    function getConfigByChainId(
+        uint256 chainId
+    ) public returns (NetworkConfig memory) {
+        if (networkConfigs[chainId].priceFeed != address(0)) {
+            return networkConfigs[chainId];
+        } else if (chainId == LOCAL_CHAIN_ID) {
+            return getOrCreateAnvilEthConfig();
         } else {
-            activeNetworkConfig = getOrCreateAnvilEthConfig();
+            revert HelperConfig__InvalidChainId();
         }
     }
 
+    /*//////////////////////////////////////////////////////////////
+                                CONFIGS
+    //////////////////////////////////////////////////////////////*/
     function getSepoliaEthConfig() public pure returns (NetworkConfig memory) {
-        // price feed address
-        NetworkConfig memory sepoliaConfig = NetworkConfig({
-            priceFeed: 0x694AA1769357215DE4FAC081bf1f309aDC325306
-        });
-        return sepoliaConfig;
+        return
+            NetworkConfig({
+                priceFeed: 0x694AA1769357215DE4FAC081bf1f309aDC325306 // ETH / USD
+            });
     }
 
-    function getSepoliaArbitrumConfig()
+    function getZkSyncSepoliaConfig()
         public
         pure
         returns (NetworkConfig memory)
     {
-        // price feed address
-        NetworkConfig memory sepoliaArbitrumConfig = NetworkConfig({
-            priceFeed: 0xd30e2101a97dcbAeBCBC04F14C3f624E67A35165
-        });
-        return sepoliaArbitrumConfig;
+        return
+            NetworkConfig({
+                priceFeed: 0xfEefF7c3fB57d18C5C6Cdd71e45D2D0b4F9377bF // ETH / USD
+            });
     }
 
-    function getMainnetEthConfig() public pure returns (NetworkConfig memory) {
-        // price feed address
-        NetworkConfig memory ethConfig = NetworkConfig({
-            priceFeed: 0x5f4eC3Df9cbd43714FE2740f5E3616155c5b8419
-        });
-        return ethConfig;
-    }
-
-    function getMainnetArbitrumConfig()
-        public
-        pure
-        returns (NetworkConfig memory)
-    {
-        // price feed address
-        NetworkConfig memory arbitrumConfig = NetworkConfig({
-            priceFeed: 0x639Fe6ab55C921f74e7fac1ee960C0B6293ba612
-        });
-        return arbitrumConfig;
-    }
-
+    /*//////////////////////////////////////////////////////////////
+                              LOCAL CONFIG
+    //////////////////////////////////////////////////////////////*/
     function getOrCreateAnvilEthConfig() public returns (NetworkConfig memory) {
-        if (activeNetworkConfig.priceFeed != address(0)) {
-            return activeNetworkConfig;
+        // Check to see if we set an active network config
+        if (localNetworkConfig.priceFeed != address(0)) {
+            return localNetworkConfig;
         }
-        // price feed address
 
-        // 1. Deploy the mocks
-        // 2. Return the mock addresses
+        console2.log(unicode"⚠️ You have deployed a mock contract!");
+        console2.log("Make sure this was intentional");
         vm.startBroadcast();
         MockV3Aggregator mockPriceFeed = new MockV3Aggregator(
             DECIMALS,
@@ -83,9 +97,7 @@ contract HelperConfig is Script {
         );
         vm.stopBroadcast();
 
-        NetworkConfig memory anvilConfig = NetworkConfig({
-            priceFeed: address(mockPriceFeed)
-        });
-        return anvilConfig;
+        localNetworkConfig = NetworkConfig({priceFeed: address(mockPriceFeed)});
+        return localNetworkConfig;
     }
 }
