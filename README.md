@@ -1,365 +1,377 @@
-# 🌎 **StablePago Protocol: Community-Enabled Payments for Panama & Beyond**
+# 🌎 **The _Equilibrio_ Protocol (`EquiProtocol`): Financial Operating System for Crypto-Native Startups**
 
 ## To-dos
 
-- [ ] Version 0.0.0
 - [ ] Migrate to Wagmi
-- [ ] Connect to Base
-- [ ] Rebrand to `EquiProtocol`
-- [ ] Create wireframe
-- [ ] Code EquiProtocol frontend
-- [ ] Adapt smart contracts for the desired protocol
-- [ ] Connect to BlockDAG
+- [ ] Code and test core protocol contracts
+- [ ] Implement USDC payment reception with Celo (MVP)
+- [ ] Code full-stack Convex/Next.js interface
+- [ ] Connect to BlockDAG (MVP Demo)
+- [ ] Connect to Celo (priority for production)
+- [ ] Migrate to-do list to `TODO.md`
+- [ ] Label version 0.0.1
+- [ ] Create comprehensive wireframe
+- [ ] Code full Equilibrio frontend
+- [ ] Then use Base, Arbitrum, etc.
+- [ ] Add USDT support
+- [ ] Support Celo native stablecoins
 
 ## 1. Executive Summary
 
-Payment fragmentation plagues local economies like Panama's tourism sector.
-**StablePago Protocol** offers the core, flexible infrastructure: a mobile-first
-USDC POS app with a low 1.8% fee and instant settlement via BlockDAG. Our
-hackathon MVP delivers this _and_ the foundation for an **Open-Source Community
-Frontend Template**, enabling communities like **TuriStable DAO** (focused on
-Panama tourism) to easily launch tailored interfaces and govern their share of
-protocol revenue, fostering sustainable, locally-driven growth.
+Crypto-native startups face crippling financial fragmentation across payments,
+treasury, accounting, and capital access, **a problem severely exacerbated in
+regions like Panama and LATAM by the absence of modern global payment
+infrastructure like Stripe.** **Equilibrio**, built upon the **EquiProtocol**
+infrastructure layer, is the comprehensive financial OS designed to solve this.
+Our BlockDAG-based hackathon MVP demonstrates the **core, non-negotiable
+foundation**: a minimal, **decentralized** smart contract specifically for
+**USDC** payments (chosen for its developer tools & transparency) deployed on
+**BlockDAG** (leveraged for its speed _to showcase the demo's instant
+confirmation UX_). Crucially, this isn't just a wallet; it's the first step
+towards programmable, automated financial operations built on a decentralized
+ledger. This validated primitive proves the technical feasibility of the
+real-time, composable data pipeline essential for the entire Equilibrio vision,
+with a clear path to production on **Celo (priority for LATAM)** and other EVM
+chains.
 
 ---
 
-## 2. The Problem: Fragmented Payments & Stifled Growth
+## 2. The Problem: Financial Fragmentation Hampers Growth
 
-Local SMEs, particularly in tourism-heavy, dollarized economies like Panama,
-struggle with:
+Crypto-native startups, particularly in emerging markets like **Panama and wider
+LATAM**, face critical operational challenges:
 
-- **Exorbitant Card Fees:** International cards charge 5-7%, cutting into
-  margins.
-- **Delayed Funds:** Multi-day settlement cycles disrupt cash flow.
-- **Bookkeeping Challenges:** Reconciling disparate payment streams wastes time
-  and creates errors.
-- **Financial Exclusion:** Fragmented data hinders access to loans and growth
-  capital.
+- **Infrastructure Gaps:** Lack of access to modern global payment platforms
+  like **Stripe** forces reliance on fragmented, often legacy, local solutions
+  (like Tilopay or ONVO Pay) with poor developer experience and limited
+  features, especially for crypto-native needs.
+  [[https://tilopay.com/](https://tilopay.com/),
+  [https://onvopay.com/](https://onvopay.com/)]
+- **Payment Acceptance Friction:** Limited ways to accept crypto payments,
+  particularly trusted stablecoins like **USDC**, directly into treasury, often
+  requiring cumbersome manual processes.
+- **Treasury Inefficiency:** Capital sits idle without yield, or requires
+  complex operations.
+- **Accounting Complexity:** Reconciling on/off-chain transactions creates
+  reporting nightmares.
+- **Capital Access Barriers:** Fragmented financial data prevents access to
+  credit against revenues.
+- **Compliance Uncertainty:** Navigating regulatory requirements across
+  jurisdictions burns resources.
 
-This operational friction prevents SMEs from optimizing finances, reinvesting
-locally, and building economic resilience.
-
----
-
-## 3. The Solution: StablePago Protocol MVP, Community Enablement, TuriStable DAO Vision
-
-**StablePago Protocol** provides foundational infrastructure for efficiency,
-security, and community enablement, with **TuriStable DAO** as the first example
-community leveraging this infrastructure.
-
-**MVP: StablePago Protocol - The Mobile USDC POS Engine & Template Foundation**
-
-Our hackathon project delivers the core **StablePago Protocol** engine via a
-**standalone, mobile-first web application** for instant **USD Coin (USDC)**
-acceptance. This app serves a dual purpose:
-
-1. **Immediate Value:** Provides Panama SMEs with an immediate tool for low-fee,
-   instant USDC payments.
-2. **Template Foundation:** Acts as the Version 1.0 and basis for an
-   **Open-Source Community Frontend Template**.
-
-**Key Protocol Features:**
-
-- **Effortless USDC:** Generate QR codes/links via smartphone/tablet (using
-  connected wallet).
-- **Transparent 1.8% Fee:** Designed for SME affordability.
-- **Instant Settlement:** BlockDAG speeds provide near-immediate fund access.
-- **Verifiable History:** On-chain, exportable transaction records tied to
-  wallet address.
-- **Built on Trust:** Uses regulated, dollar-backed USDC.
-
-**Community Enablement via Open Infrastructure & Templates:**
-
-StablePago Protocol is _not_ a monolithic "DAO of DAOs." It's an open, flexible
-payment rail. Any verified community (tourism boards, artisan guilds, local
-markets) can:
-
-1. **Leverage the Protocol:** Utilize the core payment infrastructure.
-2. **Fork the Template:** Adapt the open-source frontend template for their
-   specific branding and needs.
-3. **Form their DAO:** Establish their own governance structure (e.g.,
-   **TuriStable DAO**) to manage their allocated share of protocol fees (see
-   Governance Model).
-
-**Vision: TuriStable DAO - A Blueprint for Local Governance**
-
-The **TuriStable DAO** serves as the pilot community. Funded by the fee share
-from participating Panamanian tourism SMEs, this independent DAO will govern its
-treasury, allocating funds to local tourism development, demonstrating the power
-of community-specific governance built _on top of_ StablePago.
+This fragmentation forces teams to cobble together disparate solutions, wasting
+engineering time, increasing costs, and slowing growth.
 
 ---
 
-## 4. Hero Feature Spotlight: Instant Visual Confirmation
+## 3. The Solution: EquiProtocol as the Composable Foundation for Equilibrio
 
-The **standout StablePago MVP capability** is the **instant, real-time visual
-confirmation** of USDC payments in the merchant's app (the template foundation).
-Our backend (Convex) detects BlockDAG confirmation (~2-5s) and immediately
-updates the UI.
+**Equilibrio** is the vision: a unified financial OS providing crypto-native
+startups with seamless payment processing, programmable treasury, automated
+accounting, and DeFi-powered capital access.
 
-This provides **undeniable proof-of-payment**, builds trust, highlights BlockDAG
-efficiency, and validates the core real-time data infrastructure necessary for
-all frontends built using the template.
+**Why Not Just Use a Regular Wallet?**
+
+A regular wallet receives funds, but the blockchain only sees a raw value
+transfer (Address X sent Y to Address Z). For a _business_, this is
+insufficient. It lacks context, structure, and the ability to trigger automated
+workflows crucial for efficient operations. Manual reconciliation, tracking, and
+triggering actions based on wallet receives is slow, error-prone, and doesn't
+scale.
+
+**EquiProtocol: Transforming Payments into Business Events on Appropriate
+Chains**
+
+Equilibrio requires **composability** and **automation** built on a
+**trustworthy, decentralized base suitable for business needs**. EquiProtocol
+provides this via a **decentralized smart contract** deployed on an appropriate
+blockchain. This contract acts as the **programmable gateway**, transforming the
+raw payment into a structured, verifiable _business event_ on-chain.
+
+- **Structured Data via Events:** The contract emits a standardized
+  `PaymentProcessed` event (merchant address, amount, timestamp), turning raw
+  value into verifiable information.
+- **Automation Trigger:** This reliable on-chain event acts as a signal that
+  other services can listen for and react to automatically.
+- **Future Context & Control:** Future versions will enrich this event (e.g.,
+  with `invoiceId`) and allow for contract-level controls.
+
+**Why USDC First?** While USDT holds a larger market cap, we strategically chose
+**USD Coin (USDC)** for the initial implementation of EquiProtocol and the
+Equilibrio OS for several key reasons crucial to building robust financial
+infrastructure for businesses:
+
+- **Developer Experience & Tooling:** Circle (USDC issuer) provides superior
+  APIs, SDKs, and documentation, significantly accelerating development and
+  simplifying the integration needed for reliable payment processing, treasury
+  functions, and accounting automation within Equilibrio.
+- **Transparency & Trust:** USDC has a stronger track record of transparency,
+  with regular reserve attestations conducted by independent auditors. This
+  builds greater trust, essential when businesses are relying on the platform
+  for financial operations
+  [[https://www.tokenmetrics.com/blog/usdt-vs-usdc](https://www.tokenmetrics.com/blog/usdt-vs-usdc)].
+- **Regulatory Alignment:** USDC's proactive approach to compliance and
+  regulation provides a potentially more stable foundation for a
+  business-focused financial OS, particularly in regions navigating evolving
+  crypto regulations
+  [[https://www.tokenmetrics.com/blog/usdt-vs-usdc](https://www.tokenmetrics.com/blog/usdt-vs-usdc)].
+- **Ecosystem Preference:** USDC is widely integrated and often preferred within
+  the DeFi ecosystem, especially by protocols prioritizing compliance and
+  long-term stability, aligning well with Equilibrio's vision
+  [[https://www.muralpay.com/blog/usdc-vs-usdt-what-is-the-difference](https://www.muralpay.com/blog/usdc-vs-usdt-what-is-the-difference)].
+  _(Support for USDT is planned for future iterations to maximize payment
+  options.)_
+
+**MVP: Validating the Decentralized Core (USDC) & Event Trigger on BlockDAG**
+
+Our hackathon MVP focuses on the most critical piece: the **decentralized
+`EquiProtocolMVP` smart contract** (handling **USDC** payments) and its **event
+emission**. To _demonstrate_ the crucial **instant confirmation UX** effectively
+within the limited timeframe, we deployed this contract on **BlockDAG**,
+leveraging its rapid finality (~2-5s).
+
+- **Decentralized Smart Contract (BlockDAG for MVP):** Securely receives
+  **USDC**, acting as the programmable gateway and emitting the event.
+- **Backend Listener & Frontend Demo:** These off-chain components listen for
+  the BlockDAG event to provide near-instant visual confirmation.
+
+This MVP validates the core mechanism using BlockDAG as a tool to prove the
+concept with USDC. It establishes the foundation for production deployment on
+chains selected for broader market fit.
+
+**Future Equilibrio Vision (Enabled by the Composable EquiProtocol Foundation on
+Celo, Base, etc.):**
+
+- **Comprehensive Payment Suite:** Multi-currency (incl. USDT later),
+  subscription management, invoicing.
+- **Extensible Platform via Composability:** Deep integration with DeFi
+  protocols (E.g. Aave, Uniswap, Curve, Balancer, Reserve), AI Agents, and
+  third-party financial tools through standardized interfaces and a plugin
+  ecosystem.
+
+**Open Infrastructure & Path to Decentralized Frontends:**
+
+EquiProtocol is designed as an open, composable foundation. Post-hackathon, we
+will provide an **Open-Source Frontend Template & Widgets**. This allows the
+developer community to contribute modules and extensions, composing
+sophisticated financial tools and potentially **building fully decentralized
+interfaces (dApps)** on top of the core decentralized protocol demonstrated by
+the MVP.
 
 ---
 
-## 5. MVP Scope & 5-Day Plan (Core Protocol + Template Foundation)
+## 4. Hero Feature Spotlight: Instant Visual Confirmation - Enabled by BlockDAG for Demo
 
-Focus is strictly on the **StablePago Protocol payment engine** and the
-**foundational frontend app/template**:
+The **standout EquiProtocol MVP capability** is the **instant, real-time visual
+confirmation** of **USDC** payments (~2-5s), served via our centralized demo UI.
+This rapid confirmation is crucial for business UX.
+
+This showcases the successful reception of funds _into the decentralized
+protocol contract_ and the immediate emission of the `PaymentProcessed` event.
+The core value lies in transforming the raw payment into **structured,
+actionable data** available on-chain, which acts as a **reliable trigger** for
+future integrations, regardless of the underlying chain's finality speed in
+production (which will be balanced with other factors like cost and adoption).
+
+---
+
+## 5. MVP Scope (Core Protocol Primitive Only)
+
+Our MVP scope is deliberately minimalist, focusing exclusively on proving the
+core **decentralized payment primitive** (handling **USDC** on BlockDAG for demo
+speed) and its event emission for composability:
 
 - **Core Functionality:**
-  - **Merchant Identification via Wallet Connect:** Associate merchant activity
-    directly with their connected wallet address (replaces traditional login).
-  - **Mobile-first web app (Next.js) serving as V1.0 template:** generating USDC
-    payment QR/links.
-  - Minimal, secure BlockDAG Smart Contract (`StablePagoMVP`) for USDC transfer
-    & **on-chain 1.8% fee split implementation**:
-    - **0.6% → Protocol Treasury**
-    - **0.6% → Community Treasury** (held in designated multi-sig/wallet,
-      controlled by core team for MVP)
-    - **0.6% → Maintainers/Stakers**
-  - Convex backend listening for `PaymentProcessed` events → **real-time DB
-    updates**.
-  - App dashboard: transaction history **with instant visual confirmation**.
-- **Exclusions:** Community governance contracts (TuriStable DAO voting
-  mechanics are post-hackathon), complex off-ramping, unified dashboard
-  integrations.
+  - **Decentralized Smart Contract (`EquiProtocolMVP.sol`):** Deployed on-chain
+    (**BlockDAG for demo**), receives **USDC**, emits a standardized
+    `PaymentProcessed` event (structured data + automation trigger).
+  - **Backend Listener:** _Demo component_ that detects the BlockDAG on-chain
+    event.
+  - **Frontend Demo:** _Demo component_ that consumes event data for visual
+    confirmation.
 
-**5-Day Plan:**
+- **Explicit Exclusions:**
+  - **NO USDT Support (MVP):** Focus on USDC initially; USDT planned post-MVP.
+  - **NO Fee Implementation:** Future concept only.
+  - **NO Detailed Item/Invoice Data in Event:** Future scope. (MVP only confirms
+    payment amount/merchant).
+  - **NO Treasury Management / DeFi Integration:** Future feature post-MVP.
+  - **NO Advanced UI/UX:** Minimal frontend focused on demonstrating the
+    confirmation loop.
+  - **NO Multi-Chain Support in MVP:** BlockDAG (and maybe Celo) only for MVP
+    demo.
+  - **NO Decentralized Frontend/Backend:** Demo components are hosted in
+    centralized services for MVP feasibility.
 
-1. **Day 1 (Foundation):** Setup Turborepo (Next.js, Convex, Foundry). Define
-   `StablePagoMVP` interface & essential data models (wallet-based). Outline
-   template structure.
-2. **Day 2 (Contract & Wallet):** Implement & test secure `StablePagoMVP`
-   contract (transfer, fee-split implementation, events). Integrate basic wallet
-   connect library.
-3. **Day 3 (Backend):** Deploy contract. Verify fee routing. Complete Convex
-   implementation (event listener, **real-time DB updates** based on wallet
-   address). Start core UI development (wallet connect integration).
-4. **Day 4 (Frontend Template V1):** Complete core POS UI/UX (QR/link generation
-   tied to connected wallet), Tx History display (**instant update**).
-5. **Day 5 (E2E & Polish):** Test complete payment flow (wallet connect →
-   payment → **instant confirmation**), verify fee accumulation, refine template
-   styling, deploy, prep demo.
+1. **Day 1 (Foundation):**
+   - Set up minimal development environment
+   - Define `EquiProtocolMVP` contract interface (receive **USDC**, emit
+     standardized event)
+   - Build basic wallet connect integration
 
-## 5a. Execution Strategy & Risk Mitigation
+2. **Day 2 (Core Functions):**
+   - Implement & test `EquiProtocolMVP` contract (incl. **USDC** handling, event
+     emission)
+   - Confirm smart contract compilation for Celo.
+   - Deploy smart contract to **BlockDAG testnet** (for demo speed)
+   - Create backend listener for payment events
 
-To maximize our chance of delivering a working MVP within the 5-day timeline,
-we're adopting a pragmatic prioritization strategy:
-
-- **Core Prioritization:**
-  1. **Payment Flow (Days 1-3):** Smart contract and core payment mechanism must
-     be operational first.
-  2. **Hero Feature (Days 3-4):** Real-time event detection and UI update is the
-     standout feature.
-  3. **Polish & Stretch Goals (Day 5):** Only addressed after core functionality
-     is working reliably.
-
-- **Technical Risk Mitigation:**
-  - **BlockDAG Integration:** Test extensively with local Anvil environment
-    before deployment. Selected for its sub-second finality and EVM
-    compatibility, crucial for the instant confirmation UX. Prepare fallback to
-    standard EVM chain if BlockDAG presents unexpected issues.
-  - **Fee-Split Implementation:** Low technical risk as it uses standard ERC20
-    transfer logic with thorough test coverage. Multi-sig/wallet control in MVP
-    defers governance complexity.
-  - **Convex Setup:** Simplified by removing traditional auth; focus remains on
-    robust event listener and real-time DB updates triggered by wallet events.
-    Start integration early (Day 2) for buffer time.
-  - **Frontend Complexity:** Focus on core payment flow UI first (wallet
-    connect, QR/link generation, confirmation). Apply progressive enhancement
-    approach - only add features after base functionality works.
-  - **Testing Strategy:** Use TDD for contract, integrate manual testing
-    checkpoints at end of each day, prioritize full payment flow testing (wallet
-    connect -> payment -> confirmation) on Day 4 to allow Day 5 for fixes.
-
-- **Scope Control Mechanisms:**
-  - Daily stand-up review of progress against core deliverables.
-  - Clear "stop" criteria for each component (when it's good enough for MVP).
-  - Explicit decision points for stretch goals (only pursue if core is solid).
-  - **DAO Governance Deferral:** Community Treasury accumulation is verified in
-    MVP, but voting mechanics are explicitly post-hackathon to reduce
-    complexity.
+3. **Day 3 (Integration & Demo):**
+   - Connect frontend (consuming event), backend, and BlockDAG smart contract
+     components
+   - Implement visual confirmation UI
+   - Test end-to-end **USDC** payment flow
+   - Deploy demo and prepare presentation
 
 ---
 
-## 6. Architecture Overview (StablePago Protocol Core)
+## 6. Architecture Overview (Illustrating Composability via Events)
 
-The architecture focuses on the reusable backend and core contract
-infrastructure. The frontend shown is an _instance_ derived from the community
-template.
-
-- **Frontend (Template Instance):** Mobile-first Next.js web application
-  (forkable/customizable).
-- **Backend:** Convex (real-time DB, auth, serverless functions for event
-  listening).
-- **Blockchain:** EVM-compatible BlockDAG hosting `StablePagoMVP` contract.
+The architecture focuses on the minimal implementation needed to demonstrate the
+**decentralized core payment primitive** (using BlockDAG for MVP demo, receiving
+**USDC**) and its **event-driven composability potential**, using centralized
+components for the demo interface:
 
 ```mermaid
-sequenceDiagram
-    participant SME as Merchant (Frontend Template Instance)
-    participant SPApp as StablePago Frontend (Next.js)
-    participant ConvexBackend as StablePago Backend
-    participant SPContract as StablePagoMVP (BlockDAG)
-    participant Tourist as Customer (Wallet)
+graph LR
+    subgraph Frontend [Centralized Demo]
+        direction LR
+        User(Startup User) --> EQApp(Demo UI)
+    end
 
-    SME->>SPApp: Enter USDC Amount
-    SPApp->>SPApp: Generate QR/Link
-    SME->>Tourist: Show QR/Share Link
+    subgraph Backend [Centralized Demo]
+        Listener(Event Listener) --> DB[(Minimal DB)]
+    end
 
-    Tourist->>Wallet: Scan QR/Click Link
-    Wallet->>SPContract: processPayment(merchant, amount)
-    activate SPContract
-    %% Fee split (future state): 0.6% ProtoTreasury, 0.6% CommDAO, 0.6% Maintainers %%
-    SPContract->>SPContract: Transfer USDC (Customer -> Merchant, Fee -> Contract Placeholder)
-    SPContract->>ConvexBackend: Emit PaymentProcessed Event
-    deactivate SPContract
-    Wallet-->>Tourist: Tx Success
+    subgraph Blockchain [Decentralized - BlockDAG for MVP]
+        Payer(Client Wallet) -- USDC Transfer --> Contract(EquiProtocolMVP)
+        Contract -- Emits --> Event(PaymentProcessed Event)
+    end
 
-    activate ConvexBackend
-    ConvexBackend->>ConvexBackend: Update Merchant Tx History DB
-    ConvexBackend-->>SPApp: Push Real-time Update (to specific Frontend Instance)
-    deactivate ConvexBackend
+    subgraph Future Integrations [Conceptual - Decentralized/Centralized on Celo/Base etc.]
+        Acct(Accounting System)
+        Treasury(Treasury Bot/Agent)
+        Notify(Notification Service)
+        dAppFrontend(Future dApp Interface)
+    end
 
-    activate SPApp
-    SPApp-->>SME: **Instant Visual Confirmation** (UI Update)
-    deactivate SPApp
+    Event --> Listener -- Real-time Update --> EQApp
+    Event -.-> Acct
+    Event -.-> Treasury
+    Event -.-> Notify
+    Event -.-> dAppFrontend
+
+    linkStyle 4 stroke-width:2px,fill:none,stroke:green;
+    linkStyle 5 stroke-width:1px,fill:none,stroke:blue,stroke-dasharray: 5 5;
+    linkStyle 6 stroke-width:1px,fill:none,stroke:blue,stroke-dasharray: 5 5;
+    linkStyle 7 stroke-width:1px,fill:none,stroke:blue,stroke-dasharray: 5 5;
+    linkStyle 8 stroke-width:1px,fill:none,stroke:blue,stroke-dasharray: 5 5;
 ```
 
----
-
-## 7. Governance & Sustainability Model
-
-StablePago Protocol ensures long-term viability and aligns incentives via an
-**on-chain fee split** of the 1.8% transaction fee:
-
-- **0.6% → Protocol Treasury:** Funds core infrastructure (servers, nodes),
-  security audits, operational overhead, and potentially gas subsidies. Ensures
-  protocol reliability and security.
-- **0.6% → Community DAO Treasuries (e.g., TuriStable DAO):** Automatically
-  routed to the designated treasury of the DAO governing the specific community
-  using the protocol. Empowers local, autonomous funding decisions.
-- **0.6% → Protocol Maintainers/Stakers:** Rewards core developers,
-  contributors, and potentially stakers who secure/support the network, ensuring
-  ongoing innovation. (Mechanism for distribution/claiming is future work; MVP
-  focuses on routing the fee to a designated address)
-
-**Economic Viability:** This balanced split provides dedicated revenue streams
-to cover operational costs, directly fund community initiatives based on usage,
-and incentivize continuous development and maintenance, creating a sustainable
-positive feedback loop.
-
-**Game Theory & Fair Governance (Future State):** To ensure long-term health and
-prevent capture at _both_ the protocol maintenance level and within community
-DAOs, future iterations will incorporate mechanisms like:
-
-- **Quadratic Voting/Funding:** Prevents disproportionate influence by large
-  token holders.
-- **Reputation/Usage Weighting:** Grants influence based on active
-  participation, transaction history, or verified contributions, rewarding
-  "skin-in-the-game."
-- **Identity Solutions:** Links votes/participation to unique entities (SMEs,
-  individuals) to resist Sybil attacks.
-
-The protocol remains flexible for any verified community (tourism boards,
-artisan guilds, local markets) to adopt this pattern. Each community can
-leverage the protocol infrastructure, fork the frontend template, and establish
-their own governance structure to manage their allocated protocol fees.
+_Diagram illustrates how the single `PaymentProcessed` Event (green arrow) from
+the **Decentralized EquiProtocol Contract (on BlockDAG for MVP, handling USDC)**
+is consumed by the MVP's backend/frontend, and conceptually enables multiple
+future integrations (blue dashed arrows) on production chains like Celo,
+including potentially decentralized ones._
 
 ---
 
-## 8. Competitive Landscape
+## 7. User Experience (Proving the Foundation)
 
-StablePago Protocol differentiates itself in the growing stablecoin payment
-space:
+The MVP demo offers a simple, clean user experience via a **centralized
+frontend**. Its true value lies in demonstrating the **technical execution** of
+the underlying **decentralized protocol** required for the full Equilibrio OS:
 
-- Compared to generic crypto POS systems or potential **Lemon Squeezy** crypto
-  features, StablePago offers a **fundamentally open infrastructure** combined
-  with a **built-in, transparent fee-split mechanism** designed explicitly to
-  **empower community DAOs**.
-- The provision of an **Open-Source Frontend Template** drastically lowers the
-  barrier for communities to adopt and customize the system, fostering
-  grassroots adoption in a way closed platforms cannot. This focus on
-  composability and community ownership is unique.
+- **Complexity Under Simplicity:** Successfully orchestrating the **secure,
+  decentralized smart contract (for USDC)**, the standardized event emission,
+  the real-time **centralized backend listener**, and the **BlockDAG integration
+  (for demo speed)** proves our team's capability to handle the core
+  decentralized components essential for the full OS.
 
----
+- **Focus on Core Value:** The experience centers on the **instant feedback
+  loop** (~5s confirmation). This validates the core promise of real-time data
+  availability originating from the **immutable, decentralized ledger** via a
+  composable event stream – the bedrock of Equilibrio's automation capabilities.
 
-## 9. Key Metrics & Savings
+- **Minimal Flow (Validating the Primitive):**
+  1. Connect Wallet (Business) - Demonstrates secure authentication.
+  2. Receive payment address - Shows clear instruction.
+  3. Customer sends **USDC** - Standard, familiar flow.
+  4. **Experience Instant Visual Confirmation** - Proves the end-to-end data
+     pipeline (**Decentralized Chain Contract Event** -> Centralized Backend ->
+     Centralized Frontend) works reliably and quickly.
 
-Clear advantages for SMEs:
+- **Visual Design:** Clean and functional, emphasizing clarity of the
+  confirmation message and transaction details.
 
-- **Fee Savings:**
-  - Typical Int'l Card Fee: ~5.0%
-  - StablePago Protocol Fee: **1.8%**
-  - **Saving:** **$3.20** per $100 USDC transaction.
-- **Speed (BlockDAG Estimates):**
-  - Transaction Finality: **~2-5 seconds**.
-  - Gas Cost: **~0.0005 USDC** (estimate).
-- **Settlement:** Near-instant access to funds.
+![MVP Demo Mockup](https://i.imgur.com/XuPd18p.png)
 
----
-
-## 10. User Experience (StablePago MVP / Template V0.0.0)
-
-Focus on simplicity for the initial template:
-
-- **Mobile POS Flow:**
-  1. Connect Wallet (Merchant).
-  2. Enter amount **in USDC** (Indicative PAB/USD shown).
-  3. Generate QR/Link.
-  4. Present to Tourist.
-  5. **See Instant Visual Confirmation** tied to connected wallet.
-- **Transaction History:** View transaction details directly in the app,
-  filtered by connected wallet.
-
-![POS App Mockup](https://i.imgur.com/CeEI9ty.png) _(Placeholder for App UI /
-Template V0.0.0)_
-
-![Dashboard Mockup](https://i.imgur.com/8JNmFm5.png) _(Placeholder for Dashboard
-UI / Template V0.0.0)_
+![MVP POS Sample](https://i.imgur.com/XW2MJAh.png)
 
 ---
 
-## 11. Local Community Impact (Enabled by StablePago)
+## 8. Community & Ecosystem Impact
 
-The protocol acts as a catalyst for local economic empowerment:
+EquiProtocol drives economic empowerment in two key communities:
 
-- **Boosts SME Revenue:** Direct fee savings increase reinvestment capacity.
-- **Funds Local Initiatives:** The 0.6% community fee share provides autonomous
-  funding for DAOs like **TuriStable DAO** to address specific local needs
-  (marketing, training, infrastructure).
-- **Improves Financial Access:** Verifiable data aids loan applications.
-- **Modernizes Payments:** Offers tourists a trusted, low-fee digital option.
+- **Developer Community:** The open, composable infrastructure (starting with
+  the standardized event from the decentralized contract) invites contributions,
+  creating a collaborative ecosystem of plugins, extensions, and **custom
+  interfaces (including dApps)** built upon the core protocol.
 
-**Micro-Case Study (Illustrative):**
+- **Crypto-Native Startups (esp. LATAM):** EquiProtocol lowers barriers to
+  financial operations by providing the foundational layer for automation and
+  integration on chains like **Celo**, chosen for their suitability to regional
+  needs (mobile-first, low fees, stablecoins like **USDC/cUSD**). **Crucially,
+  it provides a modern, programmable alternative in markets like Panama where
+  global providers like Stripe are unavailable**, enabling local startups to
+  compete globally. This enables teams to focus on core business rather than
+  financial infrastructure.
 
-- _A Panamanian artisan guild forks the **StablePago Frontend Template**, brands
-  it, and forms its own DAO. The 0.6% fee share collected from guild members'
-  sales funds raw material purchases and participation in international craft
-  fairs, decisions made collectively via their DAO._
-
----
-
-## 12. Future Roadmap
-
-The MVP validates the core engine and provides the foundational template. Next
-steps:
-
-1. **Refine & Release Frontend Template:** Open-source the V1.0 frontend app as
-   a customizable template with clear documentation.
-2. **Implement Community DAO Governance:** Transition from multi-sig Community
-   Treasury control to autonomous TuriStable DAO with complete voting mechanics
-   and governance contracts.
-3. **Develop DAO Tooling:** Create resources/guides for communities to launch
-   DAOs utilizing the StablePago infrastructure and fee share.
-4. **TuriStable DAO Formalization (Pilot):** Launch the initial governance
-   contracts for the TuriStable DAO pilot.
-5. **Explore Integrations:** Investigate APIs (e.g., **Lemon Squeezy**) for
-   unified dashboard capabilities.
-6. **Partner for Off-Ramping:** Facilitate easy USDC-to-fiat conversion routes.
+**Future Use Case Example:** _Tourism-focused businesses in Panama could
+leverage the EquiProtocol infrastructure and frontend template to create a
+tailored payment solution for their industry, potentially forming a "TuriDAO"
+(which uses the protocol itself) to govern their specific implementation and
+pool resources for industry-wide initiatives._
 
 ---
 
-**(Note: Detailed smart contract code (`StablePagoMVP.sol`), security patterns,
-and setup instructions are in the technical appendix/codebase.)**
+## 9. Future Roadmap & Blockchain Strategy
+
+The MVP validates the **decentralized core primitive (handling USDC)** on
+BlockDAG (for demo purposes) and its initial composability via events. Next
+steps involve building the Equilibrio OS on this proven foundation, deepening
+composability, and deploying strategically across multiple chains:
+
+1. **Targeted Multi-Chain Deployment:**
+   - **Priority (LATAM Focus): Celo.** Deploy EquiProtocol contracts to Celo
+     mainnet. **Why Celo?** Its mobile-first architecture aligns with LATAM's
+     usage patterns, its focus on stablecoins (**USDC/cUSD**) meets regional
+     business needs, and its low transaction fees make it viable for frequent
+     operations and enhance financial inclusion.
+   - **Broad Reach:** Deploy to **Base** and **Arbitrum** for access to their
+     growing DeFi ecosystems and user bases.
+   - **Explore:** Consider **Stellar** for specific cross-border payment use
+     cases if relevant partnerships emerge.
+2. **Core Financial OS Components:** Build modules (Treasury, Payments,
+   Accounting) that consume data from the decentralized protocol events across
+   deployed chains.
+3. **Expand Stablecoin Support:** Integrate **USDT** into EquiProtocol smart
+   contracts and the Equilibrio OS to offer broader payment options.
+4. **Capital Access Layer:** Integrate with DeFi protocols like Aave via
+   composable interfaces.
+5. **Compliance Tools:** Integrate Chainlink for regulatory reporting
+   automation.
+6. **Developer Ecosystem & Deeper Composability:** Release SDK, documentation,
+   standardized contract interfaces (beyond events) for direct on-chain
+   interaction, enrichment of event data (e.g., `invoiceId`), and incentivize
+   community contributions to the plugin ecosystem.
+7. **Open-Source Frontend Template & dApp Path:** Release the frontend template
+   to enable community-built interfaces, including fully decentralized dApps
+   interacting directly with the EquiProtocol contracts on chains like Celo,
+   Base, etc.
+
+---
+
+**(Note: Detailed contract code (`EquiProtocolMVP.sol`), technical architecture,
+and testing procedures are available in the technical appendix/codebase.)**
