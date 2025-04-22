@@ -3,6 +3,7 @@
 import { useMutation, useQuery } from "convex/react";
 import { api } from "../convex/_generated/api";
 import Link from "next/link";
+import { Profile } from "@/components/profile";
 
 export default function Home() {
   return (
@@ -42,6 +43,7 @@ function Content() {
   return (
     <div className="flex flex-col gap-8 max-w-lg mx-auto">
       <p>Welcome {viewer ?? "Anonymous"}!</p>
+      <Profile />
       <p>
         Click the button below and open this page in another window - this data
         is persisted in the Convex cloud database!

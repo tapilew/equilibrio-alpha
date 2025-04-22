@@ -1,4 +1,4 @@
-# 🌎 **The _Equilibrio_ Protocol (`EquiProtocol`): Financial Operating System for Crypto-Native Startups**
+# 🤸 **_Equilibrio_ Protocol (`EquiProtocol`): <br> 💱 Financial Operating System for <br> 🦄 Crypto-Native Startups**
 
 ## To-dos
 
