@@ -2,7 +2,14 @@
 @openzeppelin-contracts-5.3.0/=dependencies/@openzeppelin-contracts-5.3.0/
 cyfrin-foundry-devops-0.4.0rc/=dependencies/cyfrin-foundry-devops-0.4.0rc/
 cyfrin-foundry-devops/=dependencies/cyfrin-foundry-devops-0.4.0rc/
+<<<<<<< HEAD
 forge-std-1.9.6/=dependencies/forge-std-1.9.6/
 forge-std/=dependencies/forge-std-1.9.6/src/
 foundry-devops/=dependencies/cyfrin-foundry-devops-0.4.0rc/
+=======
+foundry-devops/=dependencies/cyfrin-foundry-devops-0.4.0rc/
+forge-std/=lib/forge-std/src/
+>>>>>>> 47ca159 (Creation of smart contracts)
 smartcontractkit-chainlink-brownie-contracts-1.3.0/=dependencies/smartcontractkit-chainlink-brownie-contracts-1.3.0/
+ds-test/=lib/forge-std/lib/ds-test/src/
+@openzeppelin/=lib/openzeppelin-contracts/

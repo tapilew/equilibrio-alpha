@@ -1,6 +1,7 @@
 [profile.default]
 src = "src"
 out = "out"
+<<<<<<< HEAD
 libs = [ "dependencies"]
 test = "test"  # Explicitly set test directory
 test_pattern = "*.t.sol"  # Match all test files
@@ -9,6 +10,15 @@ fuzz = { runs = 1_000 }
 bytecode_hash = "none" 
 gas_reports = ["*"] 
 solc_version = "0.8.19"
+=======
+libs = ["dependencies"]
+test = "test"            # Explicitly set test directory
+test_pattern = "*.t.sol" # Match all test files
+auto_detect_solc = false
+fuzz = { runs = 1_000 }
+bytecode_hash = "none"
+gas_reports = ["*"]
+>>>>>>> 47ca159 (Creation of smart contracts)
 
 [dependencies]
 forge-std = "1.9.6"
