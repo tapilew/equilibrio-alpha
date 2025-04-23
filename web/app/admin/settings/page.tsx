@@ -1,18 +1,25 @@
-import { AdminLayout } from "@/components/admin/admin-layout"
-import { Button } from "@/components/ui/button"
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { Input } from "@/components/ui/input"
-import { Label } from "@/components/ui/label"
-import { Switch } from "@/components/ui/switch"
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
+import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { Switch } from "@/components/ui/switch";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 
 export default function AdminSettingsPage() {
   return (
-    <AdminLayout>
+    <>
       <div className="mb-6">
         <h1 className="text-3xl font-bold">Settings</h1>
-        <p className="text-muted-foreground">Manage your account and application settings</p>
+        <p className="text-muted-foreground">
+          Manage your account and application settings
+        </p>
       </div>
 
       <Tabs defaultValue="account">
@@ -36,7 +43,11 @@ export default function AdminSettingsPage() {
                 </div>
                 <div className="space-y-2">
                   <Label htmlFor="email">Email Address</Label>
-                  <Input id="email" type="email" defaultValue="admin@example.com" />
+                  <Input
+                    id="email"
+                    type="email"
+                    defaultValue="admin@example.com"
+                  />
                 </div>
               </div>
               <div className="space-y-2">
@@ -60,8 +71,14 @@ export default function AdminSettingsPage() {
                 <Button variant="outline">Disconnect</Button>
               </div>
               <div className="space-y-2">
-                <Label htmlFor="receiving-address">EquiProtocol Receiving Address</Label>
-                <Input id="receiving-address" defaultValue="0xCD265CSa3192cgF482F77C3add57A0c26361E53" readOnly />
+                <Label htmlFor="receiving-address">
+                  EquiProtocol Receiving Address
+                </Label>
+                <Input
+                  id="receiving-address"
+                  defaultValue="0xCD265CSa3192cgF482F77C3add57A0c26361E53"
+                  readOnly
+                />
               </div>
             </CardContent>
           </Card>
@@ -87,7 +104,10 @@ export default function AdminSettingsPage() {
               </div>
 
               <div className="flex items-center justify-between space-x-2">
-                <Label htmlFor="auto-convert" className="flex flex-col space-y-1">
+                <Label
+                  htmlFor="auto-convert"
+                  className="flex flex-col space-y-1"
+                >
                   <span>Auto-convert to Fiat</span>
                   <span className="font-normal text-sm text-muted-foreground">
                     Automatically convert USDC to local currency
@@ -97,9 +117,14 @@ export default function AdminSettingsPage() {
               </div>
 
               <div className="flex items-center justify-between space-x-2">
-                <Label htmlFor="invoice-expiry" className="flex flex-col space-y-1">
+                <Label
+                  htmlFor="invoice-expiry"
+                  className="flex flex-col space-y-1"
+                >
                   <span>Invoice Expiry</span>
-                  <span className="font-normal text-sm text-muted-foreground">Set how long invoices remain valid</span>
+                  <span className="font-normal text-sm text-muted-foreground">
+                    Set how long invoices remain valid
+                  </span>
                 </Label>
                 <Select defaultValue="24h">
                   <SelectTrigger id="invoice-expiry" className="w-[120px]">
@@ -124,7 +149,9 @@ export default function AdminSettingsPage() {
             </CardHeader>
             <CardContent className="space-y-4">
               <div className="flex items-center justify-between space-x-2">
-                <Label htmlFor="payment-notifications">Payment Notifications</Label>
+                <Label htmlFor="payment-notifications">
+                  Payment Notifications
+                </Label>
                 <Switch id="payment-notifications" defaultChecked />
               </div>
 
@@ -134,7 +161,9 @@ export default function AdminSettingsPage() {
               </div>
 
               <div className="flex items-center justify-between space-x-2">
-                <Label htmlFor="marketing-notifications">Marketing Updates</Label>
+                <Label htmlFor="marketing-notifications">
+                  Marketing Updates
+                </Label>
                 <Switch id="marketing-notifications" />
               </div>
             </CardContent>
@@ -168,6 +197,6 @@ export default function AdminSettingsPage() {
           </Card>
         </TabsContent>
       </Tabs>
-    </AdminLayout>
-  )
+    </>
+  );
 }

@@ -1,15 +1,16 @@
-import { AdminLayout } from "@/components/admin/admin-layout"
-import { ActivityChart } from "@/components/activity/activity-chart"
-import { ActivityCategories } from "@/components/activity/activity-categories"
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs"
+import { ActivityChart } from "@/components/activity/activity-chart";
+import { ActivityCategories } from "@/components/activity/activity-categories";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 export default function AdminAnalyticsPage() {
   return (
-    <AdminLayout>
+    <>
       <div className="mb-6">
         <h1 className="text-3xl font-bold">Analytics</h1>
-        <p className="text-muted-foreground">Detailed insights into your business performance</p>
+        <p className="text-muted-foreground">
+          Detailed insights into your business performance
+        </p>
       </div>
 
       <div className="mb-6">
@@ -27,9 +28,24 @@ export default function AdminAnalyticsPage() {
       <div className="grid md:grid-cols-2 gap-6 mt-6">
         <ActivityCategories
           categories={[
-            { name: "Retail Sales", amount: 450, percentage: 60, color: "bg-blue-500" },
-            { name: "Wholesale", amount: 225, percentage: 30, color: "bg-green-500" },
-            { name: "Subscription", amount: 75, percentage: 10, color: "bg-purple-500" },
+            {
+              name: "Retail Sales",
+              amount: 450,
+              percentage: 60,
+              color: "bg-blue-500",
+            },
+            {
+              name: "Wholesale",
+              amount: 225,
+              percentage: 30,
+              color: "bg-green-500",
+            },
+            {
+              name: "Subscription",
+              amount: 75,
+              percentage: 10,
+              color: "bg-purple-500",
+            },
           ]}
           totalAmount={750}
         />
@@ -58,6 +74,6 @@ export default function AdminAnalyticsPage() {
           </CardContent>
         </Card>
       </div>
-    </AdminLayout>
-  )
+    </>
+  );
 }

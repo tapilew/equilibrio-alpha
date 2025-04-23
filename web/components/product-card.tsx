@@ -1,31 +1,38 @@
-"use client"
+"use client";
 
-import { Card, CardContent } from "@/components/ui/card"
-import { AspectRatio } from "@/components/ui/aspect-ratio"
+import { Card, CardContent } from "@/components/ui/card";
+import { AspectRatio } from "@/components/ui/aspect-ratio";
+import { useState } from "react";
 
 interface ProductCardProps {
-  name: string
-  price: number
-  imageUrl: string
-  onClick?: () => void
+  name: string;
+  price: number;
+  imageUrl: string;
+  onClick?: () => void;
 }
 
 export function ProductCard({
   name,
   price,
-  imageUrl = "/placeholder.svg?height=200&width=200",
+  imageUrl,
   onClick,
 }: ProductCardProps) {
+  const [imgSrc, setImgSrc] = useState(imageUrl);
+  const placeholderUrl = `https://placehold.co/400x400/e5e7eb/a1a1aa?text=${encodeURIComponent(name)}`;
+
   return (
-    <Card className="overflow-hidden transition-all hover:shadow-md cursor-pointer" onClick={onClick}>
+    <Card
+      className="overflow-hidden transition-all hover:shadow-md cursor-pointer"
+      onClick={onClick}
+    >
       <AspectRatio ratio={1 / 1}>
         <img
-          src={imageUrl || "/placeholder.svg"}
+          src={imgSrc}
           alt={name}
           className="object-cover w-full h-full"
-          onError={(e) => {
+          onError={() => {
             // Fallback to placeholder if image fails to load
-            e.currentTarget.src = "/placeholder.svg?height=200&width=200"
+            setImgSrc(placeholderUrl);
           }}
         />
       </AspectRatio>
@@ -34,5 +41,5 @@ export function ProductCard({
         <p className="text-muted-foreground">{price} USDC</p>
       </CardContent>
     </Card>
-  )
+  );
 }

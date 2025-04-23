@@ -1,54 +1,90 @@
-"use client"
+"use client";
 
-import { useState } from "react"
-import { AdminLayout } from "@/components/admin/admin-layout"
-import { Button } from "@/components/ui/button"
-import { Card, CardContent } from "@/components/ui/card"
-import { Input } from "@/components/ui/input"
-import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table"
-import { Badge } from "@/components/ui/badge"
-import { Plus, Search, ExternalLink } from "lucide-react"
+import { useState } from "react";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent } from "@/components/ui/card";
+import { Input } from "@/components/ui/input";
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from "@/components/ui/table";
+import { Badge } from "@/components/ui/badge";
+import { Plus, Search, ExternalLink } from "lucide-react";
 
 interface Invoice {
-  id: string
-  customer: string
-  amount: number
-  date: string
-  status: "paid" | "pending" | "overdue"
+  id: string;
+  customer: string;
+  amount: number;
+  date: string;
+  status: "paid" | "pending" | "overdue";
 }
 
 export default function AdminInvoicesPage() {
-  const [searchQuery, setSearchQuery] = useState("")
+  const [searchQuery, setSearchQuery] = useState("");
 
   const invoices: Invoice[] = [
-    { id: "INV-001", customer: "Artisan Crafts Store", amount: 57, date: "2023-04-15", status: "paid" },
-    { id: "INV-002", customer: "john@example.com", amount: 35.75, date: "2023-04-16", status: "pending" },
-    { id: "INV-003", customer: "Home Decor Shop", amount: 120, date: "2023-04-10", status: "paid" },
-    { id: "INV-004", customer: "sarah@example.com", amount: 45.5, date: "2023-04-05", status: "overdue" },
-    { id: "INV-005", customer: "Furniture Outlet", amount: 89.99, date: "2023-04-12", status: "paid" },
-  ]
+    {
+      id: "INV-001",
+      customer: "Artisan Crafts Store",
+      amount: 57,
+      date: "2023-04-15",
+      status: "paid",
+    },
+    {
+      id: "INV-002",
+      customer: "john@example.com",
+      amount: 35.75,
+      date: "2023-04-16",
+      status: "pending",
+    },
+    {
+      id: "INV-003",
+      customer: "Home Decor Shop",
+      amount: 120,
+      date: "2023-04-10",
+      status: "paid",
+    },
+    {
+      id: "INV-004",
+      customer: "sarah@example.com",
+      amount: 45.5,
+      date: "2023-04-05",
+      status: "overdue",
+    },
+    {
+      id: "INV-005",
+      customer: "Furniture Outlet",
+      amount: 89.99,
+      date: "2023-04-12",
+      status: "paid",
+    },
+  ];
 
   const filteredInvoices = invoices.filter(
     (invoice) =>
       invoice.customer.toLowerCase().includes(searchQuery.toLowerCase()) ||
       invoice.id.toLowerCase().includes(searchQuery.toLowerCase()),
-  )
+  );
 
   const getStatusColor = (status: string) => {
     switch (status) {
       case "paid":
-        return "bg-green-100 text-green-800 hover:bg-green-100"
+        return "bg-green-100 text-green-800 hover:bg-green-100";
       case "pending":
-        return "bg-yellow-100 text-yellow-800 hover:bg-yellow-100"
+        return "bg-yellow-100 text-yellow-800 hover:bg-yellow-100";
       case "overdue":
-        return "bg-red-100 text-red-800 hover:bg-red-100"
+        return "bg-red-100 text-red-800 hover:bg-red-100";
       default:
-        return ""
+        return "";
     }
-  }
+  };
 
   return (
-    <AdminLayout>
+    <>
       <div className="flex justify-between items-center mb-6">
         <div>
           <h1 className="text-3xl font-bold">Invoices</h1>
@@ -96,7 +132,8 @@ export default function AdminInvoicesPage() {
                   <TableCell>{invoice.date}</TableCell>
                   <TableCell>
                     <Badge className={getStatusColor(invoice.status)}>
-                      {invoice.status.charAt(0).toUpperCase() + invoice.status.slice(1)}
+                      {invoice.status.charAt(0).toUpperCase() +
+                        invoice.status.slice(1)}
                     </Badge>
                   </TableCell>
                   <TableCell className="text-right">
@@ -110,6 +147,6 @@ export default function AdminInvoicesPage() {
           </Table>
         </CardContent>
       </Card>
-    </AdminLayout>
-  )
+    </>
+  );
 }

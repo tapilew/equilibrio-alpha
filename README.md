@@ -9,7 +9,8 @@
 - [x] Use the paper design as a prototipe and prompt v0 for an MVP interface,
       featuring both the **payment processor** for the **POS** and **electronic
       invoice** features
-- [ ] Fix proompted frontend
+- [ ] Fix proompted frontend (kind of)
+- [ ] Deploy in Convex cloud
 - [ ] Integrate Convex backend with Chef for the centralized **electronic
       invoice** _plugin_ and **POS** business logic
 - [ ] Code and test core protocol contracts with the BlockDAG IDE; deploy them

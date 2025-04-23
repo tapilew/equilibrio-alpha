@@ -1,32 +1,32 @@
-"use client"
+"use client";
 
-import { useState, useEffect } from "react"
-import { Button } from "@/components/ui/button"
-import { useRouter } from "next/navigation"
-import { Monitor, LayoutDashboard } from "lucide-react"
+import { useState, useEffect } from "react";
+import { Button } from "@/components/ui/button";
+import { useRouter, usePathname } from "next/navigation";
+import { Monitor, LayoutDashboard } from "lucide-react";
 
 export function ModeToggle() {
-  const router = useRouter()
-  const [mode, setMode] = useState<"pos" | "admin">("pos")
+  const router = useRouter();
+  const pathname = usePathname();
+  const [mode, setMode] = useState<"pos" | "admin">("pos");
 
   useEffect(() => {
     // Check if we're in admin or pos mode based on URL
-    const path = window.location.pathname
-    if (path.startsWith("/admin")) {
-      setMode("admin")
+    if (pathname.startsWith("/admin")) {
+      setMode("admin");
     } else {
-      setMode("pos")
+      setMode("pos");
     }
-  }, [])
+  }, [pathname]);
 
   const switchMode = (newMode: "pos" | "admin") => {
-    setMode(newMode)
+    setMode(newMode);
     if (newMode === "admin") {
-      router.push("/admin/dashboard")
+      router.push("/admin/dashboard");
     } else {
-      router.push("/pos")
+      router.push("/pos");
     }
-  }
+  };
 
   return (
     <div className="fixed top-4 right-4 z-50 flex items-center gap-2 bg-white rounded-full shadow-md border p-1">
@@ -49,5 +49,5 @@ export function ModeToggle() {
         Admin
       </Button>
     </div>
-  )
+  );
 }

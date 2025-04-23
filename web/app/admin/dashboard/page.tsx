@@ -1,20 +1,26 @@
-import { AdminLayout } from "@/components/admin/admin-layout"
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { ActivitySummary } from "@/components/activity/activity-summary"
-import { ActivityChart } from "@/components/activity/activity-chart"
-import { ActivityItem } from "@/components/activity/activity-item"
-import { Button } from "@/components/ui/button"
-import { ArrowRight } from "lucide-react"
+"use client";
+
+import { useState } from "react";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { ActivitySummary } from "@/components/activity/activity-summary";
+import { ActivityChart } from "@/components/activity/activity-chart";
+import { ActivityItem } from "@/components/activity/activity-item";
+import { Button } from "@/components/ui/button";
+import { ArrowRight } from "lucide-react";
 
 export default function AdminDashboardPage() {
+  const [timeframe, setTimeframe] = useState<"day" | "week" | "month" | "year">(
+    "week",
+  );
+
   const summaryData = {
     totalTransactions: 24,
     totalVolume: 750,
     averageTransaction: 31.25,
     volumeChange: 12.5,
     transactionChange: 8.3,
-    timeframe: "week" as const,
-  }
+    timeframe: timeframe,
+  };
 
   const recentActivities = [
     {
@@ -39,13 +45,15 @@ export default function AdminDashboardPage() {
       explorerUrl: "#",
       transactionHash: "0x7d8e9f2c1b3a4908d7e6c5b4a3219",
     },
-  ]
+  ];
 
   return (
-    <AdminLayout>
+    <>
       <div className="mb-6">
         <h1 className="text-3xl font-bold">Dashboard</h1>
-        <p className="text-muted-foreground">Welcome back to your EquiProtocol merchant dashboard.</p>
+        <p className="text-muted-foreground">
+          Welcome back to your EquiProtocol merchant dashboard.
+        </p>
       </div>
 
       <ActivitySummary
@@ -54,8 +62,8 @@ export default function AdminDashboardPage() {
         averageTransaction={summaryData.averageTransaction}
         volumeChange={summaryData.volumeChange}
         transactionChange={summaryData.transactionChange}
-        timeframe={summaryData.timeframe}
-        onTimeframeChange={() => {}}
+        timeframe={timeframe}
+        onTimeframeChange={setTimeframe}
       />
 
       <div className="grid md:grid-cols-2 gap-6 mb-6">
@@ -106,6 +114,6 @@ export default function AdminDashboardPage() {
       </div>
 
       <ActivityChart />
-    </AdminLayout>
-  )
+    </>
+  );
 }
