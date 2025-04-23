@@ -1,17 +1,24 @@
-# 🤸 **_Equilibrio_ Protocol (`EquiProtocol`): <br> 💱 Financial Operating System for <br> 🦄 Crypto-Native Startups**
+# 🏇 **_Equilibrio_ Meta-Protocol (`EquiProtocol`): <br> 💱 Financial Operating System for <br> 🦄 Crypto-Native Startups**
 
 ## To-dos
 
-- [ ] Migrate to Wagmi
-- [ ] Code and test core protocol contracts
+- [x] Migrate to Wagmi
+- [x] Study CoperX UX, compare to EquiProtocol and design our UX/UI wireframe
+      accordingly (roughly in paper)
+- [x] Use the 🏇 emoji for the app logo
+- [x] Use the paper design as a prototipe and prompt v0 for an MVP interface,
+      featuring both the **payment processor** for the **POS** and **electronic
+      invoice** features
+- [ ] Fix proompted frontend
+- [ ] Integrate Convex backend with Chef for the centralized **electronic
+      invoice** _plugin_ and **POS** business logic
+- [ ] Code and test core protocol contracts with the BlockDAG IDE; deploy them
+      to Primordial testnet
 - [ ] Implement USDC payment reception with Celo (MVP)
-- [ ] Code full-stack Convex/Next.js interface
-- [ ] Connect to BlockDAG (MVP Demo)
+- [ ] Connect frontend to BlockDAG (MVP Demo)
 - [ ] Connect to Celo (priority for production)
 - [ ] Migrate to-do list to `TODO.md`
 - [ ] Label version 0.0.1
-- [ ] Create comprehensive wireframe
-- [ ] Code full Equilibrio frontend
 - [ ] Then use Base, Arbitrum, etc.
 - [ ] Add USDT support
 - [ ] Support Celo native stablecoins
