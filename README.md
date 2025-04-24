@@ -9,7 +9,8 @@
 - [x] Use the paper design as a prototipe and prompt v0 for an MVP interface,
       featuring both the **payment processor** for the **POS** and **electronic
       invoice** features
-- [ ] Fix proompted frontend (kind of)
+- [x] Fix proompted frontend (kind of)
+- [ ] Connect wallet with Wagmi
 - [ ] Deploy in Convex cloud
 - [ ] Integrate Convex backend with Chef for the centralized **electronic
       invoice** _plugin_ and **POS** business logic

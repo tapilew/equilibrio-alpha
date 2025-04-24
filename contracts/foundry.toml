@@ -1,16 +1,6 @@
 [profile.default]
 src = "src"
 out = "out"
-<<<<<<< HEAD
-libs = [ "dependencies"]
-test = "test"  # Explicitly set test directory
-test_pattern = "*.t.sol"  # Match all test files
-auto_detect_solc = false 
-fuzz = { runs = 1_000 } 
-bytecode_hash = "none" 
-gas_reports = ["*"] 
-solc_version = "0.8.19"
-=======
 libs = ["dependencies"]
 test = "test"            # Explicitly set test directory
 test_pattern = "*.t.sol" # Match all test files
@@ -18,19 +8,34 @@ auto_detect_solc = false
 fuzz = { runs = 1_000 }
 bytecode_hash = "none"
 gas_reports = ["*"]
->>>>>>> 47ca159 (Creation of smart contracts)
 
-[dependencies]
-forge-std = "1.9.6"
+remappings = [
+    "@openzeppelin/contracts/=dependencies/@openzeppelin-contracts-5.3.0/",
+    "@openzeppelin/contracts-upgradeable/=dependencies/@openzeppelin-contracts-5.3.0/",
+    "forge-std/=dependencies/forge-std-1.9.6/src/",
+    "@eth-optimism/contracts/=dependencies/optimism/packages/contracts-bedrock/contracts/",
+    "@arbitrum/nitro-contracts/=dependencies/nitro-contracts/src/",
+    "@arbitrum/token-bridge-contracts/=dependencies/token-bridge-contracts/contracts/",
+    "@zksync/contracts/=dependencies/contracts/",
+    "@scroll-tech/contracts/=dependencies/scroll-contracts/"
+]
+
+[profile.default.sdependencies]
+forge-std = "1.7.6"
+openzeppelin-contracts = "5.0.1"
+optimism = "1.7.0"
+nitro-contracts = "1.7.0"
+token-bridge-contracts = "1.7.0"
+zksync-contracts = "1.7.0"
+scroll-contracts = "latest"
 smartcontractkit-chainlink-brownie-contracts = "1.3.0"
 cyfrin-foundry-devops = "0.4.0rc"
-"@openzeppelin-contracts" = "5.3.0"
 
 [soldeer]
 # whether soldeer manages remappings
 remappings_generate = true
 # whether soldeer re-generates all remappings when installing, updating or uninstalling deps
-remappings_regenerate = false
+remappings_regenerate = true
 # whether to suffix the remapping with the version: `name-a.b.c`
 remappings_version = true
 # a prefix to add to the remappings ("@" would give `@name`)
@@ -42,3 +47,7 @@ remappings_location = "txt"
 
 [rpc_endpoints]
 blockdag-primordial-testnet = "https://rpc.primordial.bdagscan.com"
+
+[dependencies]
+forge-std = "1.9.6"
+"@openzeppelin-contracts" = "5.3.0"
