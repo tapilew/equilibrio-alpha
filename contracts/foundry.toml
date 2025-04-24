@@ -9,16 +9,7 @@ fuzz = { runs = 1_000 }
 bytecode_hash = "none"
 gas_reports = ["*"]
 
-remappings = [
-    "@openzeppelin/contracts/=dependencies/@openzeppelin-contracts-5.3.0/",
-    "@openzeppelin/contracts-upgradeable/=dependencies/@openzeppelin-contracts-5.3.0/",
-    "forge-std/=dependencies/forge-std-1.9.6/src/",
-    "@eth-optimism/contracts/=dependencies/optimism/packages/contracts-bedrock/contracts/",
-    "@arbitrum/nitro-contracts/=dependencies/nitro-contracts/src/",
-    "@arbitrum/token-bridge-contracts/=dependencies/token-bridge-contracts/contracts/",
-    "@zksync/contracts/=dependencies/contracts/",
-    "@scroll-tech/contracts/=dependencies/scroll-contracts/"
-]
+# Removed remappings section to avoid conflict with Soldeer-managed remappings.txt
 
 [profile.default.sdependencies]
 forge-std = "1.7.6"
@@ -50,4 +41,4 @@ blockdag-primordial-testnet = "https://rpc.primordial.bdagscan.com"
 
 [dependencies]
 forge-std = "1.9.6"
-"@openzeppelin-contracts" = "5.3.0"
+openzeppelin-contracts = "4.8.0"
