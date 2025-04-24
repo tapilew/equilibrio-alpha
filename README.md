@@ -1,10 +1,10 @@
-# 🏇 **_Equilibrio_ Meta-Protocol (`EquiProtocol`): <br> 💱 Financial Operating System for <br> 🦄 Crypto-Native Startups**
+## 🏇 **_Equilibrio_ Meta-Protocol (`EquiProtocol`): <br> 💱 Financial Operating System for <br> 🦄 Crypto-Native Startups**
 
 ## To-dos
 
 - [x] Migrate to Wagmi
 - [x] Study CoperX UX, compare to EquiProtocol and design our UX/UI wireframe
-      accordingly (roughly in paper)
+      accordly (roughly in paper)
 - [x] Use the 🏇 emoji for the app logo
 - [x] Use the paper design as a prototipe and prompt v0 for an MVP interface,
       featuring both the **payment processor** for the **POS** and **electronic
@@ -32,16 +32,16 @@ treasury, accounting, and capital access, **a problem severely exacerbated in
 regions like Panama and LATAM by the absence of modern global payment
 infrastructure like Stripe.** **Equilibrio**, built upon the **EquiProtocol**
 infrastructure layer, is the comprehensive financial OS designed to solve this.
-Our BlockDAG-based hackathon MVP demonstrates the **core, non-negotiable
-foundation**: a minimal, **decentralized** smart contract specifically for
-**USDC** payments (chosen for its developer tools & transparency) deployed on
-**BlockDAG** (leveraged for its speed _to showcase the demo's instant
-confirmation UX_). Crucially, this isn't just a wallet; it's the first step
-towards programmable, automated financial operations built on a decentralized
-ledger. This validated primitive proves the technical feasibility of the
-real-time, composable data pipeline essential for the entire Equilibrio vision,
-with a clear path to production on **Celo (priority for LATAM)** and other EVM
-chains.
+Our hackathon MVP demonstrates the **core, non-negotiable foundation**: a
+minimal, **decentralized** smart contract specifically for **USDC** payments
+(chosen for its developer tools & transparency). This contract is deployed on
+**BlockDAG**, leveraging its **innovative DAG architecture and swift transaction
+finality** to vividly showcase the demo's crucial instant confirmation UX.
+Crucially, this isn't just a wallet; it's the first step towards programmable,
+automated financial operations built on a decentralized ledger. This validated
+primitive proves the technical feasibility of the real-time, composable data
+pipeline essential for the entire Equilibrio vision, with a clear path to
+production on **Celo (priority for LATAM)** and other EVM chains.
 
 ---
 
@@ -136,13 +136,13 @@ infrastructure for businesses:
 Our hackathon MVP focuses on the most critical piece: the **decentralized
 `EquiProtocolMVP` smart contract** (handling **USDC** payments) and its **event
 emission**. To _demonstrate_ the crucial **instant confirmation UX** effectively
-within the limited timeframe, we deployed this contract on **BlockDAG**,
-leveraging its rapid finality (~2-5s).
-
-- **Decentralized Smart Contract (BlockDAG for MVP):** Securely receives
-  **USDC**, acting as the programmable gateway and emitting the event.
-- **Backend Listener & Frontend Demo:** These off-chain components listen for
-  the BlockDAG event to provide near-instant visual confirmation.
+within the limited timeframe, we strategically deployed this contract on
+**BlockDAG**. We specifically utilized **BlockDAG's architecture, which allows for
+high transaction throughput and rapid block confirmations**, resulting in the
+near-instant finality (around 2-5s) vital for showcasing a responsive payment
+system. BlockDAG's **EVM compatibility** also provided a familiar and efficient
+development environment, streamlining the process of building and testing the core
+smart contract logic.
 
 This MVP validates the core mechanism using BlockDAG as a tool to prove the
 concept with USDC. It establishes the foundation for production deployment on
@@ -173,7 +173,12 @@ the MVP.
 
 The **standout EquiProtocol MVP capability** is the **instant, real-time visual
 confirmation** of **USDC** payments (~2-5s), served via our centralized demo UI.
-This rapid confirmation is crucial for business UX.
+This rapid confirmation is crucial for business UX. This was directly facilitated
+by deploying the core smart contract on **BlockDAG**, taking advantage of its
+**inherent speed and efficient processing of transactions**. The quick block
+confirmation times on BlockDAG ensure that the `PaymentProcessed` event is
+emitted and detected almost immediately after a payment occurs, allowing our demo
+interface to provide near-instantaneous feedback to the user.
 
 This showcases the successful reception of funds _into the decentralized
 protocol contract_ and the immediate emission of the `PaymentProcessed` event.
@@ -192,8 +197,9 @@ speed) and its event emission for composability:
 
 - **Core Functionality:**
   - **Decentralized Smart Contract (`EquiProtocolMVP.sol`):** Deployed on-chain
-    (**BlockDAG for demo**), receives **USDC**, emits a standardized
-    `PaymentProcessed` event (structured data + automation trigger).
+    (**BlockDAG for demo**, capitalizing on its **swift transaction handling**),
+    receives **USDC**, emits a standardized `PaymentProcessed` event (structured
+    data + automation trigger).
   - **Backend Listener:** _Demo component_ that detects the BlockDAG on-chain
     event.
   - **Frontend Demo:** _Demo component_ that consumes event data for visual
@@ -220,14 +226,17 @@ speed) and its event emission for composability:
 
 2. **Day 2 (Core Functions):**
    - Implement & test `EquiProtocolMVP` contract (incl. **USDC** handling, event
-     emission)
+     emission). BlockDAG's **EVM compatibility** significantly eased the
+     development and testing of the smart contract logic.
    - Confirm smart contract compilation for Celo.
    - Deploy smart contract to **BlockDAG testnet** (for demo speed)
    - Create backend listener for payment events
 
 3. **Day 3 (Integration & Demo):**
    - Connect frontend (consuming event), backend, and BlockDAG smart contract
-     components
+     components. BlockDAG's **speedy confirmation** was essential for validating
+     that the entire data pipeline from on-chain event to frontend update
+     functions rapidly.
    - Implement visual confirmation UI
    - Test end-to-end **USDC** payment flow
    - Deploy demo and prepare presentation
@@ -283,6 +292,14 @@ is consumed by the MVP's backend/frontend, and conceptually enables multiple
 future integrations (blue dashed arrows) on production chains like Celo,
 including potentially decentralized ones._
 
+In this architecture, **BlockDAG serves as the foundational decentralized layer
+for the MVP**, specifically chosen for its **efficiency in processing
+transactions and enabling rapid event emission** due to its unique DAG
+structure. This swift event availability is critical for demonstrating the
+real-time confirmation in the demo, showcasing the composability potential of
+the protocol where off-chain or future on-chain services can reliably react to
+these fast-flowing events originating from an immutable ledger.
+
 ---
 
 ## 7. User Experience (Proving the Foundation)
@@ -293,14 +310,17 @@ the underlying **decentralized protocol** required for the full Equilibrio OS:
 
 - **Complexity Under Simplicity:** Successfully orchestrating the **secure,
   decentralized smart contract (for USDC)**, the standardized event emission,
-  the real-time **centralized backend listener**, and the **BlockDAG integration
-  (for demo speed)** proves our team's capability to handle the core
-  decentralized components essential for the full OS.
+  the real-time **centralized backend listener**, and the integration with
+  **BlockDAG (specifically its rapid confirmation capabilities)** proves our
+  team's capability to handle the core decentralized components essential for
+  the full OS.
 
 - **Focus on Core Value:** The experience centers on the **instant feedback
   loop** (~5s confirmation). This validates the core promise of real-time data
   availability originating from the **immutable, decentralized ledger** via a
-  composable event stream – the bedrock of Equilibrio's automation capabilities.
+  composable event stream – the bedrock of Equilibrio's automation
+  capabilities. BlockDAG's performance in the MVP directly contributes to this
+  real-time feel.
 
 - **Minimal Flow (Validating the Primitive):**
   1. Connect Wallet (Business) - Demonstrates secure authentication.
@@ -308,7 +328,8 @@ the underlying **decentralized protocol** required for the full Equilibrio OS:
   3. Customer sends **USDC** - Standard, familiar flow.
   4. **Experience Instant Visual Confirmation** - Proves the end-to-end data
      pipeline (**Decentralized Chain Contract Event** -> Centralized Backend ->
-     Centralized Frontend) works reliably and quickly.
+     Centralized Frontend) works reliably and quickly, significantly aided by
+     BlockDAG's fast transaction processing.
 
 - **Visual Design:** Clean and functional, emphasizing clarity of the
   confirmation message and transaction details.
@@ -324,9 +345,12 @@ the underlying **decentralized protocol** required for the full Equilibrio OS:
 EquiProtocol drives economic empowerment in two key communities:
 
 - **Developer Community:** The open, composable infrastructure (starting with
-  the standardized event from the decentralized contract) invites contributions,
-  creating a collaborative ecosystem of plugins, extensions, and **custom
-  interfaces (including dApps)** built upon the core protocol.
+  the standardized event from the decentralized contract deployed on BlockDAG
+  for the MVP) invites contributions, creating a collaborative ecosystem of
+  plugins, extensions, and **custom interfaces (including dApps)** built upon
+  the core protocol. BlockDAG's **developer-friendly environment and EVM
+  compatibility** are beneficial for this initial phase of building the core
+  protocol and fostering early developer engagement.
 
 - **Crypto-Native Startups (esp. LATAM):** EquiProtocol lowers barriers to
   financial operations by providing the foundational layer for automation and
@@ -348,9 +372,10 @@ pool resources for industry-wide initiatives._
 ## 9. Future Roadmap & Blockchain Strategy
 
 The MVP validates the **decentralized core primitive (handling USDC)** on
-BlockDAG (for demo purposes) and its initial composability via events. Next
-steps involve building the Equilibrio OS on this proven foundation, deepening
-composability, and deploying strategically across multiple chains:
+BlockDAG (for demo purposes) and its initial composability via events. BlockDAG's
+**speed and EVM compatibility** were valuable for this rapid prototyping phase.
+Next steps involve building the Equilibrio OS on this proven foundation,
+deepening composability, and deploying strategically across multiple chains:
 
 1. **Targeted Multi-Chain Deployment:**
    - **Priority (LATAM Focus): Celo.** Deploy EquiProtocol contracts to Celo
