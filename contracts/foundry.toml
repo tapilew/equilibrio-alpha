@@ -8,6 +8,7 @@ auto_detect_solc = false
 fuzz = { runs = 1_000 }
 bytecode_hash = "none"
 gas_reports = ["*"]
+evm_version = "paris"
 
 # Removed remappings section to avoid conflict with Soldeer-managed remappings.txt
 

@@ -1,13 +1,11 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.18;
 
-import {EquiProtocolMVP} from "../src/EquiProtocolMVP.sol";
+import "../src/EquiProtocolMVP.sol";
 
-contract DeployEquiProtocol {
-    function deploy(
-        address usdcAddress,
-        string memory baseURI
-    ) public returns (EquiProtocolMVP) {
-        return new EquiProtocolMVP(usdcAddress, baseURI); // Solo 2 argumentos
+contract DeployScript {
+    function run() external returns (EquiProtocolMVP) {
+        address treasury = 0x1234567890123456789012345678901234567890; // Replace with the actual treasury address
+        return new EquiProtocolMVP(treasury); // Pass only the treasury argument
     }
 }
