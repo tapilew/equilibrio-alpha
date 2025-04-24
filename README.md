@@ -158,6 +158,10 @@ Celo, Base, etc.):**
   third-party financial tools through standardized interfaces and a plugin
   ecosystem.
 
+**Developer Experience (DX) Focused Design:**
+
+EquiProtocol is designed with developer experience (DX) as a core principle, mirroring the flexibility and modularity found in tools like VSCode. The architecture emphasizes high modularity, allowing developers to integrate and extend the protocol with ease. A key aspect of this is the **standardized event structure** emitted by the smart contracts. This predictable data format simplifies the process for developers building applications and services on top of the protocol, as they can reliably consume and process these events regardless of the underlying chain. The codebase, structured with clear directories for `contracts`, `web` (frontend), and `dependencies`, further promotes a developer-friendly environment by organizing components logically and leveraging established tools like Foundry for smart contract development and testing. This modular approach means developers can interact with the protocol at various levels of complexity, from simply listening for core payment events to building sophisticated, custom financial workflows and interfaces.
+
 **Open Infrastructure & Path to Decentralized Frontends:**
 
 EquiProtocol is designed as an open, composable foundation. Post-hackathon, we
@@ -199,7 +203,9 @@ speed) and its event emission for composability:
   - **Decentralized Smart Contract (`EquiProtocolMVP.sol`):** Deployed on-chain
     (**BlockDAG for demo**, capitalizing on its **swift transaction handling**),
     receives **USDC**, emits a standardized `PaymentProcessed` event (structured
-    data + automation trigger).
+    data + automation trigger). This event structure is a key component of our
+    DX-focused design, providing a predictable and easy-to-consume data stream
+    for developers building on top of the protocol.
   - **Backend Listener:** _Demo component_ that detects the BlockDAG on-chain
     event.
   - **Frontend Demo:** _Demo component_ that consumes event data for visual
@@ -227,7 +233,8 @@ speed) and its event emission for composability:
 2. **Day 2 (Core Functions):**
    - Implement & test `EquiProtocolMVP` contract (incl. **USDC** handling, event
      emission). BlockDAG's **EVM compatibility** significantly eased the
-     development and testing of the smart contract logic.
+     development and testing of the smart contract logic using familiar tools
+     like Foundry.
    - Confirm smart contract compilation for Celo.
    - Deploy smart contract to **BlockDAG testnet** (for demo speed)
    - Create backend listener for payment events
@@ -298,7 +305,7 @@ transactions and enabling rapid event emission** due to its unique DAG
 structure. This swift event availability is critical for demonstrating the
 real-time confirmation in the demo, showcasing the composability potential of
 the protocol where off-chain or future on-chain services can reliably react to
-these fast-flowing events originating from an immutable ledger.
+these fast-flowing events originating from an immutable ledger. The **modular design** of the smart contract within the `contracts/src` directory, emitting a **standardized event**, is key to this composability, providing a clear and consistent interface for external services to interact with the protocol's core functionality.
 
 ---
 
@@ -329,7 +336,9 @@ the underlying **decentralized protocol** required for the full Equilibrio OS:
   4. **Experience Instant Visual Confirmation** - Proves the end-to-end data
      pipeline (**Decentralized Chain Contract Event** -> Centralized Backend ->
      Centralized Frontend) works reliably and quickly, significantly aided by
-     BlockDAG's fast transaction processing.
+     BlockDAG's fast transaction processing. The **standardized format of the
+     `PaymentProcessed` event** also plays a vital role in this, ensuring the backend
+     listener can quickly and accurately interpret the on-chain data.
 
 - **Visual Design:** Clean and functional, emphasizing clarity of the
   confirmation message and transaction details.
@@ -350,7 +359,7 @@ EquiProtocol drives economic empowerment in two key communities:
   plugins, extensions, and **custom interfaces (including dApps)** built upon
   the core protocol. BlockDAG's **developer-friendly environment and EVM
   compatibility** are beneficial for this initial phase of building the core
-  protocol and fostering early developer engagement.
+  protocol and fostering early developer engagement. Our commitment to **Developer Experience (DX)**, seen in the modular contract design and standardized events, aims to lower the barrier to entry for developers wanting to build on EquiProtocol, making it easier to create new financial tools and integrations.
 
 - **Crypto-Native Startups (esp. LATAM):** EquiProtocol lowers barriers to
   financial operations by providing the foundational layer for automation and
@@ -389,7 +398,7 @@ deepening composability, and deploying strategically across multiple chains:
      cases if relevant partnerships emerge.
 2. **Core Financial OS Components:** Build modules (Treasury, Payments,
    Accounting) that consume data from the decentralized protocol events across
-   deployed chains.
+   deployed chains. The **modular architecture** of EquiProtocol's smart contracts and the **standardized event structure** will be fundamental to building these components efficiently and ensuring interoperability.
 3. **Expand Stablecoin Support:** Integrate **USDT** into EquiProtocol smart
    contracts and the Equilibrio OS to offer broader payment options.
 4. **Capital Access Layer:** Integrate with DeFi protocols like Aave via
@@ -399,7 +408,7 @@ deepening composability, and deploying strategically across multiple chains:
 6. **Developer Ecosystem & Deeper Composability:** Release SDK, documentation,
    standardized contract interfaces (beyond events) for direct on-chain
    interaction, enrichment of event data (e.g., `invoiceId`), and incentivize
-   community contributions to the plugin ecosystem.
+   community contributions to the plugin ecosystem. Our focus on **DX** will be paramount here, providing developers with the tools and clear interfaces needed to build and contribute.
 7. **Open-Source Frontend Template & dApp Path:** Release the frontend template
    to enable community-built interfaces, including fully decentralized dApps
    interacting directly with the EquiProtocol contracts on chains like Celo,
