@@ -38,6 +38,21 @@ export const WalletConnectionProvider = ({
   const { isConnected, address } = useAccount();
   const { disconnect } = useDisconnect();
 
+  // Effect to sync with wallet state
+  useEffect(() => {
+    if (isConnected && address) {
+      // If the address matches either stored address, keep it
+      if (
+        address === customerConnectedAddress ||
+        address === adminConnectedAddress
+      ) {
+        return;
+      }
+      // Otherwise, treat it as a customer connection by default
+      setCustomerConnectedAddress(address);
+    }
+  }, [isConnected, address, customerConnectedAddress, adminConnectedAddress]);
+
   // Effect to handle global wallet disconnection
   useEffect(() => {
     if (!isConnected) {

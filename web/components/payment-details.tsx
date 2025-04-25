@@ -42,12 +42,13 @@ export function PaymentDetails({
     "pending" | "processing" | "paid" | "error"
   >("pending");
   const [signatureStatus, setSignatureStatus] = useState<
-    "pending" | "signed" | "error"
+    "pending" | "signed" | "error" | "signing"
   >("pending");
   const [progress, setProgress] = useState(0);
   const [error, setError] = useState<string | null>(null);
   const { data: walletClient } = useWalletClient();
-  const isHydrated = useRef(false);
+  const [isHydrated, setIsHydrated] = useState(false);
+  const isProcessing = useRef(false);
 
   const order = useQuery(
     api.myFunctions.getOrder,
@@ -56,12 +57,12 @@ export function PaymentDetails({
 
   // Mark component as hydrated after first render
   useEffect(() => {
-    isHydrated.current = true;
+    setIsHydrated(true);
   }, []);
 
   // Handle order status changes
   useEffect(() => {
-    if (!order || !isHydrated.current) return;
+    if (!order || !isHydrated) return;
 
     if (order.status === "paid" || order.status === "completed") {
       setPaymentStatus("paid");
@@ -76,11 +77,11 @@ export function PaymentDetails({
       setError(null);
       setProgress(0);
     }
-  }, [order]);
+  }, [order, isHydrated]);
 
   // Handle progress updates
   useEffect(() => {
-    if (paymentStatus !== "processing" || !isHydrated.current) return;
+    if (paymentStatus !== "processing" || !isHydrated) return;
 
     const interval = setInterval(() => {
       setProgress((prev) => {
@@ -90,33 +91,48 @@ export function PaymentDetails({
     }, 500);
 
     return () => clearInterval(interval);
-  }, [paymentStatus]);
+  }, [paymentStatus, isHydrated]);
 
   const handleSignature = useCallback(async () => {
-    if (!order || !customerAddress || !walletClient || !isHydrated.current) {
+    if (!order || !customerAddress || !walletClient || !isHydrated) {
+      console.log("Signing failed:", {
+        hasOrder: !!order,
+        hasCustomerAddress: !!customerAddress,
+        hasWalletClient: !!walletClient,
+        isHydrated,
+      });
       toast({
         title: "Error",
-        description: "Unable to process signature. Please try again.",
+        description:
+          "Unable to process signature. Please ensure your wallet is connected.",
         variant: "destructive",
       });
       return;
     }
 
     try {
-      setSignatureStatus("pending");
+      setSignatureStatus("signing");
+      console.log("Starting signature process...");
 
       const message = `I authorize the payment of ${order.total} USDC for order ${order._id}`;
+      console.log("Signing message:", message);
 
       const signature = await walletClient.signMessage({
         message,
         account: customerAddress as `0x${string}`,
       });
 
+      console.log("Signature received:", signature);
+
       if (signature) {
         setSignatureStatus("signed");
-        await handlePayment();
+        console.log("Signature status set to signed");
+        setPaymentStatus("processing");
+        console.log("Payment status set to processing");
+        isProcessing.current = true;
       }
     } catch (err) {
+      console.error("Signature error:", err);
       setSignatureStatus("error");
       setError("Failed to sign the transaction. Please try again.");
       toast({
@@ -126,57 +142,60 @@ export function PaymentDetails({
         variant: "destructive",
       });
     }
-  }, [order, customerAddress, walletClient, toast]);
+  }, [order, customerAddress, walletClient, isHydrated, toast]);
 
-  const handlePayment = useCallback(async () => {
-    if (!order || !customerAddress || !isHydrated.current) return;
+  // Handle payment processing
+  useEffect(() => {
+    if (paymentStatus !== "processing" || !isHydrated || !order) return;
 
-    try {
-      setPaymentStatus("processing");
-      setProgress(10);
+    const processPayment = async () => {
+      try {
+        setProgress(10);
 
-      // TODO: Implement actual payment logic here
-      await new Promise((resolve) => setTimeout(resolve, 2000));
+        // Simulate payment processing
+        await new Promise((resolve) => setTimeout(resolve, 2000));
 
-      setPaymentStatus("paid");
-      setProgress(100);
-      toast({
-        title: "Payment Successful",
-        description: `Payment of ${order.total} USDC completed.`,
-      });
-    } catch (err) {
-      setPaymentStatus("error");
-      setError("Payment failed. Please try again.");
-      setProgress(0);
-      toast({
-        title: "Payment Failed",
-        description:
-          err instanceof Error ? err.message : "Unknown error occurred",
-        variant: "destructive",
-      });
-    }
-  }, [order, customerAddress, toast]);
+        // Simulate successful payment
+        if (isHydrated) {
+          setPaymentStatus("paid");
+          setProgress(100);
+          toast({
+            title: "Payment Successful",
+            description: `Payment of ${order.total} USDC completed.`,
+          });
+        }
+      } catch (err) {
+        if (isHydrated) {
+          setPaymentStatus("error");
+          setError("Payment failed. Please try again.");
+          setProgress(0);
+          toast({
+            title: "Payment Failed",
+            description:
+              err instanceof Error ? err.message : "Unknown error occurred",
+            variant: "destructive",
+          });
+        }
+      } finally {
+        isProcessing.current = false;
+      }
+    };
+
+    processPayment();
+  }, [paymentStatus, order, isHydrated, toast]);
 
   const handleCancel = useCallback(() => {
-    if (!isHydrated.current) return;
+    if (!isHydrated) return;
     router.push("/pos/cart");
-  }, [router]);
+  }, [router, isHydrated]);
 
   const handleComplete = useCallback(() => {
-    if (!order || !isHydrated.current) return;
+    if (!order || !isHydrated) return;
     router.push(`/pos/receipt/${order._id}`);
-  }, [order, router]);
+  }, [order, router, isHydrated]);
 
   // Show loading state during hydration
-  if (!isHydrated.current) {
-    return (
-      <div className="flex items-center justify-center min-h-[400px]">
-        <Loader2 className="h-8 w-8 animate-spin text-muted-foreground" />
-      </div>
-    );
-  }
-
-  if (!order) {
+  if (!isHydrated || !order) {
     return (
       <div className="flex items-center justify-center min-h-[400px]">
         <Loader2 className="h-8 w-8 animate-spin text-muted-foreground" />
@@ -216,7 +235,7 @@ export function PaymentDetails({
                 Please connect your customer wallet to make the payment.
               </AlertDescription>
             </Alert>
-          ) : paymentStatus === "pending" ? (
+          ) : signatureStatus === "pending" && paymentStatus === "pending" ? (
             <div className="space-y-4">
               <Alert>
                 <AlertTitle>Signature Required</AlertTitle>
@@ -229,17 +248,20 @@ export function PaymentDetails({
                 size="lg"
                 className="w-full"
                 onClick={handleSignature}
-                disabled={signatureStatus === "pending"}
+                disabled={signatureStatus !== "pending"}
               >
-                {signatureStatus === "pending" ? (
-                  <>
-                    <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-                    Signing...
-                  </>
-                ) : (
-                  "Sign to Pay"
-                )}
+                Sign to Pay
               </Button>
+            </div>
+          ) : signatureStatus === "signing" ? (
+            <div className="space-y-4">
+              <Alert>
+                <AlertTitle>Waiting for Signature</AlertTitle>
+                <AlertDescription className="flex items-center">
+                  <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                  Please check your wallet and confirm the signature request.
+                </AlertDescription>
+              </Alert>
             </div>
           ) : paymentStatus === "processing" ? (
             <div className="space-y-4">

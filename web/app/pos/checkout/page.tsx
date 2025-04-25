@@ -41,7 +41,8 @@ export default function CheckoutPage() {
     }
   }, [customerConnectedAddress, router, toast]);
 
-  const cartItems = useQuery(api.myFunctions.getCartItems, { userId }) ?? [];
+  const queryResult = useQuery(api.myFunctions.getCartItems, { userId });
+  const cartItems = useMemo(() => queryResult ?? [], [queryResult]);
   const createOrder = useMutation(api.myFunctions.createOrder);
 
   const aggregatedItems = useMemo(() => {
@@ -77,6 +78,15 @@ export default function CheckoutPage() {
         toast({
           title: "Error",
           description: "Your cart is empty",
+          variant: "destructive",
+        });
+        return;
+      }
+
+      if (!customerConnectedAddress) {
+        toast({
+          title: "Error",
+          description: "Wallet not connected",
           variant: "destructive",
         });
         return;

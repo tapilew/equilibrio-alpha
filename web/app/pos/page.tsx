@@ -82,6 +82,10 @@ export default function PosPage() {
     );
   };
 
+  const calculateItemCount = () => {
+    return cartItems.reduce((total, item) => total + item.quantity, 0);
+  };
+
   return (
     <PosLayout>
       <div className="flex justify-between items-start mb-4">
@@ -101,7 +105,7 @@ export default function PosPage() {
       <ProductGrid products={products} onProductSelect={handleAddToCart} />
       {isCustomerConnected && (
         <CartSummary
-          itemCount={cartItems.length}
+          itemCount={calculateItemCount()}
           totalAmount={calculateTotal()}
           onGeneratePayment={handleGeneratePayment}
           isPaymentDisabled={!isCustomerConnected}

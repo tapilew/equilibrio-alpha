@@ -1,12 +1,41 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback, memo } from "react";
 import { Button } from "@/components/ui/button";
 import { useRouter, usePathname } from "next/navigation";
 import { Monitor, LayoutDashboard } from "lucide-react";
 import { WalletConnect } from "@/components/wallet-connect";
 
 export type InterfaceContext = "pos" | "admin";
+
+// Memoized button component to prevent unnecessary re-renders
+const ModeButton = memo(
+  ({
+    mode,
+    currentContext,
+    onClick,
+    icon: Icon,
+    label,
+  }: {
+    mode: InterfaceContext;
+    currentContext: InterfaceContext;
+    onClick: () => void;
+    icon: React.ElementType;
+    label: string;
+  }) => (
+    <Button
+      variant={currentContext === mode ? "default" : "outline"}
+      size="sm"
+      className="rounded-full"
+      onClick={onClick}
+    >
+      <Icon className="h-4 w-4 mr-2" />
+      {label}
+    </Button>
+  ),
+);
+
+ModeButton.displayName = "ModeButton";
 
 export function ModeToggle() {
   const router = useRouter();
@@ -22,36 +51,34 @@ export function ModeToggle() {
     }
   }, [pathname]);
 
-  const switchMode = (newMode: InterfaceContext) => {
-    setCurrentContext(newMode);
-    if (newMode === "admin") {
-      router.push("/admin/dashboard");
-    } else {
-      router.push("/pos");
-    }
-  };
+  const switchMode = useCallback(
+    (newMode: InterfaceContext) => {
+      setCurrentContext(newMode);
+      if (newMode === "admin") {
+        router.push("/admin/dashboard");
+      } else {
+        router.push("/pos");
+      }
+    },
+    [router],
+  );
 
   return (
     <div className="flex items-center gap-2 bg-white rounded-full shadow-md border p-1">
-      {/* POS/Admin Switcher */}
-      <Button
-        variant={currentContext === "pos" ? "default" : "outline"}
-        size="sm"
-        className="rounded-full"
+      <ModeButton
+        mode="pos"
+        currentContext={currentContext}
         onClick={() => switchMode("pos")}
-      >
-        <Monitor className="h-4 w-4 mr-2" />
-        POS
-      </Button>
-      <Button
-        variant={currentContext === "admin" ? "default" : "outline"}
-        size="sm"
-        className="rounded-full"
+        icon={Monitor}
+        label="POS"
+      />
+      <ModeButton
+        mode="admin"
+        currentContext={currentContext}
         onClick={() => switchMode("admin")}
-      >
-        <LayoutDashboard className="h-4 w-4 mr-2" />
-        Admin
-      </Button>
+        icon={LayoutDashboard}
+        label="Admin"
+      />
 
       {/* Divider */}
       <div className="h-6 w-px bg-gray-300 mx-1"></div>

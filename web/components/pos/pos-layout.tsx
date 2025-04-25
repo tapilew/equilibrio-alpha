@@ -1,5 +1,6 @@
 "use client";
 
+import { memo, useMemo, useCallback } from "react";
 import type React from "react";
 import { useRouter, usePathname } from "next/navigation";
 import {
@@ -15,10 +16,96 @@ import { useWalletConnection } from "@/contexts/WalletConnectionContext";
 import { Card, CardContent } from "@/components/ui/card";
 import { NetworkSelector } from "@/components/network-selector";
 import { ModeToggle } from "@/components/mode-toggle";
+import { WalletConnectButton } from "@/components/wallet-connect-button";
 
 interface PosLayoutProps {
   children: React.ReactNode;
 }
+
+const NavButton = memo(
+  ({
+    item,
+    isActive,
+    onClick,
+  }: {
+    item: { name: string; icon: React.ElementType; value: string };
+    isActive: boolean;
+    onClick: () => void;
+  }) => {
+    const Icon = item.icon;
+    return (
+      <Button
+        variant={isActive ? "default" : "ghost"}
+        className={cn(
+          "w-full justify-start",
+          isActive ? "bg-blue-50 text-blue-600" : "",
+        )}
+        onClick={onClick}
+      >
+        <Icon className="h-5 w-5 mr-3" />
+        {item.name}
+      </Button>
+    );
+  },
+);
+NavButton.displayName = "NavButton";
+
+const MobileNavButton = memo(
+  ({
+    item,
+    isActive,
+    onClick,
+  }: {
+    item: { name: string; icon: React.ElementType; value: string };
+    isActive: boolean;
+    onClick: () => void;
+  }) => {
+    const Icon = item.icon;
+    return (
+      <button
+        onClick={onClick}
+        className={cn(
+          "flex flex-col items-center justify-center w-full h-full",
+          isActive ? "text-blue-600" : "text-gray-500",
+        )}
+      >
+        <Icon className="h-6 w-6" />
+        <span className="text-xs mt-1">{item.name}</span>
+      </button>
+    );
+  },
+);
+MobileNavButton.displayName = "MobileNavButton";
+
+const TopBar = memo(
+  ({
+    isCustomerConnected,
+    requiresWallet,
+  }: {
+    isCustomerConnected: boolean;
+    requiresWallet: boolean;
+  }) => (
+    <div className="sticky top-0 z-10 bg-white border-b">
+      <div className="flex items-center justify-between px-4 py-2">
+        <div className="flex items-center space-x-4">
+          {!isCustomerConnected && requiresWallet && (
+            <div className="flex items-center text-yellow-600 text-sm">
+              <AlertCircle className="h-4 w-4 mr-1" />
+              <span>Customer wallet not connected</span>
+            </div>
+          )}
+          <div className="h-6 w-px bg-gray-200"></div>
+          <NetworkSelector className="w-[180px]" />
+        </div>
+        <div className="flex items-center space-x-4">
+          <WalletConnectButton />
+          <ModeToggle />
+        </div>
+      </div>
+    </div>
+  ),
+);
+TopBar.displayName = "TopBar";
 
 export function PosLayout({ children }: PosLayoutProps) {
   const router = useRouter();
@@ -26,46 +113,60 @@ export function PosLayout({ children }: PosLayoutProps) {
   const { customerConnectedAddress } = useWalletConnection();
   const isCustomerConnected = !!customerConnectedAddress;
 
-  const handleNavigation = (targetPath: string) => {
-    router.push(targetPath);
-  };
+  const handleNavigation = useCallback(
+    (targetPath: string) => {
+      router.push(targetPath);
+    },
+    [router],
+  );
 
   // Determine if we're in a checkout flow
-  const isCheckout =
-    pathname.includes("/pos/checkout") || pathname.includes("/pos/payment");
+  const isCheckout = useMemo(
+    () =>
+      pathname.includes("/pos/checkout") || pathname.includes("/pos/payment"),
+    [pathname],
+  );
 
   // Determine if we're in the cart or checkout flow
-  const requiresWallet = pathname.includes("/pos/cart") || isCheckout;
+  const requiresWallet = useMemo(
+    () => pathname.includes("/pos/cart") || isCheckout,
+    [pathname, isCheckout],
+  );
 
-  const navItems = [
-    {
-      name: "Catalog",
-      icon: Home,
-      value: "catalog",
-      path: "/pos",
-    },
-    {
-      name: "Cart",
-      icon: ShoppingCart,
-      value: "cart",
-      path: "/pos/cart",
-    },
-    {
-      name: "Orders",
-      icon: Receipt,
-      value: "orders",
-      path: "/pos/orders",
-    },
-  ];
+  const navItems = useMemo(
+    () => [
+      {
+        name: "Catalog",
+        icon: Home,
+        value: "catalog",
+        path: "/pos",
+      },
+      {
+        name: "Cart",
+        icon: ShoppingCart,
+        value: "cart",
+        path: "/pos/cart",
+      },
+      {
+        name: "Orders",
+        icon: Receipt,
+        value: "orders",
+        path: "/pos/orders",
+      },
+    ],
+    [],
+  );
 
   // Helper to determine if a path is active
-  // Handles base path "/pos" potentially matching only itself
-  const isActive = (itemPath: string) => {
-    if (itemPath === "/pos") {
-      return pathname === "/pos" || pathname === "/pos/";
-    }
-    return pathname.startsWith(itemPath);
-  };
+  const isActive = useCallback(
+    (itemPath: string) => {
+      if (itemPath === "/pos") {
+        return pathname === "/pos" || pathname === "/pos/";
+      }
+      return pathname.startsWith(itemPath);
+    },
+    [pathname],
+  );
 
   return (
     <div className="flex h-screen bg-gray-50">
@@ -82,24 +183,14 @@ export function PosLayout({ children }: PosLayoutProps) {
           </div>
           <div className="mt-5 flex-grow flex flex-col">
             <nav className="flex-1 px-2 pb-4 space-y-1">
-              {navItems.map((item) => {
-                const Icon = item.icon;
-                const itemIsActive = isActive(item.path);
-                return (
-                  <Button
-                    key={item.value}
-                    variant={itemIsActive ? "default" : "ghost"}
-                    className={cn(
-                      "w-full justify-start",
-                      itemIsActive ? "bg-blue-50 text-blue-600" : "",
-                    )}
-                    onClick={() => handleNavigation(item.path)}
-                  >
-                    <Icon className="h-5 w-5 mr-3" />
-                    {item.name}
-                  </Button>
-                );
-              })}
+              {navItems.map((item) => (
+                <NavButton
+                  key={item.value}
+                  item={item}
+                  isActive={isActive(item.path)}
+                  onClick={() => handleNavigation(item.path)}
+                />
+              ))}
             </nav>
           </div>
         </div>
@@ -123,24 +214,10 @@ export function PosLayout({ children }: PosLayoutProps) {
           )}
         </header>
 
-        {/* Top Bar */}
-        <div className="sticky top-0 z-10 bg-white border-b">
-          <div className="flex items-center justify-between px-4 py-2">
-            <div className="flex items-center space-x-4">
-              {!isCustomerConnected && requiresWallet && (
-                <div className="flex items-center text-yellow-600 text-sm">
-                  <AlertCircle className="h-4 w-4 mr-1" />
-                  <span>Customer wallet not connected</span>
-                </div>
-              )}
-              <div className="h-6 w-px bg-gray-200"></div>
-              <NetworkSelector className="w-[180px]" />
-            </div>
-            <div className="flex items-center space-x-4">
-              <ModeToggle />
-            </div>
-          </div>
-        </div>
+        <TopBar
+          isCustomerConnected={isCustomerConnected}
+          requiresWallet={requiresWallet}
+        />
 
         {/* Main Content */}
         <main className="flex-1 overflow-auto p-4 md:p-6">
@@ -171,23 +248,14 @@ export function PosLayout({ children }: PosLayoutProps) {
         {!isCheckout && (
           <div className="fixed md:hidden bottom-0 left-0 right-0 border-t bg-white">
             <div className="flex justify-around items-center h-16">
-              {navItems.map((item) => {
-                const Icon = item.icon;
-                const itemIsActive = isActive(item.path);
-                return (
-                  <button
-                    key={item.value}
-                    onClick={() => handleNavigation(item.path)}
-                    className={cn(
-                      "flex flex-col items-center justify-center w-full h-full",
-                      itemIsActive ? "text-blue-600" : "text-gray-500",
-                    )}
-                  >
-                    <Icon className="h-6 w-6" />
-                    <span className="text-xs mt-1">{item.name}</span>
-                  </button>
-                );
-              })}
+              {navItems.map((item) => (
+                <MobileNavButton
+                  key={item.value}
+                  item={item}
+                  isActive={isActive(item.path)}
+                  onClick={() => handleNavigation(item.path)}
+                />
+              ))}
             </div>
           </div>
         )}

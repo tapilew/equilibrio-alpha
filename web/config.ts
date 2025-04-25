@@ -1,10 +1,14 @@
 import { createConfig, http } from "wagmi";
 import { sepolia } from "wagmi/chains";
 import { blockdagPrimordial } from "./constants/networks";
+import { injected, metaMask } from "wagmi/connectors";
 
 export const config = createConfig({
     chains: [sepolia, blockdagPrimordial],
-    storage: null,
+    connectors: [
+        injected(),
+        metaMask(),
+    ],
     transports: {
         [sepolia.id]: http(),
         [blockdagPrimordial.id]: http(),
