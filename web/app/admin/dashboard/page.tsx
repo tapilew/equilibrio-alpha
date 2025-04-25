@@ -7,8 +7,13 @@ import { ActivityChart } from "@/components/activity/activity-chart";
 import { ActivityItem } from "@/components/activity/activity-item";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
+import { useRouter } from "next/navigation";
+import { useWalletConnection } from "@/contexts/WalletConnectionContext";
 
 export default function AdminDashboardPage() {
+  const router = useRouter();
+  const { adminConnectedAddress } = useWalletConnection();
+
   const [timeframe, setTimeframe] = useState<"day" | "week" | "month" | "year">(
     "week",
   );
@@ -52,7 +57,8 @@ export default function AdminDashboardPage() {
       <div className="mb-6">
         <h1 className="text-3xl font-bold">Dashboard</h1>
         <p className="text-muted-foreground">
-          Welcome back to your EquiProtocol merchant dashboard.
+          Showing data for wallet: {adminConnectedAddress?.slice(0, 6)}...
+          {adminConnectedAddress?.slice(-4)}
         </p>
       </div>
 
@@ -73,12 +79,23 @@ export default function AdminDashboardPage() {
           </CardHeader>
           <CardContent>
             <div className="space-y-3">
-              {recentActivities.map((activity) => (
-                <ActivityItem key={activity.id} {...activity} />
-              ))}
+              {recentActivities.length > 0 ? (
+                recentActivities.map((activity) => (
+                  <ActivityItem key={activity.id} {...activity} />
+                ))
+              ) : (
+                <p className="text-sm text-muted-foreground text-center py-4">
+                  No recent activity for this wallet.
+                </p>
+              )}
               <div className="text-center pt-2">
-                <Button variant="ghost" size="sm" className="gap-1">
-                  View All <ArrowRight className="h-4 w-4" />
+                <Button
+                  variant="ghost"
+                  size="sm"
+                  className="gap-1"
+                  onClick={() => router.push("/admin/receipts")}
+                >
+                  View All Receipts <ArrowRight className="h-4 w-4" />
                 </Button>
               </div>
             </div>
@@ -87,7 +104,7 @@ export default function AdminDashboardPage() {
 
         <Card>
           <CardHeader className="pb-2">
-            <CardTitle className="text-lg">Top Products</CardTitle>
+            <CardTitle className="text-lg">Top Products (Example)</CardTitle>
           </CardHeader>
           <CardContent>
             <div className="space-y-4">
@@ -104,7 +121,12 @@ export default function AdminDashboardPage() {
                 <span>88 USDC (4 units)</span>
               </div>
               <div className="text-center pt-2">
-                <Button variant="ghost" size="sm" className="gap-1">
+                <Button
+                  variant="ghost"
+                  size="sm"
+                  className="gap-1"
+                  onClick={() => router.push("/admin/products")}
+                >
                   View All Products <ArrowRight className="h-4 w-4" />
                 </Button>
               </div>

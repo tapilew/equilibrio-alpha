@@ -8,59 +8,26 @@ import { useQuery, useMutation } from "convex/react";
 import { api } from "@/convex/_generated/api";
 import { Id } from "@/convex/_generated/dataModel";
 import { useToast } from "@/components/ui/use-toast";
-import { useEffect } from "react";
+import { useWalletConnection } from "@/contexts/WalletConnectionContext";
+import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
+import { AlertCircle } from "lucide-react";
 
 export default function PosPage() {
   const router = useRouter();
   const { toast } = useToast();
+  const { customerConnectedAddress } = useWalletConnection();
+  const isCustomerConnected = !!customerConnectedAddress;
+
   const userId = "demo-user"; // TODO: Replace with actual user ID from auth
 
   const products = useQuery(api.myFunctions.listProducts) ?? [];
-  const cartItems = useQuery(api.myFunctions.getCartItems, { userId }) ?? [];
+  // Always call the hook, but skip the query if wallet is not connected
+  const cartItems =
+    useQuery(
+      api.myFunctions.getCartItems,
+      isCustomerConnected ? { userId } : "skip",
+    ) ?? [];
   const addToCart = useMutation(api.myFunctions.addToCart);
-  const createProduct = useMutation(api.myFunctions.createProduct);
-
-  // Initialize products if none exist
-  useEffect(() => {
-    if (products.length === 0) {
-      const sampleProducts = [
-        {
-          name: "Woven Basket",
-          price: 25,
-          imageUrl:
-            "https://images.unsplash.com/photo-1595231776515-ddffb1f4eb73?w=400&h=400&fit=crop&q=80",
-          stock: 10,
-        },
-        {
-          name: "Ceramic Vase",
-          price: 32,
-          imageUrl:
-            "https://images.unsplash.com/photo-1612196808214-b7e239e5d5e8?w=400&h=400&fit=crop&q=80",
-          stock: 5,
-        },
-        {
-          name: "Cutting Board",
-          price: 18,
-          imageUrl:
-            "https://images.unsplash.com/photo-1592156328697-079f6ba4dbf2?w=400&h=400&fit=crop&q=80",
-          stock: 15,
-        },
-        {
-          name: "Blue Pillow",
-          price: 22,
-          imageUrl:
-            "https://images.unsplash.com/photo-1583847268964-b28dc8f51f92?w=400&h=400&fit=crop&q=80",
-          stock: 8,
-        },
-      ];
-
-      sampleProducts.forEach((product) => {
-        createProduct(product).catch((error) => {
-          console.error("Failed to create product:", error);
-        });
-      });
-    }
-  }, [products.length, createProduct]);
 
   const handleAddToCart = async (product: {
     _id: Id<"products">;
@@ -68,6 +35,15 @@ export default function PosPage() {
     price: number;
     imageUrl: string;
   }) => {
+    if (!isCustomerConnected) {
+      toast({
+        title: "Connection Required",
+        description: "Please connect your wallet to add items to cart",
+        variant: "destructive",
+      });
+      return;
+    }
+
     try {
       await addToCart({
         userId,
@@ -88,6 +64,14 @@ export default function PosPage() {
   };
 
   const handleGeneratePayment = () => {
+    if (!isCustomerConnected) {
+      toast({
+        title: "Connection Required",
+        description: "Please connect your wallet to proceed with checkout",
+        variant: "destructive",
+      });
+      return;
+    }
     router.push("/pos/checkout");
   };
 
@@ -100,12 +84,29 @@ export default function PosPage() {
 
   return (
     <PosLayout>
+      <div className="flex justify-between items-start mb-4">
+        <h1 className="text-2xl font-bold">Point of Sale</h1>
+      </div>
+
+      {!isCustomerConnected && (
+        <Alert className="mb-4">
+          <AlertCircle className="h-4 w-4" />
+          <AlertTitle>Wallet not connected</AlertTitle>
+          <AlertDescription>
+            Connect your wallet to add items to cart and make purchases.
+          </AlertDescription>
+        </Alert>
+      )}
+
       <ProductGrid products={products} onProductSelect={handleAddToCart} />
-      <CartSummary
-        itemCount={cartItems.length}
-        totalAmount={calculateTotal()}
-        onGeneratePayment={handleGeneratePayment}
-      />
+      {isCustomerConnected && (
+        <CartSummary
+          itemCount={cartItems.length}
+          totalAmount={calculateTotal()}
+          onGeneratePayment={handleGeneratePayment}
+          isPaymentDisabled={!isCustomerConnected}
+        />
+      )}
     </PosLayout>
   );
 }

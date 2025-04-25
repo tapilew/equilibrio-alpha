@@ -13,6 +13,7 @@ import {
   TableRow,
 } from "@/components/ui/table";
 import { Plus, Search, Edit, Trash2 } from "lucide-react";
+import { useWalletConnection } from "@/contexts/WalletConnectionContext";
 
 // Reliable image placeholders
 const PLACEHOLDER_IMAGES = {
@@ -34,6 +35,8 @@ interface Product {
 
 export default function AdminProductsPage() {
   const [searchQuery, setSearchQuery] = useState("");
+  const { adminConnectedAddress } = useWalletConnection();
+  const isAdminConnected = !!adminConnectedAddress;
 
   const products: Product[] = [
     {
@@ -89,10 +92,12 @@ export default function AdminProductsPage() {
           <h1 className="text-3xl font-bold">Products</h1>
           <p className="text-muted-foreground">Manage your product catalog</p>
         </div>
-        <Button>
-          <Plus className="h-4 w-4 mr-2" />
-          Add Product
-        </Button>
+        <div className="flex items-center gap-4">
+          <Button disabled={!isAdminConnected}>
+            <Plus className="h-4 w-4 mr-2" />
+            Add Product
+          </Button>
+        </div>
       </div>
 
       <Card className="mb-6">
@@ -139,13 +144,19 @@ export default function AdminProductsPage() {
                   <TableCell>{product.stock}</TableCell>
                   <TableCell>{product.category}</TableCell>
                   <TableCell className="text-right">
-                    <Button variant="ghost" size="icon" className="h-8 w-8">
+                    <Button
+                      variant="ghost"
+                      size="icon"
+                      className="h-8 w-8"
+                      disabled={!isAdminConnected}
+                    >
                       <Edit className="h-4 w-4" />
                     </Button>
                     <Button
                       variant="ghost"
                       size="icon"
                       className="h-8 w-8 text-red-500"
+                      disabled={!isAdminConnected}
                     >
                       <Trash2 className="h-4 w-4" />
                     </Button>

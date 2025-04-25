@@ -1,6 +1,76 @@
 import { v } from "convex/values";
-import { mutation, query } from "./_generated/server";
-import { Id } from "./_generated/dataModel";
+import { internalMutation, mutation, query } from "./_generated/server";
+
+// Internal mutation to seed products (run manually)
+export const _seedProducts = internalMutation({
+  args: {},
+  handler: async (ctx) => {
+    console.log("Starting product seeding...");
+
+    // 1. Delete all existing products
+    const existingProducts = await ctx.db.query("products").collect();
+    console.log(
+      `Found ${existingProducts.length} existing products to delete.`,
+    );
+    await Promise.all(existingProducts.map((doc) => ctx.db.delete(doc._id)));
+    console.log("Existing products deleted.");
+
+    // 2. Define the new products
+    const newCraftProducts = [
+      {
+        name: "Handmade Clay Pot",
+        price: 45,
+        imageUrl:
+          "https://images.pexels.com/photos/18882480/pexels-photo-18882480/free-photo-of-close-up-of-a-person-making-a-clay-pot.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop&q=80",
+        stock: 10,
+        description: "A beautifully crafted clay pot, shaped by hand.",
+      },
+      {
+        name: "Artisan Ceramic Teapot",
+        price: 65,
+        imageUrl:
+          "https://images.pexels.com/photos/27682063/pexels-photo-27682063/free-photo-of-a-person-is-making-a-pottery-teapot.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop&q=80",
+        stock: 5,
+        description:
+          "Elegant ceramic teapot, perfect for a traditional tea ceremony.",
+      },
+      {
+        name: "Sculpted Clay Vase",
+        price: 50,
+        imageUrl:
+          "https://images.pexels.com/photos/6243368/pexels-photo-6243368.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop&q=80",
+        stock: 8,
+        description:
+          "Unique clay vase with intricate details, sculpted by an artisan.",
+      },
+      {
+        name: "Detailed Pottery Jar",
+        price: 55,
+        imageUrl:
+          "https://images.pexels.com/photos/9304555/pexels-photo-9304555.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop&q=80",
+        stock: 7,
+        description: "A pottery jar showcasing detailed craftsmanship.",
+      },
+      {
+        name: "Work-in-Progress Clay Pot",
+        price: 30,
+        imageUrl:
+          "https://images.pexels.com/photos/20302786/pexels-photo-20302786/free-photo-of-close-up-of-a-person-making-a-handmade-clay-pot.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop&q=80",
+        stock: 12,
+        description: "Handmade clay pot, captured during the creation process.",
+      },
+    ];
+
+    // 3. Insert new products
+    console.log(`Inserting ${newCraftProducts.length} new products...`);
+    await Promise.all(
+      newCraftProducts.map((product) => ctx.db.insert("products", product)),
+    );
+
+    console.log("Product seeding finished successfully.");
+    return `Seeded ${newCraftProducts.length} products.`;
+  },
+});
 
 // Write your Convex functions in any file inside this directory (`convex`).
 // See https://docs.convex.dev/functions for more.

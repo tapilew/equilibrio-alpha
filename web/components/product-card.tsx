@@ -4,7 +4,8 @@ import { Card, CardContent } from "@/components/ui/card";
 import { AspectRatio } from "@/components/ui/aspect-ratio";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import { Plus } from "lucide-react";
+import { Plus, Wallet } from "lucide-react";
+import { useWalletConnection } from "@/contexts/WalletConnectionContext";
 
 interface ProductCardProps {
   name: string;
@@ -20,6 +21,8 @@ export function ProductCard({
   onClick,
 }: ProductCardProps) {
   const [isHovered, setIsHovered] = useState(false);
+  const { customerConnectedAddress } = useWalletConnection();
+  const isCustomerConnected = !!customerConnectedAddress;
 
   return (
     <Card
@@ -41,14 +44,21 @@ export function ProductCard({
           </AspectRatio>
           {isHovered && (
             <div className="absolute inset-0 bg-black/50 flex items-center justify-center">
-              <Button
-                variant="secondary"
-                size="icon"
-                className="rounded-full"
-                onClick={onClick}
-              >
-                <Plus className="h-4 w-4" />
-              </Button>
+              {isCustomerConnected ? (
+                <Button
+                  variant="secondary"
+                  size="icon"
+                  className="rounded-full"
+                  onClick={onClick}
+                >
+                  <Plus className="h-4 w-4" />
+                </Button>
+              ) : (
+                <div className="text-center text-white">
+                  <Wallet className="h-6 w-6 mx-auto mb-2" />
+                  <p className="text-sm">Connect wallet to add to cart</p>
+                </div>
+              )}
             </div>
           )}
         </div>

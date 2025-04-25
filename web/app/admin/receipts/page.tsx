@@ -1,13 +1,13 @@
 "use client";
 
 import { useState } from "react";
-import { PosLayout } from "@/components/pos/pos-layout";
 import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Search, Filter, Download } from "lucide-react";
 import { ActivityItem } from "@/components/activity/activity-item";
 
+// TODO: Replace mock data and interface with data from Convex `getReceipts` query
 interface Receipt {
   id: string;
   type: "pos" | "invoice";
@@ -33,10 +33,10 @@ interface Receipt {
   };
 }
 
-export default function ReceiptsPage() {
+export default function AdminReceiptsPage() {
   const [searchQuery, setSearchQuery] = useState("");
 
-  // Mock data for receipts
+  // Mock data for receipts - needs replacement with actual data
   const receipts: Receipt[] = [
     {
       id: "tx1",
@@ -108,7 +108,7 @@ export default function ReceiptsPage() {
   });
 
   return (
-    <PosLayout>
+    <>
       <div className="mb-6">
         <h1 className="text-3xl font-bold">Receipts</h1>
         <p className="text-muted-foreground">
@@ -151,6 +151,6 @@ export default function ReceiptsPage() {
           <p className="text-muted-foreground">No receipts found</p>
         </div>
       )}
-    </PosLayout>
+    </>
   );
 }

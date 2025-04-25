@@ -1,32 +1,47 @@
-"use client"
+"use client";
 
-import type React from "react"
-
-import { useState } from "react"
-import { ModeToggle } from "@/components/mode-toggle"
-import { usePathname, useRouter } from "next/navigation"
-import { LayoutDashboard, LayoutGrid, BarChart2, FileText, Settings, Menu, X, ChevronRight, LogOut } from "lucide-react"
-import { Button } from "@/components/ui/button"
-import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
+import { useState } from "react";
+import { ModeToggle } from "@/components/mode-toggle";
+import { usePathname, useRouter } from "next/navigation";
+import {
+  LayoutDashboard,
+  LayoutGrid,
+  BarChart2,
+  FileText,
+  Settings,
+  Menu,
+  X,
+  ChevronRight,
+  LogOut,
+  Receipt,
+  AlertCircle,
+} from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { useWalletConnection } from "@/contexts/WalletConnectionContext";
+import { Card, CardContent } from "@/components/ui/card";
+import { NetworkSelector } from "@/components/network-selector";
 
 interface AdminLayoutProps {
-  children: React.ReactNode
+  children: React.ReactNode;
 }
 
 export function AdminLayout({ children }: AdminLayoutProps) {
-  const router = useRouter()
-  const pathname = usePathname()
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+  const router = useRouter();
+  const pathname = usePathname();
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const { adminConnectedAddress } = useWalletConnection();
+  const isAdminConnected = !!adminConnectedAddress;
 
   const isActive = (path: string) => {
-    return pathname === path || pathname.startsWith(`${path}/`)
-  }
+    return pathname === path || pathname.startsWith(`${path}/`);
+  };
 
   const navigateTo = (path: string) => {
-    router.push(path)
-    setIsMobileMenuOpen(false)
-  }
+    router.push(path);
+    setIsMobileMenuOpen(false);
+  };
 
   const menuItems = [
     {
@@ -38,6 +53,11 @@ export function AdminLayout({ children }: AdminLayoutProps) {
       name: "Products",
       path: "/admin/products",
       icon: <LayoutGrid className="h-5 w-5" />,
+    },
+    {
+      name: "Receipts",
+      path: "/admin/receipts",
+      icon: <Receipt className="h-5 w-5" />,
     },
     {
       name: "Analytics",
@@ -54,7 +74,7 @@ export function AdminLayout({ children }: AdminLayoutProps) {
       path: "/admin/settings",
       icon: <Settings className="h-5 w-5" />,
     },
-  ]
+  ];
 
   return (
     <div className="flex h-screen bg-gray-50">
@@ -121,7 +141,11 @@ export function AdminLayout({ children }: AdminLayoutProps) {
                     </div>
                     <h1 className="text-lg font-bold">EquiProtocol</h1>
                   </div>
-                  <Button variant="ghost" size="icon" onClick={() => setIsMobileMenuOpen(false)}>
+                  <Button
+                    variant="ghost"
+                    size="icon"
+                    onClick={() => setIsMobileMenuOpen(false)}
+                  >
                     <X className="h-5 w-5" />
                   </Button>
                 </div>
@@ -153,7 +177,10 @@ export function AdminLayout({ children }: AdminLayoutProps) {
                     <p className="text-xs text-gray-500">admin@example.com</p>
                   </div>
                 </div>
-                <Button variant="ghost" className="w-full justify-start mt-4 text-red-600">
+                <Button
+                  variant="ghost"
+                  className="w-full justify-start mt-4 text-red-600"
+                >
                   <LogOut className="h-5 w-5 mr-2" />
                   Logout
                 </Button>
@@ -165,11 +192,50 @@ export function AdminLayout({ children }: AdminLayoutProps) {
 
       {/* Main Content */}
       <div className="flex flex-col flex-1 md:pl-64">
-        <main className="flex-1 overflow-auto p-4 md:p-6">{children}</main>
-      </div>
+        {/* Top Bar */}
+        <div className="sticky top-0 z-10 bg-white border-b">
+          <div className="flex items-center justify-between px-4 py-2">
+            <div className="flex items-center space-x-4">
+              {!isAdminConnected && (
+                <div className="flex items-center text-yellow-600 text-sm">
+                  <AlertCircle className="h-4 w-4 mr-1" />
+                  <span>Admin wallet not connected</span>
+                </div>
+              )}
+              <div className="h-6 w-px bg-gray-200"></div>
+              <NetworkSelector className="w-[180px]" />
+            </div>
+            <div className="flex items-center space-x-4">
+              <ModeToggle />
+            </div>
+          </div>
+        </div>
 
-      {/* Mode Toggle */}
-      <ModeToggle />
+        {/* Main Content Area */}
+        <main className="flex-1 overflow-auto p-4 md:p-6">
+          {isAdminConnected ? (
+            children
+          ) : (
+            <div className="max-w-2xl mx-auto mt-8">
+              <Card>
+                <CardContent className="py-6">
+                  <div className="text-center space-y-4">
+                    <AlertCircle className="h-12 w-12 text-yellow-600 mx-auto" />
+                    <h2 className="text-xl font-semibold">
+                      Admin Access Required
+                    </h2>
+                    <p className="text-muted-foreground">
+                      Please connect your admin wallet using the button in the
+                      top right to access the admin section. This ensures secure
+                      access to administrative functions.
+                    </p>
+                  </div>
+                </CardContent>
+              </Card>
+            </div>
+          )}
+        </main>
+      </div>
     </div>
-  )
+  );
 }
