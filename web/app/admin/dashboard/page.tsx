@@ -53,11 +53,11 @@ export default function AdminDashboardPage() {
   ];
 
   return (
-    <>
-      <div className="mb-6">
-        <h1 className="text-3xl font-bold">Dashboard</h1>
-        <p className="text-muted-foreground">
-          Showing data for wallet: {adminConnectedAddress?.slice(0, 6)}...
+    <div className="space-y-6">
+      <div>
+        <h1 className="text-2xl font-bold xs:text-3xl">Dashboard</h1>
+        <p className="text-sm text-muted-foreground mt-1">
+          Wallet: {adminConnectedAddress?.slice(0, 6)}...
           {adminConnectedAddress?.slice(-4)}
         </p>
       </div>
@@ -72,10 +72,12 @@ export default function AdminDashboardPage() {
         onTimeframeChange={setTimeframe}
       />
 
-      <div className="grid md:grid-cols-2 gap-6 mb-6">
-        <Card>
+      <div className="grid gap-4 xs:gap-6 md:grid-cols-2">
+        <Card className="overflow-hidden">
           <CardHeader className="pb-2">
-            <CardTitle className="text-lg">Recent Activity</CardTitle>
+            <CardTitle className="text-base xs:text-lg">
+              Recent Activity
+            </CardTitle>
           </CardHeader>
           <CardContent>
             <div className="space-y-3">
@@ -92,7 +94,7 @@ export default function AdminDashboardPage() {
                 <Button
                   variant="ghost"
                   size="sm"
-                  className="gap-1"
+                  className="gap-1 text-sm"
                   onClick={() => router.push("/admin/receipts")}
                 >
                   View All Receipts <ArrowRight className="h-4 w-4" />
@@ -102,21 +104,21 @@ export default function AdminDashboardPage() {
           </CardContent>
         </Card>
 
-        <Card>
+        <Card className="overflow-hidden">
           <CardHeader className="pb-2">
-            <CardTitle className="text-lg">Top Products (Example)</CardTitle>
+            <CardTitle className="text-base xs:text-lg">Top Products</CardTitle>
           </CardHeader>
           <CardContent>
             <div className="space-y-4">
-              <div className="flex justify-between items-center">
+              <div className="flex justify-between items-center text-sm">
                 <span className="font-medium">Ceramic Vase</span>
                 <span>160 USDC (5 units)</span>
               </div>
-              <div className="flex justify-between items-center">
+              <div className="flex justify-between items-center text-sm">
                 <span className="font-medium">Woven Basket</span>
                 <span>125 USDC (5 units)</span>
               </div>
-              <div className="flex justify-between items-center">
+              <div className="flex justify-between items-center text-sm">
                 <span className="font-medium">Blue Pillow</span>
                 <span>88 USDC (4 units)</span>
               </div>
@@ -124,7 +126,7 @@ export default function AdminDashboardPage() {
                 <Button
                   variant="ghost"
                   size="sm"
-                  className="gap-1"
+                  className="gap-1 text-sm"
                   onClick={() => router.push("/admin/products")}
                 >
                   View All Products <ArrowRight className="h-4 w-4" />
@@ -135,7 +137,16 @@ export default function AdminDashboardPage() {
         </Card>
       </div>
 
-      <ActivityChart />
-    </>
+      <Card className="overflow-hidden">
+        <CardHeader className="pb-2">
+          <CardTitle className="text-base xs:text-lg">
+            Activity Overview
+          </CardTitle>
+        </CardHeader>
+        <CardContent className="p-0">
+          <ActivityChart />
+        </CardContent>
+      </Card>
+    </div>
   );
 }

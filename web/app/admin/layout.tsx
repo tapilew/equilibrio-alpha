@@ -1,5 +1,5 @@
-import { AdminLayout } from "@/components/admin/admin-layout";
 import type { Metadata } from "next";
+import { ClientLayout } from "./_components/client-layout";
 
 export const metadata: Metadata = {
   title: "Admin Dashboard - EquiProtocol",
@@ -11,5 +11,5 @@ export default function AdminRootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  return <AdminLayout>{children}</AdminLayout>;
+  return <ClientLayout>{children}</ClientLayout>;
 }

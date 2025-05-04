@@ -17,6 +17,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { NetworkSelector } from "@/components/network-selector";
 import { ModeToggle } from "@/components/mode-toggle";
 import { WalletConnectButton } from "@/components/wallet-connect-button";
+import { LayoutToggle } from "@/components/layout-toggle";
 
 interface PosLayoutProps {
   children: React.ReactNode;
@@ -90,15 +91,18 @@ const TopBar = memo(
         <div className="flex items-center space-x-4">
           {!isCustomerConnected && requiresWallet && (
             <div className="flex items-center text-yellow-600 text-sm">
-              <AlertCircle className="h-4 w-4 mr-1" />
-              <span>Customer wallet not connected</span>
+              <AlertCircle className="h-4 w-4 mr-1 flex-shrink-0" />
+              <span className="hidden xs:inline">
+                Customer wallet not connected
+              </span>
+              <span className="xs:hidden">Connect wallet</span>
             </div>
           )}
-          <div className="h-6 w-px bg-gray-200"></div>
-          <NetworkSelector className="w-[180px]" />
+          <NetworkSelector className="w-[140px] xs:w-[180px]" />
         </div>
-        <div className="flex items-center space-x-4">
-          <WalletConnectButton />
+        <div className="flex items-center space-x-3">
+          <LayoutToggle />
+          <div className="h-6 w-px bg-gray-200"></div>
           <ModeToggle />
         </div>
       </div>
@@ -169,97 +173,105 @@ export function PosLayout({ children }: PosLayoutProps) {
   );
 
   return (
-    <div className="flex h-screen bg-gray-50">
-      {/* Desktop Sidebar */}
-      <div className="hidden md:flex md:w-64 md:flex-col md:fixed md:inset-y-0">
-        <div className="flex flex-col flex-grow border-r border-gray-200 bg-white pt-5 overflow-y-auto">
-          <div className="px-4 mb-5">
-            <div className="flex items-center flex-shrink-0 mb-4">
-              <div className="bg-blue-600 rounded-full w-10 h-10 flex items-center justify-center mr-3">
-                <span className="text-white text-xl">🏇</span>
-              </div>
-              <h1 className="text-xl font-bold">EquiProtocol POS</h1>
-            </div>
-          </div>
-          <div className="mt-5 flex-grow flex flex-col">
-            <nav className="flex-1 px-2 pb-4 space-y-1">
-              {navItems.map((item) => (
-                <NavButton
-                  key={item.value}
-                  item={item}
-                  isActive={isActive(item.path)}
-                  onClick={() => handleNavigation(item.path)}
-                />
-              ))}
-            </nav>
-          </div>
-        </div>
-      </div>
-
-      {/* Mobile Layout */}
-      <div className="flex flex-col w-full md:pl-64">
-        {/* Mobile Header */}
-        <header className="md:hidden border-b p-4 bg-white flex items-center justify-between">
+    <div className="flex flex-col min-h-screen bg-gray-50">
+      {/* Header - Mobile First */}
+      <header className="sticky top-0 z-20 bg-white border-b">
+        <div className="flex items-center h-14 px-4 pt-safe-top">
           {isCheckout ? (
             <Button variant="ghost" size="icon" onClick={() => router.back()}>
               <ArrowLeft className="h-5 w-5" />
             </Button>
           ) : (
             <div className="flex items-center gap-3">
-              <div className="bg-blue-600 rounded-full w-10 h-10 flex items-center justify-center">
-                <span className="text-white text-xl">🏇</span>
+              <div className="bg-blue-600 rounded-full w-8 h-8 flex items-center justify-center md:w-10 md:h-10">
+                <span className="text-white text-lg md:text-xl">🏇</span>
               </div>
-              <h1 className="text-xl font-bold">EquiProtocol POS</h1>
+              <h1 className="text-lg font-bold md:text-xl">EquiProtocol POS</h1>
             </div>
           )}
-        </header>
-
-        <TopBar
-          isCustomerConnected={isCustomerConnected}
-          requiresWallet={requiresWallet}
-        />
-
-        {/* Main Content */}
-        <main className="flex-1 overflow-auto p-4 md:p-6">
-          {!requiresWallet || isCustomerConnected ? (
-            <div className="max-w-5xl mx-auto">{children}</div>
-          ) : (
-            <div className="max-w-2xl mx-auto mt-8">
-              <Card>
-                <CardContent className="py-6">
-                  <div className="text-center space-y-4">
-                    <AlertCircle className="h-12 w-12 text-yellow-600 mx-auto" />
-                    <h2 className="text-xl font-semibold">
-                      Customer Access Required
-                    </h2>
-                    <p className="text-muted-foreground">
-                      Please connect your customer wallet using the button in
-                      the top right to access the cart and checkout functions.
-                      This ensures secure access to payment functions.
-                    </p>
-                  </div>
-                </CardContent>
-              </Card>
-            </div>
-          )}
-        </main>
-
-        {/* Bottom Navigation - Only show in mobile and main POS screens */}
-        {!isCheckout && (
-          <div className="fixed md:hidden bottom-0 left-0 right-0 border-t bg-white">
-            <div className="flex justify-around items-center h-16">
-              {navItems.map((item) => (
-                <MobileNavButton
-                  key={item.value}
-                  item={item}
-                  isActive={isActive(item.path)}
-                  onClick={() => handleNavigation(item.path)}
-                />
-              ))}
+          <div className="ml-auto flex items-center gap-2">
+            <WalletConnectButton />
+            <div className="hidden xs:block">
+              <ModeToggle />
             </div>
           </div>
-        )}
+        </div>
+
+        {/* Network Bar */}
+        <div className="px-4 py-2 border-t border-gray-100 flex items-center justify-between">
+          <div className="flex items-center gap-4">
+            {!isCustomerConnected && requiresWallet && (
+              <div className="flex items-center text-yellow-600 text-sm">
+                <AlertCircle className="h-4 w-4 mr-1 flex-shrink-0" />
+                <span className="hidden xs:inline">
+                  Customer wallet not connected
+                </span>
+                <span className="xs:hidden">Connect wallet</span>
+              </div>
+            )}
+            <NetworkSelector className="w-[140px] xs:w-[180px]" />
+          </div>
+        </div>
+      </header>
+
+      {/* Sidebar - Desktop Only */}
+      <div className="hidden md:flex fixed inset-y-0 left-0 w-64 border-r border-gray-200 bg-white">
+        <div className="flex flex-col w-full pt-32">
+          <nav className="flex-1 px-2 pb-4 space-y-1">
+            {navItems.map((item) => (
+              <NavButton
+                key={item.value}
+                item={item}
+                isActive={isActive(item.path)}
+                onClick={() => handleNavigation(item.path)}
+              />
+            ))}
+          </nav>
+        </div>
       </div>
+
+      {/* Main Content */}
+      <main className="flex-1 md:pl-64">
+        <div className="min-h-screen pb-[calc(8rem+env(safe-area-inset-bottom))] md:pb-6">
+          <div className="max-w-5xl mx-auto p-4 space-y-4">
+            {!requiresWallet || isCustomerConnected ? (
+              children
+            ) : (
+              <div className="max-w-2xl mx-auto mt-8">
+                <Card>
+                  <CardContent className="py-6">
+                    <div className="text-center space-y-4">
+                      <AlertCircle className="h-12 w-12 text-yellow-600 mx-auto" />
+                      <h2 className="text-xl font-semibold">
+                        Customer Access Required
+                      </h2>
+                      <p className="text-muted-foreground">
+                        Please connect your customer wallet using the button
+                        above to access the cart and checkout functions.
+                      </p>
+                    </div>
+                  </CardContent>
+                </Card>
+              </div>
+            )}
+          </div>
+        </div>
+      </main>
+
+      {/* Bottom Navigation - Mobile Only */}
+      <nav className="md:hidden fixed bottom-0 left-0 right-0 bg-white border-t z-10">
+        <div className="flex items-center h-16">
+          {navItems.map((item) => (
+            <MobileNavButton
+              key={item.value}
+              item={item}
+              isActive={isActive(item.path)}
+              onClick={() => handleNavigation(item.path)}
+            />
+          ))}
+        </div>
+        <div className="h-[env(safe-area-inset-bottom)]" />
+      </nav>
     </div>
   );
 }

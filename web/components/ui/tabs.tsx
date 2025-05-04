@@ -3,7 +3,6 @@
 import * as React from "react";
 import * as TabsPrimitive from "@radix-ui/react-tabs";
 import { cn } from "@/lib/utils";
-import { LazyTabsContent } from "@/components/ui/tabs";
 
 const Tabs = TabsPrimitive.Root;
 
@@ -15,7 +14,7 @@ const TabsList = React.memo(
     <TabsPrimitive.List
       ref={ref}
       className={cn(
-        "inline-flex h-9 items-center justify-center rounded-lg bg-muted p-1 text-muted-foreground",
+        "flex w-full overflow-x-auto scrollbar-hide -mx-4 px-4 sm:mx-0 sm:px-0 sm:inline-flex h-9 items-center justify-start sm:justify-center rounded-lg bg-muted p-1 text-muted-foreground",
         className,
       )}
       {...props}
@@ -32,7 +31,7 @@ const TabsTrigger = React.memo(
     <TabsPrimitive.Trigger
       ref={ref}
       className={cn(
-        "inline-flex items-center justify-center whitespace-nowrap rounded-md px-3 py-1 text-sm font-medium ring-offset-background transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 data-[state=active]:bg-background data-[state=active]:text-foreground data-[state=active]:shadow",
+        "flex-shrink-0 inline-flex items-center justify-center whitespace-nowrap rounded-md px-3 py-1 text-sm font-medium ring-offset-background transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 data-[state=active]:bg-background data-[state=active]:text-foreground data-[state=active]:shadow",
         className,
       )}
       {...props}
@@ -59,9 +58,12 @@ const TabsContent = React.memo(
 TabsContent.displayName = TabsPrimitive.Content.displayName;
 
 // Lazy loading wrapper for tab content
-const LazyTabsContent = React.lazy(
-  ({ children, ...props }: React.ComponentProps<typeof TabsContent>) => {
-    return (
+const LazyTabsContent = React.lazy(() =>
+  Promise.resolve({
+    default: ({
+      children,
+      ...props
+    }: React.ComponentProps<typeof TabsContent>) => (
       <React.Suspense
         fallback={
           <div className="mt-2 h-[200px] animate-pulse bg-muted rounded-md" />
@@ -69,8 +71,8 @@ const LazyTabsContent = React.lazy(
       >
         <TabsContent {...props}>{children}</TabsContent>
       </React.Suspense>
-    );
-  },
+    ),
+  }),
 );
 
 export { Tabs, TabsList, TabsTrigger, TabsContent, LazyTabsContent };

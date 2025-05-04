@@ -21,9 +21,11 @@ export function ProductGrid({
   onProductSelect,
 }: ProductGridProps) {
   return (
-    <div className="p-4">
-      <h2 className="text-3xl font-bold mb-4">Artisan</h2>
-      <div className="grid grid-cols-2 gap-4">
+    <div className="space-y-4">
+      <h2 className="text-xl font-bold px-4 xs:text-2xl sm:text-3xl">
+        Artisan
+      </h2>
+      <div className="grid grid-cols-1 gap-3 px-2 xs:grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xs:gap-4 xs:px-4">
         {products.map((product) => (
           <ProductCard
             key={product._id}

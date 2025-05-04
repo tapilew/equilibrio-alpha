@@ -20,15 +20,17 @@ export function ProductCard({
   imageUrl,
   onClick,
 }: ProductCardProps) {
-  const [isHovered, setIsHovered] = useState(false);
+  const [isActive, setIsActive] = useState(false);
   const { customerConnectedAddress } = useWalletConnection();
   const isCustomerConnected = !!customerConnectedAddress;
 
   return (
     <Card
-      className="overflow-hidden cursor-pointer transition-all hover:shadow-lg"
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
+      className="overflow-hidden touch-manipulation"
+      onTouchStart={() => setIsActive(true)}
+      onTouchEnd={() => setIsActive(false)}
+      onMouseEnter={() => setIsActive(true)}
+      onMouseLeave={() => setIsActive(false)}
     >
       <CardContent className="p-0">
         <div className="relative">
@@ -36,35 +38,41 @@ export function ProductCard({
             <img
               src={imageUrl}
               alt={name}
-              className="object-cover w-full h-full"
+              className="object-cover w-full h-full bg-gray-100"
+              loading="lazy"
               onError={(e) => {
                 e.currentTarget.src = `https://placehold.co/400x400/e5e7eb/a1a1aa?text=${encodeURIComponent(name)}`;
               }}
             />
           </AspectRatio>
-          {isHovered && (
-            <div className="absolute inset-0 bg-black/50 flex items-center justify-center">
-              {isCustomerConnected ? (
-                <Button
-                  variant="secondary"
-                  size="icon"
-                  className="rounded-full"
-                  onClick={onClick}
-                >
-                  <Plus className="h-4 w-4" />
-                </Button>
-              ) : (
-                <div className="text-center text-white">
-                  <Wallet className="h-6 w-6 mx-auto mb-2" />
-                  <p className="text-sm">Connect wallet to add to cart</p>
-                </div>
-              )}
-            </div>
-          )}
+          <div
+            className={`absolute inset-0 flex items-center justify-center transition-all duration-200 ${
+              isActive ? "bg-black/50 opacity-100" : "bg-black/0 opacity-0"
+            }`}
+          >
+            {isCustomerConnected ? (
+              <Button
+                variant="secondary"
+                size="icon"
+                className="rounded-full w-12 h-12 shadow-lg transform transition-transform active:scale-95"
+                onClick={(e) => {
+                  e.stopPropagation();
+                  onClick?.();
+                }}
+              >
+                <Plus className="h-5 w-5" />
+              </Button>
+            ) : (
+              <div className="text-center text-white p-4">
+                <Wallet className="h-6 w-6 mx-auto mb-2" />
+                <p className="text-sm font-medium">Connect wallet to add</p>
+              </div>
+            )}
+          </div>
         </div>
-        <div className="p-4">
-          <h3 className="font-medium">{name}</h3>
-          <p className="text-muted-foreground">{price} USDC</p>
+        <div className="p-3">
+          <h3 className="font-medium text-sm truncate">{name}</h3>
+          <p className="text-sm text-muted-foreground mt-0.5">{price} USDC</p>
         </div>
       </CardContent>
     </Card>
